@@ -1,5 +1,9 @@
-group "com.huanshankeji"
-version "1.0-SNAPSHOT"
+tasks.wrapper {
+    distributionType = Wrapper.DistributionType.ALL
+}
+
+group = "com.huanshankeji"
+version = "1.0-SNAPSHOT"
 
 allprojects {
     repositories {
