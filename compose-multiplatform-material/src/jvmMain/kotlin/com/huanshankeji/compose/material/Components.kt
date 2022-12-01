@@ -12,4 +12,4 @@ actual class ButtonScope(val rowScope: RowScope) {
 
 @Composable
 actual fun Button(onClick: () -> Unit, content: @Composable ButtonScope.() -> Unit) =
-    androidx.compose.material.Button(onClick = onClick) { ButtonScope(this).content() }
+    androidx.compose.material.Button(onClick) { ButtonScope(this).content() }
