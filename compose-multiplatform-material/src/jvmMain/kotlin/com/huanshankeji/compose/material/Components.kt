@@ -1,7 +1,9 @@
 package com.huanshankeji.compose.material
 
 import androidx.compose.foundation.layout.RowScope
+import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
+import androidx.compose.material.TopAppBar
 import androidx.compose.runtime.Composable
 
 actual class ButtonScope(val rowScope: RowScope) {
@@ -13,3 +15,15 @@ actual class ButtonScope(val rowScope: RowScope) {
 @Composable
 actual fun Button(onClick: () -> Unit, content: @Composable ButtonScope.() -> Unit) =
     androidx.compose.material.Button(onClick) { ButtonScope(this).content() }
+
+
+@Composable
+actual fun TopAppBarScaffold(
+    title: @Composable () -> Unit,
+    navigationIcon: @Composable (() -> Unit)?,
+    actions: @Composable () -> Unit,
+    content: @Composable () -> Unit
+) =
+    Scaffold(topBar = {
+        TopAppBar(title = title, navigationIcon = navigationIcon, actions = { actions() })
+    }) { content() }
