@@ -1,6 +1,5 @@
 plugins {
-    kotlin("multiplatform")
-    id("org.jetbrains.compose") version "1.2.1"
+    `common-conventions`
     // TODO: `id("com.android.library") version "7.2.2"`?
     id("com.huanshankeji.kotlin-multiplatform-jvm-and-js-browser-sonatype-ossrh-publish-conventions")
 }
@@ -8,19 +7,7 @@ plugins {
 group = "com.huanshankeji"
 version = "0.1.0-SNAPSHOT"
 
-repositories {
-    mavenCentral()
-    maven("https://maven.pkg.jetbrains.space/public/p/compose/dev")
-    google()
-}
-
 kotlin {
-    jvm() // TODO: `jvm("desktop")`?
-    // TODO: `android()`?
-    js(IR) {
-        browser()
-    }
-
     sourceSets {
         val commonMain by getting {
             dependencies {
