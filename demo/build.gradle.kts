@@ -12,5 +12,10 @@ kotlin {
                 implementation(project(":compose-multiplatform-material"))
             }
         }
+        named("jvmMain") {
+            dependencies {
+                implementation(compose.desktop.currentOs)
+            }
+        }
     }
 }
