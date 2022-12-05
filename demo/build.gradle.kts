@@ -3,7 +3,14 @@ plugins {
 }
 
 kotlin {
-    js(IR) { browser() }
+    js(IR) {
+        browser {
+            commonWebpackConfig {
+                outputFileName = "app.js"
+            }
+        }
+        binaries.executable()
+    }
 
     sourceSets {
         named("commonMain") {
@@ -17,5 +24,24 @@ kotlin {
                 implementation(compose.desktop.currentOs)
             }
         }
+        /* TODO: uncomment or remove
+        named("jsMain") {
+            dependencies {
+                // copied from https://github.com/mpetuska/kmdc
+
+                // SCSS dependencies
+                implementation(devNpm("style-loader", "^3.3.1"))
+                implementation(devNpm("css-loader", "^6.7.1"))
+                implementation(devNpm("sass-loader", "^13.0.0"))
+                implementation(devNpm("sass", "^1.52.1"))
+            }
+        }
+        */
+    }
+}
+
+compose.desktop {
+    application {
+        mainClass = "com.huanshankeji.compose.material.demo.MainKt"
     }
 }
