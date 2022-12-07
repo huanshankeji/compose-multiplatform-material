@@ -9,7 +9,7 @@ import com.huanshankeji.compose.material.icon.MaterialIcons
 @Composable
 fun App() {
     TopAppBarScaffold({
-        Text("Demo")
+        Text("Compose Multiplatform Material demo")
     }, {
         MaterialIconNavButton({}, MaterialIcons.Menu)
     }, {

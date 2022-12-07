@@ -72,7 +72,7 @@ actual fun TopAppBarScaffold(
         TopAppBar {
             Row {
                 Section(align = MDCTopAppBarSectionAlign.Start) {
-                    navigationIcon?.let { NavButton { NavigationIconScope(this@Section).it() } }
+                    navigationIcon?.let { NavigationIconScope(this@Section).it() }
                     Title { title() }
                 }
                 Section(
