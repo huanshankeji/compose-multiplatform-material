@@ -24,9 +24,9 @@ kotlin {
                 implementation(compose.desktop.currentOs)
             }
         }
-        /* TODO: uncomment or remove
         named("jsMain") {
             dependencies {
+                /* TODO: uncomment or remove
                 // copied from https://github.com/mpetuska/kmdc
 
                 // SCSS dependencies
@@ -34,9 +34,12 @@ kotlin {
                 implementation(devNpm("css-loader", "^6.7.1"))
                 implementation(devNpm("sass-loader", "^13.0.0"))
                 implementation(devNpm("sass", "^1.52.1"))
+                */
+
+
+                implementation(npm("material-icons", "1.13.1"))
             }
         }
-        */
     }
 }
 

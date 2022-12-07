@@ -2336,6 +2336,11 @@ lru-cache@^6.0.0:
   dependencies:
     yallist "^4.0.0"
 
+material-icons@1.13.1:
+  version "1.13.1"
+  resolved "https://registry.yarnpkg.com/material-icons/-/material-icons-1.13.1.tgz#27de79bf68a4db0a1caec099d4f54ba658770e89"
+  integrity sha512-6EwhlEa4rwydNSWw11ig1oz/h/KcarJXn4n50Wd69v5Eh026Y6xBo9zLPeX4iF8+qUZV862X0AUUA0m0VaihWg==
+
 material-icons@^1.10.4:
   version "1.12.2"
   resolved "https://registry.yarnpkg.com/material-icons/-/material-icons-1.12.2.tgz#68dbf74309ebfbd791eea75b5fec2d74b07d558f"
