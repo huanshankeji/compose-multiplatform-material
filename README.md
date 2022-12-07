@@ -8,6 +8,8 @@ Customizing styles (using `Modifier`s for desktop and Android, and `attrs: AttrB
 
 Visual consistency across different platforms is not guaranteed.
 
+There is no documentation for this project yet. Check out the demo project on how to use the components.
+
 ## Supported components
 
 - `Button`
