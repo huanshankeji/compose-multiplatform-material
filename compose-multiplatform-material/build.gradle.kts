@@ -1,23 +1,19 @@
 plugins {
-    `common-conventions`
-    // TODO: `id("com.android.library") version "7.2.2"`?
-    id("com.huanshankeji.kotlin-multiplatform-jvm-and-js-browser-sonatype-ossrh-publish-conventions")
+    `lib-conventions`
 }
-
-group = "com.huanshankeji"
-version = "0.1.0-SNAPSHOT"
 
 kotlin {
     sourceSets {
         val commonMain by getting {
             dependencies {
                 implementation(compose.runtime)
+                api(project(":compose-multiplatform-common"))
             }
         }
         // TODO: a `jvmCommon` source set to share code for `jvm`/`desktop` and `android`
         named("jvmMain") {
             dependencies {
-                implementation(compose.foundation)
+                //implementation(compose.foundation) // not needed
                 implementation(compose.material)
             }
         }
