@@ -13,6 +13,10 @@ expect fun Button(onClick: () -> Unit, content: @Composable ButtonScope.() -> Un
 
 
 @Composable
+expect fun Card(content: @Composable () -> Unit)
+
+
+@Composable
 expect fun Icon(materialIcon: MaterialIcon)
 
 

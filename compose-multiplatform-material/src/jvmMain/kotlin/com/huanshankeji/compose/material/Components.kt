@@ -19,6 +19,11 @@ actual fun Button(onClick: () -> Unit, content: @Composable ButtonScope.() -> Un
 
 
 @Composable
+actual fun Card(content: @Composable () -> Unit) =
+    androidx.compose.material.Card { content() }
+
+
+@Composable
 actual fun Icon(materialIcon: MaterialIcon) =
     androidx.compose.material.Icon(materialIcon, null)
 // no `contentDescription` for now

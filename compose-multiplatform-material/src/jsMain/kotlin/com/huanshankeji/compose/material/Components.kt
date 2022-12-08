@@ -5,6 +5,7 @@ import com.huanshankeji.compose.material.icon.MaterialIcon
 import dev.petuska.kmdc.button.Label
 import dev.petuska.kmdc.button.MDCButton
 import dev.petuska.kmdc.button.MDCButtonScope
+import dev.petuska.kmdc.card.MDCCard
 import dev.petuska.kmdc.icon.button.MDCIconButton
 import dev.petuska.kmdc.top.app.bar.*
 import dev.petuska.kmdcx.icons.MDCIconSpan
@@ -21,6 +22,11 @@ actual class ButtonScope(val mdcButtonScope: MDCButtonScope<HTMLButtonElement>) 
 @Composable
 actual fun Button(onClick: () -> Unit, content: @Composable ButtonScope.() -> Unit) =
     MDCButton(attrs = { onClick { onClick() } }) { ButtonScope(this).content() }
+
+
+@Composable
+actual fun Card(content: @Composable () -> Unit) =
+    MDCCard { content() }
 
 
 /**
