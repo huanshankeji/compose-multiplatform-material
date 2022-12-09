@@ -3,27 +3,6 @@ package com.huanshankeji.compose.material
 import androidx.compose.runtime.Composable
 import com.huanshankeji.compose.material.icon.MaterialIcon
 
-expect /*value*/ class ButtonScope {
-    @Composable
-    fun Label(text: String)
-}
-
-@Composable
-expect fun Button(onClick: () -> Unit, content: @Composable ButtonScope.() -> Unit)
-
-
-@Composable
-expect fun Card(content: @Composable () -> Unit)
-
-
-@Composable
-expect fun Icon(materialIcon: MaterialIcon)
-
-
-@Composable
-expect fun IconButton(onClick: () -> Unit, content: @Composable () -> Unit)
-
-
 expect class NavigationIconScope {
     @Composable
     fun NavButton(onClick: () -> Unit, content: @Composable () -> Unit)

@@ -2,47 +2,8 @@ package com.huanshankeji.compose.material
 
 import androidx.compose.runtime.Composable
 import com.huanshankeji.compose.material.icon.MaterialIcon
-import dev.petuska.kmdc.button.Label
-import dev.petuska.kmdc.button.MDCButton
-import dev.petuska.kmdc.button.MDCButtonScope
-import dev.petuska.kmdc.card.MDCCard
-import dev.petuska.kmdc.icon.button.MDCIconButton
 import dev.petuska.kmdc.top.app.bar.*
-import dev.petuska.kmdcx.icons.MDCIconSpan
 import dev.petuska.kmdcx.icons.mdcIcon
-import org.jetbrains.compose.web.dom.Text
-import org.w3c.dom.HTMLButtonElement
-
-actual class ButtonScope(val mdcButtonScope: MDCButtonScope<HTMLButtonElement>) {
-    @Composable
-    actual fun Label(text: String) =
-        mdcButtonScope.Label(text)
-}
-
-@Composable
-actual fun Button(onClick: () -> Unit, content: @Composable ButtonScope.() -> Unit) =
-    MDCButton(attrs = { onClick { onClick() } }) { ButtonScope(this).content() }
-
-
-@Composable
-actual fun Card(content: @Composable () -> Unit) =
-    MDCCard { content() }
-
-
-/**
- * There is often a better alternative of adding the CSS rule to the parent element to using this composable directly.
- */
-@Composable
-actual fun Icon(materialIcon: MaterialIcon) =
-    MDCIconSpan(materialIcon.mdcIcon)
-
-
-@Composable
-actual fun IconButton(onClick: () -> Unit, content: @Composable () -> Unit) =
-    MDCIconButton(attrs = {
-        onClick { onClick() }
-    }) { content() }
-
 
 actual class NavigationIconScope(val mdcTopAppBarSectionScope: MDCTopAppBarSectionScope) {
     @Composable
@@ -51,7 +12,7 @@ actual class NavigationIconScope(val mdcTopAppBarSectionScope: MDCTopAppBarSecti
 
     @Composable
     actual fun MaterialIconNavButton(onClick: () -> Unit, materialIcon: MaterialIcon) =
-        mdcTopAppBarSectionScope.NavButton(attrs = { mdcIcon() }) { Text(materialIcon.mdcIcon.type) }
+        mdcTopAppBarSectionScope.NavButton(attrs = { mdcIcon() }) { org.jetbrains.compose.web.dom.Text(materialIcon.mdcIcon.type) }
 }
 
 actual class TopAppBarActionsScope(val mdcTopAppBarSectionScope: MDCTopAppBarSectionScope) {
@@ -64,7 +25,7 @@ actual class TopAppBarActionsScope(val mdcTopAppBarSectionScope: MDCTopAppBarSec
         onClick: () -> Unit,
         materialIcon: MaterialIcon
     ) =
-        mdcTopAppBarSectionScope.ActionButton(attrs = { mdcIcon() }) { Text(materialIcon.mdcIcon.type) }
+        mdcTopAppBarSectionScope.ActionButton(attrs = { mdcIcon() }) { org.jetbrains.compose.web.dom.Text(materialIcon.mdcIcon.type) }
 }
 
 @Composable
