@@ -1,3 +1,3 @@
 object DependencyVersions {
-    val huanshankejiComposeWeb = "0.1.1-SNAPSHOT"
+    val huanshankejiComposeWeb = "0.2.0-SNAPSHOT"
 }
