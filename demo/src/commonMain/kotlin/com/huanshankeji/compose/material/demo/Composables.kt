@@ -3,10 +3,7 @@ package com.huanshankeji.compose.material.demo
 import androidx.compose.runtime.*
 import com.huanshankeji.compose.BasicText
 import com.huanshankeji.compose.layout.Box
-import com.huanshankeji.compose.material.Button
-import com.huanshankeji.compose.material.Card
-import com.huanshankeji.compose.material.Text
-import com.huanshankeji.compose.material.TopAppBarScaffold
+import com.huanshankeji.compose.material.*
 import com.huanshankeji.compose.material.icon.MaterialIcons
 import com.huanshankeji.compose.ui.unit.dpOrPx
 
@@ -31,6 +28,9 @@ fun App() {
                 var count by remember { mutableStateOf(0) }
                 Button({ count++ }) {
                     Label(count.toString())
+                }
+                IconButton({ count++ }) {
+                    Icon(MaterialIcons.Search)
                 }
             }
         }

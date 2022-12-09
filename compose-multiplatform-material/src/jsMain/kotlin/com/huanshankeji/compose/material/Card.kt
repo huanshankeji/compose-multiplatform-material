@@ -1,8 +1,13 @@
 package com.huanshankeji.compose.material
 
 import androidx.compose.runtime.Composable
+import com.huanshankeji.compose.ui.ModifierOrAttrs
+import com.huanshankeji.compose.ui.toAttrs
 import dev.petuska.kmdc.card.MDCCard
+import org.w3c.dom.HTMLDivElement
+
+actual typealias CardElement = HTMLDivElement
 
 @Composable
-actual fun Card(content: @Composable () -> Unit) =
-    MDCCard { content() }
+actual fun Card(modifierOrAttrs: ModifierOrAttrs<CardElement>, content: @Composable () -> Unit) =
+    MDCCard(attrs = modifierOrAttrs.toAttrs()) { content() }
