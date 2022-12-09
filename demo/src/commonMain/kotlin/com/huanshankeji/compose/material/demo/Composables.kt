@@ -26,12 +26,12 @@ fun App() {
                 Text("Material text")
 
                 var count by remember { mutableStateOf(0) }
-                Button({ count++ }) {
+                val onClick: () -> Unit = { count++ }
+                Button(onClick) {
                     Label(count.toString())
                 }
-                IconButton({ count++ }) {
-                    Icon(MaterialIcons.Search)
-                }
+
+                IconButton(onClick, materialIcon = MaterialIcons.Search)
             }
         }
     }

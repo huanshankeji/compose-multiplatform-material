@@ -1,6 +1,7 @@
 package com.huanshankeji.compose.material
 
 import androidx.compose.runtime.Composable
+import com.huanshankeji.compose.material.icon.MaterialIcon
 import com.huanshankeji.compose.ui.Element
 import com.huanshankeji.compose.ui.ModifierOrAttrs
 
@@ -12,3 +13,13 @@ expect fun IconButton(
     modifierOrAttrs: ModifierOrAttrs<IconButtonElement> = null,
     content: @Composable () -> Unit
 )
+
+
+@Composable
+fun IconButton(
+    onClick: () -> Unit,
+    modifierOrAttrs: ModifierOrAttrs<IconButtonElement> = null,
+    materialIcon: MaterialIcon
+) =
+    IconButton(onClick, modifierOrAttrs) { Icon(materialIcon) }
+
