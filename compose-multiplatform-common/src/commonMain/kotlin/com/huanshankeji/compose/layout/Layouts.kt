@@ -6,5 +6,7 @@ import com.huanshankeji.compose.ui.ModifierOrAttrs
 
 expect abstract class BoxElement : Element
 
+expect interface BoxScope
+
 @Composable
-expect fun Box(modifierOrAttrs: ModifierOrAttrs<BoxElement> = null, content: @Composable () -> Unit)
+expect fun Box(modifierOrAttrs: ModifierOrAttrs<BoxElement> = null, content: @Composable BoxScope.() -> Unit)

@@ -7,6 +7,8 @@ import com.huanshankeji.compose.ui.toModifier
 
 actual abstract class BoxElement : Element()
 
+actual typealias BoxScope = androidx.compose.foundation.layout.BoxScope
+
 @Composable
-actual fun Box(modifierOrAttrs: ModifierOrAttrs<BoxElement>, content: @Composable () -> Unit) =
-    androidx.compose.foundation.layout.Box(modifierOrAttrs.toModifier()) { content() }
+actual fun Box(modifierOrAttrs: ModifierOrAttrs<BoxElement>, content: @Composable BoxScope.() -> Unit) =
+    androidx.compose.foundation.layout.Box(modifierOrAttrs.toModifier(), content = content)
