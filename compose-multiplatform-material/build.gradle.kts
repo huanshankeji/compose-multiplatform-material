@@ -8,6 +8,7 @@ kotlin {
             dependencies {
                 implementation(compose.runtime)
                 api(project(":compose-multiplatform-common"))
+                compileOnly(compose.material) // for KDoc element links only
             }
         }
         // TODO: a `jvmCommon` source set to share code for `jvm`/`desktop` and `android`

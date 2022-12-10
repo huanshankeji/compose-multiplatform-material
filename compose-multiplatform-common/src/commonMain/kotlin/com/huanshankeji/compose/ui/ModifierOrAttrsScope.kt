@@ -1,5 +1,6 @@
 package com.huanshankeji.compose.ui
 
+//import androidx.compose.ui.Modifier
 import com.huanshankeji.compose.ui.unit.SizeValue
 
 typealias ModifierOrAttrs<TElement> = (ModifierOrAttrsScope<TElement>.() -> Unit)?
@@ -14,7 +15,7 @@ expect class StyleScope {
 }
 
 /*
-/** An alternative immutable design like `Modifier`. */
+/** An alternative immutable design like [Modifier]. */
 expect class ModifierOrAttrsImmutable<T : Element> {
     fun padding(): ModifierOrAttrsImmutable<T>
 }
