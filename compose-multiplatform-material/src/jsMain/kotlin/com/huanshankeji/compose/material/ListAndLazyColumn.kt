@@ -16,56 +16,39 @@ import org.w3c.dom.HTMLUListElement
 
 actual typealias ListElement = HTMLUListElement
 
-/**
- * This class contains mutable fields.
- * @see androidx.compose.foundation.lazy.LazyListScopeImpl
- */
 actual class ListScope(
     val mdcListScope: MDCListScope<HTMLUListElement>
 ) {
-    private var composables: MutableList<@Composable () -> Unit>? = null
-    private fun addComposable(composable: @Composable () -> Unit) {
-        composables!!.add(composable)
-    }
-
-    /** Add the composable functions with the non-composable functions and then invoke them. */
     @Composable
-    fun ComposableRun(content: ListScope.() -> Unit) {
-        composables = mutableListOf()
-        content()
-        for (composable in composables!!)
-            composable()
-        composables = null
-    }
-
-
-    actual fun item(key: Any?, contentType: Any?, content: @Composable ItemScope.() -> Unit) = addComposable {
+    actual fun item(key: Any?, contentType: Any?, content: @Composable ItemScope.() -> Unit) {
         mdcListScope.ListItem { ItemScope(this).content() }
     }
 
+    @Composable
     actual fun items(
         count: Int,
         key: ((index: Int) -> Any)?,
         contentType: (index: Int) -> Any?,
         itemContent: @Composable ItemScope.(index: Int) -> Unit
-    ) = addComposable {
+    ) {
         repeat(count) { i ->
             mdcListScope.ListItem { ItemScope(this).itemContent(i) }
         }
     }
 
+    @Composable
     actual fun group(
         key: Any?,
         contentType: Any?,
         headerContent: @Composable HeaderScope.() -> Unit,
         content: ListScope.() -> Unit
-    ) = addComposable {
+    ) {
         MDCListGroup {
             Subheader {
                 HeaderScope(this).headerContent()
             }
             MDCList {
-                ListScope(this).ComposableRun(content)
+                ListScope(this).content()
             }
         }
     }
@@ -75,7 +58,7 @@ actual class ItemScope(val mdcListScope: MDCListItemScope<HTMLLIElement>)
 actual class HeaderScope(val htmlHeadingElementScope: ElementScope<HTMLHeadingElement>)
 
 @Composable
-actual fun List(modifierOrAttrs: ModifierOrAttrs<ListElement>, content: ListScope.() -> Unit) =
+actual fun List(modifierOrAttrs: ModifierOrAttrs<ListElement>, content: @Composable ListScope.() -> Unit) =
     MDCList(attrs = modifierOrAttrs.toAttrs()) {
-        ListScope(this).ComposableRun(content)
+        ListScope(this).content()
     }
