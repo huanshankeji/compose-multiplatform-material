@@ -7,18 +7,24 @@ import com.huanshankeji.compose.ui.ModifierOrAttrs
 
 expect abstract class ListElement : Element
 
+
 /** @see LazyListScope */
 expect class ListScope {
-    fun item(key: Any? = null, contentType: Any? = null, content: @Composable ItemScope.() -> Unit)
+    /*
+    There is a compiler bug of calling the functions below with default arguments.
+    TODO: report this and put the issue link here
+     */
 
-    fun items(
+    internal fun itemInternal(key: Any? = null, contentType: Any? = null, content: @Composable ItemScope.() -> Unit)
+
+    internal fun itemsInternal(
         count: Int,
         key: ((index: Int) -> Any)? = null,
         contentType: (index: Int) -> Any? = { null },
         itemContent: @Composable ItemScope.(index: Int) -> Unit
     )
 
-    fun group(
+    internal fun groupInternal(
         key: Any? = null,
         contentType: Any? = null,
         headerContent: @Composable HeaderScope.() -> Unit,
@@ -26,16 +32,30 @@ expect class ListScope {
     )
 }
 
+
+fun ListScope.item(key: Any? = null, contentType: Any? = null, content: @Composable ItemScope.() -> Unit) =
+    itemInternal(key, contentType, content)
+
+fun ListScope.items(
+    count: Int,
+    key: ((index: Int) -> Any)? = null,
+    contentType: (index: Int) -> Any? = { null },
+    itemContent: @Composable ItemScope.(index: Int) -> Unit
+) =
+    itemsInternal(count, key, contentType, itemContent)
+
+fun ListScope.group(
+    key: Any? = null,
+    contentType: Any? = null,
+    headerContent: @Composable HeaderScope.() -> Unit,
+    content: ListScope.() -> Unit
+) =
+    groupInternal(key, contentType, headerContent, content)
+
+
 expect class ItemScope
 expect class HeaderScope
 
+
 @Composable
 expect fun List(modifierOrAttrs: ModifierOrAttrs<ListElement> = null, content: ListScope.() -> Unit)
-
-/**
- * An alias for [List] that follows the name of [androidx.compose.foundation.lazy.LazyColumn].
- * The current implementation is not actually lazy on web.
- */
-@Composable
-fun LazyColumn(modifierOrAttrs: ModifierOrAttrs<ListElement> = null, content: ListScope.() -> Unit) =
-    List(modifierOrAttrs, content)

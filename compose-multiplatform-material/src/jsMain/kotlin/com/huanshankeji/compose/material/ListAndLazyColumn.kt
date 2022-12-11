@@ -39,11 +39,11 @@ actual class ListScope(
     }
 
 
-    actual fun item(key: Any?, contentType: Any?, content: @Composable ItemScope.() -> Unit) = addComposable {
+    actual fun itemInternal(key: Any?, contentType: Any?, content: @Composable ItemScope.() -> Unit) = addComposable {
         mdcListScope.ListItem { ItemScope(this).content() }
     }
 
-    actual fun items(
+    actual fun itemsInternal(
         count: Int,
         key: ((index: Int) -> Any)?,
         contentType: (index: Int) -> Any?,
@@ -54,7 +54,7 @@ actual class ListScope(
         }
     }
 
-    actual fun group(
+    actual fun groupInternal(
         key: Any?,
         contentType: Any?,
         headerContent: @Composable HeaderScope.() -> Unit,
