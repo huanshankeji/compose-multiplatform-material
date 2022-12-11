@@ -59,3 +59,11 @@ expect class HeaderScope
 
 @Composable
 expect fun List(modifierOrAttrs: ModifierOrAttrs<ListElement> = null, content: ListScope.() -> Unit)
+
+/**
+ * An alias for [List] that follows the name of [androidx.compose.foundation.lazy.LazyColumn].
+ * The current implementation is not actually lazy on web.
+ */
+@Composable
+fun LazyColumn(modifierOrAttrs: ModifierOrAttrs<ListElement> = null, content: ListScope.() -> Unit) =
+    List(modifierOrAttrs, content)
