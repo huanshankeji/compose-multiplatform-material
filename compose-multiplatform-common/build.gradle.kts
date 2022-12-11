@@ -7,7 +7,7 @@ kotlin {
         named("commonMain") {
             dependencies {
                 implementation(compose.runtime)
-                compileOnly(compose.foundation) // for KDoc element links only
+                //compileOnly(compose.foundation) // for KDoc element links only
             }
         }
         named("jvmMain") {
