@@ -32,6 +32,25 @@ fun App() {
                 }
 
                 IconButton(onClick, materialIcon = MaterialIcons.Search)
+
+                List {
+                    item {
+                        Text("Ungrouped item")
+                    }
+                    items(count) {
+                        Text("Ungrouped item $it/$count")
+                    }
+                    group(headerContent = {
+                        Text("Group title")
+                    }) {
+                        item {
+                            Text("Grouped item")
+                        }
+                        items(count) {
+                            Text("Grouped item $it/$count")
+                        }
+                    }
+                }
             }
         }
     }
