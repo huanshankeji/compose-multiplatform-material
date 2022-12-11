@@ -71,8 +71,8 @@ actual class ListScope(
     }
 }
 
-actual class ItemScope(val mdcListScope: MDCListItemScope<HTMLLIElement>)
-actual class HeaderScope(val htmlHeadingElementScope: ElementScope<HTMLHeadingElement>)
+actual class ItemScope(val mdcListItemScope: MDCListItemScope<HTMLLIElement>)
+actual class HeaderScope(val elementScope: ElementScope<HTMLHeadingElement>)
 
 @Composable
 actual fun List(modifierOrAttrs: ModifierOrAttrs<ListElement>, content: ListScope.() -> Unit) =
