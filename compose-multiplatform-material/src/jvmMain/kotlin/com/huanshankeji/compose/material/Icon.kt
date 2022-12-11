@@ -9,6 +9,7 @@ import com.huanshankeji.compose.ui.toModifier
 actual abstract class IconElement : Element()
 
 @Composable
-actual fun Icon(materialIcon: MaterialIcon, modifierOrAttrs: ModifierOrAttrs<IconElement>) =
-    androidx.compose.material.Icon(materialIcon, null, modifierOrAttrs.toModifier())
-// no `contentDescription` for now
+actual fun Icon(
+    materialIcon: MaterialIcon, contentDescription: String?, modifierOrAttrs: ModifierOrAttrs<IconElement>
+) =
+    androidx.compose.material.Icon(materialIcon, contentDescription, modifierOrAttrs.toModifier())

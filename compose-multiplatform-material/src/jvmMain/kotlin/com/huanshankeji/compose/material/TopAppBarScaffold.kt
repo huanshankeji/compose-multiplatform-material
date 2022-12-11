@@ -12,8 +12,8 @@ actual class NavigationIconScope private constructor() {
         IconButton(onClick, content = content)
 
     @Composable
-    actual fun MaterialIconNavButton(onClick: () -> Unit, materialIcon: MaterialIcon) =
-        IconButton(onClick) { Icon(materialIcon) }
+    actual fun MaterialIconNavButton(onClick: () -> Unit, materialIcon: MaterialIcon, contentDescription: String?) =
+        IconButton(onClick) { Icon(materialIcon, contentDescription) }
 
     companion object {
         val instance = NavigationIconScope()
@@ -26,8 +26,8 @@ actual class TopAppBarActionsScope(val rowScope: RowScope) {
         IconButton(onClick, content = content)
 
     @Composable
-    actual fun MaterialIconActionButton(onClick: () -> Unit, materialIcon: MaterialIcon) =
-        IconButton(onClick) { Icon(materialIcon) }
+    actual fun MaterialIconActionButton(onClick: () -> Unit, materialIcon: MaterialIcon, contentDescription: String?) =
+        IconButton(onClick) { Icon(materialIcon, contentDescription) }
 
 }
 

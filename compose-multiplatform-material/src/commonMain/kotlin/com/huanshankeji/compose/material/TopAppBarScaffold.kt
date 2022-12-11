@@ -8,7 +8,7 @@ expect class NavigationIconScope {
     fun NavButton(onClick: () -> Unit, content: @Composable () -> Unit)
 
     @Composable
-    fun MaterialIconNavButton(onClick: () -> Unit, materialIcon: MaterialIcon)
+    fun MaterialIconNavButton(onClick: () -> Unit, materialIcon: MaterialIcon, contentDescription: String?)
 }
 
 expect class TopAppBarActionsScope {
@@ -16,7 +16,7 @@ expect class TopAppBarActionsScope {
     fun ActionButton(onClick: () -> Unit, content: @Composable () -> Unit)
 
     @Composable
-    fun MaterialIconActionButton(onClick: () -> Unit, materialIcon: MaterialIcon)
+    fun MaterialIconActionButton(onClick: () -> Unit, materialIcon: MaterialIcon, contentDescription: String?)
 }
 
 @Composable

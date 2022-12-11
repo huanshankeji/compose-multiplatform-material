@@ -4,6 +4,7 @@ import androidx.compose.runtime.Composable
 import com.huanshankeji.compose.material.icon.MaterialIcon
 import dev.petuska.kmdc.top.app.bar.*
 import dev.petuska.kmdcx.icons.mdcIcon
+import org.jetbrains.compose.web.dom.Text
 
 actual class NavigationIconScope(val mdcTopAppBarSectionScope: MDCTopAppBarSectionScope) {
     @Composable
@@ -11,8 +12,11 @@ actual class NavigationIconScope(val mdcTopAppBarSectionScope: MDCTopAppBarSecti
         mdcTopAppBarSectionScope.NavButton(attrs = { onClick { onClick() } }) { content() }
 
     @Composable
-    actual fun MaterialIconNavButton(onClick: () -> Unit, materialIcon: MaterialIcon) =
-        mdcTopAppBarSectionScope.NavButton(attrs = { mdcIcon() }) { org.jetbrains.compose.web.dom.Text(materialIcon.mdcIcon.type) }
+    actual fun MaterialIconNavButton(onClick: () -> Unit, materialIcon: MaterialIcon, contentDescription: String?) =
+        mdcTopAppBarSectionScope.NavButton(attrs = {
+            mdcIcon()
+            contentDescription(contentDescription)
+        }) { Text(materialIcon.mdcIcon.type) }
 }
 
 actual class TopAppBarActionsScope(val mdcTopAppBarSectionScope: MDCTopAppBarSectionScope) {
@@ -21,11 +25,11 @@ actual class TopAppBarActionsScope(val mdcTopAppBarSectionScope: MDCTopAppBarSec
         mdcTopAppBarSectionScope.ActionButton(attrs = { onClick { onClick() } }) { content() }
 
     @Composable
-    actual fun MaterialIconActionButton(
-        onClick: () -> Unit,
-        materialIcon: MaterialIcon
-    ) =
-        mdcTopAppBarSectionScope.ActionButton(attrs = { mdcIcon() }) { org.jetbrains.compose.web.dom.Text(materialIcon.mdcIcon.type) }
+    actual fun MaterialIconActionButton(onClick: () -> Unit, materialIcon: MaterialIcon, contentDescription: String?) =
+        mdcTopAppBarSectionScope.ActionButton(attrs = {
+            mdcIcon()
+            contentDescription(contentDescription)
+        }) { Text(materialIcon.mdcIcon.type) }
 }
 
 @Composable
