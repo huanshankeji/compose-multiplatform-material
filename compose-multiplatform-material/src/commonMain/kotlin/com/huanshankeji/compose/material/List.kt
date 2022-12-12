@@ -57,13 +57,10 @@ expect class ItemScope
 expect class HeaderScope
 
 
-@Composable
-expect fun List(modifierOrAttrs: ModifierOrAttrs<ListElement> = null, content: ListScope.() -> Unit)
-
 /**
- * An alias for [List] that follows the name of [androidx.compose.foundation.lazy.LazyColumn].
- * The current implementation is not actually lazy on web.
+ * See <https://github.com/material-components/material-components-web/tree/master/packages/mdc-list>
+ * and <https://material-components.github.io/material-components-web-catalog/#/component/list>
+ * for its semantics and visual effects on web.
  */
 @Composable
-fun LazyColumn(modifierOrAttrs: ModifierOrAttrs<ListElement> = null, content: ListScope.() -> Unit) =
-    List(modifierOrAttrs, content)
+expect fun List(modifierOrAttrs: ModifierOrAttrs<ListElement> = null, content: ListScope.() -> Unit)
