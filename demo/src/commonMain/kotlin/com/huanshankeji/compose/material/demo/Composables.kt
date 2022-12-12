@@ -12,9 +12,9 @@ fun App() {
     TopAppBarScaffold({
         Text("Compose Multiplatform Material demo")
     }, {
-        MaterialIconNavButton({}, MaterialIcons.Menu)
+        MaterialIconNavButton({}, MaterialIcons.Menu, "menu")
     }, {
-        MaterialIconActionButton({}, MaterialIcons.Search)
+        MaterialIconActionButton({}, MaterialIcons.Search, "search")
     }) {
         Card {
             Box({
@@ -31,7 +31,7 @@ fun App() {
                     Label(count.toString())
                 }
 
-                IconButton(onClick, materialIcon = MaterialIcons.Search)
+                IconButton(onClick, materialIcon = MaterialIcons.Search, contentDescription = "increment count")
 
                 List {
                     item {

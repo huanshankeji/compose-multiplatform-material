@@ -19,7 +19,7 @@ expect fun IconButton(
 fun IconButton(
     onClick: () -> Unit,
     modifierOrAttrs: ModifierOrAttrs<IconButtonElement> = null,
-    materialIcon: MaterialIcon
+    materialIcon: MaterialIcon,
+    contentDescription: String?
 ) =
-    IconButton(onClick, modifierOrAttrs) { Icon(materialIcon) }
-
+    IconButton(onClick, modifierOrAttrs) { Icon(materialIcon, contentDescription) }
