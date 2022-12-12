@@ -14,7 +14,7 @@ fun <TElement : Element> AttrBuilderContext<TElement>?.toModifierOrAttrs(): Modi
 
 actual typealias Element = HTMLElement
 
-actual class ModifierOrAttrsScope<TElement : Element>(val attrsScope: AttrsScope<TElement>) {
+actual class ModifierOrAttrsScope<out TElement : Element>(val attrsScope: AttrsScope<TElement>) {
     actual fun style(builder: StyleScope.() -> Unit) =
         attrsScope.style { StyleScope(this).builder() }
 }

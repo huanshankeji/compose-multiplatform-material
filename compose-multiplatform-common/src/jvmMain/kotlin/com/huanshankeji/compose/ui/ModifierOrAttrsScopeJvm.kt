@@ -16,7 +16,7 @@ fun <TElement : Element> Modifier.toModifierOrAttrs(): ModifierOrAttrs<TElement>
 
 actual abstract class Element
 
-actual class ModifierOrAttrsScope<TElement : Element>(modifier: Modifier) {
+actual class ModifierOrAttrsScope<out TElement : Element>(modifier: Modifier) {
     var modifier: Modifier = modifier
         private set
 

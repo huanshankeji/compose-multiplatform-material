@@ -7,8 +7,7 @@ typealias ModifierOrAttrs<TElement> = (ModifierOrAttrsScope<TElement>.() -> Unit
 
 expect abstract class Element
 
-// TODO: add `out` to `TElement`
-expect class ModifierOrAttrsScope<TElement : Element> {
+expect class ModifierOrAttrsScope<out TElement : Element> {
     fun style(builder: StyleScope.() -> Unit)
 }
 
