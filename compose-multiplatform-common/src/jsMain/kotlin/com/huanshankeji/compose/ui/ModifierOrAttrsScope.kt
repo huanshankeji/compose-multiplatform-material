@@ -9,6 +9,9 @@ import org.w3c.dom.HTMLElement
 fun <TElement : Element> ModifierOrAttrs<TElement>.toAttrs(): AttrBuilderContext<TElement>? =
     this?.let { { ModifierOrAttrsScope(this).it() } }
 
+fun <TElement : Element> AttrBuilderContext<TElement>?.toModifierOrAttrs(): ModifierOrAttrs<TElement> =
+    this?.let { { attrsScope.it() } }
+
 actual typealias Element = HTMLElement
 
 actual class ModifierOrAttrsScope<TElement : Element>(val attrsScope: AttrsScope<TElement>) {

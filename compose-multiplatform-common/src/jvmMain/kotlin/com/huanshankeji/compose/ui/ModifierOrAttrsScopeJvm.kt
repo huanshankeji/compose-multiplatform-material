@@ -9,6 +9,11 @@ fun <TElement : Element> ModifierOrAttrs<TElement>.toModifier(): Modifier =
         ModifierOrAttrsScope<TElement>(Modifier).apply(it).modifier
     } ?: Modifier
 
+fun <TElement : Element> Modifier.toModifierOrAttrs(): ModifierOrAttrs<TElement> =
+    if (this !== Modifier) {
+        { modify { this then this@toModifierOrAttrs } }
+    } else null
+
 actual abstract class Element
 
 actual class ModifierOrAttrsScope<TElement : Element>(modifier: Modifier) {

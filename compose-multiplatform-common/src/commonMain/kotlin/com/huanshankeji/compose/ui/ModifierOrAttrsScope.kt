@@ -6,6 +6,8 @@ import com.huanshankeji.compose.ui.unit.SizeValue
 typealias ModifierOrAttrs<TElement> = (ModifierOrAttrsScope<TElement>.() -> Unit)?
 
 expect abstract class Element
+
+// TODO: add `out` to `TElement`
 expect class ModifierOrAttrsScope<TElement : Element> {
     fun style(builder: StyleScope.() -> Unit)
 }
