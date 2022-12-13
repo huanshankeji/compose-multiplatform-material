@@ -24,7 +24,11 @@ fun App() {
                 margin(16.dpOrPx)
             }
         }) {
-            Column {
+            Column({
+                style {
+                    margin(16.dpOrPx)
+                }
+            }) {
                 BasicText("basic text")
                 Text("Material text")
 
