@@ -9,6 +9,7 @@ import com.huanshankeji.compose.material.*
 import com.huanshankeji.compose.material.icon.MaterialIcons
 import com.huanshankeji.compose.ui.unit.dpOrPx
 
+@OptIn(ConfusableTextApi::class)
 @Composable
 fun App() {
     TopAppBarScaffold({
