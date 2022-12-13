@@ -35,7 +35,7 @@ fun App() {
                     Button(onClick) {
                         Label(count.toString())
                     }
-                    IconButton(onClick, materialIcon = MaterialIcons.Search, contentDescription = "increment count")
+                    IconButton(onClick, materialIcon = MaterialIcons.Add, contentDescription = "increment count")
                 }
 
                 Box({
