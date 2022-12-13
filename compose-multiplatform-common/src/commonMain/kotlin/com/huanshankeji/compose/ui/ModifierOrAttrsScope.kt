@@ -12,7 +12,7 @@ expect class ModifierOrAttrsScope<out TElement : Element> {
 }
 
 expect class StyleScope {
-    fun padding(value: SizeValue)
+    fun margin(value: SizeValue)
 }
 
 /*

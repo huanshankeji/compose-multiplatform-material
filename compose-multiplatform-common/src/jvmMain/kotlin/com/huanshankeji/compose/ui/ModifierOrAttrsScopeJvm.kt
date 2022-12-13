@@ -30,7 +30,7 @@ actual class ModifierOrAttrsScope<out TElement : Element>(modifier: Modifier) {
 }
 
 actual class StyleScope(val modifierOrAttrsScope: ModifierOrAttrsScope<*>) {
-    actual fun padding(value: SizeValue) = modifierOrAttrsScope.modify {
+    actual fun margin(value: SizeValue) = modifierOrAttrsScope.modify {
         padding(value.platformValue)
     }
 }

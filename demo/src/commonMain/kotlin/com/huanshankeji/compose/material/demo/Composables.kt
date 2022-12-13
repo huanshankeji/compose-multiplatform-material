@@ -21,7 +21,7 @@ fun App() {
     }) {
         Card({
             style {
-                padding(16.dpOrPx)
+                margin(16.dpOrPx)
             }
         }) {
             Column {
@@ -40,7 +40,7 @@ fun App() {
 
                 Box({
                     style {
-                        padding(16.dpOrPx)
+                        margin(16.dpOrPx)
                     }
                 }) {
                     List {
