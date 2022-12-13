@@ -11,9 +11,14 @@ expect /*value*/ class ButtonScope {
 
 expect abstract class ButtonElement : Element
 
+enum class ButtonType {
+    Contained, Outlined, Text
+}
+
 @Composable
 expect fun Button(
     onClick: () -> Unit,
+    buttonType: ButtonType = ButtonType.Contained,
     modifierOrAttrs: ModifierOrAttrs<ButtonElement> = null,
     content: @Composable ButtonScope.() -> Unit
 )

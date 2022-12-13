@@ -1,7 +1,10 @@
 package com.huanshankeji.compose.material
 
 import androidx.compose.foundation.layout.RowScope
+import androidx.compose.material.OutlinedButton
+import androidx.compose.material.TextButton
 import androidx.compose.runtime.Composable
+import com.huanshankeji.compose.material.ButtonType.*
 import com.huanshankeji.compose.ui.Element
 import com.huanshankeji.compose.ui.ModifierOrAttrs
 import com.huanshankeji.compose.ui.toModifier
@@ -17,7 +20,15 @@ actual abstract class ButtonElement : Element()
 @Composable
 actual fun Button(
     onClick: () -> Unit,
+    buttonType: ButtonType,
     modifierOrAttrs: ModifierOrAttrs<ButtonElement>,
     content: @Composable ButtonScope.() -> Unit
-) =
-    androidx.compose.material.Button(onClick, modifierOrAttrs.toModifier()) { ButtonScope(this).content() }
+) {
+    val modifier = modifierOrAttrs.toModifier()
+    val androidxContent: @Composable RowScope.() -> Unit = { ButtonScope(this).content() }
+    when (buttonType) {
+        Contained -> androidx.compose.material.Button(onClick, content = androidxContent)
+        Outlined -> OutlinedButton(onClick, content = androidxContent)
+        Text -> TextButton(onClick, content = androidxContent)
+    }
+}
