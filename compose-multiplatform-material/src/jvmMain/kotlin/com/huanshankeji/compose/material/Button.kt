@@ -27,8 +27,8 @@ actual fun Button(
     val modifier = modifierOrAttrs.toModifier()
     val androidxContent: @Composable RowScope.() -> Unit = { ButtonScope(this).content() }
     when (buttonType) {
-        Contained -> androidx.compose.material.Button(onClick, content = androidxContent)
-        Outlined -> OutlinedButton(onClick, content = androidxContent)
-        Text -> TextButton(onClick, content = androidxContent)
+        Contained -> androidx.compose.material.Button(onClick, modifier, content = androidxContent)
+        Outlined -> OutlinedButton(onClick, modifier, content = androidxContent)
+        Text -> TextButton(onClick, modifier, content = androidxContent)
     }
 }
