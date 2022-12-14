@@ -2,6 +2,7 @@ package com.huanshankeji.compose.layout
 
 import androidx.compose.runtime.Composable
 import com.huanshankeji.compose.ui.ModifierOrAttrs
+import com.huanshankeji.compose.ui.toAttrs
 import org.jetbrains.compose.web.dom.ElementScope
 import org.w3c.dom.HTMLDivElement
 
@@ -15,7 +16,6 @@ actual interface ColumnScope {
 
 @Composable
 actual fun Column(modifierOrAttrs: ModifierOrAttrs<ColumnElement>, content: @Composable ColumnScope.() -> Unit) =
-    // TODO: `modifierOrAttrs` not used yet
-    com.huanshankeji.compose.web.Column {
+    com.huanshankeji.compose.web.Column(modifierOrAttrs.toAttrs()) {
         ColumnScope.Impl(this).content()
     }
