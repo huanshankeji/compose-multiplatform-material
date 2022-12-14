@@ -1,10 +1,12 @@
 package com.huanshankeji.compose.ui
 
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
 import androidx.compose.ui.Modifier
-import com.huanshankeji.compose.ui.unit.SizeValue
+import com.huanshankeji.compose.ui.unit.NumericSize
+import com.huanshankeji.compose.ui.unit.Size
+import com.huanshankeji.compose.ui.unit.Size.*
 
 fun <TElement : Element> ModifierOrAttrs<TElement>.toModifier(): Modifier =
     this?.let {
@@ -32,15 +34,23 @@ actual class ModifierOrAttrsScope<out TElement : Element>(modifier: Modifier) {
 }
 
 actual class StyleScope(val modifierOrAttrsScope: ModifierOrAttrsScope<*>) {
-    actual fun margin(value: SizeValue) = modifierOrAttrsScope.modify {
+    actual fun margin(value: NumericSize) = modifierOrAttrsScope.modify {
         padding(value.platformValue)
     }
 
-    actual fun height(value: SizeValue) = modifierOrAttrsScope.modify {
-        height(value.platformValue)
+    actual fun height(value: Size) = modifierOrAttrsScope.modify {
+        when (value) {
+            FitContent -> this
+            FillMax -> fillMaxHeight()
+            is Numeric -> height(value.value.platformValue)
+        }
     }
 
-    actual fun width(value: SizeValue) = modifierOrAttrsScope.modify {
-        width(value.platformValue)
+    actual fun width(value: Size) = modifierOrAttrsScope.modify {
+        when (value) {
+            FitContent -> this
+            FillMax -> fillMaxHeight()
+            is Numeric -> height(value.value.platformValue)
+        }
     }
 }
