@@ -13,6 +13,8 @@ expect class ModifierOrAttrsScope<out TElement : Element> {
 
 expect class StyleScope {
     fun margin(value: SizeValue)
+    fun height(value: SizeValue)
+    fun width(value: SizeValue)
 }
 
 private const val PADDING_MESSAGE =

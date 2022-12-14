@@ -22,6 +22,7 @@ fun App() {
         Card({
             style {
                 margin(16.dpOrPx)
+                height(400.dpOrPx)
             }
         }) {
             Column({
