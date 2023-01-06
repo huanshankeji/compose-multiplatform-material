@@ -3,6 +3,7 @@ package com.huanshankeji.compose.ui
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.ui.Modifier
 import com.huanshankeji.compose.ui.unit.NumericSize
 import com.huanshankeji.compose.ui.unit.Size
@@ -50,7 +51,7 @@ actual class StyleScope(val modifierOrAttrsScope: ModifierOrAttrsScope<*>) {
         when (value) {
             FitContent -> this
             FillMax -> fillMaxHeight()
-            is Numeric -> height(value.value.platformValue)
+            is Numeric -> width(value.value.platformValue)
         }
     }
 }

@@ -3,6 +3,9 @@ package com.huanshankeji.compose.ui
 import com.huanshankeji.compose.ui.unit.NumericSize
 import com.huanshankeji.compose.ui.unit.Size
 import com.huanshankeji.compose.ui.unit.Size.*
+import com.huanshankeji.compose.web.css.FIT_CONTENT
+import com.huanshankeji.compose.web.css.height
+import com.huanshankeji.compose.web.css.width
 import org.jetbrains.compose.web.attributes.AttrsScope
 import org.jetbrains.compose.web.css.height
 import org.jetbrains.compose.web.css.margin
@@ -31,7 +34,7 @@ actual class StyleScope(val styleScope: org.jetbrains.compose.web.css.StyleScope
     actual fun height(value: Size) =
         styleScope.run {
             when (value) {
-                FitContent -> property("height", "fit-content")
+                FitContent -> height(FIT_CONTENT)
                 FillMax -> height(100.percent)
                 is Numeric -> height(value.value.platformValue)
             }
@@ -40,7 +43,7 @@ actual class StyleScope(val styleScope: org.jetbrains.compose.web.css.StyleScope
     actual fun width(value: Size) =
         styleScope.run {
             when (value) {
-                FitContent -> property("width", "fit-content")
+                FitContent -> width(FIT_CONTENT)
                 FillMax -> width(100.percent)
                 is Numeric -> width(value.value.platformValue)
             }

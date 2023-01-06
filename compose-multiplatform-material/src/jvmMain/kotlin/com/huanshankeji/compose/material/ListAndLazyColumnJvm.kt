@@ -38,7 +38,7 @@ actual class ItemScope(val lazyItemScope: LazyItemScope)
 actual typealias HeaderScope = ItemScope
 
 @Composable
-actual fun List(modifierOrAttrs: ModifierOrAttrs<ListElement>, content: ListScope.() -> Unit) =
+actual fun ScrollableList(modifierOrAttrs: ModifierOrAttrs<ListElement>, content: ListScope.() -> Unit) =
     androidx.compose.foundation.lazy.LazyColumn(modifierOrAttrs.toModifier()) {
         ListScope(this).content()
     }

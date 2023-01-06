@@ -9,6 +9,7 @@ import com.huanshankeji.compose.material.*
 import com.huanshankeji.compose.material.icon.MaterialIcons
 import com.huanshankeji.compose.ui.height
 import com.huanshankeji.compose.ui.unit.dpOrPx
+import com.huanshankeji.compose.ui.width
 
 @OptIn(ConfusableTextApi::class)
 @Composable
@@ -23,7 +24,9 @@ fun App() {
         Card({
             style {
                 margin(16.dpOrPx)
-                height(400.dpOrPx)
+                val size = 400.dpOrPx
+                height(size)
+                width(size)
             }
         }) {
             Column({
@@ -49,7 +52,11 @@ fun App() {
                         margin(16.dpOrPx)
                     }
                 }) {
-                    List {
+                    ScrollableList({
+                        style {
+                            height(200.dpOrPx)
+                        }
+                    }) {
                         item {
                             Text("Ungrouped item")
                         }

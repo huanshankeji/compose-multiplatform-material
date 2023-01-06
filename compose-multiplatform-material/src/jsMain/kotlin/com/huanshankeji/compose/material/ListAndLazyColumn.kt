@@ -3,12 +3,15 @@ package com.huanshankeji.compose.material
 import androidx.compose.runtime.Composable
 import com.huanshankeji.compose.ui.ModifierOrAttrs
 import com.huanshankeji.compose.ui.toAttrs
+import com.huanshankeji.compose.web.attributes.attrs
+import com.huanshankeji.compose.web.attributes.plus
 import dev.petuska.kmdc.list.MDCList
 import dev.petuska.kmdc.list.MDCListGroup
 import dev.petuska.kmdc.list.MDCListScope
 import dev.petuska.kmdc.list.Subheader
 import dev.petuska.kmdc.list.item.ListItem
 import dev.petuska.kmdc.list.item.MDCListItemScope
+import org.jetbrains.compose.web.css.*
 import org.jetbrains.compose.web.dom.ElementScope
 import org.w3c.dom.HTMLHeadingElement
 import org.w3c.dom.HTMLLIElement
@@ -75,7 +78,12 @@ actual class ItemScope(val mdcListItemScope: MDCListItemScope<HTMLLIElement>)
 actual class HeaderScope(val elementScope: ElementScope<HTMLHeadingElement>)
 
 @Composable
-actual fun List(modifierOrAttrs: ModifierOrAttrs<ListElement>, content: ListScope.() -> Unit) =
-    MDCList(attrs = modifierOrAttrs.toAttrs()) {
+actual fun ScrollableList(modifierOrAttrs: ModifierOrAttrs<ListElement>, content: ListScope.() -> Unit) =
+    MDCList(attrs = attrs<ListElement> {
+        style {
+            //overflowY("scroll")
+            overflowY("auto")
+        }
+    } + modifierOrAttrs.toAttrs()) {
         ListScope(this).ComposableRun(content)
     }

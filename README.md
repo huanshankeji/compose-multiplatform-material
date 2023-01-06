@@ -1,8 +1,12 @@
 # Compose Multiplatform Material wrappers
 
-Some simple Compose Multiplatform Material Design component wrappers for desktop, Android, and web (mainly based on [KMDC](https://github.com/mpetuska/kmdc))
+Some simple Compose Multiplatform wrappers of common components, layouts, and Material Design components for desktop,
+Android, and web (mainly based on [KMDC](https://github.com/mpetuska/kmdc))
 
-We try to make the styles of the composable components follow those of the desktop and Android ones in `com.huanshankeji.compose.material`, meanwhile being compatible with the Web APIs. However, only a subset of the composable arguments is supported due to the API differences and limitations of the web composables this project depends on.
+We try to make the function types of the composable components follow those of the desktop and Android ones
+in `androidx.compose.foundation` and `androidx.compose.material`, meanwhile being compatible with the Web APIs. However,
+only subsets of the composables and composable arguments are supported due to the API differences, limitations of the
+web composables this project depends on, and our limited effort.
 
 Visual consistency across different platforms is not guaranteed.
 
@@ -22,8 +26,8 @@ There is no plan to support Apple platforms until there is official support from
 #### Layouts
 
 - `Box`
-- `Column`
-- `Row`
+- `Column` (via flexbox on web)
+- `Row` (via flexbox on web)
 
 ### Material components
 
@@ -31,6 +35,6 @@ There is no plan to support Apple platforms until there is official support from
 - `Card`
 - `Icon`
 - `IconButton`
-- `List`/`LazyColumn` (visually inconsistent)
+- `ScrollableList`/`LazyColumn` (visually inconsistent for now)
 - `Text`/`MaterialText`
 - `TopAppBarScaffold`
