@@ -18,20 +18,22 @@ This project is prototype and there is no documentation yet. Check out [the demo
 There is no plan to support Apple platforms until there is official support from [Compose Multiplatform](https://github.com/JetBrains/compose-jb). Check out <https://github.com/cl3m/multiplatform-compose> for some experiments and prototypes on supporting iOS with Compose Multiplatform.
 -->
 
-## Supported components
+## Supported features
 
-### Common (Foundation) components
+### Components
+
+#### Common (Foundation) components
 
 - `BasicText`
 - `RawText`
 
-#### Layouts
+##### Layouts
 
 - `Box`
 - `Column` (via flexbox on web)
 - `Row` (via flexbox on web)
 
-### Material components
+#### Material components
 
 - `Button`
 - `Card`
@@ -40,3 +42,12 @@ There is no plan to support Apple platforms until there is official support from
 - `ScrollableList`/`LazyColumn` (visually inconsistent for now)
 - `Text`/`MaterialText`
 - `TopAppBarScaffold`
+
+### styles
+
+- `height`
+- `margin`
+- `width`
+- `backgroundColor`
+- `border`
+- `outerBorder`
