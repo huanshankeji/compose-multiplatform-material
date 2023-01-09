@@ -2,7 +2,6 @@ package com.huanshankeji.compose.ui.unit
 
 import org.jetbrains.compose.web.css.*
 
-// TODO: consider adding a platform value type parameter or making it an interface.
 actual sealed interface LengthOrPercentage {
     val platformValue: CSSLengthOrPercentageValue
 
