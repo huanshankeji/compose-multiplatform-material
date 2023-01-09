@@ -7,6 +7,10 @@ import com.huanshankeji.compose.layout.Column
 import com.huanshankeji.compose.layout.Row
 import com.huanshankeji.compose.material.*
 import com.huanshankeji.compose.material.icon.MaterialIcons
+import com.huanshankeji.compose.ui.color.Color
+import com.huanshankeji.compose.ui.color.Colors
+import com.huanshankeji.compose.ui.color.rgbColor
+import com.huanshankeji.compose.ui.color.rgbaColor
 import com.huanshankeji.compose.ui.height
 import com.huanshankeji.compose.ui.unit.dpOrPx
 import com.huanshankeji.compose.ui.width
@@ -54,7 +58,7 @@ fun App() {
                 }) {
                     ScrollableList({
                         style {
-                            height(200.dpOrPx)
+                            height(100.dpOrPx)
                         }
                     }) {
                         item {
@@ -74,6 +78,31 @@ fun App() {
                             }
                         }
                     }
+                }
+
+                Row({
+                    style {
+                        backgroundColor(rgbColor(0U, 0x80U, 0x00U))
+                        outerBorder(4.dpOrPx, Colors.blue)
+                    }
+                }) {
+                    @Composable
+                    fun DemoSquare(color: Color) =
+                        Box({
+                            style {
+                                // The order of function calls can't be changed!
+                                margin(8.dpOrPx)
+                                backgroundColor(color)
+                                val size = 40.dpOrPx
+                                height(size)
+                                width(size)
+                            }
+                        }) {}
+
+                    DemoSquare(Colors.red)
+                    DemoSquare(rgbColor(0xFFU, 0U, 0U))
+                    DemoSquare(rgbaColor(0xFFU, 0U, 0U, 0x80U))
+                    DemoSquare(rgbaColor(0xFFU, 0U, 0U, 0.5F))
                 }
             }
         }

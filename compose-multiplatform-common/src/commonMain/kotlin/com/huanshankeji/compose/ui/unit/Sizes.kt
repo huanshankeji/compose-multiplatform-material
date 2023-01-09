@@ -1,13 +1,16 @@
 package com.huanshankeji.compose.ui.unit
 
-expect abstract class NumericSize
-expect class DpOrPx : NumericSize
+// Percentage is only supported on JS.
+expect sealed interface LengthOrPercentage
+expect sealed interface Length : LengthOrPercentage
+
+expect class DpOrPx : Length
 
 expect val Int.dpOrPx: DpOrPx
 
 
-sealed class Size {
-    class Numeric(val value: NumericSize) : Size()
-    object FillMax : Size()
-    object FitContent : Size()
+sealed class HeightOrWidth {
+    class Numeric(val value: LengthOrPercentage) : HeightOrWidth()
+    object FillMax : HeightOrWidth()
+    object FitContent : HeightOrWidth()
 }

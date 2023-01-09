@@ -1,16 +1,15 @@
 package com.huanshankeji.compose.ui
 
-import com.huanshankeji.compose.ui.unit.NumericSize
-import com.huanshankeji.compose.ui.unit.Size
-import com.huanshankeji.compose.ui.unit.Size.*
+import com.huanshankeji.compose.ui.color.Color
+import com.huanshankeji.compose.ui.unit.HeightOrWidth
+import com.huanshankeji.compose.ui.unit.HeightOrWidth.*
+import com.huanshankeji.compose.ui.unit.Length
+import com.huanshankeji.compose.ui.unit.LengthOrPercentage
 import com.huanshankeji.compose.web.css.FIT_CONTENT
 import com.huanshankeji.compose.web.css.height
 import com.huanshankeji.compose.web.css.width
 import org.jetbrains.compose.web.attributes.AttrsScope
-import org.jetbrains.compose.web.css.height
-import org.jetbrains.compose.web.css.margin
-import org.jetbrains.compose.web.css.percent
-import org.jetbrains.compose.web.css.width
+import org.jetbrains.compose.web.css.*
 import org.jetbrains.compose.web.dom.AttrBuilderContext
 import org.w3c.dom.HTMLElement
 
@@ -28,10 +27,10 @@ actual class ModifierOrAttrsScope<out TElement : Element>(val attrsScope: AttrsS
 }
 
 actual class StyleScope(val styleScope: org.jetbrains.compose.web.css.StyleScope) {
-    actual fun margin(value: NumericSize) =
+    actual fun margin(value: LengthOrPercentage) =
         styleScope.margin(value.platformValue)
 
-    actual fun height(value: Size) =
+    actual fun height(value: HeightOrWidth) =
         styleScope.run {
             when (value) {
                 FitContent -> height(FIT_CONTENT)
@@ -40,7 +39,7 @@ actual class StyleScope(val styleScope: org.jetbrains.compose.web.css.StyleScope
             }
         }
 
-    actual fun width(value: Size) =
+    actual fun width(value: HeightOrWidth) =
         styleScope.run {
             when (value) {
                 FitContent -> width(FIT_CONTENT)
@@ -48,4 +47,14 @@ actual class StyleScope(val styleScope: org.jetbrains.compose.web.css.StyleScope
                 is Numeric -> width(value.value.platformValue)
             }
         }
+
+
+    actual fun backgroundColor(color: Color) =
+        styleScope.backgroundColor(color.platformValue)
+
+    actual fun border(width: Length, color: Color) =
+        styleScope.border(width.platformValue, LineStyle.Solid, color.platformValue)
+
+    actual fun outerBorder(width: Length, color: Color) =
+        border(width, color)
 }
