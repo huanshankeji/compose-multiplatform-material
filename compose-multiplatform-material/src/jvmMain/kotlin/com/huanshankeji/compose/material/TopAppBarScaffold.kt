@@ -9,11 +9,11 @@ import com.huanshankeji.compose.material.icon.MaterialIcon
 actual class NavigationIconScope private constructor() {
     @Composable
     actual fun NavButton(onClick: () -> Unit, content: @Composable () -> Unit) =
-        IconButton(onClick, content)
+        IconButton(onClick, content = content)
 
     @Composable
-    actual fun MaterialIconNavButton(onClick: () -> Unit, materialIcon: MaterialIcon) =
-        IconButton(onClick) { Icon(materialIcon) }
+    actual fun MaterialIconNavButton(onClick: () -> Unit, materialIcon: MaterialIcon, contentDescription: String?) =
+        IconButton(onClick) { Icon(materialIcon, contentDescription) }
 
     companion object {
         val instance = NavigationIconScope()
@@ -23,11 +23,11 @@ actual class NavigationIconScope private constructor() {
 actual class TopAppBarActionsScope(val rowScope: RowScope) {
     @Composable
     actual fun ActionButton(onClick: () -> Unit, content: @Composable () -> Unit) =
-        IconButton(onClick, content)
+        IconButton(onClick, content = content)
 
     @Composable
-    actual fun MaterialIconActionButton(onClick: () -> Unit, materialIcon: MaterialIcon) =
-        IconButton(onClick) { Icon(materialIcon) }
+    actual fun MaterialIconActionButton(onClick: () -> Unit, materialIcon: MaterialIcon, contentDescription: String?) =
+        IconButton(onClick) { Icon(materialIcon, contentDescription) }
 
 }
 

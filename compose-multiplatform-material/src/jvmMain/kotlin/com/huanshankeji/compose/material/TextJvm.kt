@@ -1,12 +1,12 @@
 package com.huanshankeji.compose.material
 
 import androidx.compose.runtime.Composable
-import com.huanshankeji.compose.BasicText
+import com.huanshankeji.compose.ui.Element
 import com.huanshankeji.compose.ui.ModifierOrAttrs
-import org.w3c.dom.HTMLSpanElement
+import com.huanshankeji.compose.ui.toModifier
 
-actual typealias TextElement = HTMLSpanElement
+actual abstract class TextElement : Element()
 
 @Composable
 actual fun Text(text: String, modifierOrAttrs: ModifierOrAttrs<TextElement>) =
-    BasicText(text, modifierOrAttrs)
+    androidx.compose.material.Text(text, modifierOrAttrs.toModifier())

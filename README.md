@@ -1,16 +1,53 @@
 # Compose Multiplatform Material wrappers
 
-Some simple Compose Multiplatform Material Design component wrappers for desktop, Android, and web (mainly based on [KMDC](https://github.com/mpetuska/kmdc))
+[![Maven Central](https://img.shields.io/maven-central/v/com.huanshankeji/compose-multiplatform-material)](https://search.maven.org/artifact/com.huanshankeji/compose-multiplatform-material)
 
-We try to make the styles of the composable components follow those of the desktop and Android ones in `com.huanshankeji.compose.material`, meanwhile being compatible with the Web APIs. However, only a subset of the composable arguments is supported due to the API differences and limitations of the web composables this project depends on.
+Some simple Compose Multiplatform wrappers of common components, layouts, and Material Design components for desktop,
+Android, and web (mainly based on [KMDC](https://github.com/mpetuska/kmdc))
 
-Customizing styles (using `Modifier`s for desktop and Android, and `attrs: AttrBuilderContext<*>?` for web) is not supported yet.
+We try to make the function types of the composable components follow those of the desktop and Android ones
+in `androidx.compose.foundation` and `androidx.compose.material`, meanwhile being compatible with the Web APIs. However,
+only subsets of the composables and composable arguments are supported due to the API differences, limitations of the
+web composables this project depends on, and our limited effort.
 
 Visual consistency across different platforms is not guaranteed.
 
-There is no documentation for this project yet. Check out the demo project on how to use the components.
+This project is prototype and there is no documentation yet. Check out [the demo project](demo) on how to use the components.
 
-## Supported components
+<!--
+There is no plan to support Apple platforms until there is official support from [Compose Multiplatform](https://github.com/JetBrains/compose-jb). Check out <https://github.com/cl3m/multiplatform-compose> for some experiments and prototypes on supporting iOS with Compose Multiplatform.
+-->
+
+## Supported features
+
+### Components
+
+#### Common (Foundation) components
+
+- `BasicText`
+- `RawText`
+
+##### Layouts
+
+- `Box`
+- `Column` (via flexbox on web)
+- `Row` (via flexbox on web)
+
+#### Material components
 
 - `Button`
+- `Card`
+- `Icon`
+- `IconButton`
+- `ScrollableList`/`LazyColumn` (visually inconsistent for now)
+- `Text`/`MaterialText`
 - `TopAppBarScaffold`
+
+### styles
+
+- `height`
+- `margin`
+- `width`
+- `backgroundColor`
+- `border`
+- `outerBorder`
