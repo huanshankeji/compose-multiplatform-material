@@ -27,7 +27,10 @@ actual class ModifierOrAttrsScope<out TElement : Element>(val attrsScope: AttrsS
 }
 
 actual class StyleScope(val styleScope: org.jetbrains.compose.web.css.StyleScope) {
-    actual fun margin(value: LengthOrPercentage) =
+    actual fun margin(value: Length) =
+        styleScope.margin(value.platformValue)
+
+    fun margin(value: LengthOrPercentage) =
         styleScope.margin(value.platformValue)
 
     actual fun height(value: HeightOrWidth) =
@@ -52,9 +55,14 @@ actual class StyleScope(val styleScope: org.jetbrains.compose.web.css.StyleScope
     actual fun backgroundColor(color: Color) =
         styleScope.backgroundColor(color.platformValue)
 
-    actual fun border(width: Length, color: Color) =
+    actual fun platformBorder(width: Length, color: Color) =
         styleScope.border(width.platformValue, LineStyle.Solid, color.platformValue)
 
     actual fun outerBorder(width: Length, color: Color) =
-        border(width, color)
+        platformBorder(width, color)
+
+    actual fun roundedCornerOuterBorder(width: Length, color: Color, cornerRadius: LengthOrPercentage) {
+        outerBorder(width, color)
+        styleScope.borderRadius(cornerRadius.platformValue)
+    }
 }

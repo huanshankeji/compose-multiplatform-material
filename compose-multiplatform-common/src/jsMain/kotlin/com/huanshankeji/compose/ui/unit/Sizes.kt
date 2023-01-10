@@ -1,6 +1,7 @@
 package com.huanshankeji.compose.ui.unit
 
 import org.jetbrains.compose.web.css.*
+import org.jetbrains.compose.web.css.percent as platformPercent
 
 actual sealed interface LengthOrPercentage {
     val platformValue: CSSLengthOrPercentageValue
@@ -14,9 +15,9 @@ actual sealed interface Length : LengthOrPercentage {
     class Impl(override val platformValue: CSSLengthValue) : Length
 }
 
-// JS only
-class Percentage(override val platformValue: CSSPercentageValue) : LengthOrPercentage
+actual class Percentage(override val platformValue: CSSPercentageValue) : LengthOrPercentage
 
+actual val Int.percent get() = Percentage(this.platformPercent)
 
 actual class DpOrPx(override val platformValue: CSSpxValue) : Length
 

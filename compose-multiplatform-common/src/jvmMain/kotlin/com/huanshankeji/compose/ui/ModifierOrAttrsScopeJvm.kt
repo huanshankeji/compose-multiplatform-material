@@ -3,13 +3,11 @@ package com.huanshankeji.compose.ui
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.ui.Modifier
 import com.huanshankeji.compose.ui.color.Color
-import com.huanshankeji.compose.ui.unit.HeightOrWidth
+import com.huanshankeji.compose.ui.unit.*
 import com.huanshankeji.compose.ui.unit.HeightOrWidth.*
-import com.huanshankeji.compose.ui.unit.Length
-import com.huanshankeji.compose.ui.unit.LengthOrPercentage
-import com.huanshankeji.compose.ui.unit.asDpOrPx
 
 fun <TElement : Element> ModifierOrAttrs<TElement>.toModifier(): Modifier =
     this?.let {
@@ -40,7 +38,7 @@ actual class StyleScope(val modifierOrAttrsScope: ModifierOrAttrsScope<*>) {
     fun modify(block: Modifier.() -> Modifier) =
         modifierOrAttrsScope.modify(block)
 
-    actual fun margin(value: LengthOrPercentage) = modify {
+    actual fun margin(value: Length) = modify {
         padding(value.asDpOrPx().platformValue)
     }
 
@@ -66,12 +64,26 @@ actual class StyleScope(val modifierOrAttrsScope: ModifierOrAttrsScope<*>) {
         background(color.platformValue)
     }
 
-    actual fun border(width: Length, color: Color) = modify {
+    actual fun platformBorder(width: Length, color: Color) = modify {
         border(width.asDpOrPx().platformValue, color.platformValue)
     }
 
     actual fun outerBorder(width: Length, color: Color) {
-        border(width, color)
+        platformBorder(width, color)
+        margin(width)
+    }
+
+    actual fun roundedCornerOuterBorder(width: Length, color: Color, cornerRadius: LengthOrPercentage) {
+        modify {
+            border(
+                width.asDpOrPx().platformValue, color.platformValue, when (cornerRadius) {
+                    is DpOrPx -> RoundedCornerShape(cornerRadius.platformValue)
+                    is Percentage -> RoundedCornerShape(cornerRadius.value)
+                    // TODO
+                    else -> throw AssertionError()
+                }
+            )
+        }
         margin(width)
     }
 }

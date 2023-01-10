@@ -82,8 +82,9 @@ fun App() {
 
                 Row({
                     style {
+                        // The order of function calls can't be changed!
+                        roundedCornerOuterBorder(4.dpOrPx, Colors.blue, 16.dpOrPx)
                         backgroundColor(rgbColor(0U, 0x80U, 0x00U))
-                        outerBorder(4.dpOrPx, Colors.blue)
                     }
                 }) {
                     @Composable

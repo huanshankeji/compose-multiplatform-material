@@ -40,7 +40,7 @@ expect class ModifierOrAttrsScope<out TElement : Element> {
  * as different orders of CSS properties do in the HTML `style` attribute.
  */
 expect class StyleScope {
-    fun margin(value: LengthOrPercentage)
+    fun margin(value: Length)
     fun height(value: HeightOrWidth)
     fun width(value: HeightOrWidth)
 
@@ -49,16 +49,11 @@ expect class StyleScope {
     /**
      * Currently inconsistent, adds inner border on desktop and Android and outer padding on web.
      */
-    fun border(width: Length, color: Color)
+    fun platformBorder(width: Length, color: Color)
 
     fun outerBorder(width: Length, color: Color)
 
-    // TODO
-    /*
-    class CornerSize
-
-    fun roundedCornerBorder(width: Length, color: Color, cornerRadius: CornerSize)
-    */
+    fun roundedCornerOuterBorder(width: Length, color: Color, cornerRadius: LengthOrPercentage)
 }
 
 fun StyleScope.height(value: LengthOrPercentage) =
