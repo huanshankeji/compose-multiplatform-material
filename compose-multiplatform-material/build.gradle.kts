@@ -1,3 +1,6 @@
+import com.huanshankeji.team.`Shreck Ye`
+import com.huanshankeji.team.pomForTeamDefaultOpenSource
+
 plugins {
     `lib-conventions`
 }
@@ -28,5 +31,15 @@ kotlin {
                 // TODO: pick and choose exact components to reduce bundle size
             }
         }
+    }
+}
+
+publishing.publications.withType<MavenPublication> {
+    pomForTeamDefaultOpenSource(
+        project,
+        "Compose Multiplatform Material wrappers",
+        "Material Design component wrappers for Compose Multiplatform (desktop/Android and web)"
+    ) {
+        `Shreck Ye`()
     }
 }
