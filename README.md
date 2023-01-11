@@ -45,6 +45,10 @@ There is no plan to support Apple platforms until there is official support from
 
 ### styles
 
+The `ModifierOrAttrsScope.styles` function and the `StyleScope` class provide a universal interface for `Modifier`s and CSS styles.
+
+The functions in `StyleScope`:
+
 - `height`
 - `margin`
 - `width`
