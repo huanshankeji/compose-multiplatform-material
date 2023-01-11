@@ -105,6 +105,13 @@ fun App() {
                     DemoSquare(rgbaColor(0xFFU, 0U, 0U, 0x80U))
                     DemoSquare(rgbaColor(0xFFU, 0U, 0U, 0.5F))
                 }
+
+                var text by remember { mutableStateOf("") }
+                TextField(
+                    text, { text = it },
+                    label = "Demo text field",
+                    leadingIcon = { Icon(MaterialIcons.Add, null) },
+                    trailingIcon = { Icon(MaterialIcons.Menu, null) })
             }
         }
     }

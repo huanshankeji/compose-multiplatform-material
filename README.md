@@ -41,6 +41,7 @@ There is no plan to support Apple platforms until there is official support from
 - `IconButton`
 - `ScrollableList`/`LazyColumn` (visually inconsistent for now)
 - `Text`/`MaterialText`
+- `TextField`
 - `TopAppBarScaffold`
 
 ### styles

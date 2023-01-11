@@ -13,6 +13,11 @@ import org.jetbrains.compose.web.css.*
 import org.jetbrains.compose.web.dom.AttrBuilderContext
 import org.w3c.dom.HTMLElement
 
+/*
+fun <TElement : Element, TAttrsScope : AttrsScope<TElement>> ModifierOrAttrs<TElement>.toAttrs2(): (TAttrsScope.() -> Unit)? =
+    this?.let { { ModifierOrAttrsScope(this).it() } }
+*/
+
 fun <TElement : Element> ModifierOrAttrs<TElement>.toAttrs(): AttrBuilderContext<TElement>? =
     this?.let { { ModifierOrAttrsScope(this).it() } }
 
