@@ -15,7 +15,6 @@ actual fun TextField(
     modifierOrAttrs: ModifierOrAttrs<TextFieldElement>,
     enabled: Boolean,
     label: String?,
-    placeholder: String?,
     leadingIcon: @Composable (() -> Unit)?,
     trailingIcon: @Composable (() -> Unit)?,
 ) =
@@ -26,7 +25,6 @@ actual fun TextField(
         },
         disabled = !enabled,
         label = label,
-        helperText = placeholder,
         leadingIcon = leadingIcon?.let { { it() } },
         trailingIcon = trailingIcon?.let { { it() } }
     )

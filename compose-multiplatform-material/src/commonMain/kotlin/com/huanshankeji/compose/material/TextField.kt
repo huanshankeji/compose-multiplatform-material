@@ -13,7 +13,10 @@ expect fun TextField(
     modifierOrAttrs: ModifierOrAttrs<TextFieldElement> = null,
     enabled: Boolean = true,
     label: String? = null,
+    /*
     placeholder: String? = null,
+    helperText: String? = null,
+    */
     leadingIcon: @Composable (() -> Unit)? = null,
     trailingIcon: @Composable (() -> Unit)? = null,
 )
