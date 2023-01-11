@@ -5,7 +5,7 @@ import com.huanshankeji.compose.ui.Element
 import com.huanshankeji.compose.ui.ModifierOrAttrs
 
 expect abstract class RowElement : Element
-expect interface RowScope
+expect class RowScope : LinearLayoutScope
 
 @Composable
 expect fun Row(modifierOrAttrs: ModifierOrAttrs<RowElement> = null, content: @Composable RowScope.() -> Unit)

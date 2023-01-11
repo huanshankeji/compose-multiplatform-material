@@ -105,6 +105,20 @@ fun App() {
                     DemoSquare(rgbaColor(0xFFU, 0U, 0U, 0x80U))
                     DemoSquare(rgbaColor(0xFFU, 0U, 0U, 0.5F))
                 }
+
+                Row {
+                    @Composable
+                    fun WeightText(weight: Float) =
+                        @Suppress("MoveLambdaOutsideParentheses")
+                        Text("Weight $weight", {
+                            style {
+                                weight(weight)
+                                outerBorder(1.dpOrPx, Colors.black)
+                            }
+                        })
+                    WeightText(1F)
+                    WeightText(2F)
+                }
             }
         }
     }

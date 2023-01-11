@@ -26,15 +26,15 @@ actual class ModifierOrAttrsScope<out TElement : Element>(val attrsScope: AttrsS
         attrsScope.style { StyleScope(this).builder() }
 }
 
-actual class StyleScope(val styleScope: org.jetbrains.compose.web.css.StyleScope) {
+actual class StyleScope(val cssStyleScope: org.jetbrains.compose.web.css.StyleScope) {
     actual fun margin(value: Length) =
-        styleScope.margin(value.platformValue)
+        cssStyleScope.margin(value.platformValue)
 
     fun margin(value: LengthOrPercentage) =
-        styleScope.margin(value.platformValue)
+        cssStyleScope.margin(value.platformValue)
 
     actual fun height(value: HeightOrWidth) =
-        styleScope.run {
+        cssStyleScope.run {
             when (value) {
                 FitContent -> height(FIT_CONTENT)
                 FillMax -> height(100.percent)
@@ -43,7 +43,7 @@ actual class StyleScope(val styleScope: org.jetbrains.compose.web.css.StyleScope
         }
 
     actual fun width(value: HeightOrWidth) =
-        styleScope.run {
+        cssStyleScope.run {
             when (value) {
                 FitContent -> width(FIT_CONTENT)
                 FillMax -> width(100.percent)
@@ -53,16 +53,16 @@ actual class StyleScope(val styleScope: org.jetbrains.compose.web.css.StyleScope
 
 
     actual fun backgroundColor(color: Color) =
-        styleScope.backgroundColor(color.platformValue)
+        cssStyleScope.backgroundColor(color.platformValue)
 
     actual fun platformBorder(width: Length, color: Color) =
-        styleScope.border(width.platformValue, LineStyle.Solid, color.platformValue)
+        cssStyleScope.border(width.platformValue, LineStyle.Solid, color.platformValue)
 
     actual fun outerBorder(width: Length, color: Color) =
         platformBorder(width, color)
 
     actual fun roundedCornerOuterBorder(width: Length, color: Color, cornerRadius: LengthOrPercentage) {
         outerBorder(width, color)
-        styleScope.borderRadius(cornerRadius.platformValue)
+        cssStyleScope.borderRadius(cornerRadius.platformValue)
     }
 }

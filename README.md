@@ -55,3 +55,5 @@ The functions in `StyleScope`:
 - `backgroundColor`
 - `border`
 - `outerBorder`
+
+- `weight` in linear layouts
