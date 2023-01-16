@@ -53,5 +53,5 @@ The functions in `StyleScope`:
 - `margin`
 - `width`
 - `backgroundColor`
-- `border`
+- `platformBorder`
 - `outerBorder`
