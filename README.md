@@ -1,6 +1,7 @@
 # Compose Multiplatform Material wrappers
 
 [![Maven Central](https://img.shields.io/maven-central/v/com.huanshankeji/compose-multiplatform-material)](https://search.maven.org/artifact/com.huanshankeji/compose-multiplatform-material)
+![Kotlin version](https://kotlin-version.aws.icerock.dev/kotlin-version?group=com.huanshankeji&name=compose-multiplatform-material)
 
 Some simple Compose Multiplatform wrappers of common components, layouts, and Material Design components for
 desktop/Android and web (mainly based on [KMDC](https://github.com/mpetuska/kmdc))
