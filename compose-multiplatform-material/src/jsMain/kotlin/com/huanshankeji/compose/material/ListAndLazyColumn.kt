@@ -46,6 +46,10 @@ actual class ListScope(
         mdcListScope.ListItem { ItemScope(this).content() }
     }
 
+    actual fun itemForIssue(key: Any?, contentType: Any?, content: @Composable ItemScope.() -> Unit) = addComposable {
+        mdcListScope.ListItem { ItemScope(this).content() }
+    }
+
     actual fun itemsInternal(
         count: Int,
         key: ((index: Int) -> Any)?,

@@ -14,6 +14,9 @@ actual class ListScope(val lazyListScope: LazyListScope) {
     actual fun itemInternal(key: Any?, contentType: Any?, content: @Composable ItemScope.() -> Unit) =
         lazyListScope.item(key, contentType) { ItemScope(this).content() }
 
+    actual fun itemForIssue(key: Any?, contentType: Any?, content: @Composable ItemScope.() -> Unit) =
+        lazyListScope.item(key, contentType) { ItemScope(this).content() }
+
     actual fun itemsInternal(
         count: Int,
         key: ((index: Int) -> Any)?,

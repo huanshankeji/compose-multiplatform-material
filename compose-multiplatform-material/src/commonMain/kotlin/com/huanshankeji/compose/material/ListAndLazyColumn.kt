@@ -17,6 +17,8 @@ expect class ListScope {
 
     internal fun itemInternal(key: Any? = null, contentType: Any? = null, content: @Composable ItemScope.() -> Unit)
 
+    fun itemForIssue(key: Any? = null, contentType: Any? = null, content: @Composable ItemScope.() -> Unit)
+
     internal fun itemsInternal(
         count: Int,
         key: ((index: Int) -> Any)? = null,

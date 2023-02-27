@@ -64,6 +64,7 @@ fun App() {
                         item {
                             Text("Ungrouped item")
                         }
+                        itemForIssue { Text("An item for the issue to report") }
                         items(count) {
                             Text("Ungrouped item $it/$count")
                         }
