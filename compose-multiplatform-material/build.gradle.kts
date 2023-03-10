@@ -26,8 +26,8 @@ kotlin {
                 // copied from https://github.com/mpetuska/kmdc
 
                 // Be lazy and use the shortcut
-                implementation("dev.petuska:kmdc:0.0.5")
-                implementation("dev.petuska:kmdcx:0.0.5")
+                implementation("dev.petuska:kmdc:${DependencyVersions.kmdc}")
+                implementation("dev.petuska:kmdcx:${DependencyVersions.kmdc}")
                 // TODO: pick and choose exact components to reduce bundle size
             }
         }

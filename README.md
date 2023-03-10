@@ -1,6 +1,7 @@
 # Compose Multiplatform Material wrappers
 
 [![Maven Central](https://img.shields.io/maven-central/v/com.huanshankeji/compose-multiplatform-material)](https://search.maven.org/artifact/com.huanshankeji/compose-multiplatform-material)
+![Kotlin version](https://kotlin-version.aws.icerock.dev/kotlin-version?group=com.huanshankeji&name=compose-multiplatform-material)
 
 Some simple Compose Multiplatform wrappers of common components, layouts, and Material Design components for
 desktop/Android and web (mainly based on [KMDC](https://github.com/mpetuska/kmdc))
@@ -43,11 +44,15 @@ There is no plan to support Apple platforms until there is official support from
 - `Text`/`MaterialText`
 - `TopAppBarScaffold`
 
-### styles
+### Styles
+
+The `ModifierOrAttrsScope.styles` function and the `StyleScope` class provide a universal interface for `Modifier`s and CSS styles.
+
+The functions in `StyleScope`:
 
 - `height`
 - `margin`
 - `width`
 - `backgroundColor`
-- `border`
+- `platformBorder`
 - `outerBorder`
