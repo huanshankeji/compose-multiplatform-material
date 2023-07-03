@@ -3,13 +3,12 @@
 [![Maven Central](https://img.shields.io/maven-central/v/com.huanshankeji/compose-multiplatform-material)](https://search.maven.org/artifact/com.huanshankeji/compose-multiplatform-material)
 ![Kotlin version](https://kotlin-version.aws.icerock.dev/kotlin-version?group=com.huanshankeji&name=compose-multiplatform-material)
 
-Some simple Compose Multiplatform wrappers of common components, layouts, and Material Design components for
-desktop/Android and web (mainly based on [KMDC](https://github.com/mpetuska/kmdc))
+Some simple Compose Multiplatform wrappers of common components, layouts, and Material Design components for Android/desktop and Compose HTML (mainly based on [KMDC](https://github.com/mpetuska/kmdc))
 
 We try to make the function types of the composable components follow those of the desktop and Android ones
-in `androidx.compose.foundation` and `androidx.compose.material`, meanwhile being compatible with the Web APIs. However,
+in `androidx.compose.foundation` and `androidx.compose.material`, meanwhile being compatible with the Compose HTML APIs. However,
 only subsets of the composables and composable arguments are supported due to the API differences, limitations of the
-web composables this project depends on, and our limited effort.
+Compose HTML composables this project depends on, and our limited effort.
 
 Visual consistency across different platforms is not guaranteed.
 
