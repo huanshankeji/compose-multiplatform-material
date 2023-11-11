@@ -10,8 +10,8 @@ repositories {
 }
 
 dependencies {
-    implementation(kotlin("gradle-plugin", "1.8.10"))
-    implementation("org.jetbrains.compose:compose-gradle-plugin:1.3.1")
+    implementation(kotlin("gradle-plugin", "1.9.20"))
+    implementation("org.jetbrains.compose:compose-gradle-plugin:1.5.10")
     implementation("com.huanshankeji.team:gradle-plugins:0.4.0") {
         exclude("org.jetbrains.kotlin")
     }
