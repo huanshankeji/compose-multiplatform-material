@@ -26,6 +26,8 @@ kotlin {
         }
         named("jsMain") {
             dependencies {
+                implementation(compose.html.core)
+
                 // copied from https://github.com/mpetuska/kmdc
 
                 // SCSS dependencies
