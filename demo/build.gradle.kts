@@ -30,7 +30,7 @@ kotlin {
             dependencies {
                 implementation(compose.html.core)
 
-                implementation(npm("material-icons", "1.13.1"))
+                implementation(npm("material-icons", DependencyVersions.materialIcons))
             }
         }
     }
