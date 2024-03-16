@@ -6,6 +6,8 @@ kotlin {
     js(IR) {
         browser {
             commonWebpackConfig {
+                cssSupport { enabled.set(true) }
+                scssSupport { enabled.set(true) }
                 outputFileName = "app.js"
             }
         }
@@ -27,15 +29,6 @@ kotlin {
         named("jsMain") {
             dependencies {
                 implementation(compose.html.core)
-
-                // copied from https://github.com/mpetuska/kmdc
-
-                // SCSS dependencies
-                implementation(devNpm("style-loader", "^3.3.1"))
-                implementation(devNpm("css-loader", "^6.7.1"))
-                implementation(devNpm("sass-loader", "^13.0.0"))
-                implementation(devNpm("sass", "^1.52.1"))
-
 
                 implementation(npm("material-icons", "1.13.1"))
             }
