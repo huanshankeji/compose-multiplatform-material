@@ -7,18 +7,18 @@ plugins {
 
 kotlin {
     sourceSets {
-        named("commonMain") {
+        commonMain {
             dependencies {
                 implementation(compose.runtime)
                 //compileOnly(compose.foundation) // for KDoc element links only
             }
         }
-        named("jvmMain") {
+        jvmMain {
             dependencies {
                 implementation(compose.foundation)
             }
         }
-        named("jsMain") {
+        jsMain {
             dependencies {
                 implementation(compose.html.core)
 

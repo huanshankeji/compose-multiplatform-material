@@ -7,7 +7,7 @@ plugins {
 
 kotlin {
     sourceSets {
-        val commonMain by getting {
+        commonMain {
             dependencies {
                 implementation(compose.runtime)
                 api(project(":compose-multiplatform-common"))
@@ -15,13 +15,13 @@ kotlin {
             }
         }
         // TODO: a `jvmCommon` source set to share code for `jvm`/`desktop` and `android`
-        named("jvmMain") {
+        jvmMain {
             dependencies {
                 //implementation(compose.foundation) // not needed
                 implementation(compose.material)
             }
         }
-        named("jsMain") {
+        jsMain {
             dependencies {
                 // copied from https://github.com/mpetuska/kmdc
 

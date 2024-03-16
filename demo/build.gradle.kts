@@ -15,18 +15,18 @@ kotlin {
     }
 
     sourceSets {
-        named("commonMain") {
+        commonMain {
             dependencies {
                 implementation(compose.runtime)
                 implementation(project(":compose-multiplatform-material"))
             }
         }
-        named("jvmMain") {
+        jvmMain {
             dependencies {
                 implementation(compose.desktop.currentOs)
             }
         }
-        named("jsMain") {
+        jsMain {
             dependencies {
                 implementation(compose.html.core)
 
