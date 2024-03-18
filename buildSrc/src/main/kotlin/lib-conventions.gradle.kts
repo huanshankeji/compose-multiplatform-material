@@ -7,3 +7,12 @@ plugins {
 
 group = "com.huanshankeji"
 version = "0.1.3-SNAPSHOT"
+
+kotlin {
+    // move to `common-conventions` if necessary
+    sourceSets {
+        val androidxCommonMain by creating { dependsOn(commonMain.get()) }
+        jvmMain { dependsOn(androidxCommonMain) }
+        named("wasmJsMain") { dependsOn(androidxCommonMain) }
+    }
+}

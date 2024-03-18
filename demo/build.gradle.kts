@@ -3,12 +3,21 @@ plugins {
 }
 
 kotlin {
-    js(IR) {
+    val outputFileName = "app.js"
+    wasmJs {
+        browser {
+            commonWebpackConfig {
+                this.outputFileName = outputFileName
+            }
+        }
+        binaries.executable()
+    }
+    js {
         browser {
             commonWebpackConfig {
                 cssSupport { enabled.set(true) }
                 scssSupport { enabled.set(true) }
-                outputFileName = "app.js"
+                this.outputFileName = outputFileName
             }
         }
         binaries.executable()
@@ -26,6 +35,11 @@ kotlin {
                 implementation(compose.desktop.currentOs)
             }
         }
+        wasmJsMain {
+            dependencies {
+                implementation(compose.ui)
+            }
+        }
         jsMain {
             dependencies {
                 implementation(compose.html.core)
@@ -36,8 +50,14 @@ kotlin {
     }
 }
 
-compose.desktop {
-    application {
-        mainClass = "com.huanshankeji.compose.material.demo.MainKt"
+compose {
+    desktop {
+        application {
+            mainClass = "com.huanshankeji.compose.material.demo.MainKt"
+        }
+    }
+
+    experimental {
+        web.application {}
     }
 }

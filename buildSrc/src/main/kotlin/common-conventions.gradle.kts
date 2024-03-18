@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.targets.js.dsl.ExperimentalWasmDsl
+
 plugins {
     kotlin("multiplatform")
     id("org.jetbrains.compose")
@@ -13,5 +15,8 @@ repositories {
 kotlin {
     jvm() // TODO: `jvm("desktop")`?
     // TODO: `android()`?
-    js(IR)
+    @OptIn(ExperimentalWasmDsl::class)
+    wasmJs()
+
+    js()
 }

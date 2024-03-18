@@ -13,7 +13,7 @@ kotlin {
                 //compileOnly(compose.foundation) // for KDoc element links only
             }
         }
-        jvmMain {
+        androidxCommonMain {
             dependencies {
                 implementation(compose.foundation)
             }

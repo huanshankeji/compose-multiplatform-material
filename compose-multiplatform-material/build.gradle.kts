@@ -14,8 +14,7 @@ kotlin {
                 //compileOnly(compose.material) // for KDoc element links only
             }
         }
-        // TODO: a `jvmCommon` source set to share code for `jvm`/`desktop` and `android`
-        jvmMain {
+        androidxCommonMain {
             dependencies {
                 //implementation(compose.foundation) // not needed
                 implementation(compose.material)
