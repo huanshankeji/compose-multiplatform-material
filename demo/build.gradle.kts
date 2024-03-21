@@ -1,9 +1,16 @@
+import org.jetbrains.kotlin.gradle.targets.js.dsl.ExperimentalWasmDsl
+
 plugins {
     `common-conventions`
+    id("com.android.application")
 }
 
 kotlin {
+    androidTarget()
+
     val outputFileName = "app.js"
+
+    @OptIn(ExperimentalWasmDsl::class)
     wasmJs {
         browser {
             commonWebpackConfig {
@@ -12,6 +19,7 @@ kotlin {
         }
         binaries.executable()
     }
+
     js {
         browser {
             commonWebpackConfig {
@@ -35,6 +43,14 @@ kotlin {
                 implementation(compose.desktop.currentOs)
             }
         }
+        androidMain {
+            dependencies {
+                implementation(compose.ui)
+
+                implementation("androidx.activity:activity-compose:${DependencyVersions.Androidx.activityCompose}")
+                implementation("androidx.compose.ui:ui-tooling-preview:${DependencyVersions.Androidx.compose}")
+            }
+        }
         wasmJsMain {
             dependencies {
                 implementation(compose.ui)
@@ -50,14 +66,30 @@ kotlin {
     }
 }
 
+val `package` = "$group.compose.material.demo"
+
 compose {
     desktop {
         application {
-            mainClass = "com.huanshankeji.compose.material.demo.MainKt"
+            mainClass = "$`package`.MainKt"
         }
     }
 
     experimental {
         web.application {}
+    }
+}
+
+android {
+    namespace = `package`
+
+    val sdk = 34
+    compileSdk = sdk
+
+    defaultConfig {
+        applicationId = `package`
+        minSdk = 24
+        targetSdk = sdk
+        versionName = version as String
     }
 }

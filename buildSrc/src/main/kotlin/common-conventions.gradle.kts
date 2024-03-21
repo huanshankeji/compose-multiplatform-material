@@ -5,6 +5,9 @@ plugins {
     id("org.jetbrains.compose")
 }
 
+group = "com.huanshankeji"
+version = "0.1.3-SNAPSHOT"
+
 repositories {
     mavenLocal()
     mavenCentral()
@@ -14,7 +17,8 @@ repositories {
 
 kotlin {
     jvm() // TODO: `jvm("desktop")`?
-    // TODO: `android()`?
+    jvmToolchain(8)
+    //androidTarget()
     @OptIn(ExperimentalWasmDsl::class)
     wasmJs()
 
