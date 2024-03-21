@@ -59,8 +59,6 @@ kotlin {
         jsMain {
             dependencies {
                 implementation(compose.html.core)
-
-                implementation(npm("material-icons", DependencyVersions.materialIcons))
             }
         }
     }
