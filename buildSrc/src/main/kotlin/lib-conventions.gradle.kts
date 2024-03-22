@@ -11,6 +11,7 @@ kotlin {
     sourceSets {
         val androidxCommonMain by creating { dependsOn(commonMain.get()) }
         jvmMain { dependsOn(androidxCommonMain) }
+        iosMain { dependsOn(androidxCommonMain) }
         named("wasmJsMain") { dependsOn(androidxCommonMain) }
     }
 }

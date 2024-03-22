@@ -8,19 +8,19 @@ plugins {
 group = "com.huanshankeji"
 version = "0.1.3-SNAPSHOT"
 
-repositories {
-    mavenLocal()
-    mavenCentral()
-    maven("https://maven.pkg.jetbrains.space/public/p/compose/dev")
-    google()
-}
-
 kotlin {
     jvm() // TODO: `jvm("desktop")`?
     jvmToolchain(8)
+
     //androidTarget()
+
     @OptIn(ExperimentalWasmDsl::class)
     wasmJs()
+
+    iosX64()
+    iosArm64()
+    iosSimulatorArm64()
+
 
     js()
 }
