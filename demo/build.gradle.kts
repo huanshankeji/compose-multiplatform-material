@@ -8,6 +8,17 @@ plugins {
 kotlin {
     androidTarget()
 
+    listOf(
+        iosX64(),
+        iosArm64(),
+        iosSimulatorArm64()
+    ).forEach { iosTarget ->
+        iosTarget.binaries.framework {
+            baseName = "ComposeApp"
+            isStatic = true
+        }
+    }
+
     val outputFileName = "app.js"
 
     @OptIn(ExperimentalWasmDsl::class)
@@ -45,10 +56,16 @@ kotlin {
         }
         androidMain {
             dependencies {
+                // TODO consider putting this in `androidxCommonMain`
                 implementation(compose.ui)
 
                 implementation("androidx.activity:activity-compose:${DependencyVersions.Androidx.activityCompose}")
                 implementation("androidx.compose.ui:ui-tooling-preview:${DependencyVersions.Androidx.compose}")
+            }
+        }
+        iosMain {
+            dependencies {
+                implementation(compose.ui)
             }
         }
         wasmJsMain {
