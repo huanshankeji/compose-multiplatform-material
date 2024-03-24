@@ -36,6 +36,7 @@ This project is prototype and there is no documentation yet. Check out [the demo
 - `IconButton`
 - `ScrollableList`/`LazyColumn` (visually inconsistent for now)
 - `Text`/`MaterialText`
+- `TextField`
 - `TopAppBarScaffold`
 
 ### Styles
