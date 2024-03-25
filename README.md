@@ -38,6 +38,7 @@ This project is prototype and there is no documentation yet. Check out [the demo
 - `Text`/`MaterialText`
 - `TextField`
 - `TopAppBarScaffold`
+- `RadioButton`
 
 ### Styles
 

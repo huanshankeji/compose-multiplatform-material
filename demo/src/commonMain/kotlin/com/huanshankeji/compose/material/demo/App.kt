@@ -15,6 +15,10 @@ import com.huanshankeji.compose.ui.height
 import com.huanshankeji.compose.ui.unit.dpOrPx
 import com.huanshankeji.compose.ui.width
 
+private enum class RadioButtonState {
+    A, B, C
+}
+
 @OptIn(ConfusableTextApi::class)
 @Composable
 fun App() {
@@ -29,7 +33,7 @@ fun App() {
             style {
                 margin(16.dpOrPx)
                 val size = 400.dpOrPx
-                height(size)
+                //height(size)
                 width(size)
             }
         }) {
@@ -112,6 +116,26 @@ fun App() {
                     label = "Demo text field",
                     leadingIcon = { Icon(MaterialIcons.Add, null) },
                     trailingIcon = { Icon(MaterialIcons.Menu, null) })
+
+
+                var selected by remember { mutableStateOf(RadioButtonState.A) }
+                // TODO `Modifier.selectableGroup()`, see https://developer.android.com/reference/kotlin/androidx/compose/material/package-summary#RadioButton(kotlin.Boolean,kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Boolean,androidx.compose.foundation.interaction.MutableInteractionSource,androidx.compose.material.RadioButtonColors)
+                Column {
+                    @Composable
+                    fun RadioButtonRow(state: RadioButtonState) =
+                        // TODO `Modifier.selectable()`
+                        Row {
+                            RadioButton(
+                                selected == state,
+                                { selected = state } // TODO put in the `Row` `modifier`
+                            )
+                            // TODO put center vertically
+                            Text(
+                                text = state.toString()
+                            )
+                        }
+                    RadioButtonState.entries.forEach { RadioButtonRow(it) }
+                }
             }
         }
     }
