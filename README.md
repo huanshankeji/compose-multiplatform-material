@@ -1,4 +1,4 @@
-# Compose Multiplatform Material wrappers
+# Compose Multiplatform Material wrappers for `androidx.compose.material` and Compose HTML
 
 [![Maven Central](https://img.shields.io/maven-central/v/com.huanshankeji/compose-multiplatform-material)](https://search.maven.org/artifact/com.huanshankeji/compose-multiplatform-material)
 ![Kotlin version](https://kotlin-version.aws.icerock.dev/kotlin-version?group=com.huanshankeji&name=compose-multiplatform-material)
