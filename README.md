@@ -51,3 +51,12 @@ The functions in `StyleScope`:
 - `backgroundColor`
 - `platformBorder`
 - `outerBorder`
+
+## About Kobweb Silk
+
+This project depends on [Kobweb Silk](https://github.com/varabyte/kobweb?tab=readme-ov-file#silk) which is a UI layer built upon Compose HTML that provies `Modifier` APIs (type-safe CSS API wrappers) and layouts. Here is a list of topics in their README.md that should be helpful when you use this library in Compose HTML:
+
+1. [Silk](https://github.com/varabyte/kobweb?tab=readme-ov-file#silk)
+   1. [attrsModifier and styleModifier](https://github.com/varabyte/kobweb?tab=readme-ov-file#attrsmodifier-and-stylemodifier) 
+1. [General purpose improvements on top of Compose HTML and Kotlin/JS](https://github.com/varabyte/kobweb?tab=readme-ov-file#general-purpose-improvements-on-top-of-compose-html-and-kotlinjs)
+1. [What about Compose Multiplatform for Web?](https://github.com/varabyte/kobweb?tab=readme-ov-file#what-about-compose-multiplatform-for-web)
