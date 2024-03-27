@@ -3,7 +3,7 @@
 [![Maven Central](https://img.shields.io/maven-central/v/com.huanshankeji/compose-multiplatform-material)](https://search.maven.org/search?q=g:com.huanshankeji%20AND%20a:compose-multiplatform-*)
 ![Kotlin version](https://kotlin-version.aws.icerock.dev/kotlin-version?group=com.huanshankeji&name=compose-multiplatform-material)
 
-Some simple unified Compose Multiplatform wrappers of common components, layouts, and Material Design components for `androidx.compose.material` (officially supported on Android, desktop (JVM), iOS, web (Kotlin/Wasm)) and Compose HTML (mainly based on [KMDC](https://github.com/mpetuska/kmdc))
+Some simple unified Compose Multiplatform wrappers of common components, layouts, and Material Design components for `androidx.compose.material` (officially supported on Android, desktop (JVM), iOS, web (Kotlin/Wasm)) and Compose HTML (mainly based on [Kobweb Silk](https://github.com/varabyte/kobweb?tab=readme-ov-file#silk) and [KMDC](https://github.com/mpetuska/kmdc))
 
 <!-- a set of APIs for Compose HTML similar to those in `androidx.compose.material` -->
 
