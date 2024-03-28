@@ -4,6 +4,7 @@ import androidx.compose.foundation.layout.LayoutScopeMarker
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.Stable
+import com.huanshankeji.compose.PlatformWrapperInterface
 import com.huanshankeji.compose.ui.Alignment
 import com.huanshankeji.compose.ui.Modifier
 import androidx.compose.foundation.layout.Box as PlatformBox
@@ -28,12 +29,11 @@ actual fun Box(modifier: Modifier) =
 
 @LayoutScopeMarker
 @Immutable
-actual interface BoxScope {
-    val platformBoxScope: PlatformBoxScope
-
-    class Impl(override val platformBoxScope: PlatformBoxScope) : BoxScope
+actual interface BoxScope : PlatformWrapperInterface<PlatformBoxScope> {
+    class Impl(platformValue: PlatformBoxScope) : BoxScope,
+        PlatformWrapperInterface.Impl<PlatformBoxScope>(platformValue)
 
     @Stable
     actual fun Modifier.align(alignment: Alignment): Modifier =
-        with(platformBoxScope) { platformModify { align(alignment.platformAlignment) } }
+        with(platformValue) { platformModify { align(alignment.platformAlignment) } }
 }
