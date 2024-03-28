@@ -52,6 +52,24 @@ The functions in `StyleScope`:
 - `platformBorder`
 - `outerBorder`
 
+## Add the libraries to your dependency
+
+Maven coordinate:
+
+```kotlin
+"com.huanshankeji:compose-multiplatform-$module:$version"
+```
+
+View [all the artifacts on Maven Central](https://search.maven.org/search?q=g:com.huanshankeji%20AND%20a:compose-multiplatform-*).
+
+This project depends on [Kobweb](https://github.com/varabyte/kobweb) which is not published to Maven Central yet, so you have to add the following Maven repository:
+
+```kotlin
+repositories {
+    maven("https://us-central1-maven.pkg.dev/varabyte-repos/public")
+}
+```
+
 ## About Kobweb Silk
 
 The Kotlin/JS (Compose HTML) portion of this project depends on [Kobweb Silk](https://github.com/varabyte/kobweb?tab=readme-ov-file#silk) which is a UI layer built upon Compose HTML that provides `Modifier` APIs (type-safe CSS API wrappers) and layouts. Here is a list of topics in their README.md that should be helpful when you use this library in Compose HTML:
