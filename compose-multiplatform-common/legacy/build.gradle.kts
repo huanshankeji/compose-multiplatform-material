@@ -43,8 +43,11 @@ kotlin {
 publishing.publications.withType<MavenPublication> {
     pomForTeamDefaultOpenSource(
         project,
-        "Compose Multiplatform common wrappers",
-        "Common wrappers of components (including layouts) and styles for Compose Multiplatform on (desktop/Android and web)"
+        "Legacy Compose Multiplatform common wrappers",
+        "Legacy common wrappers of components (incl" +
+                "ding layouts) and styles for Compose Multiplatform on (desktop/Android and web)\n" +
+                "This legacy module depends on `com.huanshankeji:compose-web-common` instead of Kobweb Silk " +
+                "and its components use the `ModifierOrAttrsScope` class to configure styles."
     ) {
         `Shreck Ye`()
     }
