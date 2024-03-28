@@ -39,7 +39,7 @@ This project is prototype and there is no documentation yet. Check out [the demo
 - `TextField`
 - `TopAppBarScaffold`
 
-### Styles
+### Styles (obsolete in the legacy module, for removal)
 
 The `ModifierOrAttrsScope.styles` function and the `StyleScope` class provide a universal interface for `Modifier`s and CSS styles.
 
@@ -51,6 +51,10 @@ The functions in `StyleScope`:
 - `backgroundColor`
 - `platformBorder`
 - `outerBorder`
+
+### Modifier functions
+
+- `size`
 
 ## Add the libraries to your dependency
 
