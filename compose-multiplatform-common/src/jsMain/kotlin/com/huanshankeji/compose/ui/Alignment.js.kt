@@ -5,25 +5,25 @@ import com.varabyte.kobweb.compose.ui.Alignment as PlatformAlignment
 
 @Stable
 actual interface Alignment {
-    val platformAlignment: PlatformAlignment
+    val platformValue: PlatformAlignment
 
     @Stable
-    value class Impl(override val platformAlignment: PlatformAlignment) : Alignment
+    value class Impl(override val platformValue: PlatformAlignment) : Alignment
 
     @Stable
     actual interface Horizontal {
-        val platformHorizontal: PlatformAlignment.Horizontal
+        val platformValue: PlatformAlignment.Horizontal
 
         @Stable
-        value class Impl(override val platformHorizontal: PlatformAlignment.Horizontal) : Horizontal
+        value class Impl(override val platformValue: PlatformAlignment.Horizontal) : Horizontal
     }
 
     @Stable
     actual interface Vertical {
-        val platformHorizontal: PlatformAlignment.Vertical
+        val platformValue: PlatformAlignment.Vertical
 
         @Stable
-        value class Impl(override val platformHorizontal: PlatformAlignment.Vertical) : Vertical
+        value class Impl(override val platformValue: PlatformAlignment.Vertical) : Vertical
     }
 
     actual companion object {

@@ -16,7 +16,7 @@ actual fun Box(
 ) =
     com.varabyte.kobweb.compose.foundation.layout.Box(
         modifier.platformModifier,
-        contentAlignment.platformAlignment,
+        contentAlignment.platformValue,
     ) { BoxScope.Impl(this).content() }
 
 @LayoutScopeMarker
@@ -24,9 +24,9 @@ actual fun Box(
 actual interface BoxScope {
     val platformBoxScope: PlatformBoxScope
 
-    class Impl(override val platformBoxScope: PlatformBoxScope) : BoxScope
+    value class Impl(override val platformBoxScope: PlatformBoxScope) : BoxScope
 
     @Stable
     actual fun Modifier.align(alignment: Alignment): Modifier =
-        with(platformBoxScope) { platformModify { align(alignment.platformAlignment) } }
+        with(platformBoxScope) { platformModify { align(alignment.platformValue) } }
 }

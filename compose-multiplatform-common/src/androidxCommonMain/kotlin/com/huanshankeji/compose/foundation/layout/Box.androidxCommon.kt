@@ -6,6 +6,7 @@ import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.Stable
 import com.huanshankeji.compose.ui.Alignment
 import com.huanshankeji.compose.ui.Modifier
+import kotlin.jvm.JvmInline
 import androidx.compose.foundation.layout.Box as PlatformBox
 import androidx.compose.foundation.layout.BoxScope as PlatformBoxScope
 
@@ -31,7 +32,8 @@ actual fun Box(modifier: Modifier) =
 actual interface BoxScope {
     val platformBoxScope: PlatformBoxScope
 
-    class Impl(override val platformBoxScope: PlatformBoxScope) : BoxScope
+    @JvmInline
+    value class Impl(override val platformBoxScope: PlatformBoxScope) : BoxScope
 
     @Stable
     actual fun Modifier.align(alignment: Alignment): Modifier =
