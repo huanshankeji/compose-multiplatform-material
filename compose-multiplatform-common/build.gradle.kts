@@ -20,6 +20,7 @@ kotlin {
                 A dependency of `ui-unit` is `ui-geometry` which might be useful too.
                 */
                 api("org.jetbrains.compose.ui:ui-unit:${DependencyVersions.composeMultiplatform}")
+                implementation("org.jetbrains.compose.annotation-internal:annotation:${DependencyVersions.composeMultiplatform}")
             }
         }
         androidxCommonMain {
