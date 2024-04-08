@@ -47,6 +47,7 @@ kotlin {
             dependencies {
                 implementation(compose.runtime)
                 implementation(project(":compose-multiplatform-material"))
+                implementation(project(":compose-multiplatform-common")) // TODO remove
             }
         }
         jvmMain {

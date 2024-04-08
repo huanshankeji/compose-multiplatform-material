@@ -10,7 +10,7 @@ kotlin {
         commonMain {
             dependencies {
                 implementation(compose.runtime)
-                api(project(":compose-multiplatform-common::compose-multiplatform-common-legacy"))
+                api(project(":compose-multiplatform-common::compose-multiplatform-common-legacy")) // TODO depend on the non-legacy module
                 //compileOnly(compose.material) // for KDoc element links only
             }
         }
