@@ -3,6 +3,9 @@ package com.huanshankeji.compose.material.demo
 import androidx.compose.runtime.*
 import androidx.compose.ui.unit.dp
 import com.huanshankeji.compose.foundation.background
+import com.huanshankeji.compose.foundation.border
+import com.huanshankeji.compose.foundation.ext.outerBorder
+import com.huanshankeji.compose.foundation.ext.roundedCornerOuterBorder
 import com.huanshankeji.compose.foundation.layout.Box
 import com.huanshankeji.compose.foundation.layout.Column
 import com.huanshankeji.compose.foundation.layout.Row
@@ -12,13 +15,10 @@ import com.huanshankeji.compose.layout.size
 import com.huanshankeji.compose.material.*
 import com.huanshankeji.compose.material.icon.MaterialIcons
 import com.huanshankeji.compose.ui.Modifier
-import com.huanshankeji.compose.ui.color.Colors
-import com.huanshankeji.compose.ui.color.rgbColor
 import com.huanshankeji.compose.ui.graphics.Color
 import com.huanshankeji.compose.ui.height
 import com.huanshankeji.compose.ui.unit.dpOrPx
 import com.huanshankeji.compose.ui.width
-import com.huanshankeji.compose.layout.Row as LegacyRow
 
 @OptIn(ConfusableTextApi::class)
 @Composable
@@ -40,9 +40,8 @@ fun App() {
         Card({
             style {
                 margin(16.dpOrPx)
-                val size = 400.dpOrPx
-                height(size)
-                width(size)
+                height(800.dpOrPx)
+                width(400.dpOrPx)
             }
         }) {
             Column(Modifier.padding(16.dp)) {
@@ -85,25 +84,31 @@ fun App() {
                     }
                 }
 
-                // TODO
-                LegacyRow({
-                    style {
-                        // The order of function calls can't be changed!
-                        roundedCornerOuterBorder(4.dpOrPx, Colors.blue, 16.dpOrPx)
-                        backgroundColor(rgbColor(0U, 0x80U, 0x00U))
-                    }
-                }) {
-                    @Composable
-                    fun ColorBox(color: Color) =
-                        Box(run {
-                            val size = 40.dp
-                            Modifier.padding(8.dp).background(color).size(size)
-                        })
+                @Composable
+                fun ColorBox(color: Color) =
+                    Box(Modifier.padding(8.dp).background(color).size(40.dp))
 
+                val halfGreen = Color(0, 0x80, 0x00)
+
+                Row(
+                    Modifier.roundedCornerOuterBorder(4.dp, Color.Blue, 16.dp)
+                        .background(halfGreen)
+                ) {
                     ColorBox(Color.Red)
                     ColorBox(Color(0xFF, 0, 0))
                     ColorBox(Color(0xFF, 0, 0, 0x80))
                     ColorBox(Color(1f, 0f, 0f, 0.5f))
+                }
+
+                Row {
+                    @Composable
+                    fun NestedColorBox(modifier: Modifier) =
+                        Box(modifier.background(halfGreen)) { ColorBox(Color.Red) }
+
+                    NestedColorBox(Modifier.border(4.dp, Color.Blue))
+                    NestedColorBox(Modifier.outerBorder(4.dp, Color.Blue))
+                    NestedColorBox(Modifier.roundedCornerOuterBorder(4.dp, Color.Blue, 16.dp))
+                    NestedColorBox(Modifier.roundedCornerOuterBorder(1.dp, Color.Blue, 16.dp))
                 }
 
                 var text by remember { mutableStateOf("") }
