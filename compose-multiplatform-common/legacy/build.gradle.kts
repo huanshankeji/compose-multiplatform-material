@@ -15,7 +15,7 @@ kotlin {
         }
         androidxCommonMain {
             dependencies {
-                implementation(compose.foundation)
+                api(compose.foundation)
             }
         }
         jsMain {
