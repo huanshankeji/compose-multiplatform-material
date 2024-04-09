@@ -32,10 +32,7 @@ fun App() {
     }) {
         /*
         // TODO use this
-        run {
-            val size = 400.dp
-            Modifier.padding(16.dp).size(size)
-        }
+        Modifier.padding(16.dp).height(800.dp).width(400.dp)
         */
         Card({
             style {
