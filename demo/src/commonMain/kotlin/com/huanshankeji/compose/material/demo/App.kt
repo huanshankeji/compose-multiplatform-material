@@ -93,16 +93,16 @@ fun App() {
                     }
                 }) {
                     @Composable
-                    fun DemoSquare(color: Color) =
+                    fun ColorBox(color: Color) =
                         Box(run {
                             val size = 40.dp
                             Modifier.padding(8.dp).background(color).size(size)
                         })
 
-                    DemoSquare(Color.Red)
-                    DemoSquare(Color(0xFF, 0, 0))
-                    DemoSquare(Color(0xFF, 0, 0, 0x80))
-                    DemoSquare(Color(1f, 0f, 0f, 0.5f))
+                    ColorBox(Color.Red)
+                    ColorBox(Color(0xFF, 0, 0))
+                    ColorBox(Color(0xFF, 0, 0, 0x80))
+                    ColorBox(Color(1f, 0f, 0f, 0.5f))
                 }
 
                 var text by remember { mutableStateOf("") }
