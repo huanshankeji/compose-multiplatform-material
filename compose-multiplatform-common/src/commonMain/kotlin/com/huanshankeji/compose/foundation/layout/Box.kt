@@ -13,10 +13,8 @@ expect fun Box(
     content: @Composable BoxScope.() -> Unit
 )
 
-/*
 @Composable
 expect fun Box(modifier: Modifier)
-*/
 
 //@LayoutScopeMarker
 @Immutable

@@ -97,7 +97,7 @@ fun App() {
                         Box(run {
                             val size = 40.dp
                             Modifier.padding(8.dp).background(color).size(size)
-                        }) {} // TODO use `Box` that doesn't need the trailing lambda
+                        })
 
                     DemoSquare(Color.Red)
                     DemoSquare(Color(0xFF, 0, 0))

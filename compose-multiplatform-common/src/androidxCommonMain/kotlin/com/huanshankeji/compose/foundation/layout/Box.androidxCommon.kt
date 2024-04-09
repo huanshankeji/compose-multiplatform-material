@@ -21,11 +21,9 @@ actual fun Box(
         contentAlignment.platformAlignment,
     ) { BoxScope.Impl(this).content() }
 
-/*
 @Composable
 actual fun Box(modifier: Modifier) =
     PlatformBox(modifier.platformModifier)
-*/
 
 @LayoutScopeMarker
 @Immutable
