@@ -6,7 +6,11 @@ import com.huanshankeji.compose.ui.Alignment
 import com.huanshankeji.compose.ui.Modifier
 import com.varabyte.kobweb.compose.css.Width
 import com.varabyte.kobweb.compose.foundation.layout.LayoutScopeMarker
+import com.varabyte.kobweb.compose.ui.modifiers.display
+import com.varabyte.kobweb.compose.ui.modifiers.flexDirection
 import com.varabyte.kobweb.compose.ui.modifiers.width
+import org.jetbrains.compose.web.css.DisplayStyle
+import org.jetbrains.compose.web.css.FlexDirection
 import com.varabyte.kobweb.compose.foundation.layout.ColumnScope as PlatformColumnScope
 
 @Composable
@@ -17,7 +21,9 @@ actual fun Column(
     content: @Composable ColumnScope.() -> Unit
 ) =
     com.varabyte.kobweb.compose.foundation.layout.Column(
-        modifier.platformModifier.width(Width.FitContent), // "fit-content" is added to make it consistent with the `androidx` one
+        modifier.platformModifier
+            .display(DisplayStyle.Flex).flexDirection(FlexDirection.Column)
+            .width(Width.FitContent), // "fit-content" is added to make it consistent with the `androidx` one
         verticalArrangement.platformValue,
         horizontalAlignment.platformValue
     ) { ColumnScope.Impl(this).content() }

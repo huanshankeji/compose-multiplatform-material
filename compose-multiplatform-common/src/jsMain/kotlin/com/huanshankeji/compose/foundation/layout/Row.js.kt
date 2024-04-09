@@ -5,6 +5,10 @@ import androidx.compose.runtime.Stable
 import com.huanshankeji.compose.ui.Alignment
 import com.huanshankeji.compose.ui.Modifier
 import com.varabyte.kobweb.compose.foundation.layout.LayoutScopeMarker
+import com.varabyte.kobweb.compose.ui.modifiers.display
+import com.varabyte.kobweb.compose.ui.modifiers.flexDirection
+import org.jetbrains.compose.web.css.DisplayStyle
+import org.jetbrains.compose.web.css.FlexDirection
 import com.varabyte.kobweb.compose.foundation.layout.RowScope as PlatformRowScope
 
 @Composable
@@ -15,7 +19,8 @@ actual fun Row(
     content: @Composable RowScope.() -> Unit
 ) =
     com.varabyte.kobweb.compose.foundation.layout.Row(
-        modifier.platformModifier,
+        modifier.platformModifier
+            .display(DisplayStyle.Flex).flexDirection(FlexDirection.Row),
         horizontalArrangement.platformValue,
         verticalAlignment.platformValue
     ) { RowScope.Impl(this).content() }
