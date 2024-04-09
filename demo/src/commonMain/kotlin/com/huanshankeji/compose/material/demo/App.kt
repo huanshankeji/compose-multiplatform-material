@@ -2,11 +2,11 @@ package com.huanshankeji.compose.material.demo
 
 import androidx.compose.runtime.*
 import androidx.compose.ui.unit.dp
-import com.huanshankeji.compose.BasicText
 import com.huanshankeji.compose.foundation.background
 import com.huanshankeji.compose.foundation.layout.Box
 import com.huanshankeji.compose.foundation.layout.Column
 import com.huanshankeji.compose.foundation.layout.Row
+import com.huanshankeji.compose.foundation.text.BasicText
 import com.huanshankeji.compose.layout.padding
 import com.huanshankeji.compose.layout.size
 import com.huanshankeji.compose.material.*
@@ -46,7 +46,8 @@ fun App() {
             }
         }) {
             Column(Modifier.padding(16.dp)) {
-                BasicText("basic text")
+                BasicText("basic text 1")
+                BasicText("basic text 2")
                 Text("Material text")
 
                 var count by remember { mutableStateOf(0) }

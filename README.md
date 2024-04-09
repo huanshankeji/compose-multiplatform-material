@@ -39,6 +39,10 @@ This project is prototype and there is no documentation yet. Check out [the demo
 - `TextField`
 - `TopAppBarScaffold`
 
+#### Components in the `ext` packages
+
+The components in the `ext` packages don't follow the `androidx.compose` APIs exactly, but rather provide wrappers are idiomatic and conventional on both kinds of targets, wrapping different APIs which can't be unified following the `androidx.compose` APIs.
+
 ### Styles (obsolete in the legacy module, for removal)
 
 The `ModifierOrAttrsScope.styles` function and the `StyleScope` class provide a universal interface for `Modifier`s and CSS styles.
