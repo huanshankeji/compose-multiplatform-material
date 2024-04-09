@@ -4,14 +4,14 @@ import androidx.compose.runtime.Stable
 import androidx.compose.ui.unit.Dp
 import com.huanshankeji.compose.ui.Modifier
 import com.huanshankeji.compose.ui.unit.toPx
-import com.varabyte.kobweb.compose.ui.modifiers.padding
-import com.varabyte.kobweb.compose.ui.modifiers.paddingInline
+import com.varabyte.kobweb.compose.ui.modifiers.margin
+import com.varabyte.kobweb.compose.ui.modifiers.marginInline
 
 @Stable
 actual fun Modifier.padding(start: Dp, top: Dp, end: Dp, bottom: Dp): Modifier =
     platformModify {
-        paddingInline(start.toPx(), end.toPx())
-            .padding {
+        marginInline(start.toPx(), end.toPx())
+            .margin {
                 top(top.toPx())
                 bottom(bottom.toPx())
             }
@@ -19,12 +19,12 @@ actual fun Modifier.padding(start: Dp, top: Dp, end: Dp, bottom: Dp): Modifier =
 
 @Stable
 actual fun Modifier.padding(horizontal: Dp, vertical: Dp): Modifier =
-    platformModify { padding(vertical.toPx(), horizontal.toPx()) }
+    platformModify { margin(vertical.toPx(), horizontal.toPx()) }
 
 @Stable
 actual fun Modifier.padding(all: Dp): Modifier =
-    platformModify { padding(all.toPx()) }
+    platformModify { margin(all.toPx()) }
 
 @Stable
 actual fun Modifier.absolutePadding(left: Dp, top: Dp, right: Dp, bottom: Dp): Modifier =
-    platformModify { padding(top.toPx(), right.toPx(), bottom.toPx(), left.toPx()) }
+    platformModify { margin(top.toPx(), right.toPx(), bottom.toPx(), left.toPx()) }
