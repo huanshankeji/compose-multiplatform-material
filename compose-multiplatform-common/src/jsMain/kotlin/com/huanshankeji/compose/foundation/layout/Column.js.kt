@@ -12,6 +12,7 @@ import com.varabyte.kobweb.compose.ui.modifiers.width
 import org.jetbrains.compose.web.css.DisplayStyle
 import org.jetbrains.compose.web.css.FlexDirection
 import com.varabyte.kobweb.compose.foundation.layout.ColumnScope as PlatformColumnScope
+import com.varabyte.kobweb.compose.ui.Modifier as PlatformModifier
 
 @Composable
 actual fun Column(
@@ -21,9 +22,9 @@ actual fun Column(
     content: @Composable ColumnScope.() -> Unit
 ) =
     com.varabyte.kobweb.compose.foundation.layout.Column(
-        modifier.platformModifier
-            .display(DisplayStyle.Flex).flexDirection(FlexDirection.Column)
-            .width(Width.FitContent), // "fit-content" is added to make it consistent with the `androidx` one
+        PlatformModifier.display(DisplayStyle.Flex).flexDirection(FlexDirection.Column)
+            .width(Width.FitContent) // "fit-content" is added to make it consistent with the `androidx` one
+            .then(modifier.platformModifier),
         verticalArrangement.platformValue,
         horizontalAlignment.platformValue
     ) { ColumnScope.Impl(this).content() }

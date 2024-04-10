@@ -11,6 +11,8 @@ import org.jetbrains.compose.web.css.DisplayStyle
 import org.jetbrains.compose.web.css.FlexDirection
 import com.varabyte.kobweb.compose.foundation.layout.RowScope as PlatformRowScope
 
+import com.varabyte.kobweb.compose.ui.Modifier as PlatformModifier
+
 @Composable
 actual fun Row(
     modifier: Modifier,
@@ -19,8 +21,8 @@ actual fun Row(
     content: @Composable RowScope.() -> Unit
 ) =
     com.varabyte.kobweb.compose.foundation.layout.Row(
-        modifier.platformModifier
-            .display(DisplayStyle.Flex).flexDirection(FlexDirection.Row),
+        PlatformModifier.display(DisplayStyle.Flex).flexDirection(FlexDirection.Row)
+            .then(modifier.platformModifier),
         horizontalArrangement.platformValue,
         verticalAlignment.platformValue
     ) { RowScope.Impl(this).content() }
