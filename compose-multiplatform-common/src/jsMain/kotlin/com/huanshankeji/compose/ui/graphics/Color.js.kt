@@ -4,51 +4,55 @@ import androidx.annotation.ColorInt
 import androidx.annotation.IntRange
 import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.Stable
-import com.varabyte.kobweb.compose.ui.graphics.luminance
-import com.varabyte.kobweb.compose.ui.graphics.Color as PlatformColor
-import com.varabyte.kobweb.compose.ui.graphics.Colors as PlatformColors
+import org.jetbrains.compose.web.css.CSSColorValue
+import com.varabyte.kobweb.compose.ui.graphics.Color as KobwebColor
+import com.varabyte.kobweb.compose.ui.graphics.Colors as KobwebColors
+import org.jetbrains.compose.web.css.Color as ComposeHtmlColor
+
 
 @Immutable
-actual /*value*/ class Color(val platformValue: PlatformColor) {
+actual /*value*/ class Color(val platformValue: CSSColorValue) {
     actual override fun toString(): String =
         platformValue.toString()
 
     actual companion object {
         @Stable
-        actual val Black: Color = Color(PlatformColors.Black)
+        actual val Black: Color = Color(ComposeHtmlColor.black)
+
+        // TODO refactor the following
 
         @Stable
-        actual val DarkGray: Color = Color(PlatformColors.DarkGray)
+        actual val DarkGray: Color = Color(KobwebColors.DarkGray)
 
         @Stable
-        actual val Gray: Color = Color(PlatformColors.Gray)
+        actual val Gray: Color = Color(KobwebColors.Gray)
 
         @Stable
-        actual val LightGray: Color = Color(PlatformColors.LightGray)
+        actual val LightGray: Color = Color(KobwebColors.LightGray)
 
         @Stable
-        actual val White: Color = Color(PlatformColors.White)
+        actual val White: Color = Color(KobwebColors.White)
 
         @Stable
-        actual val Red: Color = Color(PlatformColors.Red)
+        actual val Red: Color = Color(KobwebColors.Red)
 
         @Stable
-        actual val Green: Color = Color(PlatformColors.Green)
+        actual val Green: Color = Color(KobwebColors.Green)
 
         @Stable
-        actual val Blue: Color = Color(PlatformColors.Blue)
+        actual val Blue: Color = Color(KobwebColors.Blue)
 
         @Stable
-        actual val Yellow: Color = Color(PlatformColors.Yellow)
+        actual val Yellow: Color = Color(KobwebColors.Yellow)
 
         @Stable
-        actual val Cyan: Color = Color(PlatformColors.Cyan)
+        actual val Cyan: Color = Color(KobwebColors.Cyan)
 
         @Stable
-        actual val Magenta: Color = Color(PlatformColors.Magenta)
+        actual val Magenta: Color = Color(KobwebColors.Magenta)
 
         @Stable
-        actual val Transparent: Color = Color(PlatformColors.Transparent)
+        actual val Transparent: Color = Color(KobwebColors.Transparent)
 
         actual fun hsl(
             hue: Float,
@@ -56,21 +60,21 @@ actual /*value*/ class Color(val platformValue: PlatformColor) {
             lightness: Float,
             alpha: Float
         ): Color =
-            Color(PlatformColor.hsla(hue, saturation, lightness, alpha))
+            Color(KobwebColor.hsla(hue, saturation, lightness, alpha))
     }
 }
 
 @Stable
 actual fun Color(red: Float, green: Float, blue: Float, alpha: Float): Color =
-    Color(PlatformColor.rgba(red, green, blue, alpha))
+    Color(KobwebColor.rgba(red, green, blue, alpha))
 
 @Stable
 actual fun Color(@ColorInt color: Int): Color =
-    Color(PlatformColor.argb(color))
+    Color(KobwebColor.argb(color))
 
 @Stable
 actual fun Color(color: Long): Color =
-    Color(PlatformColor.argb(color))
+    Color(KobwebColor.argb(color))
 
 @Stable
 actual fun Color(
@@ -79,13 +83,15 @@ actual fun Color(
     @IntRange(from = 0, to = 0xFF) blue: Int,
     @IntRange(from = 0, to = 0xFF) alpha: Int
 ): Color =
-    Color(PlatformColor.rgba(red, green, blue, alpha))
+    Color(KobwebColor.rgba(red, green, blue, alpha))
 
 @Stable
 actual fun Color.luminance(): Float =
-    platformValue.luminance
+    //platformValue.luminance
+    TODO()
 
 @ColorInt
 @Stable
 actual fun Color.toArgb(): Int =
-    platformValue.toRgb().value
+    //platformValue.toRgb().value
+    TODO()
