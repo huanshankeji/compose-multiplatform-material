@@ -4,11 +4,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Stable
 import com.huanshankeji.compose.ui.Alignment
 import com.huanshankeji.compose.ui.Modifier
-import com.varabyte.kobweb.compose.css.Width
+import com.huanshankeji.kobweb.compose.ui.modifiers.sizeFitContent
 import com.varabyte.kobweb.compose.foundation.layout.LayoutScopeMarker
 import com.varabyte.kobweb.compose.ui.modifiers.display
 import com.varabyte.kobweb.compose.ui.modifiers.flexDirection
-import com.varabyte.kobweb.compose.ui.modifiers.width
 import org.jetbrains.compose.web.css.DisplayStyle
 import org.jetbrains.compose.web.css.FlexDirection
 import com.varabyte.kobweb.compose.foundation.layout.ColumnScope as PlatformColumnScope
@@ -23,7 +22,7 @@ actual fun Column(
 ) =
     com.varabyte.kobweb.compose.foundation.layout.Column(
         PlatformModifier.display(DisplayStyle.Flex).flexDirection(FlexDirection.Column)
-            .width(Width.FitContent) // "fit-content" is added to make it consistent with the `androidx` one
+            .sizeFitContent() // "fit-content" is added to make it consistent with the `androidx` one
             .then(modifier.platformModifier),
         verticalArrangement.platformValue,
         horizontalAlignment.platformValue

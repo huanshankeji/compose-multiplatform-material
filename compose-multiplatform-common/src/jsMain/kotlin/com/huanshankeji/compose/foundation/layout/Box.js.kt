@@ -5,9 +5,11 @@ import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.Stable
 import com.huanshankeji.compose.ui.Alignment
 import com.huanshankeji.compose.ui.Modifier
+import com.huanshankeji.kobweb.compose.ui.modifiers.sizeFitContent
 import com.varabyte.kobweb.compose.foundation.layout.LayoutScopeMarker
 import com.varabyte.kobweb.compose.foundation.layout.Box as PlatformBox
 import com.varabyte.kobweb.compose.foundation.layout.BoxScope as PlatformBoxScope
+import com.varabyte.kobweb.compose.ui.Modifier as PlatformModifier
 
 @Composable
 actual fun Box(
@@ -16,13 +18,13 @@ actual fun Box(
     content: @Composable BoxScope.() -> Unit
 ) =
     PlatformBox(
-        modifier.platformModifier,
+        PlatformModifier.sizeFitContent().then(modifier.platformModifier),
         contentAlignment.platformValue,
     ) { BoxScope.Impl(this).content() }
 
 @Composable
 actual fun Box(modifier: Modifier) =
-    PlatformBox(modifier.platformModifier)
+    PlatformBox(PlatformModifier.sizeFitContent().then(modifier.platformModifier))
 
 @LayoutScopeMarker
 @Immutable

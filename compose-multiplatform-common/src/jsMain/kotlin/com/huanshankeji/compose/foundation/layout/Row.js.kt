@@ -4,6 +4,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Stable
 import com.huanshankeji.compose.ui.Alignment
 import com.huanshankeji.compose.ui.Modifier
+import com.huanshankeji.kobweb.compose.ui.modifiers.sizeFitContent
 import com.varabyte.kobweb.compose.foundation.layout.LayoutScopeMarker
 import com.varabyte.kobweb.compose.ui.modifiers.display
 import com.varabyte.kobweb.compose.ui.modifiers.flexDirection
@@ -22,6 +23,7 @@ actual fun Row(
 ) =
     com.varabyte.kobweb.compose.foundation.layout.Row(
         PlatformModifier.display(DisplayStyle.Flex).flexDirection(FlexDirection.Row)
+            .sizeFitContent()
             .then(modifier.platformModifier),
         horizontalArrangement.platformValue,
         verticalAlignment.platformValue
