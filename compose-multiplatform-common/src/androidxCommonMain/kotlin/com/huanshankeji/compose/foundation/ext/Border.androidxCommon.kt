@@ -26,12 +26,12 @@ actual fun Modifier.roundedCornerOuterBorder(border: BorderStroke, borderRadius:
     platformModify { border(border.toPlatformValue(), RoundedCornerShape(borderRadius)).padding(border.width) }
 
 @Stable
-actual fun Modifier.roundedCornerOuterBorder(width: Dp, color: Color, borderRadius: Dp): Modifier =
-    platformModify { border(width, color.platformValue, RoundedCornerShape(borderRadius)).padding(width) }
-
-@Stable
 actual fun Modifier.roundedCornerOuterBorder(border: BorderStroke, borderRadiusPercent: Int): Modifier =
     platformModify { border(border.toPlatformValue(), RoundedCornerShape(borderRadiusPercent)).padding(border.width) }
+
+@Stable
+actual fun Modifier.roundedCornerOuterBorder(width: Dp, color: Color, borderRadius: Dp): Modifier =
+    platformModify { border(width, color.platformValue, RoundedCornerShape(borderRadius)).padding(width) }
 
 @Stable
 actual fun Modifier.roundedCornerOuterBorder(width: Dp, color: Color, borderRadiusPercent: Int): Modifier =

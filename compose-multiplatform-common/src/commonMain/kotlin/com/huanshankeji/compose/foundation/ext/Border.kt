@@ -18,10 +18,10 @@ expect fun Modifier.outerBorder(width: Dp, color: Color): Modifier
 expect fun Modifier.roundedCornerOuterBorder(border: BorderStroke, borderRadius: Dp): Modifier
 
 @Stable
-expect fun Modifier.roundedCornerOuterBorder(width: Dp, color: Color, borderRadius: Dp): Modifier
+expect fun Modifier.roundedCornerOuterBorder(border: BorderStroke, borderRadiusPercent: Int): Modifier
 
 @Stable
-expect fun Modifier.roundedCornerOuterBorder(border: BorderStroke, borderRadiusPercent: Int): Modifier
+expect fun Modifier.roundedCornerOuterBorder(width: Dp, color: Color, borderRadius: Dp): Modifier
 
 @Stable
 expect fun Modifier.roundedCornerOuterBorder(width: Dp, color: Color, borderRadiusPercent: Int): Modifier

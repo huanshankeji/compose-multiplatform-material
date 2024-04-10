@@ -29,12 +29,12 @@ actual fun Modifier.roundedCornerOuterBorder(border: BorderStroke, borderRadius:
     outerBorder(border).borderRadius(borderRadius.toPx())
 
 @Stable
-actual fun Modifier.roundedCornerOuterBorder(width: Dp, color: Color, borderRadius: Dp): Modifier =
-    outerBorder(width, color).borderRadius(borderRadius.toPx())
-
-@Stable
 actual fun Modifier.roundedCornerOuterBorder(border: BorderStroke, borderRadiusPercent: Int): Modifier =
     outerBorder(border).borderRadius(borderRadiusPercent.percent)
+
+@Stable
+actual fun Modifier.roundedCornerOuterBorder(width: Dp, color: Color, borderRadius: Dp): Modifier =
+    outerBorder(width, color).borderRadius(borderRadius.toPx())
 
 @Stable
 actual fun Modifier.roundedCornerOuterBorder(width: Dp, color: Color, borderRadiusPercent: Int): Modifier =
