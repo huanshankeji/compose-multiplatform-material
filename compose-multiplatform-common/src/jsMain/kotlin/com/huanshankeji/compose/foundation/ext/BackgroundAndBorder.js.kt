@@ -8,25 +8,25 @@ import com.huanshankeji.compose.ui.Modifier
 import com.huanshankeji.compose.ui.graphics.Color
 
 @Stable
-actual fun Modifier.roundedCornerOuterBorderAndBackground(
+actual fun Modifier.roundedCornerBackgroundAndOuterBorder(
     border: BorderStroke, cornerRadius: Dp, backgroundColor: Color
 ): Modifier =
-    roundedCornerOuterBorder(border, cornerRadius).background(backgroundColor)
+    background(backgroundColor).roundedCornerOuterBorder(border, cornerRadius)
 
 @Stable
-actual fun Modifier.roundedCornerOuterBorderAndBackground(
+actual fun Modifier.roundedCornerBackgroundAndOuterBorder(
     border: BorderStroke, cornerRadiusPercent: Int, backgroundColor: Color
 ): Modifier =
-    roundedCornerOuterBorder(border, cornerRadiusPercent).background(backgroundColor)
+    background(backgroundColor).roundedCornerOuterBorder(border, cornerRadiusPercent)
 
 @Stable
-actual fun Modifier.roundedCornerOuterBorderAndBackground(
+actual fun Modifier.roundedCornerBackgroundAndOuterBorder(
     width: Dp, borderColor: Color, cornerRadius: Dp, backgroundColor: Color
 ): Modifier =
-    roundedCornerOuterBorder(width, borderColor, cornerRadius).background(backgroundColor)
+    background(backgroundColor).roundedCornerOuterBorder(width, borderColor, cornerRadius)
 
 @Stable
-actual fun Modifier.roundedCornerOuterBorderAndBackground(
+actual fun Modifier.roundedCornerBackgroundAndOuterBorder(
     width: Dp, borderColor: Color, cornerRadiusPercent: Int, backgroundColor: Color
 ): Modifier =
-    roundedCornerOuterBorder(width, borderColor, cornerRadiusPercent).background(backgroundColor)
+    background(backgroundColor).roundedCornerOuterBorder(width, borderColor, cornerRadiusPercent)

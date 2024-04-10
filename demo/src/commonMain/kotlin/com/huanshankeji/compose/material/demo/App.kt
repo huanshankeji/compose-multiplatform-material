@@ -6,7 +6,7 @@ import com.huanshankeji.compose.foundation.background
 import com.huanshankeji.compose.foundation.border
 import com.huanshankeji.compose.foundation.ext.outerBorder
 import com.huanshankeji.compose.foundation.ext.roundedCornerOuterBorder
-import com.huanshankeji.compose.foundation.ext.roundedCornerOuterBorderAndBackground
+import com.huanshankeji.compose.foundation.ext.roundedCornerBackgroundAndOuterBorder
 import com.huanshankeji.compose.foundation.layout.Box
 import com.huanshankeji.compose.foundation.layout.Column
 import com.huanshankeji.compose.foundation.layout.Row
@@ -88,7 +88,7 @@ fun App() {
 
                 val halfGreen = Color(0, 0x80, 0x00)
 
-                Row(Modifier.roundedCornerOuterBorderAndBackground(4.dp, Color.Blue, 16.dp, halfGreen)) {
+                Row(Modifier.roundedCornerBackgroundAndOuterBorder(4.dp, Color.Blue, 16.dp, halfGreen)) {
                     ColorBox(Color.Red)
                     ColorBox(Color(0xFF, 0, 0))
                     ColorBox(Color(0xFF, 0, 0, 0x80))
@@ -105,7 +105,7 @@ fun App() {
                     NestedColorBox(Modifier.roundedCornerOuterBorder(4.dp, Color.Blue, 16.dp))
                     NestedColorBox(Modifier.roundedCornerOuterBorder(1.dp, Color.Blue, 16.dp))
                     val transparentBlue = Color(0, 0, 0x80, 0x80)
-                    Box(Modifier.roundedCornerOuterBorderAndBackground(2.dp, transparentBlue, 16.dp, halfGreen)) {
+                    Box(Modifier.roundedCornerBackgroundAndOuterBorder(2.dp, transparentBlue, 16.dp, halfGreen)) {
                         ColorBox(Color.Red)
                     }
                 }
