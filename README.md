@@ -20,7 +20,10 @@ This project is prototype and there is no documentation yet. Check out [the demo
 #### Common (Foundation) components
 
 - `BasicText`
-- `RawText`
+
+##### `ext` components
+
+- `InlineBasicText`
 
 ##### Layouts
 
@@ -56,9 +59,20 @@ The functions in `StyleScope`:
 - `platformBorder`
 - `outerBorder`
 
-### Modifier functions
+### Modifiers
 
-- `size`
+- size modifiers
+   - `size`, `sizeIn`, `fillMaxSize`
+   - `width`, `widthIn`, `fillMaxWidth`
+   - `height`, `heightIn`, `fillMaxHeight`
+- `padding`
+- `background`
+- `border` (visually inconsistent)
+
+#### `ext` modifiers
+
+- `outerBorder`
+- `roundedCornerBackgroundAndOuterBorder`
 
 ## Add the libraries to your dependency
 
