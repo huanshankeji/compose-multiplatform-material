@@ -7,9 +7,14 @@ plugins {
 
 kotlin {
     sourceSets {
+        /*
+        Use `api`. See:
+        https://github.com/JetBrains/compose-multiplatform-core/blob/jb-main/compose/foundation/foundation/build.gradle
+        https://android.googlesource.com/platform/frameworks/support/+/refs/heads/androidx-main/compose/foundation/foundation/build.gradle
+        */
         commonMain {
             dependencies {
-                implementation(compose.runtime)
+                api(compose.runtime)
                 //compileOnly(compose.foundation) // for KDoc element links only
                 /*
                 The units from Compose are used directly.
@@ -25,16 +30,14 @@ kotlin {
         }
         androidxCommonMain {
             dependencies {
-                implementation(compose.foundation)
+                api(compose.foundation)
             }
         }
         jsMain {
             dependencies {
-                implementation(compose.html.core)
-
-                // TODO or use `api`
-                // TODO use the artifacts `silk-foundation` or `kobweb-compose` if they provide enough APIs already
-                implementation("com.varabyte.kobweb:kobweb-silk:${DependencyVersions.kobweb}")
+                api(compose.html.core)
+                // see: https://github.com/varabyte/kobweb/blob/main/frontend/kobweb-compose/build.gradle.kts
+                api("com.varabyte.kobweb:kobweb-compose:${DependencyVersions.kobweb}")
             }
         }
     }

@@ -7,10 +7,16 @@ plugins {
 
 kotlin {
     sourceSets {
+        /*
+        Use `api`. See:
+        https://github.com/JetBrains/compose-multiplatform-core/blob/jb-main/compose/material/material/build.gradle
+        https://android.googlesource.com/platform/frameworks/support/+/refs/heads/androidx-main/compose/material/material/build.gradle
+        */
         commonMain {
             dependencies {
-                implementation(compose.runtime)
-                api(project(":compose-multiplatform-common::compose-multiplatform-common-legacy")) // TODO depend on the non-legacy module
+                api(compose.runtime)
+                api(project(":compose-multiplatform-common:compose-multiplatform-common-legacy")) // TODO remove
+                api(project(":compose-multiplatform-common"))
                 //compileOnly(compose.material) // for KDoc element links only
             }
         }
