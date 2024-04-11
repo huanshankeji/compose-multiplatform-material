@@ -5,11 +5,12 @@ import androidx.compose.ui.unit.dp
 import com.huanshankeji.compose.foundation.background
 import com.huanshankeji.compose.foundation.border
 import com.huanshankeji.compose.foundation.ext.outerBorder
-import com.huanshankeji.compose.foundation.ext.roundedCornerOuterBorder
 import com.huanshankeji.compose.foundation.ext.roundedCornerBackgroundAndOuterBorder
+import com.huanshankeji.compose.foundation.ext.roundedCornerOuterBorder
 import com.huanshankeji.compose.foundation.layout.Box
 import com.huanshankeji.compose.foundation.layout.Column
 import com.huanshankeji.compose.foundation.layout.Row
+import com.huanshankeji.compose.foundation.layout.RowScope
 import com.huanshankeji.compose.foundation.text.BasicText
 import com.huanshankeji.compose.layout.padding
 import com.huanshankeji.compose.layout.size
@@ -20,6 +21,7 @@ import com.huanshankeji.compose.ui.graphics.Color
 import com.huanshankeji.compose.ui.height
 import com.huanshankeji.compose.ui.unit.dpOrPx
 import com.huanshankeji.compose.ui.width
+import com.huanshankeji.compose.material.ext.Button as ExtButton
 
 @OptIn(ConfusableTextApi::class)
 @Composable
@@ -51,7 +53,13 @@ fun App() {
                 val onClick: () -> Unit = { count++ }
 
                 Row {
-                    Button(onClick) {
+                    val buttonContent: @Composable RowScope.() -> Unit = {
+                        Text(count.toString())
+                    }
+                    Button(onClick, content = buttonContent)
+                    OutlinedButton(onClick, content = buttonContent)
+                    TextButton(onClick, content = buttonContent)
+                    ExtButton(onClick) {
                         Label(count.toString())
                     }
                     IconButton(onClick, materialIcon = MaterialIcons.Add, contentDescription = "increment count")

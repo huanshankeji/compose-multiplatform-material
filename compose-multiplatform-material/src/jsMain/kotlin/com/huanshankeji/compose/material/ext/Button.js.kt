@@ -1,16 +1,30 @@
-package com.huanshankeji.compose.material
+package com.huanshankeji.compose.material.ext
 
 import androidx.compose.runtime.Composable
-import com.huanshankeji.compose.material.ButtonType.*
-import com.huanshankeji.compose.ui.ModifierOrAttrs
-import com.huanshankeji.compose.ui.toAttrs
+import com.huanshankeji.compose.material.ext.ButtonType.*
+import com.huanshankeji.compose.ui.Modifier
 import com.huanshankeji.compose.web.attributes.attrs
 import com.huanshankeji.compose.web.attributes.plus
+import com.varabyte.kobweb.compose.ui.toAttrs
 import dev.petuska.kmdc.button.Label
 import dev.petuska.kmdc.button.MDCButton
 import dev.petuska.kmdc.button.MDCButtonScope
 import dev.petuska.kmdc.button.MDCButtonType
 import org.w3c.dom.HTMLButtonElement
+
+@Composable
+actual fun Button(
+    onClick: () -> Unit,
+    buttonType: ButtonType,
+    modifier: Modifier,
+    content: @Composable ButtonScope.() -> Unit
+) =
+    MDCButton(buttonType.toMDCButtonType(),
+        attrs = attrs<ButtonElement> {
+            onClick { onClick() }
+        } + modifier.platformModifier.toAttrs()) {
+        ButtonScope(this).content()
+    }
 
 actual class ButtonScope(val mdcButtonScope: MDCButtonScope<HTMLButtonElement>) {
     @Composable
@@ -26,18 +40,3 @@ fun ButtonType.toMDCButtonType() =
         Outlined -> MDCButtonType.Outlined
         Text -> MDCButtonType.Text
     }
-
-@Composable
-actual fun Button(
-    onClick: () -> Unit,
-    buttonType: ButtonType,
-    modifierOrAttrs: ModifierOrAttrs<ButtonElement>,
-    content: @Composable ButtonScope.() -> Unit
-) =
-    MDCButton(buttonType.toMDCButtonType(),
-        attrs = attrs<ButtonElement> {
-            onClick { onClick() }
-        } + modifierOrAttrs.toAttrs()) {
-        ButtonScope(this).content()
-    }
-
