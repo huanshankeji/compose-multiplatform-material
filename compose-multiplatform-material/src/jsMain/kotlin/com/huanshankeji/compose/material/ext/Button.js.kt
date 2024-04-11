@@ -20,7 +20,7 @@ actual fun Button(
     content: @Composable ButtonScope.() -> Unit
 ) =
     MDCButton(buttonType.toMDCButtonType(),
-        attrs = attrs<ButtonElement> {
+        attrs = attrs<HTMLButtonElement> {
             onClick { onClick() }
         } + modifier.platformModifier.toAttrs()) {
         ButtonScope(this).content()
@@ -31,8 +31,6 @@ actual class ButtonScope(val mdcButtonScope: MDCButtonScope<HTMLButtonElement>) 
     actual fun Label(text: String) =
         mdcButtonScope.Label(text)
 }
-
-actual typealias ButtonElement = HTMLButtonElement
 
 fun ButtonType.toMDCButtonType() =
     when (this) {

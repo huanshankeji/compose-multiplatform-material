@@ -5,7 +5,6 @@ import androidx.compose.material.OutlinedButton
 import androidx.compose.material.TextButton
 import androidx.compose.runtime.Composable
 import com.huanshankeji.compose.material.ext.ButtonType.*
-import com.huanshankeji.compose.ui.Element
 import com.huanshankeji.compose.ui.Modifier
 
 @Suppress("NAME_SHADOWING")
@@ -30,5 +29,3 @@ actual class ButtonScope(val rowScope: RowScope) {
     actual fun Label(text: String) =
         androidx.compose.material.Text(text)
 }
-
-actual abstract class ButtonElement : Element()
