@@ -26,8 +26,7 @@ kotlin {
         }
         jsMain {
             dependencies {
-                //implementation("com.huanshankeji:compose-web-common:${DependencyVersions.huanshankejiComposeWeb}") // TODO remove
-                implementation(npm("@material/web", DependencyVersions.materialWeb))
+                api("com.huanshankeji:compose-html-material3:${DependencyVersions.huanshankejiComposeHtml}")
             }
         }
     }

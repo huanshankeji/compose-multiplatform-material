@@ -22,7 +22,7 @@ kotlin {
             dependencies {
                 implementation(compose.html.core)
 
-                api("com.huanshankeji:compose-web-common:${DependencyVersions.huanshankejiComposeWeb}")
+                api("com.huanshankeji:compose-web-common:${DependencyVersions.huanshankejiComposeHtml}")
             }
         }
     }
