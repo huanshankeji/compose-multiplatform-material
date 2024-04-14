@@ -22,6 +22,8 @@ import com.huanshankeji.compose.ui.height
 import com.huanshankeji.compose.ui.unit.dpOrPx
 import com.huanshankeji.compose.ui.width
 import com.huanshankeji.compose.material.ext.Button as ExtButton
+import com.huanshankeji.compose.material3.Button as M3Button
+import com.huanshankeji.compose.material3.ext.Button as M3ExtButton
 
 @OptIn(ConfusableTextApi::class)
 @Composable
@@ -52,17 +54,23 @@ fun App() {
                 var count by remember { mutableStateOf(0) }
                 val onClick: () -> Unit = { count++ }
 
+                val buttonContent: @Composable () -> Unit = {
+                    Text(count.toString()) // TODO use `com.huanshankeji.compose.material(3).ext.InlineText`
+                }
+                val rowScopeButtonContent: @Composable RowScope.() -> Unit = { buttonContent()}
+
                 Row {
-                    val buttonContent: @Composable RowScope.() -> Unit = {
-                        Text(count.toString())
-                    }
-                    Button(onClick, content = buttonContent)
-                    OutlinedButton(onClick, content = buttonContent)
-                    TextButton(onClick, content = buttonContent)
+                    Button(onClick, content = rowScopeButtonContent)
+                    OutlinedButton(onClick, content = rowScopeButtonContent)
+                    TextButton(onClick, content = rowScopeButtonContent)
                     ExtButton(onClick) {
                         Label(count.toString())
                     }
                     IconButton(onClick, materialIcon = MaterialIcons.Add, contentDescription = "increment count")
+                }
+                Row {
+                    M3Button(onClick, content = rowScopeButtonContent)
+                    M3ExtButton(onClick) { buttonContent() }
                 }
 
                 Box(Modifier.padding(16.dp)) {

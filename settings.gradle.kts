@@ -4,6 +4,7 @@ include("compose-multiplatform-common") // TODO consider splitting into several 
 include("compose-multiplatform-common:legacy")
 project(":compose-multiplatform-common:legacy").name = "compose-multiplatform-common-legacy"
 include("compose-multiplatform-material")
+include("compose-multiplatform-material3")
 include("demo")
 
 

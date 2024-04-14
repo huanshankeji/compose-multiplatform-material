@@ -9,4 +9,6 @@ object DependencyVersions {
         val activityCompose = "1.8.2"
         val compose = "1.6.4"
     }
+
+    val materialWeb = "1.4.0"
 }

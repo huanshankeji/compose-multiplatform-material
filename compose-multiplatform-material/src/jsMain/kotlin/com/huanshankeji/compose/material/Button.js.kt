@@ -6,11 +6,25 @@ import com.huanshankeji.compose.foundation.layout.RowScope
 import com.huanshankeji.compose.material.ext.ButtonType
 import com.huanshankeji.compose.material.ext.toMDCButtonType
 import com.huanshankeji.compose.ui.Modifier
-import com.huanshankeji.compose.web.attributes.attrs
-import com.huanshankeji.compose.web.attributes.plus
 import com.varabyte.kobweb.compose.ui.toAttrs
 import dev.petuska.kmdc.button.MDCButton
+import dev.petuska.kmdc.button.MDCButtonScope
 import org.w3c.dom.HTMLButtonElement
+
+@Composable
+internal fun CommonButton(
+    onClick: () -> Unit,
+    buttonType: ButtonType,
+    modifier: Modifier,
+    content: @Composable MDCButtonScope<HTMLButtonElement>.() -> Unit
+) =
+    MDCButton(
+        buttonType.toMDCButtonType(),
+        attrs = modifier.platformModifier.toAttrs {
+            onClick { onClick() }
+        },
+        content = content
+    )
 
 @Composable
 private fun Button(
@@ -19,10 +33,7 @@ private fun Button(
     modifier: Modifier,
     content: @Composable RowScope.() -> Unit
 ) =
-    MDCButton(buttonType.toMDCButtonType(),
-        attrs = attrs<HTMLButtonElement> {
-            onClick { onClick() }
-        } + modifier.platformModifier.toAttrs()) {
+    CommonButton(onClick, buttonType, modifier) {
         Row(content = content)
     }
 

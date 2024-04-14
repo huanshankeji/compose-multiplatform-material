@@ -42,6 +42,10 @@ This project is prototype and there is no documentation yet. Check out [the demo
 - `TextField`
 - `TopAppBarScaffold`
 
+#### Material 3 components
+
+- `Button`
+
 #### Components in the `ext` packages
 
 The components in the `ext` packages don't follow the `androidx.compose` APIs exactly, but rather provide wrappers are idiomatic and conventional on both kinds of targets, wrapping different APIs which can't be unified following the `androidx.compose` APIs.

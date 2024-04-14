@@ -1,13 +1,10 @@
 package com.huanshankeji.compose.material.ext
 
 import androidx.compose.runtime.Composable
+import com.huanshankeji.compose.material.CommonButton
 import com.huanshankeji.compose.material.ext.ButtonType.*
 import com.huanshankeji.compose.ui.Modifier
-import com.huanshankeji.compose.web.attributes.attrs
-import com.huanshankeji.compose.web.attributes.plus
-import com.varabyte.kobweb.compose.ui.toAttrs
 import dev.petuska.kmdc.button.Label
-import dev.petuska.kmdc.button.MDCButton
 import dev.petuska.kmdc.button.MDCButtonScope
 import dev.petuska.kmdc.button.MDCButtonType
 import org.w3c.dom.HTMLButtonElement
@@ -19,10 +16,7 @@ actual fun Button(
     modifier: Modifier,
     content: @Composable ButtonScope.() -> Unit
 ) =
-    MDCButton(buttonType.toMDCButtonType(),
-        attrs = attrs<HTMLButtonElement> {
-            onClick { onClick() }
-        } + modifier.platformModifier.toAttrs()) {
+    CommonButton(onClick, buttonType, modifier) {
         ButtonScope(this).content()
     }
 
