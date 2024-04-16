@@ -11,10 +11,10 @@ import com.huanshankeji.compose.ui.toModifier
 actual abstract class ListElement : Element()
 
 actual class ListScope(val lazyListScope: LazyListScope) {
-    actual fun itemInternal(key: Any?, contentType: Any?, content: @Composable ItemScope.() -> Unit) =
+    actual fun item(key: Any?, contentType: Any?, content: @Composable ItemScope.() -> Unit) =
         lazyListScope.item(key, contentType) { ItemScope(this).content() }
 
-    actual fun itemsInternal(
+    actual fun items(
         count: Int,
         key: ((index: Int) -> Any)?,
         contentType: (index: Int) -> Any?,
@@ -23,7 +23,7 @@ actual class ListScope(val lazyListScope: LazyListScope) {
         lazyListScope.items(count, key, contentType) { ItemScope(this).itemContent(it) }
 
     @OptIn(ExperimentalFoundationApi::class)
-    actual fun groupInternal(
+    actual fun group(
         key: Any?,
         contentType: Any?,
         headerContent: @Composable HeaderScope.() -> Unit,
