@@ -12,7 +12,7 @@ expect abstract class ListElement : Element
 expect class ListScope {
     /*
     There is a compiler bug of calling the functions below with default arguments.
-    TODO: report this and put the issue link here
+    The issue link (already resolved): https://github.com/JetBrains/compose-multiplatform/issues/2806
      */
 
     internal fun itemInternal(key: Any? = null, contentType: Any? = null, content: @Composable ItemScope.() -> Unit)
