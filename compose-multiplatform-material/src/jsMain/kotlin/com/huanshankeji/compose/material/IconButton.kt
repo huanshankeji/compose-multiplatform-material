@@ -1,21 +1,17 @@
 package com.huanshankeji.compose.material
 
 import androidx.compose.runtime.Composable
-import com.huanshankeji.compose.ui.ModifierOrAttrs
-import com.huanshankeji.compose.ui.toAttrs
-import com.huanshankeji.compose.web.attributes.attrs
-import com.huanshankeji.compose.web.attributes.plus
+import com.huanshankeji.compose.ui.Modifier
+import com.varabyte.kobweb.compose.ui.toAttrs
 import dev.petuska.kmdc.icon.button.MDCIconButton
-import org.w3c.dom.HTMLButtonElement
 
-actual typealias IconButtonElement = HTMLButtonElement
 
 @Composable
 actual fun IconButton(
     onClick: () -> Unit,
-    modifierOrAttrs: ModifierOrAttrs<IconButtonElement>,
+    modifier: Modifier,
     content: @Composable () -> Unit
 ) =
-    MDCIconButton(attrs = attrs<IconButtonElement> {
+    MDCIconButton(attrs = modifier.platformModifier.toAttrs {
         onClick { onClick() }
-    } + modifierOrAttrs.toAttrs()) { content() }
+    }) { content() }
