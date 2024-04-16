@@ -5,7 +5,6 @@ import com.huanshankeji.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.toAttrs
 import dev.petuska.kmdc.icon.button.MDCIconButton
 
-
 @Composable
 actual fun IconButton(
     onClick: () -> Unit,
@@ -15,3 +14,15 @@ actual fun IconButton(
     MDCIconButton(attrs = modifier.platformModifier.toAttrs {
         onClick { onClick() }
     }) { content() }
+
+/*
+@Composable
+actual fun IconToggleButton(
+    checked: Boolean,
+    onCheckedChange: (Boolean) -> Unit,
+    modifier: Modifier,
+    content: @Composable () -> Unit
+) =
+    // `MDCIconButtonToggle` is not a composable
+    TODO() as Unit
+*/

@@ -9,3 +9,15 @@ expect fun IconButton(
     modifier: Modifier = Modifier,
     content: @Composable () -> Unit
 )
+
+/*
+// not available on JS
+@Composable
+expect fun IconToggleButton(
+    checked: Boolean,
+    onCheckedChange: (Boolean) -> Unit,
+    modifier: Modifier = Modifier,
+    content: @Composable () -> Unit
+)
+*/
+

@@ -10,3 +10,14 @@ actual fun IconButton(
     content: @Composable () -> Unit
 ) =
     androidx.compose.material.IconButton(onClick, modifier.platformModifier, content = content)
+
+/*
+@Composable
+actual fun IconToggleButton(
+    checked: Boolean,
+    onCheckedChange: (Boolean) -> Unit,
+    modifier: Modifier,
+    content: @Composable () -> Unit
+) =
+    androidx.compose.material.IconToggleButton(checked, onCheckedChange, modifier.platformModifier, content = content)
+*/
