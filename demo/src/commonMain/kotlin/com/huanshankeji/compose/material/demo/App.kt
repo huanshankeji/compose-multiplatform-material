@@ -28,7 +28,6 @@ import com.huanshankeji.compose.ui.height
 import com.huanshankeji.compose.ui.unit.dpOrPx
 import com.huanshankeji.compose.material.ext.Button as ExtButton
 
-@OptIn(ConfusableTextApi::class)
 @Composable
 fun App() {
     TopAppBarScaffold({
