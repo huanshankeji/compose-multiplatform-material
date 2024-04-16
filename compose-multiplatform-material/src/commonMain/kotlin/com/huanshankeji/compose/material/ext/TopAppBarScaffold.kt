@@ -1,7 +1,8 @@
-package com.huanshankeji.compose.material
+package com.huanshankeji.compose.material.ext
 
 import androidx.compose.runtime.Composable
 import com.huanshankeji.compose.material.icons.Icon
+import com.huanshankeji.compose.ui.Modifier
 
 expect class NavigationIconScope {
     @Composable
@@ -22,6 +23,7 @@ expect class TopAppBarActionsScope {
 @Composable
 expect fun TopAppBarScaffold(
     title: @Composable () -> Unit,
+    topAppBarModifier: Modifier = Modifier,
     navigationIcon: @Composable (NavigationIconScope.() -> Unit)? = null,
     actions: @Composable TopAppBarActionsScope.() -> Unit = {},
     content: @Composable () -> Unit

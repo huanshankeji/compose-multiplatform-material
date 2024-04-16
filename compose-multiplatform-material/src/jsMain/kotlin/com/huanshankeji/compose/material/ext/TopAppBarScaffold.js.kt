@@ -1,7 +1,10 @@
-package com.huanshankeji.compose.material
+package com.huanshankeji.compose.material.ext
 
 import androidx.compose.runtime.Composable
+import com.huanshankeji.compose.material.contentDescription
 import com.huanshankeji.compose.material.icons.Icon
+import com.huanshankeji.compose.ui.Modifier
+import com.varabyte.kobweb.compose.ui.toAttrs
 import dev.petuska.kmdc.top.app.bar.*
 import dev.petuska.kmdcx.icons.mdcIcon
 import org.jetbrains.compose.web.dom.Text
@@ -35,12 +38,13 @@ actual class TopAppBarActionsScope(val mdcTopAppBarSectionScope: MDCTopAppBarSec
 @Composable
 actual fun TopAppBarScaffold(
     title: @Composable () -> Unit,
+    topAppBarModifier: Modifier,
     navigationIcon: @Composable (NavigationIconScope.() -> Unit)?,
     actions: @Composable TopAppBarActionsScope.() -> Unit,
     content: @Composable () -> Unit
 ) =
     MDCTopAppBar {
-        TopAppBar {
+        TopAppBar(topAppBarModifier.platformModifier.toAttrs()) {
             Row {
                 Section(align = MDCTopAppBarSectionAlign.Start) {
                     navigationIcon?.let { NavigationIconScope(this@Section).it() }

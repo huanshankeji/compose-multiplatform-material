@@ -18,6 +18,7 @@ import com.huanshankeji.compose.layout.size
 import com.huanshankeji.compose.layout.width
 import com.huanshankeji.compose.material.*
 import com.huanshankeji.compose.material.ext.IconButton
+import com.huanshankeji.compose.material.ext.TopAppBarScaffold
 import com.huanshankeji.compose.material.icons.Icons
 import com.huanshankeji.compose.material.icons.filled.Add
 import com.huanshankeji.compose.material.icons.filled.Menu
@@ -32,9 +33,9 @@ import com.huanshankeji.compose.material.ext.Button as ExtButton
 fun App() {
     TopAppBarScaffold({
         Text("Compose Multiplatform Material demo")
-    }, {
+    }, navigationIcon = {
         MaterialIconNavButton({}, Icons.Default.Menu, "menu")
-    }, {
+    }, actions = {
         MaterialIconActionButton({}, Icons.Default.Search, "search")
     }) {
         /*
