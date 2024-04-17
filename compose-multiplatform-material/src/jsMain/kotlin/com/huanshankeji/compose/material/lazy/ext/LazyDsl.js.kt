@@ -1,10 +1,8 @@
-package com.huanshankeji.compose.material
+package com.huanshankeji.compose.material.lazy.ext
 
 import androidx.compose.runtime.Composable
-import com.huanshankeji.compose.ui.ModifierOrAttrs
-import com.huanshankeji.compose.ui.toAttrs
-import com.huanshankeji.compose.web.attributes.attrs
-import com.huanshankeji.compose.web.attributes.plus
+import com.huanshankeji.compose.ui.Modifier
+import com.varabyte.kobweb.compose.ui.toAttrs
 import dev.petuska.kmdc.list.MDCList
 import dev.petuska.kmdc.list.MDCListGroup
 import dev.petuska.kmdc.list.MDCListScope
@@ -17,13 +15,11 @@ import org.w3c.dom.HTMLHeadingElement
 import org.w3c.dom.HTMLLIElement
 import org.w3c.dom.HTMLUListElement
 
-actual typealias ListElement = HTMLUListElement
-
 /**
  * This class contains mutable fields.
  * @see androidx.compose.foundation.lazy.LazyListScopeImpl
  */
-actual class ListScope(
+actual class LazyListScope(
     val mdcListScope: MDCListScope<HTMLUListElement>
 ) {
     private var composables: MutableList<@Composable () -> Unit>? = null
@@ -33,7 +29,7 @@ actual class ListScope(
 
     /** Add the composable functions with the non-composable functions and then invoke them. */
     @Composable
-    fun ComposableRun(content: ListScope.() -> Unit) {
+    fun ComposableRun(content: LazyListScope.() -> Unit) {
         composables = mutableListOf()
         content()
         for (composable in composables!!)
@@ -42,18 +38,18 @@ actual class ListScope(
     }
 
 
-    actual fun item(key: Any?, contentType: Any?, content: @Composable ItemScope.() -> Unit) = addComposable {
-        mdcListScope.ListItem { ItemScope(this).content() }
+    actual fun item(key: Any?, contentType: Any?, content: @Composable LazyItemScope.() -> Unit) = addComposable {
+        mdcListScope.ListItem { LazyItemScope(this).content() }
     }
 
     actual fun items(
         count: Int,
         key: ((index: Int) -> Any)?,
         contentType: (index: Int) -> Any?,
-        itemContent: @Composable ItemScope.(index: Int) -> Unit
+        itemContent: @Composable LazyItemScope.(index: Int) -> Unit
     ) = addComposable {
         repeat(count) { i ->
-            mdcListScope.ListItem { ItemScope(this).itemContent(i) }
+            mdcListScope.ListItem { LazyItemScope(this).itemContent(i) }
         }
     }
 
@@ -61,29 +57,29 @@ actual class ListScope(
         key: Any?,
         contentType: Any?,
         headerContent: @Composable HeaderScope.() -> Unit,
-        content: ListScope.() -> Unit
+        content: LazyListScope.() -> Unit
     ) = addComposable {
         MDCListGroup {
             Subheader {
                 HeaderScope(this).headerContent()
             }
             MDCList {
-                ListScope(this).ComposableRun(content)
+                LazyListScope(this).ComposableRun(content)
             }
         }
     }
 }
 
-actual class ItemScope(val mdcListItemScope: MDCListItemScope<HTMLLIElement>)
-actual class HeaderScope(val elementScope: ElementScope<HTMLHeadingElement>)
+actual class LazyItemScope(val mdcListItemScope: MDCListItemScope<HTMLLIElement>)
+actual class HeaderScope(val headingElementScope: ElementScope<HTMLHeadingElement>)
 
 @Composable
-actual fun ScrollableList(modifierOrAttrs: ModifierOrAttrs<ListElement>, content: ListScope.() -> Unit) =
-    MDCList(attrs = attrs<ListElement> {
+actual fun LazyColumn(modifier: Modifier, content: LazyListScope.() -> Unit) =
+    MDCList(attrs = modifier.platformModifier.toAttrs {
         style {
             //overflowY("scroll")
             overflowY("auto")
         }
-    } + modifierOrAttrs.toAttrs()) {
-        ListScope(this).ComposableRun(content)
+    }) {
+        LazyListScope(this).ComposableRun(content)
     }

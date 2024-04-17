@@ -23,10 +23,9 @@ import com.huanshankeji.compose.material.icons.Icons
 import com.huanshankeji.compose.material.icons.filled.Add
 import com.huanshankeji.compose.material.icons.filled.Menu
 import com.huanshankeji.compose.material.icons.filled.Search
+import com.huanshankeji.compose.material.lazy.ext.LazyColumn
 import com.huanshankeji.compose.ui.Modifier
 import com.huanshankeji.compose.ui.graphics.Color
-import com.huanshankeji.compose.ui.height
-import com.huanshankeji.compose.ui.unit.dpOrPx
 import com.huanshankeji.compose.material.ext.Button as ExtButton
 
 @Composable
@@ -65,11 +64,7 @@ fun App() {
                 }
 
                 Box(Modifier.padding(16.dp)) {
-                    ScrollableList({
-                        style {
-                            height(100.dpOrPx)
-                        }
-                    }) {
+                    LazyColumn(Modifier.height(100.dp)) {
                         item {
                             Text("Ungrouped item")
                         }
