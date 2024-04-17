@@ -1,50 +1,110 @@
+import org.jetbrains.kotlin.gradle.targets.js.dsl.ExperimentalWasmDsl
+
 plugins {
     `common-conventions`
+    id("com.android.application")
 }
 
 kotlin {
-    js(IR) {
+    androidTarget()
+
+    listOf(
+        iosX64(),
+        iosArm64(),
+        iosSimulatorArm64()
+    ).forEach { iosTarget ->
+        iosTarget.binaries.framework {
+            baseName = "ComposeApp"
+            isStatic = true
+        }
+    }
+
+    val outputFileName = "app.js"
+
+    @OptIn(ExperimentalWasmDsl::class)
+    wasmJs {
         browser {
             commonWebpackConfig {
-                outputFileName = "app.js"
+                this.outputFileName = outputFileName
+            }
+        }
+        binaries.executable()
+    }
+
+    js {
+        browser {
+            commonWebpackConfig {
+                cssSupport { enabled.set(true) }
+                scssSupport { enabled.set(true) }
+                this.outputFileName = outputFileName
             }
         }
         binaries.executable()
     }
 
     sourceSets {
-        named("commonMain") {
+        commonMain {
             dependencies {
                 implementation(compose.runtime)
                 implementation(project(":compose-multiplatform-material"))
             }
         }
-        named("jvmMain") {
+        jvmMain {
             dependencies {
                 implementation(compose.desktop.currentOs)
             }
         }
-        named("jsMain") {
+        androidMain {
+            dependencies {
+                // TODO consider putting this in `androidxCommonMain`
+                implementation(compose.ui)
+
+                implementation("androidx.activity:activity-compose:${DependencyVersions.Androidx.activityCompose}")
+                implementation("androidx.compose.ui:ui-tooling-preview:${DependencyVersions.Androidx.compose}")
+            }
+        }
+        iosMain {
+            dependencies {
+                implementation(compose.ui)
+            }
+        }
+        wasmJsMain {
+            dependencies {
+                implementation(compose.ui)
+            }
+        }
+        jsMain {
             dependencies {
                 implementation(compose.html.core)
-
-                // copied from https://github.com/mpetuska/kmdc
-
-                // SCSS dependencies
-                implementation(devNpm("style-loader", "^3.3.1"))
-                implementation(devNpm("css-loader", "^6.7.1"))
-                implementation(devNpm("sass-loader", "^13.0.0"))
-                implementation(devNpm("sass", "^1.52.1"))
-
-
-                implementation(npm("material-icons", "1.13.1"))
             }
         }
     }
 }
 
-compose.desktop {
-    application {
-        mainClass = "com.huanshankeji.compose.material.demo.MainKt"
+val `package` = "$group.compose.material.demo"
+
+compose {
+    desktop {
+        application {
+            mainClass = "$`package`.MainKt"
+        }
+    }
+
+    experimental {
+        web.application {}
+    }
+}
+
+android {
+    namespace = `package`
+
+    val sdk = 34
+    compileSdk = sdk
+
+    defaultConfig {
+        applicationId = `package`
+        minSdk = 24
+        targetSdk = sdk
+        versionName = version as String
     }
 }

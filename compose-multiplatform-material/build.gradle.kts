@@ -7,21 +7,26 @@ plugins {
 
 kotlin {
     sourceSets {
-        val commonMain by getting {
+        /*
+        Use `api`. See:
+        https://github.com/JetBrains/compose-multiplatform-core/blob/jb-main/compose/material/material/build.gradle
+        https://android.googlesource.com/platform/frameworks/support/+/refs/heads/androidx-main/compose/material/material/build.gradle
+        */
+        commonMain {
             dependencies {
-                implementation(compose.runtime)
+                api(compose.runtime)
+                implementation("org.jetbrains.compose.annotation-internal:annotation:${DependencyVersions.composeMultiplatform}")
                 api(project(":compose-multiplatform-common"))
                 //compileOnly(compose.material) // for KDoc element links only
             }
         }
-        // TODO: a `jvmCommon` source set to share code for `jvm`/`desktop` and `android`
-        named("jvmMain") {
+        androidxCommonMain {
             dependencies {
                 //implementation(compose.foundation) // not needed
                 implementation(compose.material)
             }
         }
-        named("jsMain") {
+        jsMain {
             dependencies {
                 // copied from https://github.com/mpetuska/kmdc
 

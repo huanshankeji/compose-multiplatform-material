@@ -1,25 +1,23 @@
 package com.huanshankeji.compose.material
 
 import androidx.compose.runtime.Composable
-import com.huanshankeji.compose.material.icon.MaterialIcon
-import com.huanshankeji.compose.ui.Element
-import com.huanshankeji.compose.ui.ModifierOrAttrs
-
-expect abstract class IconButtonElement : Element
+import com.huanshankeji.compose.ui.Modifier
 
 @Composable
 expect fun IconButton(
     onClick: () -> Unit,
-    modifierOrAttrs: ModifierOrAttrs<IconButtonElement> = null,
+    modifier: Modifier = Modifier,
     content: @Composable () -> Unit
 )
 
-
+/*
+// not available on JS
 @Composable
-fun IconButton(
-    onClick: () -> Unit,
-    modifierOrAttrs: ModifierOrAttrs<IconButtonElement> = null,
-    materialIcon: MaterialIcon,
-    contentDescription: String?
-) =
-    IconButton(onClick, modifierOrAttrs) { Icon(materialIcon, contentDescription) }
+expect fun IconToggleButton(
+    checked: Boolean,
+    onCheckedChange: (Boolean) -> Unit,
+    modifier: Modifier = Modifier,
+    content: @Composable () -> Unit
+)
+*/
+
