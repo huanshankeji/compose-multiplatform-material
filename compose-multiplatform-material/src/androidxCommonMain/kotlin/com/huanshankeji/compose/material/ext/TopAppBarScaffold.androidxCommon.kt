@@ -1,10 +1,13 @@
-package com.huanshankeji.compose.material
+package com.huanshankeji.compose.material.ext
 
 import androidx.compose.foundation.layout.RowScope
 import androidx.compose.material.Scaffold
 import androidx.compose.material.TopAppBar
 import androidx.compose.runtime.Composable
-import com.huanshankeji.compose.material.icon.MaterialIcon
+import com.huanshankeji.compose.material.Icon
+import com.huanshankeji.compose.material.IconButton
+import com.huanshankeji.compose.material.icons.Icon
+import com.huanshankeji.compose.ui.Modifier
 
 actual class NavigationIconScope private constructor() {
     @Composable
@@ -12,8 +15,8 @@ actual class NavigationIconScope private constructor() {
         IconButton(onClick, content = content)
 
     @Composable
-    actual fun MaterialIconNavButton(onClick: () -> Unit, materialIcon: MaterialIcon, contentDescription: String?) =
-        IconButton(onClick) { Icon(materialIcon, contentDescription) }
+    actual fun MaterialIconNavButton(onClick: () -> Unit, icon: Icon, contentDescription: String?) =
+        IconButton(onClick) { Icon(icon, contentDescription) }
 
     companion object {
         val instance = NavigationIconScope()
@@ -26,21 +29,23 @@ actual class TopAppBarActionsScope(val rowScope: RowScope) {
         IconButton(onClick, content = content)
 
     @Composable
-    actual fun MaterialIconActionButton(onClick: () -> Unit, materialIcon: MaterialIcon, contentDescription: String?) =
-        IconButton(onClick) { Icon(materialIcon, contentDescription) }
+    actual fun MaterialIconActionButton(onClick: () -> Unit, icon: Icon, contentDescription: String?) =
+        IconButton(onClick) { Icon(icon, contentDescription) }
 
 }
 
 @Composable
 actual fun TopAppBarScaffold(
     title: @Composable () -> Unit,
+    topAppBarModifier: Modifier,
     navigationIcon: @Composable (NavigationIconScope.() -> Unit)?,
     actions: @Composable TopAppBarActionsScope.() -> Unit,
     content: @Composable () -> Unit
 ) =
     Scaffold(topBar = {
         TopAppBar(
-            title = title,
-            navigationIcon = navigationIcon?.let { { NavigationIconScope.instance.it() } },
-            actions = { TopAppBarActionsScope(this).actions() })
+            title,
+            topAppBarModifier.platformModifier,
+            navigationIcon?.let { { NavigationIconScope.instance.it() } },
+            { TopAppBarActionsScope(this).actions() })
     }) { content() }

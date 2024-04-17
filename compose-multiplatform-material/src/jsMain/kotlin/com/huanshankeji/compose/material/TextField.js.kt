@@ -1,27 +1,23 @@
 package com.huanshankeji.compose.material
 
 import androidx.compose.runtime.Composable
-import com.huanshankeji.compose.ui.ModifierOrAttrs
-import com.huanshankeji.compose.ui.toAttrs
+import com.huanshankeji.compose.ui.Modifier
+import com.varabyte.kobweb.compose.ui.toAttrs
 import dev.petuska.kmdc.textfield.MDCTextField
-import org.w3c.dom.HTMLInputElement
-
-actual typealias TextFieldElement = HTMLInputElement
 
 @Composable
 actual fun TextField(
     value: String,
     onValueChange: (String) -> Unit,
-    modifierOrAttrs: ModifierOrAttrs<TextFieldElement>,
+    modifier: Modifier,
     enabled: Boolean,
     label: String?,
     leadingIcon: @Composable (() -> Unit)?,
     trailingIcon: @Composable (() -> Unit)?,
 ) =
     MDCTextField(value,
-        attrs = {
+        attrs = modifier.platformModifier.toAttrs {
             onInput { onValueChange(it.value) }
-            modifierOrAttrs.toAttrs()?.let { it() }
         },
         disabled = !enabled,
         label = label,

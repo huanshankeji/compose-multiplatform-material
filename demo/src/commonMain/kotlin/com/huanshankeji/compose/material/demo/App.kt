@@ -12,40 +12,38 @@ import com.huanshankeji.compose.foundation.layout.Column
 import com.huanshankeji.compose.foundation.layout.Row
 import com.huanshankeji.compose.foundation.layout.RowScope
 import com.huanshankeji.compose.foundation.text.BasicText
+import com.huanshankeji.compose.layout.height
 import com.huanshankeji.compose.layout.padding
 import com.huanshankeji.compose.layout.size
+import com.huanshankeji.compose.layout.width
 import com.huanshankeji.compose.material.*
-import com.huanshankeji.compose.material.icon.MaterialIcons
+import com.huanshankeji.compose.material.ext.IconButton
+import com.huanshankeji.compose.material.ext.TopAppBarScaffold
+import com.huanshankeji.compose.material.icons.Icons
+import com.huanshankeji.compose.material.icons.filled.Add
+import com.huanshankeji.compose.material.icons.filled.Menu
+import com.huanshankeji.compose.material.icons.filled.Search
+import com.huanshankeji.compose.material.lazy.ext.LazyColumn
 import com.huanshankeji.compose.ui.Modifier
 import com.huanshankeji.compose.ui.graphics.Color
-import com.huanshankeji.compose.ui.height
-import com.huanshankeji.compose.ui.unit.dpOrPx
-import com.huanshankeji.compose.ui.width
 import com.huanshankeji.compose.material.ext.Button as ExtButton
 import com.huanshankeji.compose.material3.Button as M3Button
 import com.huanshankeji.compose.material3.ext.Button as M3ExtButton
 
-@OptIn(ConfusableTextApi::class)
 @Composable
 fun App() {
     TopAppBarScaffold({
         Text("Compose Multiplatform Material demo")
-    }, {
-        MaterialIconNavButton({}, MaterialIcons.Menu, "menu")
-    }, {
-        MaterialIconActionButton({}, MaterialIcons.Search, "search")
+    }, navigationIcon = {
+        MaterialIconNavButton({}, Icons.Default.Menu, "menu")
+    }, actions = {
+        MaterialIconActionButton({}, Icons.Default.Search, "search")
     }) {
         /*
         // TODO use this
         Modifier.padding(16.dp).height(800.dp).width(400.dp)
         */
-        Card({
-            style {
-                margin(16.dpOrPx)
-                height(800.dpOrPx)
-                width(400.dpOrPx)
-            }
-        }) {
+        Card(Modifier.padding(16.dp).height(800.dp).width(400.dp)) {
             Column(Modifier.padding(16.dp)) {
                 BasicText("basic text 1")
                 BasicText("basic text 2")
@@ -66,7 +64,7 @@ fun App() {
                     ExtButton(onClick) {
                         Label(count.toString())
                     }
-                    IconButton(onClick, materialIcon = MaterialIcons.Add, contentDescription = "increment count")
+                    IconButton(onClick, icon = Icons.Default.Add, contentDescription = "increment count")
                 }
                 Row {
                     M3Button(onClick, content = rowScopeButtonContent)
@@ -74,11 +72,7 @@ fun App() {
                 }
 
                 Box(Modifier.padding(16.dp)) {
-                    ScrollableList({
-                        style {
-                            height(100.dpOrPx)
-                        }
-                    }) {
+                    LazyColumn(Modifier.height(100.dp)) {
                         item {
                             Text("Ungrouped item")
                         }
@@ -130,8 +124,8 @@ fun App() {
                 TextField(
                     text, { text = it },
                     label = "Demo text field",
-                    leadingIcon = { Icon(MaterialIcons.Add, null) },
-                    trailingIcon = { Icon(MaterialIcons.Menu, null) })
+                    leadingIcon = { Icon(Icons.Default.Add, null) },
+                    trailingIcon = { Icon(Icons.Default.Menu, null) })
             }
         }
     }

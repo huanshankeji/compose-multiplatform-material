@@ -1,7 +1,10 @@
-package com.huanshankeji.compose.material
+package com.huanshankeji.compose.material.ext
 
 import androidx.compose.runtime.Composable
-import com.huanshankeji.compose.material.icon.MaterialIcon
+import com.huanshankeji.compose.material.contentDescription
+import com.huanshankeji.compose.material.icons.Icon
+import com.huanshankeji.compose.ui.Modifier
+import com.varabyte.kobweb.compose.ui.toAttrs
 import dev.petuska.kmdc.top.app.bar.*
 import dev.petuska.kmdcx.icons.mdcIcon
 import org.jetbrains.compose.web.dom.Text
@@ -12,11 +15,11 @@ actual class NavigationIconScope(val mdcTopAppBarSectionScope: MDCTopAppBarSecti
         mdcTopAppBarSectionScope.NavButton(attrs = { onClick { onClick() } }) { content() }
 
     @Composable
-    actual fun MaterialIconNavButton(onClick: () -> Unit, materialIcon: MaterialIcon, contentDescription: String?) =
+    actual fun MaterialIconNavButton(onClick: () -> Unit, icon: Icon, contentDescription: String?) =
         mdcTopAppBarSectionScope.NavButton(attrs = {
             mdcIcon()
             contentDescription(contentDescription)
-        }) { Text(materialIcon.mdcIcon.type) }
+        }) { Text(icon.mdcIcon.type) }
 }
 
 actual class TopAppBarActionsScope(val mdcTopAppBarSectionScope: MDCTopAppBarSectionScope) {
@@ -25,22 +28,23 @@ actual class TopAppBarActionsScope(val mdcTopAppBarSectionScope: MDCTopAppBarSec
         mdcTopAppBarSectionScope.ActionButton(attrs = { onClick { onClick() } }) { content() }
 
     @Composable
-    actual fun MaterialIconActionButton(onClick: () -> Unit, materialIcon: MaterialIcon, contentDescription: String?) =
+    actual fun MaterialIconActionButton(onClick: () -> Unit, icon: Icon, contentDescription: String?) =
         mdcTopAppBarSectionScope.ActionButton(attrs = {
             mdcIcon()
             contentDescription(contentDescription)
-        }) { Text(materialIcon.mdcIcon.type) }
+        }) { Text(icon.mdcIcon.type) }
 }
 
 @Composable
 actual fun TopAppBarScaffold(
     title: @Composable () -> Unit,
+    topAppBarModifier: Modifier,
     navigationIcon: @Composable (NavigationIconScope.() -> Unit)?,
     actions: @Composable TopAppBarActionsScope.() -> Unit,
     content: @Composable () -> Unit
 ) =
     MDCTopAppBar {
-        TopAppBar {
+        TopAppBar(topAppBarModifier.platformModifier.toAttrs()) {
             Row {
                 Section(align = MDCTopAppBarSectionAlign.Start) {
                     navigationIcon?.let { NavigationIconScope(this@Section).it() }
