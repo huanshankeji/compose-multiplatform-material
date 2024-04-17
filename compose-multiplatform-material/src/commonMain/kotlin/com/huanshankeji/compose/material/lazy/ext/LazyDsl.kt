@@ -1,10 +1,9 @@
 package com.huanshankeji.compose.material.lazy.ext
 
-//import androidx.compose.foundation.lazy.LazyListScope
 import androidx.compose.runtime.Composable
 import com.huanshankeji.compose.ui.Modifier
 
-/** @see LazyListScope */
+/** @see androidx.compose.foundation.lazy.LazyListScope */
 expect class LazyListScope {
     fun item(key: Any? = null, contentType: Any? = null, content: @Composable LazyItemScope.() -> Unit)
 
