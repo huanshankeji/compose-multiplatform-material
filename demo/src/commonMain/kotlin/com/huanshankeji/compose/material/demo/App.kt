@@ -1,66 +1,70 @@
 package com.huanshankeji.compose.material.demo
 
 import androidx.compose.runtime.*
-import com.huanshankeji.compose.BasicText
-import com.huanshankeji.compose.layout.Box
-import com.huanshankeji.compose.layout.Column
-import com.huanshankeji.compose.layout.Row
+import androidx.compose.ui.unit.dp
+import com.huanshankeji.compose.foundation.background
+import com.huanshankeji.compose.foundation.border
+import com.huanshankeji.compose.foundation.ext.outerBorder
+import com.huanshankeji.compose.foundation.ext.roundedCornerBackgroundAndOuterBorder
+import com.huanshankeji.compose.foundation.ext.roundedCornerOuterBorder
+import com.huanshankeji.compose.foundation.layout.Box
+import com.huanshankeji.compose.foundation.layout.Column
+import com.huanshankeji.compose.foundation.layout.Row
+import com.huanshankeji.compose.foundation.layout.RowScope
+import com.huanshankeji.compose.foundation.text.BasicText
+import com.huanshankeji.compose.layout.height
+import com.huanshankeji.compose.layout.padding
+import com.huanshankeji.compose.layout.size
+import com.huanshankeji.compose.layout.width
 import com.huanshankeji.compose.material.*
-import com.huanshankeji.compose.material.icon.MaterialIcons
-import com.huanshankeji.compose.ui.color.Color
-import com.huanshankeji.compose.ui.color.Colors
-import com.huanshankeji.compose.ui.color.rgbColor
-import com.huanshankeji.compose.ui.color.rgbaColor
-import com.huanshankeji.compose.ui.height
-import com.huanshankeji.compose.ui.unit.dpOrPx
-import com.huanshankeji.compose.ui.width
+import com.huanshankeji.compose.material.ext.IconButton
+import com.huanshankeji.compose.material.ext.TopAppBarScaffold
+import com.huanshankeji.compose.material.icons.Icons
+import com.huanshankeji.compose.material.icons.filled.Add
+import com.huanshankeji.compose.material.icons.filled.Menu
+import com.huanshankeji.compose.material.icons.filled.Search
+import com.huanshankeji.compose.material.lazy.ext.LazyColumn
+import com.huanshankeji.compose.ui.Modifier
+import com.huanshankeji.compose.ui.graphics.Color
+import com.huanshankeji.compose.material.ext.Button as ExtButton
 
-@OptIn(ConfusableTextApi::class)
 @Composable
 fun App() {
     TopAppBarScaffold({
         Text("Compose Multiplatform Material demo")
-    }, {
-        MaterialIconNavButton({}, MaterialIcons.Menu, "menu")
-    }, {
-        MaterialIconActionButton({}, MaterialIcons.Search, "search")
+    }, navigationIcon = {
+        MaterialIconNavButton({}, Icons.Default.Menu, "menu")
+    }, actions = {
+        MaterialIconActionButton({}, Icons.Default.Search, "search")
     }) {
-        Card({
-            style {
-                margin(16.dpOrPx)
-                val size = 400.dpOrPx
-                height(size)
-                width(size)
-            }
-        }) {
-            Column({
-                style {
-                    margin(16.dpOrPx)
-                }
-            }) {
-                BasicText("basic text")
+        /*
+        // TODO use this
+        Modifier.padding(16.dp).height(800.dp).width(400.dp)
+        */
+        Card(Modifier.padding(16.dp).height(800.dp).width(400.dp)) {
+            Column(Modifier.padding(16.dp)) {
+                BasicText("basic text 1")
+                BasicText("basic text 2")
                 Text("Material text")
 
                 var count by remember { mutableStateOf(0) }
                 val onClick: () -> Unit = { count++ }
 
                 Row {
-                    Button(onClick) {
+                    val buttonContent: @Composable RowScope.() -> Unit = {
+                        Text(count.toString())
+                    }
+                    Button(onClick, content = buttonContent)
+                    OutlinedButton(onClick, content = buttonContent)
+                    TextButton(onClick, content = buttonContent)
+                    ExtButton(onClick) {
                         Label(count.toString())
                     }
-                    IconButton(onClick, materialIcon = MaterialIcons.Add, contentDescription = "increment count")
+                    IconButton(onClick, icon = Icons.Default.Add, contentDescription = "increment count")
                 }
 
-                Box({
-                    style {
-                        margin(16.dpOrPx)
-                    }
-                }) {
-                    ScrollableList({
-                        style {
-                            height(100.dpOrPx)
-                        }
-                    }) {
+                Box(Modifier.padding(16.dp)) {
+                    LazyColumn(Modifier.height(100.dp)) {
                         item {
                             Text("Ungrouped item")
                         }
@@ -80,38 +84,40 @@ fun App() {
                     }
                 }
 
-                Row({
-                    style {
-                        // The order of function calls can't be changed!
-                        roundedCornerOuterBorder(4.dpOrPx, Colors.blue, 16.dpOrPx)
-                        backgroundColor(rgbColor(0U, 0x80U, 0x00U))
-                    }
-                }) {
-                    @Composable
-                    fun DemoSquare(color: Color) =
-                        Box({
-                            style {
-                                // The order of function calls can't be changed!
-                                margin(8.dpOrPx)
-                                backgroundColor(color)
-                                val size = 40.dpOrPx
-                                height(size)
-                                width(size)
-                            }
-                        }) {}
+                @Composable
+                fun ColorBox(color: Color) =
+                    Box(Modifier.padding(8.dp).background(color).size(40.dp))
 
-                    DemoSquare(Colors.red)
-                    DemoSquare(rgbColor(0xFFU, 0U, 0U))
-                    DemoSquare(rgbaColor(0xFFU, 0U, 0U, 0x80U))
-                    DemoSquare(rgbaColor(0xFFU, 0U, 0U, 0.5F))
+                val halfGreen = Color(0, 0x80, 0x00)
+
+                Row(Modifier.roundedCornerBackgroundAndOuterBorder(4.dp, Color.Blue, 16.dp, halfGreen)) {
+                    ColorBox(Color.Red)
+                    ColorBox(Color(0xFF, 0, 0))
+                    ColorBox(Color(0xFF, 0, 0, 0x80))
+                    ColorBox(Color(1f, 0f, 0f, 0.5f))
+                }
+
+                Row {
+                    @Composable
+                    fun NestedColorBox(modifier: Modifier) =
+                        Box(modifier.background(halfGreen)) { ColorBox(Color.Red) }
+
+                    NestedColorBox(Modifier.border(4.dp, Color.Blue))
+                    NestedColorBox(Modifier.outerBorder(4.dp, Color.Blue))
+                    NestedColorBox(Modifier.roundedCornerOuterBorder(4.dp, Color.Blue, 16.dp))
+                    NestedColorBox(Modifier.roundedCornerOuterBorder(1.dp, Color.Blue, 16.dp))
+                    val transparentBlue = Color(0, 0, 0x80, 0x80)
+                    Box(Modifier.roundedCornerBackgroundAndOuterBorder(2.dp, transparentBlue, 16.dp, halfGreen)) {
+                        ColorBox(Color.Red)
+                    }
                 }
 
                 var text by remember { mutableStateOf("") }
                 TextField(
                     text, { text = it },
                     label = "Demo text field",
-                    leadingIcon = { Icon(MaterialIcons.Add, null) },
-                    trailingIcon = { Icon(MaterialIcons.Menu, null) })
+                    leadingIcon = { Icon(Icons.Default.Add, null) },
+                    trailingIcon = { Icon(Icons.Default.Menu, null) })
             }
         }
     }
