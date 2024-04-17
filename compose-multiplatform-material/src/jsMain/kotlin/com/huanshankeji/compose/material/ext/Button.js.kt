@@ -3,8 +3,6 @@ package com.huanshankeji.compose.material.ext
 import androidx.compose.runtime.Composable
 import com.huanshankeji.compose.material.ext.ButtonType.*
 import com.huanshankeji.compose.ui.Modifier
-import com.huanshankeji.compose.web.attributes.attrs
-import com.huanshankeji.compose.web.attributes.plus
 import com.varabyte.kobweb.compose.ui.toAttrs
 import dev.petuska.kmdc.button.Label
 import dev.petuska.kmdc.button.MDCButton
@@ -20,9 +18,9 @@ actual fun Button(
     content: @Composable ButtonScope.() -> Unit
 ) =
     MDCButton(buttonType.toMDCButtonType(),
-        attrs = attrs<HTMLButtonElement> {
+        attrs = modifier.platformModifier.toAttrs {
             onClick { onClick() }
-        } + modifier.platformModifier.toAttrs()) {
+        }) {
         ButtonScope(this).content()
     }
 

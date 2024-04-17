@@ -16,7 +16,6 @@ kotlin {
             dependencies {
                 api(compose.runtime)
                 implementation("org.jetbrains.compose.annotation-internal:annotation:${DependencyVersions.composeMultiplatform}")
-                api(project(":compose-multiplatform-common:compose-multiplatform-common-legacy")) // TODO remove
                 api(project(":compose-multiplatform-common"))
                 //compileOnly(compose.material) // for KDoc element links only
             }
