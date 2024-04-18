@@ -11,7 +11,6 @@ import com.huanshankeji.compose.foundation.layout.Box
 import com.huanshankeji.compose.foundation.layout.Column
 import com.huanshankeji.compose.foundation.layout.Row
 import com.huanshankeji.compose.foundation.layout.RowScope
-import com.huanshankeji.compose.foundation.onClick
 import com.huanshankeji.compose.foundation.text.BasicText
 import com.huanshankeji.compose.layout.height
 import com.huanshankeji.compose.layout.padding
@@ -19,6 +18,8 @@ import com.huanshankeji.compose.layout.size
 import com.huanshankeji.compose.layout.width
 import com.huanshankeji.compose.material.*
 import com.huanshankeji.compose.material.ext.IconButton
+import com.huanshankeji.compose.material.ext.RadioGroupRow
+import com.huanshankeji.compose.material.ext.RadioRow
 import com.huanshankeji.compose.material.ext.TopAppBarScaffold
 import com.huanshankeji.compose.material.icons.Icons
 import com.huanshankeji.compose.material.icons.filled.Add
@@ -122,18 +123,10 @@ fun App() {
 
 
                 var selected by remember { mutableStateOf(RadioButtonState.A) }
-                // TODO `Modifier.selectableGroup()`, see https://developer.android.com/reference/kotlin/androidx/compose/material/package-summary#RadioButton(kotlin.Boolean,kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Boolean,androidx.compose.foundation.interaction.MutableInteractionSource,androidx.compose.material.RadioButtonColors)
-                Column {
+                RadioGroupRow {
                     @Composable
                     fun RadioButtonRow(state: RadioButtonState) =
-                        // TODO `Modifier.selectable()`
-                        Row(Modifier.onClick { selected = state } /* TODO put in `Modifier.selectable` */) {
-                            RadioButton(selected == state, {})
-                            // TODO put center vertically
-                            Text(
-                                text = state.toString()
-                            )
-                        }
+                        RadioRow(selected == state, state.toString(), { selected = state })
                     RadioButtonState.entries.forEach { RadioButtonRow(it) }
                 }
             }
