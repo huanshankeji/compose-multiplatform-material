@@ -37,10 +37,6 @@ fun App() {
     }, actions = {
         MaterialIconActionButton({}, Icons.Default.Search, "search")
     }) {
-        /*
-        // TODO use this
-        Modifier.padding(16.dp).height(800.dp).width(400.dp)
-        */
         Card(Modifier.padding(16.dp).height(800.dp).width(400.dp)) {
             Column(Modifier.padding(16.dp)) {
                 BasicText("basic text 1")
