@@ -116,7 +116,17 @@ fun App() {
                     text, { text = it },
                     label = "Demo text field",
                     leadingIcon = { Icon(Icons.Default.Add, null) },
-                    trailingIcon = { Icon(Icons.Default.Menu, null) })
+                    trailingIcon = { Icon(Icons.Default.Menu, null) },
+                    singleLine = true
+                )
+                OutlinedTextField(
+                    text, { text = it },
+                    label = "Demo text field",
+                    leadingIcon = { Icon(Icons.Default.Add, null) },
+                    trailingIcon = { Icon(Icons.Default.Menu, null) },
+                    singleLine = true
+                )
+                TextArea(text, { text = it }, label = "Demo text field", lines = 3)
 
                 var selected by remember { mutableStateOf(RadioButtonState.A) }
                 RadioGroupRow {
