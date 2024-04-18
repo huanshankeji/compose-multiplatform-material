@@ -11,6 +11,7 @@ import com.huanshankeji.compose.foundation.layout.Box
 import com.huanshankeji.compose.foundation.layout.Column
 import com.huanshankeji.compose.foundation.layout.Row
 import com.huanshankeji.compose.foundation.layout.RowScope
+import com.huanshankeji.compose.foundation.onClick
 import com.huanshankeji.compose.foundation.text.BasicText
 import com.huanshankeji.compose.layout.height
 import com.huanshankeji.compose.layout.padding
@@ -126,11 +127,8 @@ fun App() {
                     @Composable
                     fun RadioButtonRow(state: RadioButtonState) =
                         // TODO `Modifier.selectable()`
-                        Row {
-                            RadioButton(
-                                selected == state,
-                                { selected = state } // TODO put in the `Row` `modifier`
-                            )
+                        Row(Modifier.onClick { selected = state } /* TODO put in `Modifier.selectable` */) {
+                            RadioButton(selected == state, {})
                             // TODO put center vertically
                             Text(
                                 text = state.toString()
