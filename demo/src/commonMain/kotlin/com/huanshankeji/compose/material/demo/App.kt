@@ -121,7 +121,6 @@ fun App() {
                     leadingIcon = { Icon(Icons.Default.Add, null) },
                     trailingIcon = { Icon(Icons.Default.Menu, null) })
 
-
                 var selected by remember { mutableStateOf(RadioButtonState.A) }
                 RadioGroupRow {
                     @Composable
@@ -129,6 +128,9 @@ fun App() {
                         RadioRow(selected == state, state.toString(), { selected = state })
                     RadioButtonState.entries.forEach { RadioButtonRow(it) }
                 }
+
+                var checked by remember { mutableStateOf(false) }
+                Checkbox(checked, { checked = it })
             }
         }
     }
