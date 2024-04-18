@@ -1,4 +1,4 @@
-val projectVersion = "0.2.0-SNAPSHOT"
+val projectVersion = "0.3.0-SNAPSHOT"
 
 object DependencyVersions {
     val composeMultiplatform = "1.6.1" // manually specified for `ui-unit`
