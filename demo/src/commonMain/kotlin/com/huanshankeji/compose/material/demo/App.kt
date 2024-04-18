@@ -17,10 +17,7 @@ import com.huanshankeji.compose.layout.padding
 import com.huanshankeji.compose.layout.size
 import com.huanshankeji.compose.layout.width
 import com.huanshankeji.compose.material.*
-import com.huanshankeji.compose.material.ext.IconButton
-import com.huanshankeji.compose.material.ext.RadioGroupRow
-import com.huanshankeji.compose.material.ext.RadioRow
-import com.huanshankeji.compose.material.ext.TopAppBarScaffold
+import com.huanshankeji.compose.material.ext.*
 import com.huanshankeji.compose.material.icons.Icons
 import com.huanshankeji.compose.material.icons.filled.Add
 import com.huanshankeji.compose.material.icons.filled.Menu
@@ -129,8 +126,12 @@ fun App() {
                     RadioButtonState.entries.forEach { RadioButtonRow(it) }
                 }
 
-                var checked by remember { mutableStateOf(false) }
-                Checkbox(checked, { checked = it })
+                Row {
+                    var checked by remember { mutableStateOf(false) }
+                    Checkbox(checked, { checked = it })
+                    Switch(checked, { checked = it })
+                    SwitchWithLabel(checked, { checked = it }, "Switch")
+                }
             }
         }
     }

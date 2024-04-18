@@ -5,6 +5,7 @@ import com.huanshankeji.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.toAttrs
 import dev.petuska.kmdc.checkbox.MDCCheckbox
 
+// https://github.com/mpetuska/kmdc/blob/master/sandbox/src/jsMain/showcases/MDCCheckbox.kt
 @Composable
 actual fun Checkbox(
     checked: Boolean,
