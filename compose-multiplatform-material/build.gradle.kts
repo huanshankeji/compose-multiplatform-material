@@ -7,9 +7,15 @@ plugins {
 
 kotlin {
     sourceSets {
+        /*
+        Use `api`. See:
+        https://github.com/JetBrains/compose-multiplatform-core/blob/jb-main/compose/material/material/build.gradle
+        https://android.googlesource.com/platform/frameworks/support/+/refs/heads/androidx-main/compose/material/material/build.gradle
+        */
         commonMain {
             dependencies {
-                implementation(compose.runtime)
+                api(compose.runtime)
+                implementation("org.jetbrains.compose.annotation-internal:annotation:${DependencyVersions.composeMultiplatform}")
                 api(project(":compose-multiplatform-common"))
                 //compileOnly(compose.material) // for KDoc element links only
             }
