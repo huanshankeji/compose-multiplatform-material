@@ -40,6 +40,7 @@ This project is prototype and there is no documentation yet. Check out [the demo
 - `LazyColumn`/`ScrollableList` (visually inconsistent for now)
 - `Text`/`MaterialText`
 - `TextField`
+- `Checkbox`
 
 ##### `ext` components
 
@@ -47,6 +48,8 @@ This project is prototype and there is no documentation yet. Check out [the demo
 - `IconButton`
 - `TopAppBarScaffold`
 - `InlineText`
+- `RadioRow`
+- `RadioGroupRow`
 
 #### Components in the `ext` packages
 

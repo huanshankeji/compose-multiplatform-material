@@ -17,8 +17,7 @@ import com.huanshankeji.compose.layout.padding
 import com.huanshankeji.compose.layout.size
 import com.huanshankeji.compose.layout.width
 import com.huanshankeji.compose.material.*
-import com.huanshankeji.compose.material.ext.IconButton
-import com.huanshankeji.compose.material.ext.TopAppBarScaffold
+import com.huanshankeji.compose.material.ext.*
 import com.huanshankeji.compose.material.icons.Icons
 import com.huanshankeji.compose.material.icons.filled.Add
 import com.huanshankeji.compose.material.icons.filled.Menu
@@ -27,6 +26,10 @@ import com.huanshankeji.compose.material.lazy.ext.LazyColumn
 import com.huanshankeji.compose.ui.Modifier
 import com.huanshankeji.compose.ui.graphics.Color
 import com.huanshankeji.compose.material.ext.Button as ExtButton
+
+private enum class RadioButtonState {
+    A, B, C
+}
 
 @Composable
 fun App() {
@@ -113,7 +116,32 @@ fun App() {
                     text, { text = it },
                     label = "Demo text field",
                     leadingIcon = { Icon(Icons.Default.Add, null) },
-                    trailingIcon = { Icon(Icons.Default.Menu, null) })
+                    trailingIcon = { Icon(Icons.Default.Menu, null) },
+                    singleLine = true
+                )
+                OutlinedTextField(
+                    text, { text = it },
+                    label = "Demo text field",
+                    leadingIcon = { Icon(Icons.Default.Add, null) },
+                    trailingIcon = { Icon(Icons.Default.Menu, null) },
+                    singleLine = true
+                )
+                TextArea(text, { text = it }, label = "Demo text field", lines = 3)
+
+                var selected by remember { mutableStateOf(RadioButtonState.A) }
+                RadioGroupRow {
+                    @Composable
+                    fun RadioButtonRow(state: RadioButtonState) =
+                        RadioRow(selected == state, state.toString(), { selected = state })
+                    RadioButtonState.entries.forEach { RadioButtonRow(it) }
+                }
+
+                Row {
+                    var checked by remember { mutableStateOf(false) }
+                    Checkbox(checked, { checked = it })
+                    Switch(checked, { checked = it })
+                    SwitchWithLabel(checked, { checked = it }, "Switch")
+                }
             }
         }
     }
