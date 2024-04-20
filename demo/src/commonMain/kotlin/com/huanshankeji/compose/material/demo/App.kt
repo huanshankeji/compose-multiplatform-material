@@ -17,8 +17,7 @@ import com.huanshankeji.compose.layout.padding
 import com.huanshankeji.compose.layout.size
 import com.huanshankeji.compose.layout.width
 import com.huanshankeji.compose.material.*
-import com.huanshankeji.compose.material.ext.IconButton
-import com.huanshankeji.compose.material.ext.TopAppBarScaffold
+import com.huanshankeji.compose.material.ext.*
 import com.huanshankeji.compose.material.icons.Icons
 import com.huanshankeji.compose.material.icons.filled.Add
 import com.huanshankeji.compose.material.icons.filled.Menu
@@ -30,6 +29,10 @@ import com.huanshankeji.compose.material.ext.Button as ExtButton
 import com.huanshankeji.compose.material3.Button as M3Button
 import com.huanshankeji.compose.material3.ext.Button as M3ExtButton
 
+private enum class RadioButtonState {
+    A, B, C
+}
+
 @Composable
 fun App() {
     TopAppBarScaffold({
@@ -39,10 +42,6 @@ fun App() {
     }, actions = {
         MaterialIconActionButton({}, Icons.Default.Search, "search")
     }) {
-        /*
-        // TODO use this
-        Modifier.padding(16.dp).height(800.dp).width(400.dp)
-        */
         Card(Modifier.padding(16.dp).height(800.dp).width(400.dp)) {
             Column(Modifier.padding(16.dp)) {
                 BasicText("basic text 1")
@@ -125,7 +124,32 @@ fun App() {
                     text, { text = it },
                     label = "Demo text field",
                     leadingIcon = { Icon(Icons.Default.Add, null) },
-                    trailingIcon = { Icon(Icons.Default.Menu, null) })
+                    trailingIcon = { Icon(Icons.Default.Menu, null) },
+                    singleLine = true
+                )
+                OutlinedTextField(
+                    text, { text = it },
+                    label = "Demo text field",
+                    leadingIcon = { Icon(Icons.Default.Add, null) },
+                    trailingIcon = { Icon(Icons.Default.Menu, null) },
+                    singleLine = true
+                )
+                TextArea(text, { text = it }, label = "Demo text field", lines = 3)
+
+                var selected by remember { mutableStateOf(RadioButtonState.A) }
+                RadioGroupRow {
+                    @Composable
+                    fun RadioButtonRow(state: RadioButtonState) =
+                        RadioRow(selected == state, state.toString(), { selected = state })
+                    RadioButtonState.entries.forEach { RadioButtonRow(it) }
+                }
+
+                Row {
+                    var checked by remember { mutableStateOf(false) }
+                    Checkbox(checked, { checked = it })
+                    Switch(checked, { checked = it })
+                    SwitchWithLabel(checked, { checked = it }, "Switch")
+                }
             }
         }
     }
