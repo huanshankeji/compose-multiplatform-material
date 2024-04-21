@@ -1,5 +1,6 @@
 package com.huanshankeji.compose.foundation.layout
 
+import androidx.annotation.FloatRange
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Stable
 import com.huanshankeji.compose.ui.Alignment
@@ -15,6 +16,12 @@ expect fun Row(
 
 //@LayoutScopeMarker
 expect interface RowScope {
+    @Stable
+    open fun Modifier.weight(
+        @FloatRange(from = 0.0, fromInclusive = false)
+        weight: Float
+    ): Modifier
+
     @Stable
     open fun Modifier.align(alignment: Alignment.Vertical): Modifier
 }
