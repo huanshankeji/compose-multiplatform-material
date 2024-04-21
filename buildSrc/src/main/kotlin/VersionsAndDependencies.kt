@@ -1,3 +1,5 @@
+val projectVersion = "0.3.0-SNAPSHOT"
+
 object DependencyVersions {
     val composeMultiplatform = "1.6.1" // manually specified for `ui-unit`
     val kobweb = "0.17.1"

@@ -14,7 +14,7 @@ repositories {
 }
 
 group = "com.huanshankeji"
-version = "0.2.0-SNAPSHOT"
+version = projectVersion
 
 kotlin {
     // for `androidx.compose`
