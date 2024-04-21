@@ -1,5 +1,6 @@
 package com.huanshankeji.compose.foundation.layout
 
+import androidx.annotation.FloatRange
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Stable
 import com.huanshankeji.compose.ui.Alignment
@@ -34,6 +35,13 @@ actual interface RowScope {
     val platformValue: PlatformRowScope
 
     value class Impl(override val platformValue: PlatformRowScope) : RowScope
+
+    @Stable
+    actual fun Modifier.weight(
+        @FloatRange(from = 0.0, fromInclusive = false)
+        weight: Float
+    ): Modifier =
+        with(platformValue) { platformModify { weight(weight) } }
 
     @Stable
     actual fun Modifier.align(alignment: Alignment.Vertical): Modifier =
