@@ -17,5 +17,6 @@ fun Modifier.size(width: Width, height: Height): Modifier =
     width(width).height(height)
 
 
+//TODO consider removing and inlining this
 fun Modifier.sizeFitContent() =
     size(Width.FitContent, Height.FitContent)
