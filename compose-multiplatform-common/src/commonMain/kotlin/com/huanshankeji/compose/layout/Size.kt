@@ -46,10 +46,10 @@ expect fun Modifier.fillMaxHeight(@FloatRange(from = 0.0, to = 1.0) fraction: Fl
 expect fun Modifier.fillMaxSize(@FloatRange(from = 0.0, to = 1.0) fraction: Float = 1f): Modifier
 
 @Stable
-expect fun Modifier.wrapContentWidth() : Modifier
+expect fun Modifier.wrapContentWidth(): Modifier
 
 @Stable
-expect fun Modifier.wrapContentHeight() : Modifier
+expect fun Modifier.wrapContentHeight(): Modifier
 
 @Stable
-expect fun Modifier.wrapContentSize() : Modifier
+expect fun Modifier.wrapContentSize(): Modifier
