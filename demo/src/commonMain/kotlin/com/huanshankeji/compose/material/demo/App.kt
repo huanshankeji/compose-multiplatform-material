@@ -12,10 +12,7 @@ import com.huanshankeji.compose.foundation.layout.Column
 import com.huanshankeji.compose.foundation.layout.Row
 import com.huanshankeji.compose.foundation.layout.RowScope
 import com.huanshankeji.compose.foundation.text.BasicText
-import com.huanshankeji.compose.layout.height
-import com.huanshankeji.compose.layout.padding
-import com.huanshankeji.compose.layout.size
-import com.huanshankeji.compose.layout.width
+import com.huanshankeji.compose.layout.*
 import com.huanshankeji.compose.material.*
 import com.huanshankeji.compose.material.ext.*
 import com.huanshankeji.compose.material.icons.Icons
@@ -27,12 +24,35 @@ import com.huanshankeji.compose.ui.Modifier
 import com.huanshankeji.compose.ui.graphics.Color
 import com.huanshankeji.compose.material.ext.Button as ExtButton
 
+@Composable
+fun App() {
+    Column(Modifier.background(Color.Green).width(400.dp)) {
+        val coloredModifier = Modifier.background(Color.Red)
+
+        @Composable
+        fun ColoredRow(content: @Composable () -> Unit) = Row(coloredModifier) { content() }
+
+        val text = "some text"
+        Text(text, coloredModifier)
+        Text(text, coloredModifier.wrapContentWidth())
+        Text(text, coloredModifier.fillMaxWidth())
+
+        @Composable
+        fun AppBarText() = Text(text)
+
+        val heightModifier = Modifier.height(100.dp)
+        Box(heightModifier) { TopAppBarScaffold({ AppBarText() }, Modifier) { AppBarText() } }
+        Box(heightModifier) { TopAppBarScaffold({ AppBarText() }, Modifier.wrapContentWidth()) { AppBarText() } }
+        Box(heightModifier) { TopAppBarScaffold({ AppBarText() }, Modifier.fillMaxWidth()) { AppBarText() } }
+    }
+}
+
 private enum class RadioButtonState {
     A, B, C
 }
 
 @Composable
-fun App() {
+fun OldApp() {
     TopAppBarScaffold({
         Text("Compose Multiplatform Material demo")
     }, navigationIcon = {
