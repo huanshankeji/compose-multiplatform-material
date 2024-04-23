@@ -52,7 +52,7 @@ private enum class RadioButtonState {
 }
 
 @Composable
-fun OldApp() {
+fun OriginalApp() {
     TopAppBarScaffold({
         Text("Compose Multiplatform Material demo")
     }, navigationIcon = {
