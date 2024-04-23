@@ -7,10 +7,7 @@ import com.huanshankeji.compose.foundation.border
 import com.huanshankeji.compose.foundation.ext.outerBorder
 import com.huanshankeji.compose.foundation.ext.roundedCornerBackgroundAndOuterBorder
 import com.huanshankeji.compose.foundation.ext.roundedCornerOuterBorder
-import com.huanshankeji.compose.foundation.layout.Box
-import com.huanshankeji.compose.foundation.layout.Column
-import com.huanshankeji.compose.foundation.layout.Row
-import com.huanshankeji.compose.foundation.layout.RowScope
+import com.huanshankeji.compose.foundation.layout.*
 import com.huanshankeji.compose.foundation.text.BasicText
 import com.huanshankeji.compose.layout.*
 import com.huanshankeji.compose.material.*
@@ -26,9 +23,13 @@ import com.huanshankeji.compose.material.ext.Button as ExtButton
 
 @Composable
 fun App() {
-    Column {
-        val text = "some text"
+    Row {
+        val longText = "some text"
         val coloredModifier = Modifier.background(Color.Red)
+
+        @Composable
+        fun ColoredText(text: String, modifier: Modifier = Modifier) =
+            Text(text, coloredModifier.then(modifier))
 
         @Composable
         fun DemoColumn(modifier: Modifier = Modifier, fillOrMatchWidthContent: @Composable () -> Unit) =
@@ -37,25 +38,27 @@ fun App() {
                 @Composable
                 fun ColoredRow(content: @Composable () -> Unit) = Row(coloredModifier) { content() }
 
-                Text(text, coloredModifier)
-                Text(text, coloredModifier.wrapContentWidth())
+                ColoredText(longText, Modifier)
+                ColoredText(longText, Modifier.wrapContentWidth())
                 fillOrMatchWidthContent()
             }
 
         @Composable
-        fun DemoColumns(fillOrMatchWidthContent: @Composable () -> Unit) {
-            DemoColumn(Modifier, fillOrMatchWidthContent)
-            DemoColumn(Modifier.width(400.dp), fillOrMatchWidthContent)
-            DemoColumn(Modifier.fillMaxWidth(), fillOrMatchWidthContent)
-            Box(Modifier.height(20.dp))
-        }
+        fun DemoColumnColumn(fillOrMatchWidthContent: @Composable () -> Unit) =
+            Column(Modifier.width(160.dp).height(320.dp), Arrangement.SpaceBetween) {
+                DemoColumn(Modifier, fillOrMatchWidthContent)
+                DemoColumn(Modifier.width(80.dp), fillOrMatchWidthContent)
+                DemoColumn(Modifier.fillMaxWidth(), fillOrMatchWidthContent)
+            }
 
+        val shortText = "text"
         // see how the column is different
-        DemoColumns {}
+        DemoColumnColumn {}
         // `fillMaxWidth` work the same way on both of them
-        DemoColumns { Text(text, coloredModifier.fillMaxWidth()) }
-        DemoColumns { Divider() }
-        DemoColumns { Text(text, coloredModifier.width(TODO())) }
+        DemoColumnColumn { ColoredText(shortText, Modifier.fillMaxWidth()) }
+        DemoColumnColumn { Divider() }
+        DemoColumnColumn { ColoredText(shortText, Modifier.width(IntrinsicSize.Min)) }
+        DemoColumnColumn { ColoredText(shortText, Modifier.width(IntrinsicSize.Max)) }
     }
 }
 
