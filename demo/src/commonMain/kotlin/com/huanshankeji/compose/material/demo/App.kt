@@ -27,23 +27,35 @@ import com.huanshankeji.compose.material.ext.Button as ExtButton
 @Composable
 fun App() {
     Column {
+        val text = "some text"
+        val coloredModifier = Modifier.background(Color.Red)
+
         @Composable
-        fun DemoColumn(modifier: Modifier = Modifier) =
+        fun DemoColumn(modifier: Modifier = Modifier, fillOrMatchWidthContent: @Composable () -> Unit) =
             Column(Modifier.background(Color.Green) then modifier) {
-                val coloredModifier = Modifier.background(Color.Red)
 
                 @Composable
                 fun ColoredRow(content: @Composable () -> Unit) = Row(coloredModifier) { content() }
 
-                val text = "some text"
                 Text(text, coloredModifier)
                 Text(text, coloredModifier.wrapContentWidth())
-                Text(text, coloredModifier.fillMaxWidth()) // comment this line out to see how the column is different
+                fillOrMatchWidthContent()
             }
 
-        DemoColumn()
-        DemoColumn(Modifier.width(400.dp))
-        DemoColumn(Modifier.fillMaxWidth())
+        @Composable
+        fun DemoColumns(fillOrMatchWidthContent: @Composable () -> Unit) {
+            DemoColumn(Modifier, fillOrMatchWidthContent)
+            DemoColumn(Modifier.width(400.dp), fillOrMatchWidthContent)
+            DemoColumn(Modifier.fillMaxWidth(), fillOrMatchWidthContent)
+            Box(Modifier.height(20.dp))
+        }
+
+        // see how the column is different
+        DemoColumns {}
+        // `fillMaxWidth` work the same way on both of them
+        DemoColumns { Text(text, coloredModifier.fillMaxWidth()) }
+        DemoColumns { Divider() }
+        DemoColumns { Text(text, coloredModifier.width(TODO())) }
     }
 }
 
