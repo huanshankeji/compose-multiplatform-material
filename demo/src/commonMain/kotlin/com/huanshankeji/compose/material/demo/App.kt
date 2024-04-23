@@ -61,7 +61,7 @@ fun OriginalApp() {
         MaterialIconActionButton({}, Icons.Default.Search, "search")
     }) {
         Card(Modifier.padding(16.dp).height(800.dp).width(400.dp)) {
-            Column(Modifier.padding(16.dp)) {
+            Column(Modifier.padding(16.dp).background(Color(0xF8, 0xF8, 0xF8, 0xFF))) {
                 BasicText("basic text 1")
                 BasicText("basic text 2")
                 Text("Material text")
@@ -115,6 +115,8 @@ fun OriginalApp() {
                     ColorBox(Color(0xFF, 0, 0, 0x80))
                     ColorBox(Color(1f, 0f, 0f, 0.5f))
                 }
+
+                Divider()
 
                 Row {
                     @Composable
