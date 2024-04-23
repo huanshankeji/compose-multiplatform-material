@@ -41,7 +41,7 @@ fun App() {
         MaterialIconActionButton({}, Icons.Default.Search, "search")
     }) {
         Card(Modifier.padding(16.dp).height(800.dp).width(400.dp)) {
-            Column(Modifier.padding(16.dp)) {
+            Column(Modifier.padding(16.dp).background(Color(0xF8, 0xF8, 0xF8, 0xFF))) {
                 BasicText("basic text 1")
                 BasicText("basic text 2")
                 Text("Material text")
