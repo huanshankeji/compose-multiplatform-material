@@ -26,24 +26,24 @@ import com.huanshankeji.compose.material.ext.Button as ExtButton
 
 @Composable
 fun App() {
-    Column(Modifier.background(Color.Green).width(400.dp)) {
-        val coloredModifier = Modifier.background(Color.Red)
-
+    Column {
         @Composable
-        fun ColoredRow(content: @Composable () -> Unit) = Row(coloredModifier) { content() }
+        fun DemoColumn(modifier: Modifier = Modifier) =
+            Column(Modifier.background(Color.Green) then modifier) {
+                val coloredModifier = Modifier.background(Color.Red)
 
-        val text = "some text"
-        Text(text, coloredModifier)
-        Text(text, coloredModifier.wrapContentWidth())
-        Text(text, coloredModifier.fillMaxWidth())
+                @Composable
+                fun ColoredRow(content: @Composable () -> Unit) = Row(coloredModifier) { content() }
 
-        @Composable
-        fun AppBarText() = Text(text)
+                val text = "some text"
+                Text(text, coloredModifier)
+                Text(text, coloredModifier.wrapContentWidth())
+                Text(text, coloredModifier.fillMaxWidth()) // comment this line out to see how the column is different
+            }
 
-        val heightModifier = Modifier.height(100.dp)
-        Box(heightModifier) { TopAppBarScaffold({ AppBarText() }, Modifier) { AppBarText() } }
-        Box(heightModifier) { TopAppBarScaffold({ AppBarText() }, Modifier.wrapContentWidth()) { AppBarText() } }
-        Box(heightModifier) { TopAppBarScaffold({ AppBarText() }, Modifier.fillMaxWidth()) { AppBarText() } }
+        DemoColumn()
+        DemoColumn(Modifier.width(400.dp))
+        DemoColumn(Modifier.fillMaxWidth())
     }
 }
 
