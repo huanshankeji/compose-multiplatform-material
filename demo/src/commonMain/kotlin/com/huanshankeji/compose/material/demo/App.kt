@@ -96,6 +96,8 @@ fun App() {
                     ColorBox(Color(1f, 0f, 0f, 0.5f))
                 }
 
+                Divider()
+
                 Row {
                     @Composable
                     fun NestedColorBox(modifier: Modifier) =
