@@ -5,5 +5,5 @@ import com.varabyte.kobweb.compose.style.KobwebComposeStyleSheet
 import org.jetbrains.compose.web.css.Style
 
 @Composable
-fun AddKobwebComposeStyleSheet() =
+internal fun AddKobwebComposeStyleSheet() =
     Style(KobwebComposeStyleSheet)
