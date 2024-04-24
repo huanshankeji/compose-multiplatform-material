@@ -16,11 +16,13 @@ actual fun Box(
     modifier: Modifier,
     contentAlignment: Alignment,
     content: @Composable BoxScope.() -> Unit
-) =
+) {
+    AddKobwebComposeStyleSheet()
     PlatformBox(
         PlatformModifier.sizeFitContent().then(modifier.platformModifier),
         contentAlignment.platformValue,
     ) { BoxScope.Impl(this).content() }
+}
 
 @Composable
 actual fun Box(modifier: Modifier) =
