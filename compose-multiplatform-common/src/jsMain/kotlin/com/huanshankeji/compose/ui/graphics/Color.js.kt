@@ -32,8 +32,9 @@ actual /*value*/ class Color(val platformValue: PlatformColor) {
         @Stable
         actual val Red: Color = Color(PlatformColors.Red)
 
+        // The CSS green is #008000 which differs from the Compose one.
         @Stable
-        actual val Green: Color = Color(PlatformColors.Green)
+        actual val Green: Color = Color(PlatformColor.rgb(0x00, 0xFF, 0x00))
 
         @Stable
         actual val Blue: Color = Color(PlatformColors.Blue)
