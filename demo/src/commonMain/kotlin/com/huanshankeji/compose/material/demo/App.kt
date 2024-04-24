@@ -45,10 +45,13 @@ fun App() {
 
         @Composable
         fun DemoColumnColumn(fillOrMatchWidthContent: @Composable () -> Unit) =
-            Column(Modifier.width(160.dp).height(320.dp), Arrangement.SpaceBetween) {
+            Column(Modifier.width(160.dp).height(480.dp), Arrangement.SpaceBetween) {
                 DemoColumn(Modifier, fillOrMatchWidthContent)
                 DemoColumn(Modifier.width(80.dp), fillOrMatchWidthContent)
                 DemoColumn(Modifier.fillMaxWidth(), fillOrMatchWidthContent)
+                // see: https://stackoverflow.com/questions/65942711/match-width-of-parent-in-column-jetpack-compose
+                DemoColumn(Modifier.width(IntrinsicSize.Min), fillOrMatchWidthContent)
+                DemoColumn(Modifier.width(IntrinsicSize.Max), fillOrMatchWidthContent)
             }
 
         val shortText = "text"
@@ -57,8 +60,6 @@ fun App() {
         // `fillMaxWidth` work the same way on both of them
         DemoColumnColumn { ColoredText(shortText, Modifier.fillMaxWidth()) }
         DemoColumnColumn { Divider() }
-        DemoColumnColumn { ColoredText(shortText, Modifier.width(IntrinsicSize.Min)) }
-        DemoColumnColumn { ColoredText(shortText, Modifier.width(IntrinsicSize.Max)) }
     }
 }
 
