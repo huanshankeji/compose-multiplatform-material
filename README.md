@@ -1,4 +1,4 @@
-# Compose Multiplatform Material wrappers for `androidx.compose.material` and Compose HTML
+# Compose Multiplatform common extensions and Material wrappers for `androidx.compose.material` and Compose HTML
 
 [![Maven Central](https://img.shields.io/maven-central/v/com.huanshankeji/compose-multiplatform-material)](https://search.maven.org/search?q=g:com.huanshankeji%20AND%20a:compose-multiplatform-*)
 ![Kotlin version](https://kotlin-version.aws.icerock.dev/kotlin-version?group=com.huanshankeji&name=compose-multiplatform-material)
@@ -41,6 +41,7 @@ This project is prototype and there is no documentation yet. Check out [the demo
 - `Text`/`MaterialText`
 - `TextField`
 - `Checkbox`
+- `Divider` (visually inconsistent for now)
 
 ##### `ext` components
 
@@ -107,7 +108,7 @@ repositories {
 
 ## About Kobweb Silk
 
-The Kotlin/JS (Compose HTML) portion of this project depends on [Kobweb Compose](https://github.com/varabyte/kobweb/blob/main/frontend/kobweb-compose/README.md) of [Kobweb Silk](https://github.com/varabyte/kobweb?tab=readme-ov-file#silk) which is a UI layer built upon Compose HTML that provides `Modifier` APIs (type-safe CSS API wrappers) and layouts. Here is a list of topics in their README.md that should be helpful when you use this library in Compose HTML:
+The Kotlin/JS (Compose HTML) portion of this project depends on [Kobweb Compose](https://github.com/varabyte/kobweb/blob/main/frontend/kobweb-compose/README.md) of [Kobweb Silk](https://github.com/varabyte/kobweb?tab=readme-ov-file#silk) which is a UI layer built upon Compose HTML that provides `Modifier` (type-safe CSS API wrappers) and layout APIs. Here is a list of topics in their README.md that should be helpful when you use this library in Compose HTML, especially if you need to customize the components further on Kotlin/JS (Compose HTML):
 
 1. [Silk](https://github.com/varabyte/kobweb?tab=readme-ov-file#silk)
    1. [Modifier](https://github.com/varabyte/kobweb?tab=readme-ov-file#modifier) 

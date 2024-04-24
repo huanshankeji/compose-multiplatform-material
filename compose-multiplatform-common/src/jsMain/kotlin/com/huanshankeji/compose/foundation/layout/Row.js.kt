@@ -7,12 +7,7 @@ import com.huanshankeji.compose.ui.Alignment
 import com.huanshankeji.compose.ui.Modifier
 import com.huanshankeji.kobweb.compose.ui.modifiers.sizeFitContent
 import com.varabyte.kobweb.compose.foundation.layout.LayoutScopeMarker
-import com.varabyte.kobweb.compose.ui.modifiers.display
-import com.varabyte.kobweb.compose.ui.modifiers.flexDirection
-import org.jetbrains.compose.web.css.DisplayStyle
-import org.jetbrains.compose.web.css.FlexDirection
 import com.varabyte.kobweb.compose.foundation.layout.RowScope as PlatformRowScope
-
 import com.varabyte.kobweb.compose.ui.Modifier as PlatformModifier
 
 @Composable
@@ -21,14 +16,16 @@ actual fun Row(
     horizontalArrangement: Arrangement.Horizontal,
     verticalAlignment: Alignment.Vertical,
     content: @Composable RowScope.() -> Unit
-) =
+) {
+    AddKobwebComposeStyleSheet()
     com.varabyte.kobweb.compose.foundation.layout.Row(
-        PlatformModifier.display(DisplayStyle.Flex).flexDirection(FlexDirection.Row)
+        PlatformModifier
             .sizeFitContent()
             .then(modifier.platformModifier),
         horizontalArrangement.platformValue,
         verticalAlignment.platformValue
     ) { RowScope.Impl(this).content() }
+}
 
 @LayoutScopeMarker
 actual interface RowScope {

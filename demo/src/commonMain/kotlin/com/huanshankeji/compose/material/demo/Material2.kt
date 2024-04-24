@@ -38,7 +38,7 @@ fun Material2() {
         MaterialIconActionButton({}, Icons.Default.Search, "search")
     }) {
         Card(Modifier.padding(16.dp).height(800.dp).width(400.dp)) {
-            Column(Modifier.padding(16.dp)) {
+            Column(Modifier.padding(16.dp).background(Color(0xF8, 0xF8, 0xF8, 0xFF))) {
                 Text("Material text")
 
                 var count by remember { mutableStateOf(0) }
@@ -96,6 +96,8 @@ fun Material2() {
                     ColorBox(Color(0xFF, 0, 0, 0x80))
                     ColorBox(Color(1f, 0f, 0f, 0.5f))
                 }
+
+                Divider()
 
                 Row {
                     @Composable

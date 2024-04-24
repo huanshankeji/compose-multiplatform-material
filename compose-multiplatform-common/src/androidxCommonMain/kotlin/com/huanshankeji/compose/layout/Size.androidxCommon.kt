@@ -44,5 +44,18 @@ actual fun Modifier.fillMaxWidth(@FloatRange(from = 0.0, to = 1.0) fraction: Flo
 actual fun Modifier.fillMaxHeight(@FloatRange(from = 0.0, to = 1.0) fraction: Float): Modifier =
     platformModify { fillMaxHeight(fraction) }
 
+@Stable
 actual fun Modifier.fillMaxSize(@FloatRange(from = 0.0, to = 1.0) fraction: Float): Modifier =
     platformModify { fillMaxSize(fraction) }
+
+@Stable
+actual fun Modifier.wrapContentWidth(): Modifier =
+    platformModify { wrapContentWidth() }
+
+@Stable
+actual fun Modifier.wrapContentHeight(): Modifier =
+    platformModify { wrapContentHeight() }
+
+@Stable
+actual fun Modifier.wrapContentSize(): Modifier =
+    platformModify { wrapContentSize() }
