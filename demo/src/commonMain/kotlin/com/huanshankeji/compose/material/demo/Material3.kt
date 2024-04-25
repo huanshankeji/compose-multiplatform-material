@@ -1,8 +1,30 @@
 package com.huanshankeji.compose.material.demo
 
-import androidx.compose.runtime.Composable
+import androidx.compose.runtime.*
+import com.huanshankeji.compose.foundation.layout.Column
+import com.huanshankeji.compose.foundation.layout.Row
+import com.huanshankeji.compose.foundation.layout.RowScope
+import com.huanshankeji.compose.material.Text
+import com.huanshankeji.compose.material3.ext.*
+import com.huanshankeji.compose.material3.Button as RowScopeButton
 
 @Composable
 fun Material3() {
-    Material2() // TODO
+    Column {
+        var count by remember { mutableStateOf(0) }
+        val onClick: () -> Unit = { count++ }
+        val buttonContent: @Composable () -> Unit = {
+            Text(count.toString()) // TODO use `com.huanshankeji.compose.material3.ext.InlineText`
+        }
+        val rowScopeButtonContent: @Composable RowScope.() -> Unit = { buttonContent() }
+        val buttonScopeButtonContent: @Composable ButtonScope.() -> Unit = { buttonContent() }
+        Row {
+            RowScopeButton(onClick, content = rowScopeButtonContent)
+            Button(onClick, content = buttonScopeButtonContent)
+            ElevatedButton(onClick, content = buttonScopeButtonContent)
+            FilledTonalButton(onClick, content = buttonScopeButtonContent)
+            OutlinedButton(onClick, content = buttonScopeButtonContent)
+            TextButton(onClick, content = buttonScopeButtonContent)
+        }
+    }
 }

@@ -25,8 +25,6 @@ import com.huanshankeji.compose.material.lazy.ext.LazyColumn
 import com.huanshankeji.compose.ui.Modifier
 import com.huanshankeji.compose.ui.graphics.Color
 import com.huanshankeji.compose.material.ext.Button as ExtButton
-import com.huanshankeji.compose.material3.Button as M3Button
-import com.huanshankeji.compose.material3.ext.Button as M3ExtButton
 
 @Composable
 fun Material2() {
@@ -43,9 +41,8 @@ fun Material2() {
 
                 var count by remember { mutableStateOf(0) }
                 val onClick: () -> Unit = { count++ }
-
                 val buttonContent: @Composable () -> Unit = {
-                    Text(count.toString()) // TODO use `com.huanshankeji.compose.material(3).ext.InlineText`
+                    InlineText(count.toString())
                 }
                 val rowScopeButtonContent: @Composable RowScope.() -> Unit = { buttonContent() }
 
@@ -57,10 +54,6 @@ fun Material2() {
                         Label(count.toString())
                     }
                     IconButton(onClick, icon = Icons.Default.Add, contentDescription = "increment count")
-                }
-                Row {
-                    M3Button(onClick, content = rowScopeButtonContent)
-                    M3ExtButton(onClick) { buttonContent() }
                 }
 
                 Box(Modifier.padding(16.dp)) {
