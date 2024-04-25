@@ -5,15 +5,20 @@ import com.huanshankeji.compose.foundation.layout.RowScope
 import com.huanshankeji.compose.ui.Modifier
 
 @Composable
+private fun (@Composable (RowScope.() -> Unit)).toPlatformContent(): @Composable androidx.compose.foundation.layout.RowScope.() -> Unit =
+    { RowScope.Impl(this).(this@toPlatformContent)() }
+
+
+@Composable
 actual fun Button(
     onClick: () -> Unit,
     modifier: Modifier,
     enabled: Boolean,
     content: @Composable RowScope.() -> Unit
 ) =
-    androidx.compose.material3.Button(onClick, modifier.platformModifier, enabled) {
-        RowScope.Impl(this).content()
-    }
+    androidx.compose.material3.Button(
+        onClick, modifier.platformModifier, enabled, content = content.toPlatformContent()
+    )
 
 @Composable
 actual fun ElevatedButton(
@@ -22,9 +27,9 @@ actual fun ElevatedButton(
     enabled: Boolean,
     content: @Composable RowScope.() -> Unit
 ) =
-    androidx.compose.material3.ElevatedButton(onClick, modifier.platformModifier, enabled) {
-        RowScope.Impl(this).content()
-    }
+    androidx.compose.material3.ElevatedButton(
+        onClick, modifier.platformModifier, enabled, content = content.toPlatformContent()
+    )
 
 @Composable
 actual fun FilledTonalButton(
@@ -33,9 +38,9 @@ actual fun FilledTonalButton(
     enabled: Boolean,
     content: @Composable RowScope.() -> Unit
 ) =
-    androidx.compose.material3.FilledTonalButton(onClick, modifier.platformModifier, enabled) {
-        RowScope.Impl(this).content()
-    }
+    androidx.compose.material3.FilledTonalButton(
+        onClick, modifier.platformModifier, enabled, content = content.toPlatformContent()
+    )
 
 @Composable
 actual fun OutlinedButton(
@@ -44,9 +49,9 @@ actual fun OutlinedButton(
     enabled: Boolean,
     content: @Composable RowScope.() -> Unit
 ) =
-    androidx.compose.material3.OutlinedButton(onClick, modifier.platformModifier, enabled) {
-        RowScope.Impl(this).content()
-    }
+    androidx.compose.material3.OutlinedButton(
+        onClick, modifier.platformModifier, enabled, content = content.toPlatformContent()
+    )
 
 @Composable
 actual fun TextButton(
@@ -55,6 +60,6 @@ actual fun TextButton(
     enabled: Boolean,
     content: @Composable RowScope.() -> Unit
 ) =
-    androidx.compose.material3.TextButton(onClick, modifier.platformModifier, enabled) {
-        RowScope.Impl(this).content()
-    }
+    androidx.compose.material3.TextButton(
+        onClick, modifier.platformModifier, enabled, content = content.toPlatformContent()
+    )

@@ -6,15 +6,18 @@ import com.huanshankeji.compose.material3.*
 import com.huanshankeji.compose.ui.Modifier
 
 @Composable
+private fun (@Composable (ButtonScope.() -> Unit)).toMdButtonScopeContent(): @Composable MdButtonScope.() -> Unit =
+    { ButtonScope(this).(this@toMdButtonScopeContent)() }
+
+
+@Composable
 actual fun Button(
     onClick: () -> Unit,
     modifier: Modifier,
     enabled: Boolean,
     content: @Composable ButtonScope.() -> Unit
 ) =
-    CommonButton(onClick, modifier, enabled) {
-        ButtonScope(this).content()
-    }
+    CommonButton(onClick, modifier, enabled, content.toMdButtonScopeContent())
 
 @Composable
 actual fun ElevatedButton(
@@ -23,9 +26,7 @@ actual fun ElevatedButton(
     enabled: Boolean,
     content: @Composable ButtonScope.() -> Unit
 ) =
-    CommonElevatedButton(onClick, modifier, enabled) {
-        ButtonScope(this).content()
-    }
+    CommonElevatedButton(onClick, modifier, enabled, content.toMdButtonScopeContent())
 
 @Composable
 actual fun FilledTonalButton(
@@ -34,9 +35,7 @@ actual fun FilledTonalButton(
     enabled: Boolean,
     content: @Composable ButtonScope.() -> Unit
 ) =
-    CommonFilledTonalButton(onClick, modifier, enabled) {
-        ButtonScope(this).content()
-    }
+    CommonFilledTonalButton(onClick, modifier, enabled, content.toMdButtonScopeContent())
 
 @Composable
 actual fun OutlinedButton(
@@ -45,9 +44,7 @@ actual fun OutlinedButton(
     enabled: Boolean,
     content: @Composable ButtonScope.() -> Unit
 ) =
-    CommonOutlinedButton(onClick, modifier, enabled) {
-        ButtonScope(this).content()
-    }
+    CommonOutlinedButton(onClick, modifier, enabled, content.toMdButtonScopeContent())
 
 @Composable
 actual fun TextButton(
@@ -56,9 +53,7 @@ actual fun TextButton(
     enabled: Boolean,
     content: @Composable ButtonScope.() -> Unit
 ) =
-    CommonTextButton(onClick, modifier, enabled) {
-        ButtonScope(this).content()
-    }
+    CommonTextButton(onClick, modifier, enabled, content.toMdButtonScopeContent())
 
 actual class ButtonScope(val mdButtonScope: MdButtonScope) {
     @Composable

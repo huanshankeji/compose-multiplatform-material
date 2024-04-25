@@ -1,11 +1,24 @@
 package com.huanshankeji.compose.material3
 
 import androidx.compose.runtime.Composable
+import com.huanshankeji.compose.enabledToNullableDisabled
 import com.huanshankeji.compose.foundation.layout.Row
 import com.huanshankeji.compose.foundation.layout.RowScope
 import com.huanshankeji.compose.html.material3.*
 import com.huanshankeji.compose.ui.Modifier
+import com.huanshankeji.compose.web.attributes.Attrs
 import com.varabyte.kobweb.compose.ui.toAttrs
+import org.w3c.dom.HTMLElement
+
+private fun Modifier.toButtonAttrs(onClick: () -> Unit): Attrs<HTMLElement> =
+    platformModifier.toAttrs {
+        onClick { onClick() }
+    }
+
+@Composable
+private fun (@Composable (RowScope.() -> Unit)).toMdButtonScopeContent(): @Composable MdButtonScope.() -> Unit =
+    { Row(content = this@toMdButtonScopeContent) }
+
 
 @Composable
 internal fun CommonButton(
@@ -14,12 +27,11 @@ internal fun CommonButton(
     enabled: Boolean,
     content: @Composable MdButtonScope.() -> Unit
 ) =
-    MdFilledButton(disabled = if (enabled) null else true,
-        attrs = modifier.platformModifier.toAttrs {
-            onClick { onClick() }
-        }) {
-        content()
-    }
+    MdFilledButton(
+        disabled = enabled.enabledToNullableDisabled(),
+        attrs = modifier.toButtonAttrs(onClick),
+        content = content
+    )
 
 @Composable
 actual fun Button(
@@ -28,9 +40,7 @@ actual fun Button(
     enabled: Boolean,
     content: @Composable RowScope.() -> Unit
 ) =
-    CommonButton(onClick, modifier, enabled) {
-        Row(content = content)
-    }
+    CommonButton(onClick, modifier, enabled, content.toMdButtonScopeContent())
 
 @Composable
 internal fun CommonElevatedButton(
@@ -39,12 +49,11 @@ internal fun CommonElevatedButton(
     enabled: Boolean,
     content: @Composable MdButtonScope.() -> Unit
 ) =
-    MdElevatedButton(disabled = if (enabled) null else true,
-        attrs = modifier.platformModifier.toAttrs {
-            onClick { onClick() }
-        }) {
-        content()
-    }
+    MdElevatedButton(
+        disabled = enabled.enabledToNullableDisabled(),
+        attrs = modifier.toButtonAttrs(onClick),
+        content = content
+    )
 
 @Composable
 actual fun ElevatedButton(
@@ -53,9 +62,7 @@ actual fun ElevatedButton(
     enabled: Boolean,
     content: @Composable RowScope.() -> Unit
 ) =
-    CommonElevatedButton(onClick, modifier, enabled) {
-        Row(content = content)
-    }
+    CommonElevatedButton(onClick, modifier, enabled, content.toMdButtonScopeContent())
 
 @Composable
 internal fun CommonFilledTonalButton(
@@ -64,12 +71,11 @@ internal fun CommonFilledTonalButton(
     enabled: Boolean,
     content: @Composable MdButtonScope.() -> Unit
 ) =
-    MdFilledTonalButton(disabled = if (enabled) null else true,
-        attrs = modifier.platformModifier.toAttrs {
-            onClick { onClick() }
-        }) {
-        content()
-    }
+    MdFilledTonalButton(
+        disabled = enabled.enabledToNullableDisabled(),
+        attrs = modifier.toButtonAttrs(onClick),
+        content = content
+    )
 
 @Composable
 actual fun FilledTonalButton(
@@ -78,9 +84,7 @@ actual fun FilledTonalButton(
     enabled: Boolean,
     content: @Composable RowScope.() -> Unit
 ) =
-    CommonFilledTonalButton(onClick, modifier, enabled) {
-        Row(content = content)
-    }
+    CommonFilledTonalButton(onClick, modifier, enabled, content.toMdButtonScopeContent())
 
 @Composable
 internal fun CommonOutlinedButton(
@@ -89,12 +93,11 @@ internal fun CommonOutlinedButton(
     enabled: Boolean,
     content: @Composable MdButtonScope.() -> Unit
 ) =
-    MdOutlinedButton(disabled = if (enabled) null else true,
-        attrs = modifier.platformModifier.toAttrs {
-            onClick { onClick() }
-        }) {
-        content()
-    }
+    MdOutlinedButton(
+        disabled = enabled.enabledToNullableDisabled(),
+        attrs = modifier.toButtonAttrs(onClick),
+        content = content
+    )
 
 @Composable
 actual fun OutlinedButton(
@@ -103,9 +106,7 @@ actual fun OutlinedButton(
     enabled: Boolean,
     content: @Composable RowScope.() -> Unit
 ) =
-    CommonOutlinedButton(onClick, modifier, enabled) {
-        Row(content = content)
-    }
+    CommonOutlinedButton(onClick, modifier, enabled, content.toMdButtonScopeContent())
 
 @Composable
 internal fun CommonTextButton(
@@ -114,12 +115,11 @@ internal fun CommonTextButton(
     enabled: Boolean,
     content: @Composable MdButtonScope.() -> Unit
 ) =
-    MdTextButton(disabled = if (enabled) null else true,
-        attrs = modifier.platformModifier.toAttrs {
-            onClick { onClick() }
-        }) {
-        content()
-    }
+    MdTextButton(
+        disabled = enabled.enabledToNullableDisabled(),
+        attrs = modifier.toButtonAttrs(onClick),
+        content = content
+    )
 
 @Composable
 actual fun TextButton(
@@ -128,6 +128,4 @@ actual fun TextButton(
     enabled: Boolean,
     content: @Composable RowScope.() -> Unit
 ) =
-    CommonTextButton(onClick, modifier, enabled) {
-        Row(content = content)
-    }
+    CommonTextButton(onClick, modifier, enabled, content.toMdButtonScopeContent())
