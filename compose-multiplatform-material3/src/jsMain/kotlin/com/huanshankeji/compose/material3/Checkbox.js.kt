@@ -5,6 +5,7 @@ import com.huanshankeji.compose.html.material3.MdCheckbox
 import com.huanshankeji.compose.ui.Modifier
 import com.huanshankeji.compose.web.attributes.isFalseOrNull
 import com.huanshankeji.compose.web.attributes.isTrueOrNull
+import com.huanshankeji.compose.web.attributes.onInput
 import com.varabyte.kobweb.compose.ui.toAttrs
 
 @Composable
@@ -18,7 +19,12 @@ actual fun Checkbox(
         checked.isTrueOrNull(),
         enabled.isFalseOrNull(),
         attrs = modifier.platformModifier.toAttrs {
-            onCheckedChange?.let { onClick { it(!checked) } }
-            //onCheckedChange?.let { onInput { it(!checked) } }
+            /*
+            Use `onInput` here because it wraps an `input` element.
+            Also see: https://stackoverflow.com/questions/58016503/click-vs-input-vs-change-for-checkboxes
+             */
+
+            //onCheckedChange?.let { onClick { it(!checked) } }
+            onCheckedChange?.let { onInput { it(!checked) } }
         }
     )
