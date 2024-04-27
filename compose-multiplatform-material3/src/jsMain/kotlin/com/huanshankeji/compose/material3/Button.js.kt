@@ -1,12 +1,12 @@
 package com.huanshankeji.compose.material3
 
 import androidx.compose.runtime.Composable
-import com.huanshankeji.compose.enabledToNullableDisabled
 import com.huanshankeji.compose.foundation.layout.Row
 import com.huanshankeji.compose.foundation.layout.RowScope
 import com.huanshankeji.compose.html.material3.*
 import com.huanshankeji.compose.ui.Modifier
 import com.huanshankeji.compose.web.attributes.Attrs
+import com.huanshankeji.compose.web.attributes.isFalseOrNull
 import com.varabyte.kobweb.compose.ui.toAttrs
 import org.w3c.dom.HTMLElement
 
@@ -28,7 +28,7 @@ internal fun CommonButton(
     content: @Composable MdButtonScope.() -> Unit
 ) =
     MdFilledButton(
-        disabled = enabled.enabledToNullableDisabled(),
+        disabled = enabled.isFalseOrNull(),
         attrs = modifier.toButtonAttrs(onClick),
         content = content
     )
@@ -50,7 +50,7 @@ internal fun CommonElevatedButton(
     content: @Composable MdButtonScope.() -> Unit
 ) =
     MdElevatedButton(
-        disabled = enabled.enabledToNullableDisabled(),
+        disabled = enabled.isFalseOrNull(),
         attrs = modifier.toButtonAttrs(onClick),
         content = content
     )
@@ -72,7 +72,7 @@ internal fun CommonFilledTonalButton(
     content: @Composable MdButtonScope.() -> Unit
 ) =
     MdFilledTonalButton(
-        disabled = enabled.enabledToNullableDisabled(),
+        disabled = enabled.isFalseOrNull(),
         attrs = modifier.toButtonAttrs(onClick),
         content = content
     )
@@ -94,7 +94,7 @@ internal fun CommonOutlinedButton(
     content: @Composable MdButtonScope.() -> Unit
 ) =
     MdOutlinedButton(
-        disabled = enabled.enabledToNullableDisabled(),
+        disabled = enabled.isFalseOrNull(),
         attrs = modifier.toButtonAttrs(onClick),
         content = content
     )
@@ -116,7 +116,7 @@ internal fun CommonTextButton(
     content: @Composable MdButtonScope.() -> Unit
 ) =
     MdTextButton(
-        disabled = enabled.enabledToNullableDisabled(),
+        disabled = enabled.isFalseOrNull(),
         attrs = modifier.toButtonAttrs(onClick),
         content = content
     )

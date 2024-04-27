@@ -6,6 +6,7 @@ import com.huanshankeji.compose.foundation.layout.Row
 import com.huanshankeji.compose.foundation.layout.RowScope
 import com.huanshankeji.compose.foundation.text.ext.InlineBasicText
 import com.huanshankeji.compose.material3.Checkbox
+import com.huanshankeji.compose.material3.Switch
 import com.huanshankeji.compose.material3.ext.*
 import com.huanshankeji.compose.material3.Button as RowScopeButton
 
@@ -31,7 +32,7 @@ fun Material3() {
         Row {
             var checked by remember { mutableStateOf(false) }
             Checkbox(checked, { checked = it })
-            Checkbox(checked, { checked = it })
+            Switch(checked, { checked = it })
         }
     }
 }
