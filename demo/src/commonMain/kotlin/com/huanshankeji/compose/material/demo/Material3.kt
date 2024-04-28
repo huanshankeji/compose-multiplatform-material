@@ -34,5 +34,9 @@ fun Material3() {
             Checkbox(checked, { checked = it })
             Switch(checked, { checked = it })
         }
+
+        var text by remember { mutableStateOf("") }
+        TextField(text, { text = it })
+        OutlinedTextField(text, { text = it })
     }
 }
