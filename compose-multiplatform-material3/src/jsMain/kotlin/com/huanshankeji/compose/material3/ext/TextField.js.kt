@@ -5,10 +5,10 @@ import com.huanshankeji.compose.html.material3.MdFilledTextField
 import com.huanshankeji.compose.html.material3.MdOutlinedTextField
 import com.huanshankeji.compose.html.material3.MdTextFieldScope
 import com.huanshankeji.compose.ui.Modifier
+import com.huanshankeji.compose.web.attributes.ext.onInput
 import com.huanshankeji.compose.web.attributes.isFalseOrNull
 import com.huanshankeji.compose.web.attributes.isTrueOrNull
-import com.huanshankeji.compose.web.attributes.onInput
-import com.huanshankeji.compose.web.dom.value
+import com.huanshankeji.compose.web.dom.ext.value
 import com.varabyte.kobweb.compose.ui.attrsModifier
 import com.varabyte.kobweb.compose.ui.toAttrs
 import org.jetbrains.compose.web.attributes.AttrsScope
