@@ -1,9 +1,9 @@
 package com.huanshankeji.compose.material3.ext
 
 import androidx.compose.runtime.Composable
+import com.huanshankeji.compose.foundation.text.KeyboardActions
+import com.huanshankeji.compose.foundation.text.KeyboardOptions
 import com.huanshankeji.compose.ui.Modifier
-
-// TODO `KeyboardOptions` which relates to `InputMode` and `InputType` on JS, and `KeyboardActions`
 
 @Composable
 expect fun TextField(
@@ -20,6 +20,8 @@ expect fun TextField(
     suffix: String? = null,
     supportingText: String? = null,
     isError: Boolean = false,
+    keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
+    keyboardActions: KeyboardActions = KeyboardActions.Default,
     singleLine: Boolean = false,
     lines: Int = 1
     /*
@@ -44,6 +46,8 @@ expect fun OutlinedTextField(
     suffix: String? = null,
     supportingText: String? = null,
     isError: Boolean = false,
+    keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
+    keyboardActions: KeyboardActions = KeyboardActions.Default,
     singleLine: Boolean = false,
     lines: Int = 1
 )

@@ -1,6 +1,9 @@
 package com.huanshankeji.compose.material3.ext
 
 import androidx.compose.runtime.Composable
+import com.huanshankeji.compose.foundation.text.KeyboardActions
+import com.huanshankeji.compose.foundation.text.KeyboardOptions
+import com.huanshankeji.compose.foundation.text.attrsFrom
 import com.huanshankeji.compose.html.material3.MdFilledTextField
 import com.huanshankeji.compose.html.material3.MdOutlinedTextField
 import com.huanshankeji.compose.html.material3.MdTextFieldScope
@@ -16,10 +19,13 @@ import org.w3c.dom.HTMLElement
 import com.varabyte.kobweb.compose.ui.Modifier as PlatformModifier
 
 private fun Modifier.toTextFieldAttrs(
-    onValueChange: (String) -> Unit
+    onValueChange: (String) -> Unit, keyboardOptions: KeyboardOptions, keyboardActions: KeyboardActions,
 ): AttrsScope<HTMLElement>.() -> Unit =
     platformModifier.toAttrs {
         onInput { onValueChange(it.target.value) }
+
+        // TODO `keyboardOptions.imeAction` is not working because `enterkeyhint` is not passed to the underlying `input`.
+        attrsFrom(keyboardOptions, keyboardActions)
     }
 
 private fun TextFieldContent(): @Composable MdTextFieldScope.() -> Unit = {
@@ -44,6 +50,8 @@ actual fun TextField(
     suffix: String?,
     supportingText: String?,
     isError: Boolean,
+    keyboardOptions: KeyboardOptions,
+    keyboardActions: KeyboardActions,
     singleLine: Boolean,
     lines: Int
 ) =
@@ -59,11 +67,10 @@ actual fun TextField(
         hasTrailingIcon = trailingIcon?.let { true },
         supportingText = supportingText,
         rows = if (singleLine) null else lines,
-        //inputMode = TODO(),
         placeholder = placeholder,
         readOnly = readOnly.isTrueOrNull(),
 
-        attrs = modifier.toTextFieldAttrs(onValueChange),
+        attrs = modifier.toTextFieldAttrs(onValueChange, keyboardOptions, keyboardActions),
         content = TextFieldContent()
     )
 
@@ -83,6 +90,8 @@ actual fun OutlinedTextField(
     suffix: String?,
     supportingText: String?,
     isError: Boolean,
+    keyboardOptions: KeyboardOptions,
+    keyboardActions: KeyboardActions,
     singleLine: Boolean,
     lines: Int
 ) =
@@ -98,10 +107,9 @@ actual fun OutlinedTextField(
         hasTrailingIcon = trailingIcon?.let { true },
         supportingText = supportingText,
         rows = if (singleLine) null else lines,
-        //inputMode = TODO(),
         placeholder = placeholder,
         readOnly = readOnly.isTrueOrNull(),
 
-        attrs = modifier.toTextFieldAttrs(onValueChange),
+        attrs = modifier.toTextFieldAttrs(onValueChange, keyboardOptions, keyboardActions),
         content = TextFieldContent()
     )

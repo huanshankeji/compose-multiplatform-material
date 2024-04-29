@@ -25,6 +25,7 @@ value class KeyboardType internal constructor(@Suppress("unused") private val va
         @Stable
         val Text: KeyboardType = KeyboardType(1)
 
+        // doesn't work on JS yet
         @Stable
         val Ascii: KeyboardType = KeyboardType(2)
 
@@ -40,9 +41,11 @@ value class KeyboardType internal constructor(@Suppress("unused") private val va
         @Stable
         val Email: KeyboardType = KeyboardType(6)
 
+        // doesn't work on JS yet
         @Stable
         val Password: KeyboardType = KeyboardType(7)
 
+        // doesn't work on JS yet
         @Stable
         val NumberPassword: KeyboardType = KeyboardType(8)
 

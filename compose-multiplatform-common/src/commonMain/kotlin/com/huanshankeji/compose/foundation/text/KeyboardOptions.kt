@@ -10,10 +10,10 @@ import com.huanshankeji.compose.foundation.text.input.PlatformImeOptions
 // copied and adapted from `androidx.compose.foundation.text.KeyboardOptions`
 @Immutable
 class KeyboardOptions(
-    val capitalization: KeyboardCapitalization = KeyboardCapitalization.None,
-    val autoCorrect: Boolean = true,
-    val keyboardType: KeyboardType = KeyboardType.Text,
-    val imeAction: ImeAction = ImeAction.Default,
+    val capitalization: KeyboardCapitalization? = null,
+    val autoCorrect: Boolean? = null,
+    val keyboardType: KeyboardType? = null,
+    val imeAction: ImeAction? = null,
     val platformImeOptions: PlatformImeOptions? = null
 ) {
     companion object {

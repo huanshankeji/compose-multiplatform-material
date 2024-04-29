@@ -4,7 +4,9 @@ import androidx.compose.runtime.*
 import com.huanshankeji.compose.foundation.layout.Column
 import com.huanshankeji.compose.foundation.layout.Row
 import com.huanshankeji.compose.foundation.layout.RowScope
+import com.huanshankeji.compose.foundation.text.KeyboardOptions
 import com.huanshankeji.compose.foundation.text.ext.InlineBasicText
+import com.huanshankeji.compose.foundation.text.input.ImeAction
 import com.huanshankeji.compose.material3.Checkbox
 import com.huanshankeji.compose.material3.Switch
 import com.huanshankeji.compose.material3.ext.*
@@ -37,6 +39,6 @@ fun Material3() {
 
         var text by remember { mutableStateOf("") }
         TextField(text, { text = it })
-        OutlinedTextField(text, { text = it })
+        OutlinedTextField(text, { text = it }, keyboardOptions = KeyboardOptions(imeAction = ImeAction.Search)) // TODO
     }
 }

@@ -1,6 +1,8 @@
 package com.huanshankeji.compose.material.ext
 
 import androidx.compose.runtime.Composable
+import com.huanshankeji.compose.foundation.text.KeyboardActions
+import com.huanshankeji.compose.foundation.text.KeyboardOptions
 import com.huanshankeji.compose.ui.Modifier
 
 /**
@@ -20,6 +22,8 @@ expect fun TextField(
     */
     leadingIcon: @Composable (() -> Unit)? = null,
     trailingIcon: @Composable (() -> Unit)? = null,
+    keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
+    keyboardActions: KeyboardActions = KeyboardActions.Default,
     singleLine: Boolean = false
 )
 
@@ -36,6 +40,8 @@ expect fun OutlinedTextField(
     label: String? = null,
     leadingIcon: @Composable (() -> Unit)? = null,
     trailingIcon: @Composable (() -> Unit)? = null,
+    keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
+    keyboardActions: KeyboardActions = KeyboardActions.Default,
     singleLine: Boolean = false
 )
 
@@ -46,5 +52,7 @@ expect fun TextArea(
     modifier: Modifier = Modifier,
     enabled: Boolean = true,
     label: String? = null,
+    keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
+    keyboardActions: KeyboardActions = KeyboardActions.Default,
     lines: Int
 )

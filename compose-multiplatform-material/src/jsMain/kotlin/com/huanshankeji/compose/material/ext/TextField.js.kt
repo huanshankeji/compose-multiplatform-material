@@ -1,6 +1,9 @@
 package com.huanshankeji.compose.material.ext
 
 import androidx.compose.runtime.Composable
+import com.huanshankeji.compose.foundation.text.KeyboardActions
+import com.huanshankeji.compose.foundation.text.KeyboardOptions
+import com.huanshankeji.compose.foundation.text.attrsFrom
 import com.huanshankeji.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.toAttrs
 import dev.petuska.kmdc.textfield.MDCTextArea
@@ -16,7 +19,9 @@ fun CommonTextField(
     enabled: Boolean,
     label: String?,
     leadingIcon: @Composable (() -> Unit)?,
-    trailingIcon: @Composable (() -> Unit)?
+    trailingIcon: @Composable (() -> Unit)?,
+    keyboardOptions: KeyboardOptions,
+    keyboardActions: KeyboardActions
 ) =
     MDCTextField(
         value,
@@ -27,6 +32,8 @@ fun CommonTextField(
         trailingIcon = trailingIcon?.let { { it() } },
         attrs = modifier.platformModifier.toAttrs {
             onInput { onValueChange(it.value) }
+
+            attrsFrom(keyboardOptions, keyboardActions)
         }
     )
 
@@ -39,9 +46,22 @@ actual fun TextField(
     label: String?,
     leadingIcon: @Composable (() -> Unit)?,
     trailingIcon: @Composable (() -> Unit)?,
+    keyboardOptions: KeyboardOptions,
+    keyboardActions: KeyboardActions,
     singleLine: Boolean
 ) =
-    CommonTextField(value, MDCTextFieldType.Filled, onValueChange, modifier, enabled, label, leadingIcon, trailingIcon)
+    CommonTextField(
+        value,
+        MDCTextFieldType.Filled,
+        onValueChange,
+        modifier,
+        enabled,
+        label,
+        leadingIcon,
+        trailingIcon,
+        keyboardOptions,
+        keyboardActions
+    )
 
 @Composable
 actual fun OutlinedTextField(
@@ -52,10 +72,21 @@ actual fun OutlinedTextField(
     label: String?,
     leadingIcon: @Composable (() -> Unit)?,
     trailingIcon: @Composable (() -> Unit)?,
+    keyboardOptions: KeyboardOptions,
+    keyboardActions: KeyboardActions,
     singleLine: Boolean
 ) =
     CommonTextField(
-        value, MDCTextFieldType.Outlined, onValueChange, modifier, enabled, label, leadingIcon, trailingIcon
+        value,
+        MDCTextFieldType.Outlined,
+        onValueChange,
+        modifier,
+        enabled,
+        label,
+        leadingIcon,
+        trailingIcon,
+        keyboardOptions,
+        keyboardActions
     )
 
 @Composable
@@ -65,6 +96,8 @@ actual fun TextArea(
     modifier: Modifier,
     enabled: Boolean,
     label: String?,
+    keyboardOptions: KeyboardOptions,
+    keyboardActions: KeyboardActions,
     lines: Int
 ) =
     MDCTextArea(

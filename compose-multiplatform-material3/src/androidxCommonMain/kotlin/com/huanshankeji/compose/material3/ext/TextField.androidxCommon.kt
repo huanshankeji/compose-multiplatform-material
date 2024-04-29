@@ -2,6 +2,9 @@ package com.huanshankeji.compose.material3.ext
 
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import com.huanshankeji.compose.foundation.text.KeyboardActions
+import com.huanshankeji.compose.foundation.text.KeyboardOptions
+import com.huanshankeji.compose.foundation.text.toPlatformValue
 import com.huanshankeji.compose.ui.Modifier
 
 // This function can be moved into a common file.
@@ -23,6 +26,8 @@ actual fun TextField(
     suffix: String?,
     supportingText: String?,
     isError: Boolean,
+    keyboardOptions: KeyboardOptions,
+    keyboardActions: KeyboardActions,
     singleLine: Boolean,
     lines: Int
 ) =
@@ -40,6 +45,8 @@ actual fun TextField(
         suffix = suffix.ToNullableTextComposable(),
         supportingText = supportingText.ToNullableTextComposable(),
         isError = isError,
+        keyboardOptions = keyboardOptions.toPlatformValue(),
+        keyboardActions = keyboardActions.toPlatformValue(),
         singleLine = singleLine,
         maxLines = lines,
         minLines = lines
@@ -60,6 +67,8 @@ actual fun OutlinedTextField(
     suffix: String?,
     supportingText: String?,
     isError: Boolean,
+    keyboardOptions: KeyboardOptions,
+    keyboardActions: KeyboardActions,
     singleLine: Boolean,
     lines: Int
 ) =
@@ -77,6 +86,8 @@ actual fun OutlinedTextField(
         suffix = suffix.ToNullableTextComposable(),
         supportingText = supportingText.ToNullableTextComposable(),
         isError = isError,
+        keyboardOptions = keyboardOptions.toPlatformValue(),
+        keyboardActions = keyboardActions.toPlatformValue(),
         singleLine = singleLine,
         maxLines = lines,
         minLines = lines
