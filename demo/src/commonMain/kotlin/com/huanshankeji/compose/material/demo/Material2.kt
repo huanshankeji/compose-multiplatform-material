@@ -11,8 +11,11 @@ import com.huanshankeji.compose.foundation.layout.Box
 import com.huanshankeji.compose.foundation.layout.Column
 import com.huanshankeji.compose.foundation.layout.Row
 import com.huanshankeji.compose.foundation.layout.RowScope
+import com.huanshankeji.compose.foundation.text.KeyboardActions
 import com.huanshankeji.compose.foundation.text.KeyboardOptions
 import com.huanshankeji.compose.foundation.text.input.ImeAction
+import com.huanshankeji.compose.foundation.text.input.KeyboardCapitalization
+import com.huanshankeji.compose.foundation.text.input.KeyboardType
 import com.huanshankeji.compose.layout.height
 import com.huanshankeji.compose.layout.padding
 import com.huanshankeji.compose.layout.size
@@ -115,6 +118,7 @@ fun Material2() {
                     label = "Demo text field",
                     leadingIcon = { Icon(Icons.Default.Add, null) },
                     trailingIcon = { Icon(Icons.Default.Menu, null) },
+                    keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
                     singleLine = true
                 )
                 OutlinedTextField(
@@ -122,7 +126,12 @@ fun Material2() {
                     label = "Demo text field",
                     leadingIcon = { Icon(Icons.Default.Add, null) },
                     trailingIcon = { Icon(Icons.Default.Menu, null) },
-                    keyboardOptions = KeyboardOptions(imeAction = ImeAction.Search),
+                    keyboardOptions = KeyboardOptions(
+                        KeyboardCapitalization.Words, true, imeAction = ImeAction.Search
+                    ),
+                    keyboardActions = KeyboardActions {
+                        println("keyboard actions with: $text")
+                    },
                     singleLine = true
                 )
                 TextArea(text, { text = it }, label = "Demo text field", lines = 3)

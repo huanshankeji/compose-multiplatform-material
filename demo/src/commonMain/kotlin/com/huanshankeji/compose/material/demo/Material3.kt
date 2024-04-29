@@ -4,9 +4,12 @@ import androidx.compose.runtime.*
 import com.huanshankeji.compose.foundation.layout.Column
 import com.huanshankeji.compose.foundation.layout.Row
 import com.huanshankeji.compose.foundation.layout.RowScope
+import com.huanshankeji.compose.foundation.text.KeyboardActions
 import com.huanshankeji.compose.foundation.text.KeyboardOptions
 import com.huanshankeji.compose.foundation.text.ext.InlineBasicText
 import com.huanshankeji.compose.foundation.text.input.ImeAction
+import com.huanshankeji.compose.foundation.text.input.KeyboardCapitalization
+import com.huanshankeji.compose.foundation.text.input.KeyboardType
 import com.huanshankeji.compose.material3.Checkbox
 import com.huanshankeji.compose.material3.Switch
 import com.huanshankeji.compose.material3.ext.*
@@ -38,7 +41,35 @@ fun Material3() {
         }
 
         var text by remember { mutableStateOf("") }
-        TextField(text, { text = it })
-        OutlinedTextField(text, { text = it }, keyboardOptions = KeyboardOptions(imeAction = ImeAction.Search)) // TODO
+        val label = "label"
+        val placeholder = "placeholder"
+        val prefix = "prefix"
+        val suffix = "suffix"
+        val supportingText = "supporting text"
+        TextField(
+            text,
+            { text = it },
+            label = label,
+            placeholder = placeholder,
+            prefix = prefix,
+            suffix = suffix,
+            supportingText = supportingText,
+            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number)
+        )
+        OutlinedTextField(
+            text,
+            { text = it },
+            label = label,
+            placeholder = placeholder,
+            prefix = prefix,
+            suffix = suffix,
+            supportingText = supportingText,
+            keyboardOptions = KeyboardOptions(
+                KeyboardCapitalization.Words, true, imeAction = ImeAction.Search
+            ),
+            keyboardActions = KeyboardActions {
+                println("keyboard actions with: $text")
+            }
+        )
     }
 }
