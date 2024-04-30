@@ -22,6 +22,7 @@ private fun Modifier.toTextFieldAttrs(
     onValueChange: (String) -> Unit, keyboardOptions: KeyboardOptions, keyboardActions: KeyboardActions,
 ): AttrsScope<HTMLElement>.() -> Unit =
     platformModifier.toAttrs {
+        // see https://stackoverflow.com/questions/574941/best-way-to-track-onchange-as-you-type-in-input-type-text
         onInput { onValueChange(it.target.value) }
 
         // TODO `keyboardOptions.imeAction` is not working because `enterkeyhint` is not passed to the underlying `input`.
