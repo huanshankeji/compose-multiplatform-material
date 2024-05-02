@@ -2418,6 +2418,11 @@ material-icons@^1.13.12:
   resolved "https://registry.yarnpkg.com/material-icons/-/material-icons-1.13.12.tgz#eed4082bf0426642edeb027e75397e3064adc536"
   integrity sha512-/2YoaB79IjUK2B2JB+vIXXYGtBfHb/XG66LvoKVM5ykHW7yfrV5SP6d7KLX6iijY6/G9GqwgtPQ/sbhFnOURVA==
 
+material-symbols@0.17.4:
+  version "0.17.4"
+  resolved "https://registry.yarnpkg.com/material-symbols/-/material-symbols-0.17.4.tgz#d44f9c47860487e74b2e9735425d49d99933ec01"
+  integrity sha512-5zI+rSzAidMJxAIrQCVwnp4rMjFnx8aQg68lfFXtaDeksZzJ7m8eDl16y9bRNxMosuYbLKeDHDbOWHPJJTSLhQ==
+
 media-typer@0.3.0:
   version "0.3.0"
   resolved "https://registry.yarnpkg.com/media-typer/-/media-typer-0.3.0.tgz#8710d7af0aa626f8fffa1ce00168545263255748"
