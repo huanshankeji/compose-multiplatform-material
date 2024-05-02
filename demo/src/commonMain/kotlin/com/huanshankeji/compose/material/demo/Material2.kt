@@ -113,19 +113,19 @@ fun Material2() {
                 }
 
                 var text by remember { mutableStateOf("") }
-                TextField(
+                TextFieldWithMaterialIcons(
                     text, { text = it },
                     label = "Demo text field",
-                    leadingIcon = { Icon(Icons.Default.Add, null) },
-                    trailingIcon = { Icon(Icons.Default.Menu, null) },
+                    leadingIcon = Icons.Default.Add,
+                    trailingIcon = Icons.Default.Menu,
                     keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
                     singleLine = true
                 )
-                OutlinedTextField(
+                OutlinedTextFieldWithMaterialIcons(
                     text, { text = it },
                     label = "Demo text field",
-                    leadingIcon = { Icon(Icons.Default.Add, null) },
-                    trailingIcon = { Icon(Icons.Default.Menu, null) },
+                    leadingIcon = Icons.Default.Add,
+                    trailingIcon = Icons.Default.Menu,
                     keyboardOptions = KeyboardOptions(
                         KeyboardCapitalization.Words, true, imeAction = ImeAction.Search
                     ),

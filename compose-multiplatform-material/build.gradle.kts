@@ -17,6 +17,7 @@ kotlin {
                 api(compose.runtime)
                 implementation("org.jetbrains.compose.annotation-internal:annotation:${DependencyVersions.composeMultiplatform}")
                 api(project(":compose-multiplatform-common"))
+                api(project(":compose-multiplatform-material-icons-core"))
                 //compileOnly(compose.material) // for KDoc element links only
             }
         }

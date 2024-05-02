@@ -1,7 +1,7 @@
 package com.huanshankeji.compose.material.ext
 
 import androidx.compose.runtime.Composable
-import com.huanshankeji.compose.material.contentDescription
+import com.huanshankeji.compose.contentDescription
 import com.huanshankeji.compose.material.icons.Icon
 import com.huanshankeji.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.toAttrs
@@ -19,7 +19,7 @@ actual class NavigationIconScope(val mdcTopAppBarSectionScope: MDCTopAppBarSecti
         mdcTopAppBarSectionScope.NavButton(attrs = {
             mdcIcon()
             contentDescription(contentDescription)
-        }) { Text(icon.mdcIcon.type) }
+        }) { Text(icon.name) }
 }
 
 actual class TopAppBarActionsScope(val mdcTopAppBarSectionScope: MDCTopAppBarSectionScope) {
@@ -32,7 +32,7 @@ actual class TopAppBarActionsScope(val mdcTopAppBarSectionScope: MDCTopAppBarSec
         mdcTopAppBarSectionScope.ActionButton(attrs = {
             mdcIcon()
             contentDescription(contentDescription)
-        }) { Text(icon.mdcIcon.type) }
+        }) { Text(icon.name) }
 }
 
 @Composable

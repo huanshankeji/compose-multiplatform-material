@@ -10,6 +10,9 @@ import com.huanshankeji.compose.foundation.text.ext.InlineBasicText
 import com.huanshankeji.compose.foundation.text.input.ImeAction
 import com.huanshankeji.compose.foundation.text.input.KeyboardCapitalization
 import com.huanshankeji.compose.foundation.text.input.KeyboardType
+import com.huanshankeji.compose.material.icons.Icons
+import com.huanshankeji.compose.material.icons.filled.Add
+import com.huanshankeji.compose.material.icons.filled.Menu
 import com.huanshankeji.compose.material3.Checkbox
 import com.huanshankeji.compose.material3.Switch
 import com.huanshankeji.compose.material3.ext.*
@@ -46,21 +49,25 @@ fun Material3() {
         val prefix = "prefix"
         val suffix = "suffix"
         val supportingText = "supporting text"
-        TextField(
+        TextFieldWithMaterialIcons(
             text,
             { text = it },
             label = label,
             placeholder = placeholder,
+            leadingIcon = Icons.Default.Add,
+            trailingIcon = Icons.Default.Menu,
             prefix = prefix,
             suffix = suffix,
             supportingText = supportingText,
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number)
         )
-        OutlinedTextField(
+        OutlinedTextFieldWithMaterialIcons(
             text,
             { text = it },
             label = label,
             placeholder = placeholder,
+            leadingIcon = Icons.Default.Add,
+            trailingIcon = Icons.Default.Menu,
             prefix = prefix,
             suffix = suffix,
             supportingText = supportingText,

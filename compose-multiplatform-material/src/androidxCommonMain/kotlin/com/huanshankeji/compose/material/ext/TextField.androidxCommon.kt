@@ -4,7 +4,9 @@ import androidx.compose.runtime.Composable
 import com.huanshankeji.compose.foundation.text.KeyboardActions
 import com.huanshankeji.compose.foundation.text.KeyboardOptions
 import com.huanshankeji.compose.foundation.text.toPlatformValue
+import com.huanshankeji.compose.material.Icon
 import com.huanshankeji.compose.material.Text
+import com.huanshankeji.compose.material.icons.Icon
 import com.huanshankeji.compose.ui.Modifier
 
 @Composable
@@ -34,6 +36,31 @@ actual fun TextField(
     )
 
 @Composable
+actual fun TextFieldWithMaterialIcons(
+    value: String,
+    onValueChange: (String) -> Unit,
+    modifier: Modifier,
+    enabled: Boolean,
+    label: String?,
+    leadingIcon: Icon?,
+    trailingIcon: Icon?,
+    keyboardOptions: KeyboardOptions,
+    keyboardActions: KeyboardActions,
+    singleLine: Boolean
+) =
+    TextField(
+        value,
+        onValueChange,
+        modifier,
+        enabled,
+        label,
+        leadingIcon?.let { { Icon(it, null) } },
+        trailingIcon?.let { { Icon(it, null) } },
+        keyboardOptions, keyboardActions, singleLine
+    )
+
+
+@Composable
 actual fun OutlinedTextField(
     value: String,
     onValueChange: (String) -> Unit,
@@ -58,6 +85,31 @@ actual fun OutlinedTextField(
         keyboardActions = keyboardActions.toPlatformValue(),
         singleLine = singleLine
     )
+
+@Composable
+actual fun OutlinedTextFieldWithMaterialIcons(
+    value: String,
+    onValueChange: (String) -> Unit,
+    modifier: Modifier,
+    enabled: Boolean,
+    label: String?,
+    leadingIcon: Icon?,
+    trailingIcon: Icon?,
+    keyboardOptions: KeyboardOptions,
+    keyboardActions: KeyboardActions,
+    singleLine: Boolean
+) =
+    OutlinedTextField(
+        value,
+        onValueChange,
+        modifier,
+        enabled,
+        label,
+        leadingIcon?.let { { Icon(it, null) } },
+        trailingIcon?.let { { Icon(it, null) } },
+        keyboardOptions, keyboardActions, singleLine
+    )
+
 
 @Composable
 actual fun TextArea(

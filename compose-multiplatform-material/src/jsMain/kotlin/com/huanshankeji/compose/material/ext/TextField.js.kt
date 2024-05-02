@@ -4,14 +4,48 @@ import androidx.compose.runtime.Composable
 import com.huanshankeji.compose.foundation.text.KeyboardActions
 import com.huanshankeji.compose.foundation.text.KeyboardOptions
 import com.huanshankeji.compose.foundation.text.attrsFrom
+import com.huanshankeji.compose.material.icons.Icon
 import com.huanshankeji.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.toAttrs
+import dev.petuska.kmdc.core.MDCContent
 import dev.petuska.kmdc.textfield.MDCTextArea
 import dev.petuska.kmdc.textfield.MDCTextField
+import dev.petuska.kmdc.textfield.MDCTextFieldScope
 import dev.petuska.kmdc.textfield.MDCTextFieldType
+import dev.petuska.kmdc.textfield.icon.MDCTextFieldLeadingIcon
+import dev.petuska.kmdc.textfield.icon.MDCTextFieldTrailingIcon
+import dev.petuska.kmdcx.icons.mdcIcon
+import org.jetbrains.compose.web.dom.Text
 
 @Composable
-fun CommonTextField(
+fun CommonTextFieldWithMDCContentIcons(
+    value: String,
+    type: MDCTextFieldType,
+    onValueChange: (String) -> Unit,
+    modifier: Modifier,
+    enabled: Boolean,
+    label: String?,
+    leadingIcon: MDCContent<MDCTextFieldScope>? = null,
+    trailingIcon: MDCContent<MDCTextFieldScope>? = null,
+    keyboardOptions: KeyboardOptions,
+    keyboardActions: KeyboardActions
+) =
+    MDCTextField(
+        value,
+        type,
+        !enabled,
+        label,
+        leadingIcon = leadingIcon,
+        trailingIcon = trailingIcon,
+        attrs = modifier.platformModifier.toAttrs {
+            onInput { onValueChange(it.value) }
+
+            attrsFrom(keyboardOptions, keyboardActions)
+        }
+    )
+
+@Composable
+fun CommonTextFieldWithIconsLikeAndroidx(
     value: String,
     type: MDCTextFieldType,
     onValueChange: (String) -> Unit,
@@ -23,19 +57,46 @@ fun CommonTextField(
     keyboardOptions: KeyboardOptions,
     keyboardActions: KeyboardActions
 ) =
-    MDCTextField(
+    CommonTextFieldWithMDCContentIcons(
         value,
         type,
-        !enabled,
+        onValueChange,
+        modifier,
+        enabled,
         label,
-        leadingIcon = leadingIcon?.let { { it() } },
-        trailingIcon = trailingIcon?.let { { it() } },
-        attrs = modifier.platformModifier.toAttrs {
-            onInput { onValueChange(it.value) }
-
-            attrsFrom(keyboardOptions, keyboardActions)
-        }
+        leadingIcon?.let { { it() } },
+        trailingIcon?.let { { it() } },
+        keyboardOptions,
+        keyboardActions
     )
+
+@Composable
+fun CommonTextFieldWithMaterialIcons(
+    value: String,
+    type: MDCTextFieldType,
+    onValueChange: (String) -> Unit,
+    modifier: Modifier,
+    enabled: Boolean,
+    label: String?,
+    leadingIcon: Icon?,
+    trailingIcon: Icon?,
+    keyboardOptions: KeyboardOptions,
+    keyboardActions: KeyboardActions
+) =
+    CommonTextFieldWithMDCContentIcons(
+        value,
+        type,
+        onValueChange,
+        modifier,
+        enabled,
+        label,
+        // see https://github.com/mpetuska/kmdc/blob/master/sandbox/src/jsMain/showcases/MDCTextField.kt
+        leadingIcon?.let { { MDCTextFieldLeadingIcon(attrs = { mdcIcon() }) { Text(it.name) } } },
+        trailingIcon?.let { { MDCTextFieldTrailingIcon(attrs = { mdcIcon() }) { Text(it.name) } } },
+        keyboardOptions,
+        keyboardActions
+    )
+
 
 @Composable
 actual fun TextField(
@@ -50,7 +111,7 @@ actual fun TextField(
     keyboardActions: KeyboardActions,
     singleLine: Boolean
 ) =
-    CommonTextField(
+    CommonTextFieldWithIconsLikeAndroidx(
         value,
         MDCTextFieldType.Filled,
         onValueChange,
@@ -62,6 +123,33 @@ actual fun TextField(
         keyboardOptions,
         keyboardActions
     )
+
+@Composable
+actual fun TextFieldWithMaterialIcons(
+    value: String,
+    onValueChange: (String) -> Unit,
+    modifier: Modifier,
+    enabled: Boolean,
+    label: String?,
+    leadingIcon: Icon?,
+    trailingIcon: Icon?,
+    keyboardOptions: KeyboardOptions,
+    keyboardActions: KeyboardActions,
+    singleLine: Boolean
+) =
+    CommonTextFieldWithMaterialIcons(
+        value,
+        MDCTextFieldType.Filled,
+        onValueChange,
+        modifier,
+        enabled,
+        label,
+        leadingIcon,
+        trailingIcon,
+        keyboardOptions,
+        keyboardActions
+    )
+
 
 @Composable
 actual fun OutlinedTextField(
@@ -76,7 +164,7 @@ actual fun OutlinedTextField(
     keyboardActions: KeyboardActions,
     singleLine: Boolean
 ) =
-    CommonTextField(
+    CommonTextFieldWithIconsLikeAndroidx(
         value,
         MDCTextFieldType.Outlined,
         onValueChange,
@@ -88,6 +176,33 @@ actual fun OutlinedTextField(
         keyboardOptions,
         keyboardActions
     )
+
+@Composable
+actual fun OutlinedTextFieldWithMaterialIcons(
+    value: String,
+    onValueChange: (String) -> Unit,
+    modifier: Modifier,
+    enabled: Boolean,
+    label: String?,
+    leadingIcon: Icon?,
+    trailingIcon: Icon?,
+    keyboardOptions: KeyboardOptions,
+    keyboardActions: KeyboardActions,
+    singleLine: Boolean
+) =
+    CommonTextFieldWithMaterialIcons(
+        value,
+        MDCTextFieldType.Outlined,
+        onValueChange,
+        modifier,
+        enabled,
+        label,
+        leadingIcon,
+        trailingIcon,
+        keyboardOptions,
+        keyboardActions
+    )
+
 
 @Composable
 actual fun TextArea(

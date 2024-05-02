@@ -16,6 +16,7 @@ kotlin {
             dependencies {
                 api(compose.runtime)
                 api(project(":compose-multiplatform-common"))
+                api(project(":compose-multiplatform-material-icons-core"))
                 //compileOnly(compose.material) // for KDoc element links only
             }
         }

@@ -1,13 +1,17 @@
 package com.huanshankeji.compose.material3.ext
 
 import androidx.compose.runtime.Composable
+import com.huanshankeji.compose.foundation.layout.Box
 import com.huanshankeji.compose.foundation.text.KeyboardActions
 import com.huanshankeji.compose.foundation.text.KeyboardOptions
 import com.huanshankeji.compose.foundation.text.attrsFrom
 import com.huanshankeji.compose.html.material3.MdFilledTextField
 import com.huanshankeji.compose.html.material3.MdOutlinedTextField
 import com.huanshankeji.compose.html.material3.MdTextFieldScope
+import com.huanshankeji.compose.material.icons.Icon
+import com.huanshankeji.compose.material3.Icon
 import com.huanshankeji.compose.ui.Modifier
+import com.huanshankeji.compose.ui.toCommonModifier
 import com.huanshankeji.compose.web.attributes.ext.onInput
 import com.huanshankeji.compose.web.attributes.isFalseOrNull
 import com.huanshankeji.compose.web.attributes.isTrueOrNull
@@ -29,12 +33,20 @@ private fun Modifier.toTextFieldAttrs(
         attrsFrom(keyboardOptions, keyboardActions)
     }
 
-private fun TextFieldContent(): @Composable MdTextFieldScope.() -> Unit = {
-    // leadingIcon?.invoke() // TODO
-    PlatformModifier.attrsModifier { slot(MdTextFieldScope.Slot.LeadingIcon) }
-    // trailingIcon?.invoke() // TODO
-    PlatformModifier.attrsModifier { slot(MdTextFieldScope.Slot.TrailingIcon) }
+private fun TextFieldContent(
+    leadingIcon: @Composable ((Modifier) -> Unit)?,
+    trailingIcon: @Composable ((Modifier) -> Unit)?,
+): @Composable MdTextFieldScope.() -> Unit = {
+    leadingIcon?.invoke(PlatformModifier.attrsModifier { slot(MdTextFieldScope.Slot.LeadingIcon) }.toCommonModifier())
+    trailingIcon?.invoke(PlatformModifier.attrsModifier { slot(MdTextFieldScope.Slot.TrailingIcon) }.toCommonModifier())
 }
+
+private fun (@Composable (() -> Unit)?).toBoxedContentWithModifier(): @Composable ((Modifier) -> Unit)? =
+    this?.let { { modifier -> Box(modifier) { it() } } }
+
+private fun Icon?.toIconContentWithModifier(): @Composable ((Modifier) -> Unit)? =
+    this?.let { { modifier -> Icon(it, null, modifier) } }
+
 
 @Composable
 actual fun TextField(
@@ -47,6 +59,46 @@ actual fun TextField(
     placeholder: String?,
     leadingIcon: @Composable (() -> Unit)?,
     trailingIcon: @Composable (() -> Unit)?,
+    prefix: String?,
+    suffix: String?,
+    supportingText: String?,
+    isError: Boolean,
+    keyboardOptions: KeyboardOptions,
+    keyboardActions: KeyboardActions,
+    singleLine: Boolean,
+    lines: Int
+) =
+    TextFieldWithModifierPassedToIcon(
+        value,
+        onValueChange,
+        modifier,
+        enabled,
+        readOnly,
+        label,
+        placeholder,
+        leadingIcon.toBoxedContentWithModifier(),
+        trailingIcon.toBoxedContentWithModifier(),
+        prefix,
+        suffix,
+        supportingText,
+        isError,
+        keyboardOptions,
+        keyboardActions,
+        singleLine,
+        lines
+    )
+
+@Composable
+actual fun TextFieldWithModifierPassedToIcon(
+    value: String,
+    onValueChange: (String) -> Unit,
+    modifier: Modifier,
+    enabled: Boolean,
+    readOnly: Boolean,
+    label: String?,
+    placeholder: String?,
+    leadingIcon: @Composable ((Modifier) -> Unit)?,
+    trailingIcon: @Composable ((Modifier) -> Unit)?,
     prefix: String?,
     suffix: String?,
     supportingText: String?,
@@ -72,7 +124,47 @@ actual fun TextField(
         readOnly = readOnly.isTrueOrNull(),
 
         attrs = modifier.toTextFieldAttrs(onValueChange, keyboardOptions, keyboardActions),
-        content = TextFieldContent()
+        content = TextFieldContent(leadingIcon, trailingIcon)
+    )
+
+@Composable
+actual fun TextFieldWithMaterialIcons(
+    value: String,
+    onValueChange: (String) -> Unit,
+    modifier: Modifier,
+    enabled: Boolean,
+    readOnly: Boolean,
+    label: String?,
+    placeholder: String?,
+    leadingIcon: Icon?,
+    trailingIcon: Icon?,
+    prefix: String?,
+    suffix: String?,
+    supportingText: String?,
+    isError: Boolean,
+    keyboardOptions: KeyboardOptions,
+    keyboardActions: KeyboardActions,
+    singleLine: Boolean,
+    lines: Int
+) =
+    TextFieldWithModifierPassedToIcon(
+        value,
+        onValueChange,
+        modifier,
+        enabled,
+        readOnly,
+        label,
+        placeholder,
+        leadingIcon.toIconContentWithModifier(),
+        trailingIcon.toIconContentWithModifier(),
+        prefix,
+        suffix,
+        supportingText,
+        isError,
+        keyboardOptions,
+        keyboardActions,
+        singleLine,
+        lines
     )
 
 
@@ -87,6 +179,46 @@ actual fun OutlinedTextField(
     placeholder: String?,
     leadingIcon: @Composable (() -> Unit)?,
     trailingIcon: @Composable (() -> Unit)?,
+    prefix: String?,
+    suffix: String?,
+    supportingText: String?,
+    isError: Boolean,
+    keyboardOptions: KeyboardOptions,
+    keyboardActions: KeyboardActions,
+    singleLine: Boolean,
+    lines: Int
+) =
+    OutlinedTextFieldWithModifierPassedToIcon(
+        value,
+        onValueChange,
+        modifier,
+        enabled,
+        readOnly,
+        label,
+        placeholder,
+        leadingIcon.toBoxedContentWithModifier(),
+        trailingIcon.toBoxedContentWithModifier(),
+        prefix,
+        suffix,
+        supportingText,
+        isError,
+        keyboardOptions,
+        keyboardActions,
+        singleLine,
+        lines
+    )
+
+@Composable
+actual fun OutlinedTextFieldWithModifierPassedToIcon(
+    value: String,
+    onValueChange: (String) -> Unit,
+    modifier: Modifier,
+    enabled: Boolean,
+    readOnly: Boolean,
+    label: String?,
+    placeholder: String?,
+    leadingIcon: @Composable ((Modifier) -> Unit)?,
+    trailingIcon: @Composable ((Modifier) -> Unit)?,
     prefix: String?,
     suffix: String?,
     supportingText: String?,
@@ -112,5 +244,45 @@ actual fun OutlinedTextField(
         readOnly = readOnly.isTrueOrNull(),
 
         attrs = modifier.toTextFieldAttrs(onValueChange, keyboardOptions, keyboardActions),
-        content = TextFieldContent()
+        content = TextFieldContent(leadingIcon, trailingIcon)
+    )
+
+@Composable
+actual fun OutlinedTextFieldWithMaterialIcons(
+    value: String,
+    onValueChange: (String) -> Unit,
+    modifier: Modifier,
+    enabled: Boolean,
+    readOnly: Boolean,
+    label: String?,
+    placeholder: String?,
+    leadingIcon: Icon?,
+    trailingIcon: Icon?,
+    prefix: String?,
+    suffix: String?,
+    supportingText: String?,
+    isError: Boolean,
+    keyboardOptions: KeyboardOptions,
+    keyboardActions: KeyboardActions,
+    singleLine: Boolean,
+    lines: Int
+) =
+    OutlinedTextFieldWithModifierPassedToIcon(
+        value,
+        onValueChange,
+        modifier,
+        enabled,
+        readOnly,
+        label,
+        placeholder,
+        leadingIcon.toIconContentWithModifier(),
+        trailingIcon.toIconContentWithModifier(),
+        prefix,
+        suffix,
+        supportingText,
+        isError,
+        keyboardOptions,
+        keyboardActions,
+        singleLine,
+        lines
     )
