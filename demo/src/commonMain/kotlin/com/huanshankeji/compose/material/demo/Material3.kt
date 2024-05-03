@@ -6,7 +6,6 @@ import com.huanshankeji.compose.foundation.layout.Row
 import com.huanshankeji.compose.foundation.layout.RowScope
 import com.huanshankeji.compose.foundation.text.KeyboardActions
 import com.huanshankeji.compose.foundation.text.KeyboardOptions
-import com.huanshankeji.compose.foundation.text.ext.InlineBasicText
 import com.huanshankeji.compose.foundation.text.input.ImeAction
 import com.huanshankeji.compose.foundation.text.input.KeyboardCapitalization
 import com.huanshankeji.compose.foundation.text.input.KeyboardType
@@ -24,7 +23,7 @@ fun Material3() {
         var count by remember { mutableStateOf(0) }
         val onClick: () -> Unit = { count++ }
         val buttonContent: @Composable () -> Unit = {
-            InlineBasicText(count.toString()) // TODO use `com.huanshankeji.compose.material3.ext.InlineText`
+            InlineText(count.toString())
         }
         val rowScopeButtonContent: @Composable RowScope.() -> Unit = { buttonContent() }
         Row {
