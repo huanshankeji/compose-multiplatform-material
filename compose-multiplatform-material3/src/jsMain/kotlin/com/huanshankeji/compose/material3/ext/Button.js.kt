@@ -4,6 +4,9 @@ import androidx.compose.runtime.Composable
 import com.huanshankeji.compose.html.material3.MdButtonScope
 import com.huanshankeji.compose.material3.*
 import com.huanshankeji.compose.ui.Modifier
+import com.huanshankeji.compose.ui.toCommonModifier
+import com.varabyte.kobweb.compose.ui.attrsModifier
+import com.varabyte.kobweb.compose.ui.Modifier as PlatformModifier
 
 @Composable
 private fun (@Composable (ButtonScope.() -> Unit)).toMdButtonScopeContent(): @Composable MdButtonScope.() -> Unit =
@@ -15,9 +18,14 @@ actual fun Button(
     onClick: () -> Unit,
     modifier: Modifier,
     enabled: Boolean,
-    content: @Composable ButtonScope.() -> Unit
+    icon: @Composable ((Modifier) -> Unit)?,
+    isTrailingIcon: Boolean,
+    content: @Composable () -> Unit
 ) =
-    CommonButton(onClick, modifier, enabled, content.toMdButtonScopeContent())
+    CommonButton(onClick, modifier, enabled) {
+        content()
+        icon?.invoke(PlatformModifier.attrsModifier { slotEqIcon() }.toCommonModifier())
+    }
 
 @Composable
 actual fun ElevatedButton(

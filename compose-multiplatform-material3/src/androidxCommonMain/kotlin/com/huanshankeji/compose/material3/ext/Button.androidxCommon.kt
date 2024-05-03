@@ -1,12 +1,48 @@
 package com.huanshankeji.compose.material3.ext
 
 import androidx.compose.foundation.layout.RowScope
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.size
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.unit.dp
+import com.huanshankeji.compose.layout.size
 import com.huanshankeji.compose.ui.Modifier
 
+// TODO remove
 @Composable
 private fun (@Composable (ButtonScope.() -> Unit)).toButtonScopeContent(): @Composable RowScope.() -> Unit =
     { ButtonScope.(this@toButtonScopeContent)() }
+
+@Composable
+private fun (@Composable (() -> Unit)).toRowScopeContent(
+    icon: @Composable ((Modifier) -> Unit)?,
+    isTrailingIcon: Boolean
+): @Composable RowScope.() -> Unit =
+    {
+        // see https://m3.material.io/components/buttons/specs#34dda7d9-40df-48ce-a169-1eaffe2e1835 and https://m3.material.io/components/buttons/specs#309d928e-e9ef-41dd-89fc-9bc51f78709c
+
+        @Composable
+        fun Spacer() =
+            Spacer(androidx.compose.ui.Modifier.size(8.dp))
+
+        if (icon === null)
+            this@toRowScopeContent()
+        else {
+            @Composable
+            fun icon() =
+                icon(Modifier.size(18.dp))
+
+            if (isTrailingIcon) {
+                this@toRowScopeContent()
+                Spacer()
+                icon()
+            } else {
+                icon()
+                Spacer()
+                this@toRowScopeContent()
+            }
+        }
+    }
 
 
 @Composable
@@ -14,11 +50,12 @@ actual fun Button(
     onClick: () -> Unit,
     modifier: Modifier,
     enabled: Boolean,
-    content: @Composable ButtonScope.() -> Unit
-) =
-    androidx.compose.material3.Button(
-        onClick, modifier.platformModifier, enabled, content = content.toButtonScopeContent()
-    )
+    icon: @Composable ((Modifier) -> Unit)?,
+    isTrailingIcon: Boolean,
+    content: @Composable () -> Unit
+) = androidx.compose.material3.Button(
+    onClick, modifier.platformModifier, enabled, content = content.toRowScopeContent(icon, isTrailingIcon)
+)
 
 @Composable
 actual fun ElevatedButton(

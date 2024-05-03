@@ -30,11 +30,13 @@ fun Material3() {
         val buttonScopeButtonContent: @Composable ButtonScope.() -> Unit = { buttonContent() }
         Row {
             RowScopeButton(onClick, content = rowScopeButtonContent)
-            Button(onClick, content = buttonScopeButtonContent)
+            Button(onClick, content = buttonContent)
             ElevatedButton(onClick, content = buttonScopeButtonContent)
             FilledTonalButton(onClick, content = buttonScopeButtonContent)
             OutlinedButton(onClick, content = buttonScopeButtonContent)
             TextButton(onClick, content = buttonScopeButtonContent)
+
+            ButtonWithMaterialIcon(onClick, icon = Icons.Default.Add, content = buttonContent)
         }
 
         Row {

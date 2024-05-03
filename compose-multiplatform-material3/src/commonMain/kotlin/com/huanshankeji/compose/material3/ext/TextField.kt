@@ -6,6 +6,13 @@ import com.huanshankeji.compose.foundation.text.KeyboardOptions
 import com.huanshankeji.compose.material.icons.Icon
 import com.huanshankeji.compose.ui.Modifier
 
+/*
+TODO Remove this to avoid confusion caused by too many similar functions, and rename the following `TextFieldWithModifierPassedToIcon` to `TextField`.
+ Do the same to the similar `OutlinedTextField`.
+ This function was added in order to be more akin to the `androidx.compose.material3` one, but it seems unnecessary now on second thought.
+ The user should be recommended to pass the `Modifier` for the component to work better on JS.
+ The newly-refactored `ext` button composables are designed in this way.
+ */
 @Composable
 expect fun TextField(
     value: String,
@@ -33,7 +40,7 @@ expect fun TextField(
 )
 
 /**
- * @param leadingIcon the [Modifier] parameter contains the attributes to be set on this icon on JS.
+ * @param leadingIcon the [Modifier] parameter contains the attributes to be set on this icon on JS. You are supposed to pass this [Modifier] to the top-level composable that you invoke inside.
  * @param trailingIcon ditto.
  */
 @Composable
@@ -101,7 +108,7 @@ expect fun OutlinedTextField(
 )
 
 /**
- * @param leadingIcon the [Modifier] parameter contains the attributes to be set on this icon on JS.
+ * @param leadingIcon the [Modifier] parameter contains the attributes to be set on this icon on JS. You are supposed to pass this [Modifier] to the top-level composable that you invoke inside.
  * @param trailingIcon ditto.
  */
 @Composable

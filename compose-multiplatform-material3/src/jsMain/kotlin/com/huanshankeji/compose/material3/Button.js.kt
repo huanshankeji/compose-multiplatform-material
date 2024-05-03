@@ -7,6 +7,7 @@ import com.huanshankeji.compose.html.material3.*
 import com.huanshankeji.compose.ui.Modifier
 import com.huanshankeji.compose.web.attributes.Attrs
 import com.huanshankeji.compose.web.attributes.isFalseOrNull
+import com.huanshankeji.compose.web.attributes.isTrueOrNull
 import com.varabyte.kobweb.compose.ui.toAttrs
 import org.w3c.dom.HTMLElement
 
@@ -17,6 +18,7 @@ private fun Modifier.toButtonAttrs(onClick: () -> Unit): Attrs<HTMLElement> =
 
 @Composable
 private fun (@Composable (RowScope.() -> Unit)).toMdButtonScopeContent(): @Composable MdButtonScope.() -> Unit =
+    // TODO consider adding the row styles/classes to the button and remove the wrapping `Row`
     { Row(content = this@toMdButtonScopeContent) }
 
 
@@ -25,10 +27,12 @@ internal fun CommonButton(
     onClick: () -> Unit,
     modifier: Modifier,
     enabled: Boolean,
+    isTrailingIcon: Boolean = false,
     content: @Composable MdButtonScope.() -> Unit
 ) =
     MdFilledButton(
         disabled = enabled.isFalseOrNull(),
+        trailingIcon = isTrailingIcon.isTrueOrNull(),
         attrs = modifier.toButtonAttrs(onClick),
         content = content
     )
@@ -40,7 +44,7 @@ actual fun Button(
     enabled: Boolean,
     content: @Composable RowScope.() -> Unit
 ) =
-    CommonButton(onClick, modifier, enabled, content.toMdButtonScopeContent())
+    CommonButton(onClick, modifier, enabled, content = content.toMdButtonScopeContent())
 
 @Composable
 internal fun CommonElevatedButton(
