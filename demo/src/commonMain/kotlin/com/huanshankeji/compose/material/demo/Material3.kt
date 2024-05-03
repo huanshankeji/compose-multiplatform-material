@@ -33,7 +33,8 @@ fun Material3() {
             FilledTonalButton(onClick, content = buttonContent)
             OutlinedButton(onClick, content = buttonContent)
             TextButton(onClick, content = buttonContent)
-
+        }
+        Row {
             ButtonWithMaterialIcon(onClick, icon = Icons.Default.Add, content = buttonContent)
             ButtonWithMaterialIcon(onClick, icon = Icons.Default.Add, isTrailingIcon = true, content = buttonContent)
         }
