@@ -56,35 +56,109 @@ expect fun ElevatedButton(
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
     enabled: Boolean = true,
-    content: @Composable ButtonScope.() -> Unit
+    icon: @Composable ((Modifier) -> Unit)? = null,
+    isTrailingIcon: Boolean = false,
+    content: @Composable () -> Unit
 )
+
+@Composable
+fun ElevatedButtonWithMaterialIcon(
+    onClick: () -> Unit,
+    modifier: Modifier = Modifier,
+    enabled: Boolean = true,
+    icon: Icon?,
+    isTrailingIcon: Boolean = false,
+    content: @Composable () -> Unit
+) =
+    ElevatedButton(
+        onClick,
+        modifier,
+        enabled,
+        icon?.let { { modifier -> Icon(it, null, modifier) } },
+        isTrailingIcon,
+        content
+    )
 
 @Composable
 expect fun FilledTonalButton(
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
     enabled: Boolean = true,
-    content: @Composable ButtonScope.() -> Unit
+    icon: @Composable ((Modifier) -> Unit)? = null,
+    isTrailingIcon: Boolean = false,
+    content: @Composable () -> Unit
 )
+
+@Composable
+fun FilledTonalButtonWithMaterialIcon(
+    onClick: () -> Unit,
+    modifier: Modifier = Modifier,
+    enabled: Boolean = true,
+    icon: Icon?,
+    isTrailingIcon: Boolean = false,
+    content: @Composable () -> Unit
+) =
+    FilledTonalButton(
+        onClick,
+        modifier,
+        enabled,
+        icon?.let { { modifier -> Icon(it, null, modifier) } },
+        isTrailingIcon,
+        content
+    )
 
 @Composable
 expect fun OutlinedButton(
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
     enabled: Boolean = true,
-    content: @Composable ButtonScope.() -> Unit
+    icon: @Composable ((Modifier) -> Unit)? = null,
+    isTrailingIcon: Boolean = false,
+    content: @Composable () -> Unit
 )
+
+@Composable
+fun OutlinedButtonWithMaterialIcon(
+    onClick: () -> Unit,
+    modifier: Modifier = Modifier,
+    enabled: Boolean = true,
+    icon: Icon?,
+    isTrailingIcon: Boolean = false,
+    content: @Composable () -> Unit
+) =
+    OutlinedButton(
+        onClick,
+        modifier,
+        enabled,
+        icon?.let { { modifier -> Icon(it, null, modifier) } },
+        isTrailingIcon,
+        content
+    )
 
 @Composable
 expect fun TextButton(
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
     enabled: Boolean = true,
-    content: @Composable ButtonScope.() -> Unit
+    icon: @Composable ((Modifier) -> Unit)? = null,
+    isTrailingIcon: Boolean = false,
+    content: @Composable () -> Unit
 )
 
-// TODO remove
-expect class ButtonScope {
-    @Composable
-    fun Icon(/* TODO */)
-}
+@Composable
+fun TextButtonWithMaterialIcon(
+    onClick: () -> Unit,
+    modifier: Modifier = Modifier,
+    enabled: Boolean = true,
+    icon: Icon?,
+    isTrailingIcon: Boolean = false,
+    content: @Composable () -> Unit
+) =
+    TextButton(
+        onClick,
+        modifier,
+        enabled,
+        icon?.let { { modifier -> Icon(it, null, modifier) } },
+        isTrailingIcon,
+        content
+    )

@@ -51,10 +51,12 @@ internal fun CommonElevatedButton(
     onClick: () -> Unit,
     modifier: Modifier,
     enabled: Boolean,
+    isTrailingIcon: Boolean = false,
     content: @Composable MdButtonScope.() -> Unit
 ) =
     MdElevatedButton(
         disabled = enabled.isFalseOrNull(),
+        trailingIcon = isTrailingIcon.isTrueOrNull(),
         attrs = modifier.toButtonAttrs(onClick),
         content = content
     )
@@ -66,17 +68,19 @@ actual fun ElevatedButton(
     enabled: Boolean,
     content: @Composable RowScope.() -> Unit
 ) =
-    CommonElevatedButton(onClick, modifier, enabled, content.toMdButtonScopeContent())
+    CommonElevatedButton(onClick, modifier, enabled, content = content.toMdButtonScopeContent())
 
 @Composable
 internal fun CommonFilledTonalButton(
     onClick: () -> Unit,
     modifier: Modifier,
     enabled: Boolean,
+    isTrailingIcon: Boolean = false,
     content: @Composable MdButtonScope.() -> Unit
 ) =
     MdFilledTonalButton(
         disabled = enabled.isFalseOrNull(),
+        trailingIcon = isTrailingIcon.isTrueOrNull(),
         attrs = modifier.toButtonAttrs(onClick),
         content = content
     )
@@ -88,17 +92,19 @@ actual fun FilledTonalButton(
     enabled: Boolean,
     content: @Composable RowScope.() -> Unit
 ) =
-    CommonFilledTonalButton(onClick, modifier, enabled, content.toMdButtonScopeContent())
+    CommonFilledTonalButton(onClick, modifier, enabled, content = content.toMdButtonScopeContent())
 
 @Composable
 internal fun CommonOutlinedButton(
     onClick: () -> Unit,
     modifier: Modifier,
     enabled: Boolean,
+    isTrailingIcon: Boolean = false,
     content: @Composable MdButtonScope.() -> Unit
 ) =
     MdOutlinedButton(
         disabled = enabled.isFalseOrNull(),
+        trailingIcon = isTrailingIcon.isTrueOrNull(),
         attrs = modifier.toButtonAttrs(onClick),
         content = content
     )
@@ -110,17 +116,19 @@ actual fun OutlinedButton(
     enabled: Boolean,
     content: @Composable RowScope.() -> Unit
 ) =
-    CommonOutlinedButton(onClick, modifier, enabled, content.toMdButtonScopeContent())
+    CommonOutlinedButton(onClick, modifier, enabled, content = content.toMdButtonScopeContent())
 
 @Composable
 internal fun CommonTextButton(
     onClick: () -> Unit,
     modifier: Modifier,
     enabled: Boolean,
+    isTrailingIcon: Boolean = false,
     content: @Composable MdButtonScope.() -> Unit
 ) =
     MdTextButton(
         disabled = enabled.isFalseOrNull(),
+        trailingIcon = isTrailingIcon.isTrueOrNull(),
         attrs = modifier.toButtonAttrs(onClick),
         content = content
     )
@@ -132,4 +140,4 @@ actual fun TextButton(
     enabled: Boolean,
     content: @Composable RowScope.() -> Unit
 ) =
-    CommonTextButton(onClick, modifier, enabled, content.toMdButtonScopeContent())
+    CommonTextButton(onClick, modifier, enabled, content = content.toMdButtonScopeContent())

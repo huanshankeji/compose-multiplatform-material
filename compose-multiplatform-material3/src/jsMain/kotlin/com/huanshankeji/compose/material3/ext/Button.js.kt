@@ -8,9 +8,14 @@ import com.huanshankeji.compose.ui.toCommonModifier
 import com.varabyte.kobweb.compose.ui.attrsModifier
 import com.varabyte.kobweb.compose.ui.Modifier as PlatformModifier
 
-@Composable
-private fun (@Composable (ButtonScope.() -> Unit)).toMdButtonScopeContent(): @Composable MdButtonScope.() -> Unit =
-    { ButtonScope(this).(this@toMdButtonScopeContent)() }
+private fun (@Composable () -> Unit).toMdButtonScopeContent(
+    icon: @Composable ((Modifier) -> Unit)?
+): @Composable MdButtonScope.() -> Unit = {
+    // see https://github.com/material-components/material-web/blob/main/docs/components/button.md#icon
+
+    this@toMdButtonScopeContent()
+    icon?.invoke(PlatformModifier.attrsModifier { slotEqIcon() }.toCommonModifier())
+}
 
 
 @Composable
@@ -22,50 +27,49 @@ actual fun Button(
     isTrailingIcon: Boolean,
     content: @Composable () -> Unit
 ) =
-    CommonButton(onClick, modifier, enabled) {
-        content()
-        icon?.invoke(PlatformModifier.attrsModifier { slotEqIcon() }.toCommonModifier())
-    }
+    CommonButton(onClick, modifier, enabled, isTrailingIcon, content.toMdButtonScopeContent(icon))
+
 
 @Composable
 actual fun ElevatedButton(
     onClick: () -> Unit,
     modifier: Modifier,
     enabled: Boolean,
-    content: @Composable ButtonScope.() -> Unit
+    icon: @Composable ((Modifier) -> Unit)?,
+    isTrailingIcon: Boolean,
+    content: @Composable () -> Unit
 ) =
-    CommonElevatedButton(onClick, modifier, enabled, content.toMdButtonScopeContent())
+    CommonElevatedButton(onClick, modifier, enabled, isTrailingIcon, content.toMdButtonScopeContent(icon))
 
 @Composable
 actual fun FilledTonalButton(
     onClick: () -> Unit,
     modifier: Modifier,
     enabled: Boolean,
-    content: @Composable ButtonScope.() -> Unit
+    icon: @Composable ((Modifier) -> Unit)?,
+    isTrailingIcon: Boolean,
+    content: @Composable () -> Unit
 ) =
-    CommonFilledTonalButton(onClick, modifier, enabled, content.toMdButtonScopeContent())
+    CommonFilledTonalButton(onClick, modifier, enabled, isTrailingIcon, content.toMdButtonScopeContent(icon))
 
 @Composable
 actual fun OutlinedButton(
     onClick: () -> Unit,
     modifier: Modifier,
     enabled: Boolean,
-    content: @Composable ButtonScope.() -> Unit
+    icon: @Composable ((Modifier) -> Unit)?,
+    isTrailingIcon: Boolean,
+    content: @Composable () -> Unit
 ) =
-    CommonOutlinedButton(onClick, modifier, enabled, content.toMdButtonScopeContent())
+    CommonOutlinedButton(onClick, modifier, enabled, isTrailingIcon, content.toMdButtonScopeContent(icon))
 
 @Composable
 actual fun TextButton(
     onClick: () -> Unit,
     modifier: Modifier,
     enabled: Boolean,
-    content: @Composable ButtonScope.() -> Unit
+    icon: @Composable ((Modifier) -> Unit)?,
+    isTrailingIcon: Boolean,
+    content: @Composable () -> Unit
 ) =
-    CommonTextButton(onClick, modifier, enabled, content.toMdButtonScopeContent())
-
-actual class ButtonScope(val mdButtonScope: MdButtonScope) {
-    @Composable
-    actual fun Icon() {
-        TODO()
-    }
-}
+    CommonTextButton(onClick, modifier, enabled, isTrailingIcon, content.toMdButtonScopeContent(icon))

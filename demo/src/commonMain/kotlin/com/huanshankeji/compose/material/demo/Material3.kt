@@ -27,16 +27,16 @@ fun Material3() {
             InlineBasicText(count.toString()) // TODO use `com.huanshankeji.compose.material3.ext.InlineText`
         }
         val rowScopeButtonContent: @Composable RowScope.() -> Unit = { buttonContent() }
-        val buttonScopeButtonContent: @Composable ButtonScope.() -> Unit = { buttonContent() }
         Row {
             RowScopeButton(onClick, content = rowScopeButtonContent)
             Button(onClick, content = buttonContent)
-            ElevatedButton(onClick, content = buttonScopeButtonContent)
-            FilledTonalButton(onClick, content = buttonScopeButtonContent)
-            OutlinedButton(onClick, content = buttonScopeButtonContent)
-            TextButton(onClick, content = buttonScopeButtonContent)
+            ElevatedButton(onClick, content = buttonContent)
+            FilledTonalButton(onClick, content = buttonContent)
+            OutlinedButton(onClick, content = buttonContent)
+            TextButton(onClick, content = buttonContent)
 
             ButtonWithMaterialIcon(onClick, icon = Icons.Default.Add, content = buttonContent)
+            ButtonWithMaterialIcon(onClick, icon = Icons.Default.Add, isTrailingIcon = true, content = buttonContent)
         }
 
         Row {

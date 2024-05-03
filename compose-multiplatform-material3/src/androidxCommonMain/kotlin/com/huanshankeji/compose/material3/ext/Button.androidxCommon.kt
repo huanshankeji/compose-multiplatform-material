@@ -8,11 +8,6 @@ import androidx.compose.ui.unit.dp
 import com.huanshankeji.compose.layout.size
 import com.huanshankeji.compose.ui.Modifier
 
-// TODO remove
-@Composable
-private fun (@Composable (ButtonScope.() -> Unit)).toButtonScopeContent(): @Composable RowScope.() -> Unit =
-    { ButtonScope.(this@toButtonScopeContent)() }
-
 @Composable
 private fun (@Composable (() -> Unit)).toRowScopeContent(
     icon: @Composable ((Modifier) -> Unit)?,
@@ -62,9 +57,11 @@ actual fun ElevatedButton(
     onClick: () -> Unit,
     modifier: Modifier,
     enabled: Boolean,
-    content: @Composable ButtonScope.() -> Unit
+    icon: @Composable ((Modifier) -> Unit)?,
+    isTrailingIcon: Boolean,
+    content: @Composable () -> Unit
 ) = androidx.compose.material3.ElevatedButton(
-    onClick, modifier.platformModifier, enabled, content = content.toButtonScopeContent()
+    onClick, modifier.platformModifier, enabled, content = content.toRowScopeContent(icon, isTrailingIcon)
 )
 
 @Composable
@@ -72,10 +69,12 @@ actual fun FilledTonalButton(
     onClick: () -> Unit,
     modifier: Modifier,
     enabled: Boolean,
-    content: @Composable ButtonScope.() -> Unit
+    icon: @Composable ((Modifier) -> Unit)?,
+    isTrailingIcon: Boolean,
+    content: @Composable () -> Unit
 ) =
     androidx.compose.material3.FilledTonalButton(
-        onClick, modifier.platformModifier, enabled, content = content.toButtonScopeContent()
+        onClick, modifier.platformModifier, enabled, content = content.toRowScopeContent(icon, isTrailingIcon)
     )
 
 @Composable
@@ -83,10 +82,12 @@ actual fun OutlinedButton(
     onClick: () -> Unit,
     modifier: Modifier,
     enabled: Boolean,
-    content: @Composable ButtonScope.() -> Unit
+    icon: @Composable ((Modifier) -> Unit)?,
+    isTrailingIcon: Boolean,
+    content: @Composable () -> Unit
 ) =
     androidx.compose.material3.OutlinedButton(
-        onClick, modifier.platformModifier, enabled, content = content.toButtonScopeContent()
+        onClick, modifier.platformModifier, enabled, content = content.toRowScopeContent(icon, isTrailingIcon)
     )
 
 @Composable
@@ -94,15 +95,10 @@ actual fun TextButton(
     onClick: () -> Unit,
     modifier: Modifier,
     enabled: Boolean,
-    content: @Composable ButtonScope.() -> Unit
+    icon: @Composable ((Modifier) -> Unit)?,
+    isTrailingIcon: Boolean,
+    content: @Composable () -> Unit
 ) =
     androidx.compose.material3.TextButton(
-        onClick, modifier.platformModifier, enabled, content = content.toButtonScopeContent()
+        onClick, modifier.platformModifier, enabled, content = content.toRowScopeContent(icon, isTrailingIcon)
     )
-
-actual object ButtonScope {
-    @Composable
-    actual fun Icon() {
-        TODO()
-    }
-}
