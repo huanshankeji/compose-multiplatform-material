@@ -1,6 +1,7 @@
 package com.huanshankeji.compose.material.demo
 
 import androidx.compose.runtime.*
+import com.huanshankeji.compose.ExtRecommendedApi
 import com.huanshankeji.compose.foundation.layout.Column
 import com.huanshankeji.compose.foundation.layout.Row
 import com.huanshankeji.compose.foundation.layout.RowScope
@@ -12,8 +13,8 @@ import com.huanshankeji.compose.foundation.text.input.KeyboardType
 import com.huanshankeji.compose.material.icons.Icons
 import com.huanshankeji.compose.material.icons.filled.Add
 import com.huanshankeji.compose.material.icons.filled.Menu
-import com.huanshankeji.compose.material3.Checkbox
-import com.huanshankeji.compose.material3.Switch
+import com.huanshankeji.compose.material.icons.filled.Remove
+import com.huanshankeji.compose.material3.*
 import com.huanshankeji.compose.material3.ext.*
 import com.huanshankeji.compose.material3.Button as RowScopeButton
 
@@ -38,11 +39,44 @@ fun Material3() {
             ButtonWithMaterialIcon(onClick, icon = Icons.Default.Add, content = buttonContent)
             ButtonWithMaterialIcon(onClick, icon = Icons.Default.Add, isTrailingIcon = true, content = buttonContent)
         }
-
+        val iconButtonContent: @Composable () -> Unit = {
+            Icon(Icons.Default.Add, null)
+        }
         Row {
-            var checked by remember { mutableStateOf(false) }
-            Checkbox(checked, { checked = it })
-            Switch(checked, { checked = it })
+            IconButton(onClick, content = iconButtonContent)
+        }
+        val (checked, onCheckedChange) = remember { mutableStateOf(false) }
+        val iconToggleButtonContent: @Composable () -> Unit = {
+            Icon(if (checked) Icons.Default.Add else Icons.Default.Remove, null)
+        }
+        @OptIn(ExtRecommendedApi::class)
+        Row {
+            IconToggleButton(checked, onCheckedChange, content = iconToggleButtonContent)
+            FilledIconToggleButton(checked, onCheckedChange, content = iconToggleButtonContent)
+            FilledTonalIconToggleButton(checked, onCheckedChange, content = iconToggleButtonContent)
+            OutlinedIconToggleButton(checked, onCheckedChange, content = iconToggleButtonContent)
+        }
+        Row {
+            IconToggleButtonWithMaterialIcons(
+                checked, onCheckedChange,
+                uncheckedIcon = Icons.Default.Remove, checkedIcon = Icons.Default.Add
+            )
+            FilledIconToggleButtonWithMaterialIcons(
+                checked, onCheckedChange,
+                uncheckedIcon = Icons.Default.Remove, checkedIcon = Icons.Default.Add
+            )
+            FilledTonalIconToggleButtonWithMaterialIcons(
+                checked, onCheckedChange,
+                uncheckedIcon = Icons.Default.Remove, checkedIcon = Icons.Default.Add
+            )
+            OutlinedIconToggleButtonWithMaterialIcons(
+                checked, onCheckedChange,
+                uncheckedIcon = Icons.Default.Remove, checkedIcon = Icons.Default.Add
+            )
+        }
+        Row {
+            Checkbox(checked, onCheckedChange)
+            Switch(checked, onCheckedChange)
         }
 
         var text by remember { mutableStateOf("") }
