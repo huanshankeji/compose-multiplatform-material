@@ -1,20 +1,34 @@
 package com.huanshankeji.compose.material3
 
 import androidx.compose.runtime.Composable
+import com.huanshankeji.compose.foundation.layout.Box
 import com.huanshankeji.compose.html.material3.*
 import com.huanshankeji.compose.ui.Modifier
+import com.huanshankeji.compose.ui.toCommonModifier
+import com.huanshankeji.compose.web.attributes.ext.onInput
 import com.huanshankeji.compose.web.attributes.isFalseOrNull
+import com.huanshankeji.compose.web.attributes.isTrueOrNull
+import com.varabyte.kobweb.compose.ui.attrsModifier
+import com.varabyte.kobweb.compose.ui.toAttrs
 import org.jetbrains.compose.web.attributes.AttrsScope
 import org.w3c.dom.HTMLElement
+import com.varabyte.kobweb.compose.ui.Modifier as PlatformModifier
 
-private fun Modifier.toCommonIconToggleButtonAttrs(
+internal fun Modifier.toCommonIconToggleButtonAttrs(
     checked: Boolean, onCheckedChange: (Boolean) -> Unit
 ): AttrsScope<HTMLElement>.() -> Unit =
-    // note `onClick` is used here
-    toCommonButtonAttrs { onCheckedChange(!checked) }
+    platformModifier.toAttrs {
+        // note that `onInput` is used here
+        onInput { onCheckedChange(!checked) }
+    }
 
-private fun (@Composable () -> Unit).toCommonIconButtonContent(): @Composable MdIconButtonScope.() -> Unit =
-    { this@toCommonIconButtonContent() }
+internal fun MdIconButtonScope.slotEqSelectedModifier() =
+    PlatformModifier.attrsModifier { slotEqSelected() }.toCommonModifier()
+
+private fun (@Composable () -> Unit).toCommonIconButtonContent(): @Composable MdIconButtonScope.() -> Unit = {
+    Box { this@toCommonIconButtonContent() }
+    Box(slotEqSelectedModifier()) { this@toCommonIconButtonContent() }
+}
 
 @Composable
 actual fun IconButton(
@@ -40,11 +54,8 @@ actual fun IconToggleButton(
 ) =
     MdIconButton(
         enabled.isFalseOrNull(),
-        /*
-        // There is no need to use these attributes according to the docs.
         toggle = true,
-        selected = checked,
-        */
+        selected = checked.isTrueOrNull(),
         attrs = modifier.toCommonIconToggleButtonAttrs(checked, onCheckedChange),
         content = content.toCommonIconButtonContent()
     )
@@ -72,6 +83,8 @@ actual fun FilledIconToggleButton(
 ) =
     MdFilledIconButton(
         enabled.isFalseOrNull(),
+        toggle = true,
+        selected = checked.isTrueOrNull(),
         attrs = modifier.toCommonIconToggleButtonAttrs(checked, onCheckedChange),
         content = content.toCommonIconButtonContent()
     )
@@ -99,6 +112,8 @@ actual fun FilledTonalIconToggleButton(
 ) =
     MdFilledTonalIconButton(
         enabled.isFalseOrNull(),
+        toggle = true,
+        selected = checked.isTrueOrNull(),
         attrs = modifier.toCommonIconToggleButtonAttrs(checked, onCheckedChange),
         content = content.toCommonIconButtonContent()
     )
@@ -126,6 +141,8 @@ actual fun OutlinedIconToggleButton(
 ) =
     MdOutlinedIconButton(
         enabled.isFalseOrNull(),
+        toggle = true,
+        selected = checked.isTrueOrNull(),
         attrs = modifier.toCommonIconToggleButtonAttrs(checked, onCheckedChange),
         content = content.toCommonIconButtonContent()
     )
