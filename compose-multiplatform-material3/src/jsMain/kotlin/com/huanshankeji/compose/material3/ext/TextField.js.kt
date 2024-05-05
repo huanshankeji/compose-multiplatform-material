@@ -1,6 +1,7 @@
 package com.huanshankeji.compose.material3.ext
 
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.DisposableEffect
 import com.huanshankeji.compose.foundation.text.KeyboardActions
 import com.huanshankeji.compose.foundation.text.KeyboardOptions
 import com.huanshankeji.compose.foundation.text.attrsFrom
@@ -31,9 +32,16 @@ private fun Modifier.toTextFieldAttrs(
     }
 
 private fun TextFieldContent(
+    value: String,
     leadingIcon: @Composable ((Modifier) -> Unit)?,
     trailingIcon: @Composable ((Modifier) -> Unit)?,
 ): @Composable MdTextFieldScope.() -> Unit = {
+    with(elementScope) {
+        DisposableEffect(value) {
+            scopeElement.value = value
+            onDispose {}
+        }
+    }
     leadingIcon?.invoke(PlatformModifier.attrsModifier { slot(MdTextFieldScope.Slot.LeadingIcon) }.toCommonModifier())
     trailingIcon?.invoke(PlatformModifier.attrsModifier { slot(MdTextFieldScope.Slot.TrailingIcon) }.toCommonModifier())
 }
@@ -75,7 +83,7 @@ actual fun TextField(
         readOnly = readOnly.isTrueOrNull(),
 
         attrs = modifier.toTextFieldAttrs(onValueChange, keyboardOptions, keyboardActions),
-        content = TextFieldContent(leadingIcon, trailingIcon)
+        content = TextFieldContent(value, leadingIcon, trailingIcon)
     )
 
 
@@ -115,5 +123,5 @@ actual fun OutlinedTextField(
         readOnly = readOnly.isTrueOrNull(),
 
         attrs = modifier.toTextFieldAttrs(onValueChange, keyboardOptions, keyboardActions),
-        content = TextFieldContent(leadingIcon, trailingIcon)
+        content = TextFieldContent(value, leadingIcon, trailingIcon)
     )
