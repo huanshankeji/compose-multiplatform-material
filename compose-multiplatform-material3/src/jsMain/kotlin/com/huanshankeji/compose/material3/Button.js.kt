@@ -5,16 +5,8 @@ import com.huanshankeji.compose.foundation.layout.Row
 import com.huanshankeji.compose.foundation.layout.RowScope
 import com.huanshankeji.compose.html.material3.*
 import com.huanshankeji.compose.ui.Modifier
-import com.huanshankeji.compose.web.attributes.Attrs
 import com.huanshankeji.compose.web.attributes.isFalseOrNull
 import com.huanshankeji.compose.web.attributes.isTrueOrNull
-import com.varabyte.kobweb.compose.ui.toAttrs
-import org.w3c.dom.HTMLElement
-
-private fun Modifier.toButtonAttrs(onClick: () -> Unit): Attrs<HTMLElement> =
-    platformModifier.toAttrs {
-        onClick { onClick() }
-    }
 
 @Composable
 private fun (@Composable (RowScope.() -> Unit)).toMdButtonScopeContent(): @Composable MdButtonScope.() -> Unit =
@@ -33,7 +25,7 @@ internal fun CommonButton(
     MdFilledButton(
         disabled = enabled.isFalseOrNull(),
         trailingIcon = isTrailingIcon.isTrueOrNull(),
-        attrs = modifier.toButtonAttrs(onClick),
+        attrs = modifier.toCommonButtonAttrs(onClick),
         content = content
     )
 
@@ -57,7 +49,7 @@ internal fun CommonElevatedButton(
     MdElevatedButton(
         disabled = enabled.isFalseOrNull(),
         trailingIcon = isTrailingIcon.isTrueOrNull(),
-        attrs = modifier.toButtonAttrs(onClick),
+        attrs = modifier.toCommonButtonAttrs(onClick),
         content = content
     )
 
@@ -81,7 +73,7 @@ internal fun CommonFilledTonalButton(
     MdFilledTonalButton(
         disabled = enabled.isFalseOrNull(),
         trailingIcon = isTrailingIcon.isTrueOrNull(),
-        attrs = modifier.toButtonAttrs(onClick),
+        attrs = modifier.toCommonButtonAttrs(onClick),
         content = content
     )
 
@@ -105,7 +97,7 @@ internal fun CommonOutlinedButton(
     MdOutlinedButton(
         disabled = enabled.isFalseOrNull(),
         trailingIcon = isTrailingIcon.isTrueOrNull(),
-        attrs = modifier.toButtonAttrs(onClick),
+        attrs = modifier.toCommonButtonAttrs(onClick),
         content = content
     )
 
@@ -129,7 +121,7 @@ internal fun CommonTextButton(
     MdTextButton(
         disabled = enabled.isFalseOrNull(),
         trailingIcon = isTrailingIcon.isTrueOrNull(),
-        attrs = modifier.toButtonAttrs(onClick),
+        attrs = modifier.toCommonButtonAttrs(onClick),
         content = content
     )
 

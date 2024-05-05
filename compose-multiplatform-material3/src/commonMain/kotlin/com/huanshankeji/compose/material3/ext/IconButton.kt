@@ -9,9 +9,8 @@ private fun Icon.toUncheckedIconContent(): @Composable () -> Unit = {
     Icon(this, null)
 }
 
-private fun Icon.toCheckedIconContent(): @Composable (Modifier) -> Unit = { modifier ->
-    Icon(this, null, modifier)
-}
+private fun Icon.toCheckedIconContent(): @Composable (Modifier) -> Unit =
+    toContentWithModifier()
 
 /**
  * @param checkedContent the [Modifier] parameter contains the attributes to be set on this icon on JS. You are supposed to pass this [Modifier] to the top-level composable that you invoke inside.

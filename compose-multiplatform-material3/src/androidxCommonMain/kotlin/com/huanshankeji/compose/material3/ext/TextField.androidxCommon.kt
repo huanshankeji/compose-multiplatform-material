@@ -8,7 +8,7 @@ import com.huanshankeji.compose.foundation.text.toPlatformValue
 import com.huanshankeji.compose.ui.Modifier
 
 // This function can be moved into a common file.
-fun String?.ToNullableTextComposable(): (@Composable () -> Unit)? =
+fun String?.ToNullableTextComposable(): @Composable (() -> Unit)? =
     this?.let { { Text(it) } }
 
 private fun (@Composable ((Modifier) -> Unit)?).toContentWithoutModifier(): @Composable (() -> Unit)? =

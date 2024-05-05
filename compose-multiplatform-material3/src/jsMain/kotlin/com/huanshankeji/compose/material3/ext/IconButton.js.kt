@@ -15,6 +15,7 @@ private fun Modifier.toCommonIconToggleButtonAttrs(
     checked: Boolean, onCheckedChange: (Boolean) -> Unit
 ): AttrsScope<HTMLElement>.() -> Unit =
     platformModifier.toAttrs {
+        // note that `onInput` is used here
         onInput { onCheckedChange(!checked) }
     }
 

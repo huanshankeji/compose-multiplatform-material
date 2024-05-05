@@ -2,7 +2,6 @@ package com.huanshankeji.compose.material3.ext
 
 import androidx.compose.runtime.Composable
 import com.huanshankeji.compose.material.icons.Icon
-import com.huanshankeji.compose.material3.Icon
 import com.huanshankeji.compose.ui.Modifier
 
 /**
@@ -32,7 +31,7 @@ fun ButtonWithMaterialIcon(
         onClick,
         modifier,
         enabled,
-        icon?.let { { modifier -> Icon(it, null, modifier) } },
+        icon.toNullableContentWithModifier(),
         isTrailingIcon,
         content
     )
@@ -74,7 +73,7 @@ fun ElevatedButtonWithMaterialIcon(
         onClick,
         modifier,
         enabled,
-        icon?.let { { modifier -> Icon(it, null, modifier) } },
+        icon.toNullableContentWithModifier(),
         isTrailingIcon,
         content
     )
@@ -102,7 +101,7 @@ fun FilledTonalButtonWithMaterialIcon(
         onClick,
         modifier,
         enabled,
-        icon?.let { { modifier -> Icon(it, null, modifier) } },
+        icon.toNullableContentWithModifier(),
         isTrailingIcon,
         content
     )
@@ -130,7 +129,7 @@ fun OutlinedButtonWithMaterialIcon(
         onClick,
         modifier,
         enabled,
-        icon?.let { { modifier -> Icon(it, null, modifier) } },
+        icon.toNullableContentWithModifier(),
         isTrailingIcon,
         content
     )
@@ -158,7 +157,7 @@ fun TextButtonWithMaterialIcon(
         onClick,
         modifier,
         enabled,
-        icon?.let { { modifier -> Icon(it, null, modifier) } },
+        icon.toNullableContentWithModifier(),
         isTrailingIcon,
         content
     )

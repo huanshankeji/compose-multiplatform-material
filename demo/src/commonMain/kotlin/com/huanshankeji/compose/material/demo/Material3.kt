@@ -74,6 +74,22 @@ fun Material3() {
                 uncheckedIcon = Icons.Default.Remove, checkedIcon = Icons.Default.Add
             )
         }
+        @OptIn(ExtRecommendedApi::class)
+        Row {
+            FloatingActionButton(onClick, content = iconButtonContent)
+            SmallFloatingActionButton(onClick, content = iconButtonContent)
+            LargeFloatingActionButton(onClick, content = iconButtonContent)
+            ExtendedFloatingActionButton(onClick) {
+                iconButtonContent()
+                Text("Add")
+            }
+        }
+        Row {
+            FloatingActionButtonWithMaterialIcon(onClick, icon = Icons.Default.Add)
+            SmallFloatingActionButtonWithMaterialIcon(onClick, icon = Icons.Default.Add)
+            LargeFloatingActionButtonWithMaterialIcon(onClick, icon = Icons.Default.Add)
+            ExtendedFloatingActionButtonWithMaterialIcon(onClick, label = "Add", icon = Icons.Default.Add)
+        }
         Row {
             Checkbox(checked, onCheckedChange)
             Switch(checked, onCheckedChange)

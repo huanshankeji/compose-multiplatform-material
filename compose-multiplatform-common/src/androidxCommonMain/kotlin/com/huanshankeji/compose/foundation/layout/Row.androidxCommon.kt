@@ -19,7 +19,8 @@ actual fun Row(
         modifier.platformModifier,
         horizontalArrangement.platformValue,
         verticalAlignment.platformHorizontal,
-    ) { RowScope.Impl(this).content() }
+        content.toPlatformRowScopeContent(),
+    )
 
 //@LayoutScopeMarker
 actual interface RowScope {
@@ -38,3 +39,7 @@ actual interface RowScope {
     actual fun Modifier.align(alignment: Alignment.Vertical): Modifier =
         with(platformValue) { platformModify { align(alignment.platformHorizontal) } }
 }
+
+
+fun (@Composable (RowScope.() -> Unit)).toPlatformRowScopeContent(): @Composable PlatformRowScope.() -> Unit =
+    { RowScope.Impl(this).(this@toPlatformRowScopeContent)() }

@@ -4,21 +4,14 @@ import androidx.compose.runtime.Composable
 import com.huanshankeji.compose.html.material3.*
 import com.huanshankeji.compose.ui.Modifier
 import com.huanshankeji.compose.web.attributes.isFalseOrNull
-import com.varabyte.kobweb.compose.ui.toAttrs
 import org.jetbrains.compose.web.attributes.AttrsScope
 import org.w3c.dom.HTMLElement
-
-private fun Modifier.toCommonIconButtonAttrs(
-    onClick: () -> Unit
-): AttrsScope<HTMLElement>.() -> Unit =
-    platformModifier.toAttrs {
-        onClick { onClick() }
-    }
 
 private fun Modifier.toCommonIconToggleButtonAttrs(
     checked: Boolean, onCheckedChange: (Boolean) -> Unit
 ): AttrsScope<HTMLElement>.() -> Unit =
-    toCommonIconButtonAttrs { onCheckedChange(!checked) }
+    // note `onClick` is used here
+    toCommonButtonAttrs { onCheckedChange(!checked) }
 
 private fun (@Composable () -> Unit).toCommonIconButtonContent(): @Composable MdIconButtonScope.() -> Unit =
     { this@toCommonIconButtonContent() }
@@ -32,7 +25,7 @@ actual fun IconButton(
 ) =
     MdIconButton(
         enabled.isFalseOrNull(),
-        attrs = modifier.toCommonIconButtonAttrs(onClick),
+        attrs = modifier.toCommonButtonAttrs(onClick),
         content = content.toCommonIconButtonContent()
     )
 
@@ -65,7 +58,7 @@ actual fun FilledIconButton(
 ) =
     MdFilledIconButton(
         enabled.isFalseOrNull(),
-        attrs = modifier.toCommonIconButtonAttrs(onClick),
+        attrs = modifier.toCommonButtonAttrs(onClick),
         content = content.toCommonIconButtonContent()
     )
 
@@ -92,7 +85,7 @@ actual fun FilledTonalIconButton(
 ) =
     MdFilledTonalIconButton(
         enabled.isFalseOrNull(),
-        attrs = modifier.toCommonIconButtonAttrs(onClick),
+        attrs = modifier.toCommonButtonAttrs(onClick),
         content = content.toCommonIconButtonContent()
     )
 
@@ -119,7 +112,7 @@ actual fun OutlinedIconButton(
 ) =
     MdOutlinedIconButton(
         enabled.isFalseOrNull(),
-        attrs = modifier.toCommonIconButtonAttrs(onClick),
+        attrs = modifier.toCommonButtonAttrs(onClick),
         content = content.toCommonIconButtonContent()
     )
 

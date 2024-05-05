@@ -4,12 +4,7 @@ import androidx.compose.runtime.Composable
 import com.huanshankeji.compose.foundation.text.KeyboardActions
 import com.huanshankeji.compose.foundation.text.KeyboardOptions
 import com.huanshankeji.compose.material.icons.Icon
-import com.huanshankeji.compose.material3.Icon
 import com.huanshankeji.compose.ui.Modifier
-
-private fun Icon?.toIconContentWithModifier(): @Composable ((Modifier) -> Unit)? =
-    this?.let { { modifier -> Icon(it, null, modifier) } }
-
 
 /**
  * @param leadingIcon the [Modifier] parameter contains the attributes to be set on this icon on JS. You are supposed to pass this [Modifier] to the top-level composable that you invoke inside.
@@ -69,8 +64,8 @@ fun TextFieldWithMaterialIcons(
         readOnly,
         label,
         placeholder,
-        leadingIcon.toIconContentWithModifier(),
-        trailingIcon.toIconContentWithModifier(),
+        leadingIcon.toNullableContentWithModifier(),
+        trailingIcon.toNullableContentWithModifier(),
         prefix,
         suffix,
         supportingText,
@@ -135,8 +130,8 @@ fun OutlinedTextFieldWithMaterialIcons(
         readOnly,
         label,
         placeholder,
-        leadingIcon.toIconContentWithModifier(),
-        trailingIcon.toIconContentWithModifier(),
+        leadingIcon.toNullableContentWithModifier(),
+        trailingIcon.toNullableContentWithModifier(),
         prefix,
         suffix,
         supportingText,
