@@ -44,6 +44,9 @@ fun Material3() {
         }
         Row {
             IconButton(onClick, content = iconButtonContent)
+            FilledIconButton(onClick, content = iconButtonContent)
+            FilledTonalIconButton(onClick, content = iconButtonContent)
+            OutlinedIconButton(onClick, content = iconButtonContent)
         }
         val (checked, onCheckedChange) = remember { mutableStateOf(false) }
         val iconToggleButtonContent: @Composable () -> Unit = {
