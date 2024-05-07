@@ -77,6 +77,7 @@ fun Material2() {
                         }
                     }
                 }
+                Divider()
                 val secondaryText = "Secondary text"
                 List(listModifier) {
                     conventionalItem(content = ListItemComponents("Ungrouped item", secondaryText))

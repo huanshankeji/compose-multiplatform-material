@@ -19,7 +19,6 @@ import com.huanshankeji.compose.layout.height
 import com.huanshankeji.compose.layout.padding
 import com.huanshankeji.compose.layout.size
 import com.huanshankeji.compose.layout.width
-import com.huanshankeji.compose.material.Divider
 import com.huanshankeji.compose.ui.Modifier
 import com.huanshankeji.compose.ui.graphics.Color
 
@@ -41,8 +40,6 @@ fun Common() {
             ColorBox(Color(0xFF, 0, 0, 0x80))
             ColorBox(Color(1f, 0f, 0f, 0.5f))
         }
-
-        Divider()
 
         Row {
             @Composable
