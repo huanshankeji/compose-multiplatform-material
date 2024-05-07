@@ -1,17 +1,17 @@
 package com.huanshankeji.compose.material.lazy.ext
 
 import androidx.compose.runtime.Composable
+import com.huanshankeji.compose.material.ext.InlineText
 import com.huanshankeji.compose.ui.Modifier
 
-/** @see androidx.compose.foundation.lazy.LazyListScope */
 expect class ListScope {
-    fun item(key: Any? = null, contentType: Any? = null, content: @Composable LazyItemScope.() -> Unit)
+    fun item(key: Any? = null, contentType: Any? = null, content: @Composable ItemScope.() -> Unit)
 
     fun items(
         count: Int,
         key: ((index: Int) -> Any)? = null,
         contentType: (index: Int) -> Any? = { null },
-        itemContent: @Composable LazyItemScope.(index: Int) -> Unit
+        itemContent: @Composable ItemScope.(index: Int) -> Unit
     )
 
     fun group(
@@ -20,15 +20,41 @@ expect class ListScope {
         headerContent: @Composable HeaderScope.() -> Unit,
         content: ListScope.() -> Unit
     )
+
+    @Composable
+    fun ItemScope.ListItemContent(listItemComponents: ListItemComponents)
 }
 
-expect class LazyItemScope /*{
-    fun Modifier.fillParentMaxSize(@FloatRange(from = 0.0, to = 1.0) fraction: Float = 1f): Modifier
-    fun Modifier.fillParentMaxWidth(@FloatRange(from = 0.0, to = 1.0) fraction: Float = 1f): Modifier
-    fun Modifier.fillParentMaxHeight(@FloatRange(from = 0.0, to = 1.0) fraction: Float = 1f): Modifier
-}*/
+expect class ItemScope
 
 expect class HeaderScope
+
+class ListItemComponents(
+    val text: @Composable () -> Unit,
+    val secondaryText: @Composable (() -> Unit)? = null
+) {
+    constructor(text: String, secondaryText: String? = null) : this(
+        { InlineText(text) },
+        secondaryText?.let { { InlineText(it) } }
+    )
+}
+
+// see https://youtrack.jetbrains.com/issue/KT-20427
+
+fun ListScope.conventionalItem(key: Any? = null, contentType: Any? = null, content: ListItemComponents) =
+    item(key, contentType) {
+        ListItemContent(content)
+    }
+
+fun ListScope.conventionalItems(
+    count: Int,
+    key: ((index: Int) -> Any)? = null,
+    contentType: (index: Int) -> Any? = { null },
+    itemContent: (index: Int) -> ListItemComponents
+) =
+    items(count, key, contentType) { index ->
+        ListItemContent(itemContent(index))
+    }
 
 /**
  * The current implementation is not actually lazy on web, but it seems not necessary to be.

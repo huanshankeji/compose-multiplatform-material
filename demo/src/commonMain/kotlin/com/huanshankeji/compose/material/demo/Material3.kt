@@ -140,7 +140,7 @@ fun Material3() {
 
         Text("Click a button to show the list:")
         List(Modifier.height(listSize)) {
-            conventionalItems(count) { index ->
+            fun content(index: String) =
                 ListItemComponents(
                     Modifier,
                     "Headline $index",
@@ -150,6 +150,9 @@ fun Material3() {
                     "Trailing supporting text $index",
                     "Overline $index"
                 )
+            conventionalItem(content = content(""))
+            conventionalItems(count) { index ->
+                content(index.toString())
             }
         }
     }

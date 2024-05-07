@@ -2,9 +2,11 @@ package com.huanshankeji.compose.material3.lazy.ext
 
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.LazyItemScope
 import androidx.compose.foundation.lazy.LazyListScope
 import androidx.compose.material3.ListItem
 import androidx.compose.runtime.Composable
+import com.huanshankeji.compose.toContentWithoutModifier
 import com.huanshankeji.compose.toNullableContentWithoutModifier
 import com.huanshankeji.compose.ui.Modifier
 
@@ -13,7 +15,7 @@ actual class ListScope(val lazyListScope: LazyListScope) {
     private fun ListItem(content: ListItemComponents) =
         with(content) {
             ListItem(
-                headline.toNullableContentWithoutModifier() ?: {},
+                headline.toContentWithoutModifier(),
                 contentModifier.platformModifier,
                 overline.toNullableContentWithoutModifier(),
                 supportingText.toNullableContentWithoutModifier(),
@@ -37,9 +39,9 @@ actual class ListScope(val lazyListScope: LazyListScope) {
     actual fun item(
         key: Any?,
         contentType: Any?,
-        content: @Composable () -> Unit
+        content: @Composable ItemScope.() -> Unit
     ) =
-        lazyListScope.item(key, contentType) { content() }
+        lazyListScope.item(key, contentType) { ItemScope(this).content() }
 
     actual fun conventionalItem(
         key: Any?,
@@ -52,9 +54,9 @@ actual class ListScope(val lazyListScope: LazyListScope) {
         count: Int,
         key: ((index: Int) -> Any)?,
         contentType: (index: Int) -> Any?,
-        itemContent: @Composable (index: Int) -> Unit
+        itemContent: @Composable ItemScope.(index: Int) -> Unit
     ) =
-        lazyListScope.items(count, key, contentType) { index -> itemContent(index) }
+        lazyListScope.items(count, key, contentType) { index -> ItemScope(this).itemContent(index) }
 
     actual fun conventionalItems(
         count: Int,
@@ -66,6 +68,8 @@ actual class ListScope(val lazyListScope: LazyListScope) {
             ListItem(itemContent(index))
         }
 }
+
+actual class ItemScope(val lazyItemScope: LazyItemScope)
 
 @Composable
 actual fun List(

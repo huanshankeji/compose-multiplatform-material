@@ -4,10 +4,11 @@ import androidx.compose.runtime.Composable
 import com.huanshankeji.compose.material.icons.Icon
 import com.huanshankeji.compose.material3.ext.toNullableContentWithModifier
 import com.huanshankeji.compose.material3.ext.toNullableTextWithModifier
+import com.huanshankeji.compose.material3.ext.toTextWithModifier
 import com.huanshankeji.compose.ui.Modifier
 
 expect class ListScope {
-    fun item(key: Any? = null, contentType: Any? = null, content: @Composable () -> Unit)
+    fun item(key: Any? = null, contentType: Any? = null, content: @Composable ItemScope.() -> Unit)
 
     // the word "conventional" added to be consistent with `conventionalItems`
     fun conventionalItem(key: Any? = null, contentType: Any? = null, content: ListItemComponents)
@@ -16,7 +17,7 @@ expect class ListScope {
         count: Int,
         key: ((index: Int) -> Any)? = null,
         contentType: (index: Int) -> Any? = { null },
-        itemContent: @Composable (index: Int) -> Unit
+        itemContent: @Composable ItemScope.(index: Int) -> Unit
     )
 
     // the word "conventional" added to avoid clashing with `items`
@@ -28,9 +29,11 @@ expect class ListScope {
     )
 }
 
+expect class ItemScope
+
 class ListItemComponents(
     val contentModifier: Modifier = Modifier,
-    val headline: @Composable ((Modifier) -> Unit)? = null,
+    val headline: @Composable (Modifier) -> Unit,
     val start: @Composable ((Modifier) -> Unit)? = null,
     val end: @Composable ((Modifier) -> Unit)? = null,
     val supportingText: @Composable ((Modifier) -> Unit)? = null,
@@ -39,7 +42,7 @@ class ListItemComponents(
 ) {
     constructor(
         contentModifier: Modifier = Modifier,
-        headline: String? = null,
+        headline: String,
         start: Icon? = null,
         end: Icon? = null,
         supportingText: String? = null,
@@ -47,7 +50,7 @@ class ListItemComponents(
         overline: String? = null
     ) : this(
         contentModifier,
-        headline.toNullableTextWithModifier(),
+        headline.toTextWithModifier(),
         start.toNullableContentWithModifier(),
         end.toNullableContentWithModifier(),
         supportingText.toNullableTextWithModifier(),

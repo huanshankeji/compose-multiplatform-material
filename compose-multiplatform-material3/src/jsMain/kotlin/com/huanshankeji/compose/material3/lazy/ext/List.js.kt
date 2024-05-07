@@ -14,7 +14,7 @@ import com.varabyte.kobweb.compose.ui.Modifier as PlatformModifier
 
 @Composable
 private fun MdListItemScope.contentFromComponents(listItemComponents: ListItemComponents) = with(listItemComponents) {
-    headline?.invoke(PlatformModifier.attrsModifier { slot(MdListItemScope.Slot.Headline) }.toCommonModifier())
+    headline.invoke(PlatformModifier.attrsModifier { slot(MdListItemScope.Slot.Headline) }.toCommonModifier())
     start?.invoke(PlatformModifier.attrsModifier { slot(MdListItemScope.Slot.Start) }.toCommonModifier())
     end?.invoke(PlatformModifier.attrsModifier { slot(MdListItemScope.Slot.End) }.toCommonModifier())
     supportingText?.invoke(
@@ -47,9 +47,9 @@ actual class ListScope(val mdListScope: MdListScope) {
     actual fun item(
         key: Any?,
         contentType: Any?,
-        content: @Composable () -> Unit
+        content: @Composable ItemScope.() -> Unit
     ) = addComposable {
-        mdListScope.MdListItem { content() }
+        mdListScope.MdListItem { ItemScope(this).content() }
     }
 
     actual fun conventionalItem(
@@ -64,10 +64,10 @@ actual class ListScope(val mdListScope: MdListScope) {
         count: Int,
         key: ((index: Int) -> Any)?,
         contentType: (index: Int) -> Any?,
-        itemContent: @Composable (index: Int) -> Unit
+        itemContent: @Composable ItemScope.(index: Int) -> Unit
     ) = addComposable {
         repeat(count) { index ->
-            mdListScope.MdListItem { itemContent(index) }
+            mdListScope.MdListItem { ItemScope(this).itemContent(index) }
         }
     }
 
@@ -82,6 +82,8 @@ actual class ListScope(val mdListScope: MdListScope) {
         }
     }
 }
+
+actual class ItemScope(val mdListItemScope: MdListItemScope)
 
 @Composable
 actual fun List(

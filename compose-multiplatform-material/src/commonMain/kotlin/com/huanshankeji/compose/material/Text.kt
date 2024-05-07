@@ -1,6 +1,7 @@
 package com.huanshankeji.compose.material
 
 import androidx.compose.runtime.Composable
+import com.huanshankeji.compose.material.ext.InlineText
 import com.huanshankeji.compose.ui.Modifier
 
 /**
@@ -8,6 +9,7 @@ import com.huanshankeji.compose.ui.Modifier
  * can be easily confused with other Composable functions named `Text`
  * such as `androidx.compose.material.Text` and `org.jetbrains.compose.web.dom.Text`
  * if not careful.
+ * [InlineText] is recommended over this one when there is no custom [modifier].
  * @see com.huanshankeji.compose.material.ext.MaterialText
  */
 @Composable

@@ -3,7 +3,6 @@ package com.huanshankeji.compose.material.demo
 import androidx.compose.runtime.*
 import androidx.compose.ui.unit.dp
 import com.huanshankeji.compose.foundation.background
-import com.huanshankeji.compose.foundation.layout.Box
 import com.huanshankeji.compose.foundation.layout.Column
 import com.huanshankeji.compose.foundation.layout.Row
 import com.huanshankeji.compose.foundation.layout.RowScope
@@ -22,6 +21,9 @@ import com.huanshankeji.compose.material.icons.filled.Add
 import com.huanshankeji.compose.material.icons.filled.Menu
 import com.huanshankeji.compose.material.icons.filled.Search
 import com.huanshankeji.compose.material.lazy.ext.List
+import com.huanshankeji.compose.material.lazy.ext.ListItemComponents
+import com.huanshankeji.compose.material.lazy.ext.conventionalItem
+import com.huanshankeji.compose.material.lazy.ext.conventionalItems
 import com.huanshankeji.compose.ui.Modifier
 import com.huanshankeji.compose.ui.graphics.Color
 import com.huanshankeji.compose.material.ext.Button as ExtButton
@@ -56,23 +58,37 @@ fun Material2() {
                     IconButton(onClick, icon = Icons.Default.Add, contentDescription = "increment count")
                 }
 
-                Box(Modifier.padding(16.dp)) {
-                    List(Modifier.height(listSize)) {
+                val listModifier = Modifier.padding(16.dp).height(listSize)
+                List(listModifier) {
+                    item {
+                        Text("Ungrouped item")
+                    }
+                    items(count) {
+                        Text("Ungrouped item $it/$count")
+                    }
+                    group(headerContent = {
+                        Text("Group title")
+                    }) {
                         item {
-                            Text("Ungrouped item")
+                            Text("Grouped item")
                         }
                         items(count) {
-                            Text("Ungrouped item $it/$count")
+                            Text("Grouped item $it/$count")
                         }
-                        group(headerContent = {
-                            Text("Group title")
-                        }) {
-                            item {
-                                Text("Grouped item")
-                            }
-                            items(count) {
-                                Text("Grouped item $it/$count")
-                            }
+                    }
+                }
+                val secondaryText = "Secondary text"
+                List(listModifier) {
+                    conventionalItem(content = ListItemComponents("Ungrouped item", secondaryText))
+                    conventionalItems(count) {
+                        ListItemComponents("Ungrouped item $it/$count", secondaryText)
+                    }
+                    group(headerContent = {
+                        Text("Group title")
+                    }) {
+                        conventionalItem(content = ListItemComponents("Grouped item", secondaryText))
+                        conventionalItems(count) {
+                            ListItemComponents("Grouped item $it/$count", secondaryText)
                         }
                     }
                 }

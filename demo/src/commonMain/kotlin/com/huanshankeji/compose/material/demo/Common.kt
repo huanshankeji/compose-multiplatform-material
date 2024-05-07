@@ -61,7 +61,10 @@ fun Common() {
 
         var count by remember { mutableStateOf(0) }
         BasicText("Click to add items to `LazyColumn` and `LazyRow`", Modifier.onClick { count++ })
-        val content: LazyListScope.() -> Unit = { items(count) { index -> BasicText("Item $index") } }
+        val content: LazyListScope.() -> Unit = {
+            item { BasicText("Item") }
+            items(count) { index -> BasicText("Item $index") }
+        }
         LazyColumn(Modifier.height(listSize), content = content)
         LazyRow(Modifier.width(listSize), content = content)
     }
