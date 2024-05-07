@@ -4,7 +4,7 @@ import androidx.compose.runtime.Composable
 import com.huanshankeji.compose.ui.Modifier
 
 /** @see androidx.compose.foundation.lazy.LazyListScope */
-expect class LazyListScope {
+expect class ListScope {
     fun item(key: Any? = null, contentType: Any? = null, content: @Composable LazyItemScope.() -> Unit)
 
     fun items(
@@ -18,7 +18,7 @@ expect class LazyListScope {
         key: Any? = null,
         contentType: Any? = null,
         headerContent: @Composable HeaderScope.() -> Unit,
-        content: LazyListScope.() -> Unit
+        content: ListScope.() -> Unit
     )
 }
 
@@ -34,11 +34,11 @@ expect class HeaderScope
  * The current implementation is not actually lazy on web, but it seems not necessary to be.
  */
 @Composable
-expect fun LazyColumn(modifier: Modifier = Modifier, content: LazyListScope.() -> Unit)
+expect fun List(modifier: Modifier = Modifier, content: ListScope.() -> Unit)
 
 /**
- * An alias for [LazyColumn] that is more conventional for Web/HTML/JS.
+ * An alias for [List] that is more similar to `androidx.compose.foundation.layout.LazyColumn`.
  */
 @Composable
-fun ScrollableList(modifier: Modifier = Modifier, content: LazyListScope.() -> Unit) =
-    LazyColumn(modifier, content)
+fun LazyColumnList(modifier: Modifier = Modifier, content: ListScope.() -> Unit) =
+    List(modifier, content)

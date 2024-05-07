@@ -2,11 +2,8 @@ package com.huanshankeji.compose.material3.ext
 
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import com.huanshankeji.compose.toContentWithoutModifier
 import com.huanshankeji.compose.ui.Modifier
-
-private fun (@Composable (Modifier) -> Unit).toContentWithoutModifier(): @Composable () -> Unit =
-    { this(Modifier) }
-
 
 @Composable
 actual fun FloatingActionButton(

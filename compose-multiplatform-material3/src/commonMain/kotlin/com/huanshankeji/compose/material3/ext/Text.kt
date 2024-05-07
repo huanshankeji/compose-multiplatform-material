@@ -17,3 +17,10 @@ inline fun MaterialText(text: String, modifier: Modifier = Modifier) =
  */
 @Composable
 expect fun InlineText(text: String)
+
+
+fun String.toTextWithModifier(): @Composable (Modifier) -> Unit =
+    { modifier -> Text(this, modifier) }
+
+fun String?.toNullableTextWithModifier(): @Composable ((Modifier) -> Unit)? =
+    this?.toTextWithModifier()

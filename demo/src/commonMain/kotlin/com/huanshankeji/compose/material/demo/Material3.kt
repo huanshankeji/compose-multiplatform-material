@@ -10,12 +10,16 @@ import com.huanshankeji.compose.foundation.text.KeyboardOptions
 import com.huanshankeji.compose.foundation.text.input.ImeAction
 import com.huanshankeji.compose.foundation.text.input.KeyboardCapitalization
 import com.huanshankeji.compose.foundation.text.input.KeyboardType
+import com.huanshankeji.compose.layout.height
 import com.huanshankeji.compose.material.icons.Icons
 import com.huanshankeji.compose.material.icons.filled.Add
 import com.huanshankeji.compose.material.icons.filled.Menu
 import com.huanshankeji.compose.material.icons.filled.Remove
 import com.huanshankeji.compose.material3.*
 import com.huanshankeji.compose.material3.ext.*
+import com.huanshankeji.compose.material3.lazy.ext.List
+import com.huanshankeji.compose.material3.lazy.ext.ListItemComponents
+import com.huanshankeji.compose.ui.Modifier
 import com.huanshankeji.compose.material3.Button as RowScopeButton
 
 @Composable
@@ -133,5 +137,20 @@ fun Material3() {
                 println("keyboard actions with: $text")
             }
         )
+
+        Text("Click a button to show the list:")
+        List(Modifier.height(listSize)) {
+            conventionalItems(count) { index ->
+                ListItemComponents(
+                    Modifier,
+                    "Headline $index",
+                    Icons.Default.Add,
+                    Icons.Default.Menu,
+                    "Supporting text $index",
+                    "Trailing supporting text $index",
+                    "Overline $index"
+                )
+            }
+        }
     }
 }

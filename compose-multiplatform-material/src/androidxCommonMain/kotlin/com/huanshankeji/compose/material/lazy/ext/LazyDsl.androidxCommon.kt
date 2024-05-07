@@ -6,7 +6,7 @@ import com.huanshankeji.compose.ui.Modifier
 import androidx.compose.foundation.lazy.LazyItemScope as PlatformLazyItemScope
 import androidx.compose.foundation.lazy.LazyListScope as PlatformLazyListScope
 
-actual class LazyListScope(val platformValue: PlatformLazyListScope) {
+actual class ListScope(val platformValue: PlatformLazyListScope) {
     actual fun item(key: Any?, contentType: Any?, content: @Composable LazyItemScope.() -> Unit) =
         platformValue.item(key, contentType) { LazyItemScope(this).content() }
 
@@ -23,7 +23,7 @@ actual class LazyListScope(val platformValue: PlatformLazyListScope) {
         key: Any?,
         contentType: Any?,
         headerContent: @Composable HeaderScope.() -> Unit,
-        content: LazyListScope.() -> Unit
+        content: ListScope.() -> Unit
     ) {
         platformValue.stickyHeader(key, contentType) { HeaderScope(this).headerContent() }
         content()
@@ -34,8 +34,8 @@ actual class LazyItemScope(val platformValue: PlatformLazyItemScope)
 actual typealias HeaderScope = LazyItemScope
 
 @Composable
-actual fun LazyColumn(modifier: Modifier, content: LazyListScope.() -> Unit) =
+actual fun List(modifier: Modifier, content: ListScope.() -> Unit) =
     // Note that it's actually in the `foundation` package.
     androidx.compose.foundation.lazy.LazyColumn(modifier.platformModifier) {
-        LazyListScope(this).content()
+        ListScope(this).content()
     }

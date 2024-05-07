@@ -9,4 +9,4 @@ fun Icon.toContentWithModifier(): @Composable (Modifier) -> Unit =
     { modifier -> Icon(this, null, modifier) }
 
 fun Icon?.toNullableContentWithModifier(): @Composable ((Modifier) -> Unit)? =
-    this?.run { toContentWithModifier() }
+    this?.toContentWithModifier()
