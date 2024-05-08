@@ -14,19 +14,19 @@ import com.huanshankeji.compose.foundation.text.input.KeyboardType
 import com.huanshankeji.compose.layout.height
 import com.huanshankeji.compose.layout.padding
 import com.huanshankeji.compose.layout.width
-import com.huanshankeji.compose.material.*
-import com.huanshankeji.compose.material.ext.*
 import com.huanshankeji.compose.material.icons.Icons
 import com.huanshankeji.compose.material.icons.filled.Add
 import com.huanshankeji.compose.material.icons.filled.Menu
 import com.huanshankeji.compose.material.icons.filled.Search
-import com.huanshankeji.compose.material.lazy.ext.List
-import com.huanshankeji.compose.material.lazy.ext.ListItemComponents
-import com.huanshankeji.compose.material.lazy.ext.conventionalItem
-import com.huanshankeji.compose.material.lazy.ext.conventionalItems
+import com.huanshankeji.compose.material2.*
+import com.huanshankeji.compose.material2.ext.*
+import com.huanshankeji.compose.material2.lazy.ext.List
+import com.huanshankeji.compose.material2.lazy.ext.ListItemComponents
+import com.huanshankeji.compose.material2.lazy.ext.conventionalItem
+import com.huanshankeji.compose.material2.lazy.ext.conventionalItems
 import com.huanshankeji.compose.ui.Modifier
 import com.huanshankeji.compose.ui.graphics.Color
-import com.huanshankeji.compose.material.ext.Button as ExtButton
+import com.huanshankeji.compose.material2.ext.Button as ExtButton
 
 @Composable
 fun Material2() {

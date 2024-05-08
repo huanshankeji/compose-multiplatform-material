@@ -46,7 +46,7 @@ kotlin {
         commonMain {
             dependencies {
                 implementation(compose.runtime)
-                implementation(project(":compose-multiplatform-material"))
+                implementation(project(":compose-multiplatform-material2"))
                 implementation(project(":compose-multiplatform-material3"))
             }
         }
