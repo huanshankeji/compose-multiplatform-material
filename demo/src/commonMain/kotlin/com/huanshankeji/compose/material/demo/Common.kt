@@ -55,12 +55,14 @@ fun Common() {
         }
 
         var count by remember { mutableStateOf(0) }
-        BasicText("Click to add items to `LazyColumn` and `LazyRow`", Modifier.onClick { count++ })
+        BasicText("Click to add items", Modifier.onClick { count++ })
         val lazyListContent: LazyListScope.() -> Unit = {
             item { BasicText("Item") }
             items(count) { index -> BasicText("Item $index") }
         }
+        BasicText("`LazyColumn`")
         LazyColumn(Modifier.height(listSize), content = lazyListContent)
+        BasicText("`LazyRow`")
         LazyRow(Modifier.width(listSize), content = lazyListContent)
 
         @Composable
@@ -68,9 +70,11 @@ fun Common() {
             BasicText("Item")
             repeat(count) { index -> BasicText("Item $index") }
         }
+        BasicText("`Column` with scroll")
         Column(Modifier.height(listSize).verticalScroll(rememberScrollState())) {
             ColumnOrRowContent()
         }
+        BasicText("`Row` with scroll")
         Row(Modifier.width(listSize).horizontalScroll(rememberScrollState())) {
             ColumnOrRowContent()
         }
