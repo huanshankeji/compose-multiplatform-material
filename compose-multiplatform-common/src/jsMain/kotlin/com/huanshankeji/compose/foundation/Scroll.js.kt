@@ -4,8 +4,8 @@ import androidx.compose.runtime.Composable
 import com.huanshankeji.compose.foundation.ext.css.horizontalScroll
 import com.huanshankeji.compose.foundation.ext.css.verticalScroll
 import com.huanshankeji.compose.ui.Modifier
+import com.huanshankeji.compose.ui.PlatformModifier
 import com.varabyte.kobweb.compose.ui.styleModifier
-import com.varabyte.kobweb.compose.ui.Modifier as PlatformModifier
 
 fun PlatformModifier.verticalScroll() =
     styleModifier { verticalScroll() }

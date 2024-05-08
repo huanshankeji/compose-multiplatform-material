@@ -7,10 +7,10 @@ import com.huanshankeji.compose.html.material3.MdListItemScope
 import com.huanshankeji.compose.html.material3.MdListScope
 import com.huanshankeji.compose.runtime.DeferredComposableRunner
 import com.huanshankeji.compose.ui.Modifier
+import com.huanshankeji.compose.ui.PlatformModifier
 import com.huanshankeji.compose.ui.toCommonModifier
 import com.varabyte.kobweb.compose.ui.attrsModifier
 import com.varabyte.kobweb.compose.ui.toAttrs
-import com.varabyte.kobweb.compose.ui.Modifier as PlatformModifier
 
 @Composable
 private fun MdListItemScope.contentFromComponents(listItemComponents: ListItemComponents) = with(listItemComponents) {

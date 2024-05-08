@@ -8,7 +8,7 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.semantics.Role
 import com.huanshankeji.compose.ui.Modifier
-import androidx.compose.ui.Modifier as PlatformModifier
+import com.huanshankeji.compose.ui.PlatformModifier
 
 // https://developer.android.com/reference/kotlin/androidx/compose/material/package-summary#RadioButton(kotlin.Boolean,kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Boolean,androidx.compose.foundation.interaction.MutableInteractionSource,androidx.compose.material.RadioButtonColors)
 

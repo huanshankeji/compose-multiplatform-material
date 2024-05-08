@@ -2,8 +2,9 @@ package com.huanshankeji.compose.ui
 
 import com.varabyte.kobweb.compose.ui.Modifier as PlatformModifier
 
-//actual typealias Modifier = com.varabyte.kobweb.compose.ui.Modifier // this doesn't work
+typealias PlatformModifier = PlatformModifier
 
+//actual typealias Modifier = com.varabyte.kobweb.compose.ui.Modifier // this doesn't work
 actual interface Modifier {
     val platformModifier: PlatformModifier
 

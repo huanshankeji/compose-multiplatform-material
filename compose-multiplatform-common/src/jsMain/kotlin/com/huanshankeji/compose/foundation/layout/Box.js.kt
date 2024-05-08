@@ -5,11 +5,11 @@ import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.Stable
 import com.huanshankeji.compose.ui.Alignment
 import com.huanshankeji.compose.ui.Modifier
+import com.huanshankeji.compose.ui.PlatformModifier
 import com.huanshankeji.kobweb.compose.ui.modifiers.sizeFitContent
 import com.varabyte.kobweb.compose.foundation.layout.LayoutScopeMarker
 import com.varabyte.kobweb.compose.foundation.layout.Box as PlatformBox
 import com.varabyte.kobweb.compose.foundation.layout.BoxScope as PlatformBoxScope
-import com.varabyte.kobweb.compose.ui.Modifier as PlatformModifier
 
 @Composable
 actual fun Box(

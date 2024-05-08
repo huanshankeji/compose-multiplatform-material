@@ -7,9 +7,9 @@ import com.huanshankeji.compose.foundation.layout.RowScope
 import com.huanshankeji.compose.html.material3.MdFab
 import com.huanshankeji.compose.html.material3.MdFabScope
 import com.huanshankeji.compose.ui.Modifier
+import com.huanshankeji.compose.ui.PlatformModifier
 import com.huanshankeji.compose.ui.toCommonModifier
 import com.varabyte.kobweb.compose.ui.attrsModifier
-import com.varabyte.kobweb.compose.ui.Modifier as PlatformModifier
 
 internal val MdFabScope.slotEqIconModifier
     get() = PlatformModifier.attrsModifier { slotEqIcon() }.toCommonModifier()
