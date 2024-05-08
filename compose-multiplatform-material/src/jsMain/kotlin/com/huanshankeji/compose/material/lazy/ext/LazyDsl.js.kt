@@ -1,7 +1,7 @@
 package com.huanshankeji.compose.material.lazy.ext
 
 import androidx.compose.runtime.Composable
-import com.huanshankeji.compose.foundation.lazy.columnOverflow
+import com.huanshankeji.compose.foundation.verticalScrollPlatformModifier
 import com.huanshankeji.compose.runtime.DeferredComposableRunner
 import com.huanshankeji.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.toAttrs
@@ -78,10 +78,6 @@ actual class HeaderScope(val headingElementScope: ElementScope<HTMLHeadingElemen
 
 @Composable
 actual fun List(modifier: Modifier, content: ListScope.() -> Unit) =
-    MDCList(attrs = modifier.platformModifier.toAttrs {
-        style {
-            columnOverflow()
-        }
-    }) {
+    MDCList(attrs = verticalScrollPlatformModifier.then(modifier.platformModifier).toAttrs()) {
         ListScope(this).ComposableRun(content)
     }

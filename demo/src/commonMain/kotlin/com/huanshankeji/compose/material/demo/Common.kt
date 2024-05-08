@@ -2,8 +2,7 @@ package com.huanshankeji.compose.material.demo
 
 import androidx.compose.runtime.*
 import androidx.compose.ui.unit.dp
-import com.huanshankeji.compose.foundation.background
-import com.huanshankeji.compose.foundation.border
+import com.huanshankeji.compose.foundation.*
 import com.huanshankeji.compose.foundation.ext.outerBorder
 import com.huanshankeji.compose.foundation.ext.roundedCornerBackgroundAndOuterBorder
 import com.huanshankeji.compose.foundation.ext.roundedCornerOuterBorder
@@ -13,7 +12,6 @@ import com.huanshankeji.compose.foundation.layout.Row
 import com.huanshankeji.compose.foundation.lazy.LazyColumn
 import com.huanshankeji.compose.foundation.lazy.LazyListScope
 import com.huanshankeji.compose.foundation.lazy.LazyRow
-import com.huanshankeji.compose.foundation.onClick
 import com.huanshankeji.compose.foundation.text.BasicText
 import com.huanshankeji.compose.layout.height
 import com.huanshankeji.compose.layout.padding
@@ -58,11 +56,23 @@ fun Common() {
 
         var count by remember { mutableStateOf(0) }
         BasicText("Click to add items to `LazyColumn` and `LazyRow`", Modifier.onClick { count++ })
-        val content: LazyListScope.() -> Unit = {
+        val lazyListContent: LazyListScope.() -> Unit = {
             item { BasicText("Item") }
             items(count) { index -> BasicText("Item $index") }
         }
-        LazyColumn(Modifier.height(listSize), content = content)
-        LazyRow(Modifier.width(listSize), content = content)
+        LazyColumn(Modifier.height(listSize), content = lazyListContent)
+        LazyRow(Modifier.width(listSize), content = lazyListContent)
+
+        @Composable
+        fun ColumnOrRowContent() {
+            BasicText("Item")
+            repeat(count) { index -> BasicText("Item $index") }
+        }
+        Column(Modifier.height(listSize).verticalScroll(rememberScrollState())) {
+            ColumnOrRowContent()
+        }
+        Row(Modifier.width(listSize).horizontalScroll(rememberScrollState())) {
+            ColumnOrRowContent()
+        }
     }
 }

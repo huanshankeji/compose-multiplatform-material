@@ -1,17 +1,15 @@
 package com.huanshankeji.compose.foundation.lazy
 
 import androidx.compose.runtime.Composable
+import com.huanshankeji.compose.foundation.horizontalScrollPlatformModifier
 import com.huanshankeji.compose.foundation.layout.Arrangement
 import com.huanshankeji.compose.foundation.layout.Column
 import com.huanshankeji.compose.foundation.layout.Row
+import com.huanshankeji.compose.foundation.verticalScrollPlatformModifier
 import com.huanshankeji.compose.runtime.DeferredComposableRunner
 import com.huanshankeji.compose.ui.Alignment
 import com.huanshankeji.compose.ui.Modifier
-import com.varabyte.kobweb.compose.css.Overflow
-import com.varabyte.kobweb.compose.css.overflowX
-import com.varabyte.kobweb.compose.css.overflowY
-import com.varabyte.kobweb.compose.ui.styleModifier
-import org.jetbrains.compose.web.css.StyleScope
+import com.huanshankeji.compose.ui.toCommonModifier
 
 /*
 @LazyScopeMarker
@@ -55,9 +53,11 @@ actual fun LazyRow(
     verticalAlignment: Alignment.Vertical,
     content: LazyListScope.() -> Unit
 ) =
-    Row(modifier.platformModify {
-        styleModifier { rowOverflow() }
-    }, horizontalArrangement, verticalAlignment) {
+    Row(
+        horizontalScrollPlatformModifier.then(modifier.platformModifier).toCommonModifier(),
+        horizontalArrangement,
+        verticalAlignment
+    ) {
         LazyListScope().ComposableRun(content)
     }
 
@@ -69,16 +69,10 @@ actual fun LazyColumn(
     horizontalAlignment: Alignment.Horizontal,
     content: LazyListScope.() -> Unit
 ) =
-    Column(modifier.platformModify {
-        styleModifier { columnOverflow() }
-    }, verticalArrangement, horizontalAlignment) {
+    Column(
+        verticalScrollPlatformModifier.then(modifier.platformModifier).toCommonModifier(),
+        verticalArrangement,
+        horizontalAlignment
+    ) {
         LazyListScope().ComposableRun(content)
     }
-
-
-fun StyleScope.rowOverflow() =
-    overflowX(Overflow.Auto)
-
-fun StyleScope.columnOverflow() =
-    //overflowY(Overflow.Scroll)
-    overflowY(Overflow.Auto)

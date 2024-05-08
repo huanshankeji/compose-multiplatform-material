@@ -1,7 +1,7 @@
 package com.huanshankeji.compose.material3.lazy.ext
 
 import androidx.compose.runtime.Composable
-import com.huanshankeji.compose.foundation.lazy.columnOverflow
+import com.huanshankeji.compose.foundation.verticalScrollPlatformModifier
 import com.huanshankeji.compose.html.material3.MdList
 import com.huanshankeji.compose.html.material3.MdListItemScope
 import com.huanshankeji.compose.html.material3.MdListScope
@@ -90,10 +90,6 @@ actual fun List(
     modifier: Modifier,
     content: ListScope.() -> Unit
 ) =
-    MdList(modifier.platformModifier.toAttrs {
-        style {
-            columnOverflow()
-        }
-    }) {
+    MdList(verticalScrollPlatformModifier.then(modifier.platformModifier).toAttrs()) {
         ListScope(this).ComposableRun(content)
     }
