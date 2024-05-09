@@ -164,5 +164,21 @@ fun Material3(modifier: Modifier) {
             ElevatedCard { Text("elevated card", contentPaddingModifier) }
             OutlinedCard { Text("outlined card", contentPaddingModifier) }
         }
+
+        var selectedIndex by remember { mutableStateOf(0) }
+        NavigationBar {
+            NavigationBarItemWithMaterialIcons(
+                selectedIndex == 0,
+                { selectedIndex = 0 },
+                Icons.Default.Add,
+                label = "Add"
+            )
+            NavigationBarItemWithMaterialIcons(
+                selectedIndex == 1,
+                { selectedIndex = 1 },
+                Icons.Default.Remove,
+                label = "Remove"
+            )
+        }
     }
 }

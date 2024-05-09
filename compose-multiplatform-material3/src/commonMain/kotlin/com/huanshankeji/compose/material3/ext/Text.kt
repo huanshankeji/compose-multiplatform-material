@@ -24,3 +24,9 @@ fun String.toTextWithModifier(): @Composable (Modifier) -> Unit =
 
 fun String?.toNullableTextWithModifier(): @Composable ((Modifier) -> Unit)? =
     this?.toTextWithModifier()
+
+fun String.toInlineText(): @Composable () -> Unit =
+    { InlineText(this) }
+
+fun String?.toNullableInlineText(): @Composable (() -> Unit)? =
+    this?.toInlineText()
