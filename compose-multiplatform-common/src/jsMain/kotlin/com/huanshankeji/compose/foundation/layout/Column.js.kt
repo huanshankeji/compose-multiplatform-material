@@ -8,7 +8,6 @@ import com.huanshankeji.compose.ui.Modifier
 import com.huanshankeji.compose.ui.PlatformModifier
 import com.huanshankeji.kobweb.compose.ui.modifiers.sizeFitContent
 import com.varabyte.kobweb.compose.foundation.layout.LayoutScopeMarker
-import com.varabyte.kobweb.compose.foundation.layout.ColumnScope as PlatformColumnScope
 
 @Composable
 actual fun Column(
@@ -23,15 +22,19 @@ actual fun Column(
             .sizeFitContent() // "fit-content" is added to make it consistent with the `androidx` one
             .then(modifier.platformModifier),
         verticalArrangement.platformValue,
-        horizontalAlignment.platformValue
-    ) { ColumnScope.Impl(this).content() }
+        horizontalAlignment.platformValue,
+        content = content.toCommonColumnScopeContent()
+    )
 }
+
+
+actual typealias PlatformColumnScope = com.varabyte.kobweb.compose.foundation.layout.ColumnScope
 
 @LayoutScopeMarker
 actual interface ColumnScope {
-    val platformValue: PlatformColumnScope
+    actual val platformValue: PlatformColumnScope
 
-    value class Impl(override val platformValue: PlatformColumnScope) : ColumnScope
+    actual value class Impl(override val platformValue: PlatformColumnScope) : ColumnScope
 
     @Stable
     actual fun Modifier.weight(

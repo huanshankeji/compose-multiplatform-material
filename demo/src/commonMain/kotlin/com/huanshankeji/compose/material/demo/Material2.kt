@@ -13,7 +13,6 @@ import com.huanshankeji.compose.foundation.text.input.KeyboardCapitalization
 import com.huanshankeji.compose.foundation.text.input.KeyboardType
 import com.huanshankeji.compose.layout.height
 import com.huanshankeji.compose.layout.padding
-import com.huanshankeji.compose.layout.width
 import com.huanshankeji.compose.material.icons.Icons
 import com.huanshankeji.compose.material.icons.filled.Add
 import com.huanshankeji.compose.material.icons.filled.Menu
@@ -29,7 +28,8 @@ import com.huanshankeji.compose.ui.graphics.Color
 import com.huanshankeji.compose.material2.ext.Button as ExtButton
 
 @Composable
-fun Material2() {
+fun Material2(modifier: Modifier) {
+    // It seems the modifier can't be set on `TopAppBarScaffold` or a box wrapping it
     TopAppBarScaffold({
         Text("Compose Multiplatform Material demo")
     }, navigationIcon = {
@@ -37,8 +37,8 @@ fun Material2() {
     }, actions = {
         MaterialIconActionButton({}, Icons.Default.Search, "search")
     }) {
-        Card(Modifier.padding(16.dp).height(800.dp).width(400.dp)) {
-            Column(Modifier.padding(16.dp).background(Color(0xF8, 0xF8, 0xF8, 0xFF))) {
+        Card(modifier.contentPadding()) {
+            Column(contentPaddingModifier.background(Color(0xF8, 0xF8, 0xF8, 0xFF))) {
                 Text("Material text")
 
                 var count by remember { mutableStateOf(0) }

@@ -17,14 +17,17 @@ import com.huanshankeji.compose.material.icons.filled.Menu
 import com.huanshankeji.compose.material.icons.filled.Remove
 import com.huanshankeji.compose.material3.*
 import com.huanshankeji.compose.material3.ext.*
+import com.huanshankeji.compose.material3.ext.Card
+import com.huanshankeji.compose.material3.ext.ElevatedCard
+import com.huanshankeji.compose.material3.ext.OutlinedCard
 import com.huanshankeji.compose.material3.lazy.ext.List
 import com.huanshankeji.compose.material3.lazy.ext.ListItemComponents
 import com.huanshankeji.compose.ui.Modifier
 import com.huanshankeji.compose.material3.Button as RowScopeButton
 
 @Composable
-fun Material3() {
-    Column {
+fun Material3(modifier: Modifier) {
+    Column(modifier) {
         var count by remember { mutableStateOf(0) }
         val onClick: () -> Unit = { count++ }
         val buttonContent: @Composable () -> Unit = {
@@ -154,6 +157,12 @@ fun Material3() {
             conventionalItems(count) { index ->
                 content(index.toString())
             }
+        }
+
+        Row {
+            Card { Text("card", contentPaddingModifier) }
+            ElevatedCard { Text("elevated card", contentPaddingModifier) }
+            OutlinedCard { Text("outlined card", contentPaddingModifier) }
         }
     }
 }

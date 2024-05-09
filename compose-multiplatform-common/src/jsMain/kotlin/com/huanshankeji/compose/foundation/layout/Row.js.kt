@@ -8,7 +8,6 @@ import com.huanshankeji.compose.ui.Modifier
 import com.huanshankeji.compose.ui.PlatformModifier
 import com.huanshankeji.kobweb.compose.ui.modifiers.sizeFitContent
 import com.varabyte.kobweb.compose.foundation.layout.LayoutScopeMarker
-import com.varabyte.kobweb.compose.foundation.layout.RowScope as PlatformRowScope
 
 @Composable
 actual fun Row(
@@ -28,11 +27,14 @@ actual fun Row(
     )
 }
 
+
+actual typealias PlatformRowScope = com.varabyte.kobweb.compose.foundation.layout.RowScope
+
 @LayoutScopeMarker
 actual interface RowScope {
-    val platformValue: PlatformRowScope
+    actual val platformValue: PlatformRowScope
 
-    value class Impl(override val platformValue: PlatformRowScope) : RowScope
+    actual value class Impl(override val platformValue: PlatformRowScope) : RowScope
 
     @Stable
     actual fun Modifier.weight(
@@ -45,7 +47,3 @@ actual interface RowScope {
     actual fun Modifier.align(alignment: Alignment.Vertical): Modifier =
         with(platformValue) { platformModify { align(alignment.platformValue) } }
 }
-
-
-fun (@Composable (RowScope.() -> Unit)).toPlatformRowScopeContent(): @Composable PlatformRowScope.() -> Unit =
-    { RowScope.Impl(this).(this@toPlatformRowScopeContent)() }

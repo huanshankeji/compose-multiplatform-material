@@ -21,8 +21,8 @@ import com.huanshankeji.compose.ui.Modifier
 import com.huanshankeji.compose.ui.graphics.Color
 
 @Composable
-fun Common() {
-    Column {
+fun Common(modifier: Modifier) {
+    Column(modifier) {
         BasicText("basic text 1")
         BasicText("basic text 2")
 

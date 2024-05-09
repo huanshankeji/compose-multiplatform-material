@@ -14,8 +14,15 @@ expect fun Row(
     content: @Composable RowScope.() -> Unit
 )
 
+
+expect interface PlatformRowScope
+
 //@LayoutScopeMarker
 expect interface RowScope {
+    val platformValue: PlatformRowScope
+
+    value class Impl(override val platformValue: PlatformRowScope) : RowScope
+
     @Stable
     open fun Modifier.weight(
         @FloatRange(from = 0.0, fromInclusive = false)
@@ -25,3 +32,6 @@ expect interface RowScope {
     @Stable
     open fun Modifier.align(alignment: Alignment.Vertical): Modifier
 }
+
+fun (@Composable (RowScope.() -> Unit)).toPlatformRowScopeContent(): @Composable PlatformRowScope.() -> Unit =
+    { RowScope.Impl(this).this@toPlatformRowScopeContent() }

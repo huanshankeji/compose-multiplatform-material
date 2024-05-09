@@ -6,7 +6,6 @@ import androidx.compose.runtime.Stable
 import com.huanshankeji.compose.ui.Alignment
 import com.huanshankeji.compose.ui.Modifier
 import kotlin.jvm.JvmInline
-import androidx.compose.foundation.layout.RowScope as PlatformRowScope
 
 @Composable
 actual fun Row(
@@ -22,12 +21,15 @@ actual fun Row(
         content.toPlatformRowScopeContent(),
     )
 
+
+actual typealias PlatformRowScope = androidx.compose.foundation.layout.RowScope
+
 //@LayoutScopeMarker
 actual interface RowScope {
-    val platformValue: PlatformRowScope
+    actual val platformValue: PlatformRowScope
 
     @JvmInline
-    value class Impl(override val platformValue: PlatformRowScope) : RowScope
+    actual value class Impl(override val platformValue: PlatformRowScope) : RowScope
 
     actual fun Modifier.weight(
         @FloatRange(from = 0.0, fromInclusive = false)
@@ -39,7 +41,3 @@ actual interface RowScope {
     actual fun Modifier.align(alignment: Alignment.Vertical): Modifier =
         with(platformValue) { platformModify { align(alignment.platformHorizontal) } }
 }
-
-
-fun (@Composable (RowScope.() -> Unit)).toPlatformRowScopeContent(): @Composable PlatformRowScope.() -> Unit =
-    { RowScope.Impl(this).(this@toPlatformRowScopeContent)() }
