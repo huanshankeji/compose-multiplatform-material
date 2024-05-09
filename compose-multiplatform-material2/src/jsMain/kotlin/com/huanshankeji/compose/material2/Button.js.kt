@@ -6,7 +6,7 @@ import com.huanshankeji.compose.foundation.layout.RowScope
 import com.huanshankeji.compose.material2.ext.ButtonType
 import com.huanshankeji.compose.material2.ext.toMDCButtonType
 import com.huanshankeji.compose.ui.Modifier
-import com.varabyte.kobweb.compose.ui.toAttrs
+import com.huanshankeji.compose.ui.toAttrs
 import dev.petuska.kmdc.button.MDCButton
 import dev.petuska.kmdc.button.MDCButtonScope
 import org.w3c.dom.HTMLButtonElement
@@ -20,7 +20,7 @@ internal fun CommonButton(
 ) =
     MDCButton(
         buttonType.toMDCButtonType(),
-        attrs = modifier.platformModifier.toAttrs {
+        attrs = modifier.toAttrs {
             onClick { onClick() }
         },
         content = content

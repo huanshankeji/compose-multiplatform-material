@@ -2,7 +2,7 @@ package com.huanshankeji.compose.material2
 
 import androidx.compose.runtime.Composable
 import com.huanshankeji.compose.ui.Modifier
-import com.varabyte.kobweb.compose.ui.toAttrs
+import com.huanshankeji.compose.ui.toAttrs
 import org.jetbrains.compose.web.dom.Hr
 
 // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/hr
@@ -10,4 +10,4 @@ import org.jetbrains.compose.web.dom.Hr
 // see: https://github.com/mpetuska/kmdc/blob/master/katalog/katalog-runtime/src/jsMain/kotlin/layout/Divider.kt
 @Composable
 actual fun Divider(modifier: Modifier) =
-    Hr(modifier.platformModifier.toAttrs())
+    Hr(modifier.toAttrs())

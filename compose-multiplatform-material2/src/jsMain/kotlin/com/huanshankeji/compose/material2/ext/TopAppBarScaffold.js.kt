@@ -4,7 +4,7 @@ import androidx.compose.runtime.Composable
 import com.huanshankeji.compose.contentDescription
 import com.huanshankeji.compose.material.icons.Icon
 import com.huanshankeji.compose.ui.Modifier
-import com.varabyte.kobweb.compose.ui.toAttrs
+import com.huanshankeji.compose.ui.toAttrs
 import dev.petuska.kmdc.top.app.bar.*
 import dev.petuska.kmdcx.icons.mdcIcon
 import org.jetbrains.compose.web.dom.Text
@@ -44,7 +44,7 @@ actual fun TopAppBarScaffold(
     content: @Composable () -> Unit
 ) =
     MDCTopAppBar {
-        TopAppBar(topAppBarModifier.platformModifier.toAttrs()) {
+        TopAppBar(topAppBarModifier.toAttrs()) {
             Row {
                 Section(align = MDCTopAppBarSectionAlign.Start) {
                     navigationIcon?.let { NavigationIconScope(this@Section).it() }

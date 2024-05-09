@@ -5,7 +5,7 @@ import com.huanshankeji.compose.contentDescription
 import com.huanshankeji.compose.material.icons.Icon
 import com.huanshankeji.compose.material2.icons.toMDCIcon
 import com.huanshankeji.compose.ui.Modifier
-import com.varabyte.kobweb.compose.ui.toAttrs
+import com.huanshankeji.compose.ui.toAttrs
 import dev.petuska.kmdcx.icons.MDCIconSpan
 
 /**
@@ -13,6 +13,6 @@ import dev.petuska.kmdcx.icons.MDCIconSpan
  */
 @Composable
 actual fun Icon(icon: Icon, contentDescription: String?, modifier: Modifier) =
-    MDCIconSpan(icon.toMDCIcon(), attrs = modifier.platformModifier.toAttrs {
+    MDCIconSpan(icon.toMDCIcon(), attrs = modifier.toAttrs {
         contentDescription(contentDescription)
     })

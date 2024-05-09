@@ -2,7 +2,7 @@ package com.huanshankeji.compose.foundation.text
 
 import androidx.compose.runtime.Composable
 import com.huanshankeji.compose.ui.Modifier
-import com.varabyte.kobweb.compose.ui.toAttrs
+import com.huanshankeji.compose.ui.toAttrs
 import org.jetbrains.compose.web.dom.Span
 import org.jetbrains.compose.web.dom.Text
 
@@ -17,4 +17,4 @@ actual fun BasicText(text: String) =
 
 @Composable
 actual fun BasicText(text: String, modifier: Modifier) =
-    Span(modifier.platformModifier.toAttrs()) { Text(text) }
+    Span(modifier.toAttrs()) { Text(text) }

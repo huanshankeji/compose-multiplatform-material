@@ -2,7 +2,7 @@ package com.huanshankeji.compose.material2
 
 import androidx.compose.runtime.Composable
 import com.huanshankeji.compose.ui.Modifier
-import com.varabyte.kobweb.compose.ui.toAttrs
+import com.huanshankeji.compose.ui.toAttrs
 import dev.petuska.kmdc.switch.MDCSwitch
 import org.jetbrains.compose.web.attributes.disabled
 
@@ -16,7 +16,7 @@ internal fun CommonSwitch(
     modifier: Modifier,
     enabled: Boolean
 ) =
-    MDCSwitch(checked, label, modifier.platformModifier.toAttrs {
+    MDCSwitch(checked, label, modifier.toAttrs {
         if (!enabled) disabled()
         onCheckedChange?.let { onClick { it(!checked) } }
     })

@@ -6,7 +6,7 @@ import com.huanshankeji.compose.foundation.text.KeyboardOptions
 import com.huanshankeji.compose.foundation.text.attrsFrom
 import com.huanshankeji.compose.material.icons.Icon
 import com.huanshankeji.compose.ui.Modifier
-import com.varabyte.kobweb.compose.ui.toAttrs
+import com.huanshankeji.compose.ui.toAttrs
 import dev.petuska.kmdc.core.MDCContent
 import dev.petuska.kmdc.textfield.MDCTextArea
 import dev.petuska.kmdc.textfield.MDCTextField
@@ -37,7 +37,7 @@ fun CommonTextFieldWithMDCContentIcons(
         label,
         leadingIcon = leadingIcon,
         trailingIcon = trailingIcon,
-        attrs = modifier.platformModifier.toAttrs {
+        attrs = modifier.toAttrs {
             onInput { onValueChange(it.value) }
 
             attrsFrom(keyboardOptions, keyboardActions)
@@ -220,6 +220,6 @@ actual fun TextArea(
         disabled = !enabled,
         label = label,
         rows = lines.toUInt(),
-        attrs = modifier.platformModifier.toAttrs {
+        attrs = modifier.toAttrs {
             onInput { onValueChange(it.value) }
         })

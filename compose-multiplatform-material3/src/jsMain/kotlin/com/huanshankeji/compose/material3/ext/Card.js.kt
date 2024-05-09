@@ -6,19 +6,19 @@ import com.huanshankeji.compose.html.material3.MdElevatedCard
 import com.huanshankeji.compose.html.material3.MdFilledCard
 import com.huanshankeji.compose.html.material3.MdOutlinedCard
 import com.huanshankeji.compose.ui.Modifier
-import com.varabyte.kobweb.compose.ui.toAttrs
+import com.huanshankeji.compose.ui.toAttrs
 
 @Composable
 actual fun Card(modifier: Modifier, content: @Composable () -> Unit) =
     @OptIn(MaterialWebLabsApi::class)
-    MdFilledCard(modifier.platformModifier.toAttrs()) { content() }
+    MdFilledCard(modifier.toAttrs()) { content() }
 
 @Composable
 actual fun ElevatedCard(modifier: Modifier, content: @Composable () -> Unit) =
     @OptIn(MaterialWebLabsApi::class)
-    MdElevatedCard(modifier.platformModifier.toAttrs()) { content() }
+    MdElevatedCard(modifier.toAttrs()) { content() }
 
 @Composable
 actual fun OutlinedCard(modifier: Modifier, content: @Composable () -> Unit) =
     @OptIn(MaterialWebLabsApi::class)
-    MdOutlinedCard(modifier.platformModifier.toAttrs()) { content() }
+    MdOutlinedCard(modifier.toAttrs()) { content() }

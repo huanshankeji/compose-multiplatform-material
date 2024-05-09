@@ -10,20 +10,20 @@ import com.huanshankeji.compose.html.material3.MdOutlinedTextField
 import com.huanshankeji.compose.html.material3.MdTextFieldScope
 import com.huanshankeji.compose.ui.Modifier
 import com.huanshankeji.compose.ui.PlatformModifier
+import com.huanshankeji.compose.ui.toAttrs
 import com.huanshankeji.compose.ui.toCommonModifier
 import com.huanshankeji.compose.web.attributes.ext.onInput
 import com.huanshankeji.compose.web.attributes.isFalseOrNull
 import com.huanshankeji.compose.web.attributes.isTrueOrNull
 import com.huanshankeji.compose.web.dom.ext.value
 import com.varabyte.kobweb.compose.ui.attrsModifier
-import com.varabyte.kobweb.compose.ui.toAttrs
 import org.jetbrains.compose.web.attributes.AttrsScope
 import org.w3c.dom.HTMLElement
 
 private fun Modifier.toTextFieldAttrs(
     onValueChange: (String) -> Unit, keyboardOptions: KeyboardOptions, keyboardActions: KeyboardActions,
 ): AttrsScope<HTMLElement>.() -> Unit =
-    platformModifier.toAttrs {
+    toAttrs {
         // see https://stackoverflow.com/questions/574941/best-way-to-track-onchange-as-you-type-in-input-type-text
         onInput { onValueChange(it.target.value) }
 

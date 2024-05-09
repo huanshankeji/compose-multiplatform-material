@@ -8,6 +8,7 @@ import com.huanshankeji.compose.html.material3.MdListScope
 import com.huanshankeji.compose.runtime.DeferredComposableRunner
 import com.huanshankeji.compose.ui.Modifier
 import com.huanshankeji.compose.ui.PlatformModifier
+import com.huanshankeji.compose.ui.toAttrs
 import com.huanshankeji.compose.ui.toCommonModifier
 import com.varabyte.kobweb.compose.ui.attrsModifier
 import com.varabyte.kobweb.compose.ui.toAttrs
@@ -39,7 +40,7 @@ actual class ListScope(val mdListScope: MdListScope) {
 
     @Composable
     private fun ListItem(content: ListItemComponents) =
-        mdListScope.MdListItem(attrs = content.contentModifier.platformModifier.toAttrs()) {
+        mdListScope.MdListItem(attrs = content.contentModifier.toAttrs()) {
             contentFromComponents(content)
         }
 

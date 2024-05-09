@@ -5,19 +5,19 @@ import com.huanshankeji.compose.foundation.layout.Box
 import com.huanshankeji.compose.html.material3.*
 import com.huanshankeji.compose.ui.Modifier
 import com.huanshankeji.compose.ui.PlatformModifier
+import com.huanshankeji.compose.ui.toAttrs
 import com.huanshankeji.compose.ui.toCommonModifier
 import com.huanshankeji.compose.web.attributes.ext.onInput
 import com.huanshankeji.compose.web.attributes.isFalseOrNull
 import com.huanshankeji.compose.web.attributes.isTrueOrNull
 import com.varabyte.kobweb.compose.ui.attrsModifier
-import com.varabyte.kobweb.compose.ui.toAttrs
 import org.jetbrains.compose.web.attributes.AttrsScope
 import org.w3c.dom.HTMLElement
 
 internal fun Modifier.toCommonIconToggleButtonAttrs(
     checked: Boolean, onCheckedChange: (Boolean) -> Unit
 ): AttrsScope<HTMLElement>.() -> Unit =
-    platformModifier.toAttrs {
+    toAttrs {
         // note that `onInput` is used here
         onInput { onCheckedChange(!checked) }
     }

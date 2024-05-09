@@ -1,5 +1,8 @@
 package com.huanshankeji.compose.ui
 
+import com.varabyte.kobweb.compose.ui.toAttrs
+import org.jetbrains.compose.web.attributes.AttrsScope
+import org.w3c.dom.Element
 import com.varabyte.kobweb.compose.ui.Modifier as PlatformModifier
 
 typealias PlatformModifier = PlatformModifier
@@ -34,3 +37,6 @@ actual interface Modifier {
 
 fun PlatformModifier.toCommonModifier() =
     Modifier.Impl(this)
+
+fun <A : AttrsScope<Element>> Modifier.toAttrs(finalHandler: (A.() -> Unit)? = null): A.() -> Unit =
+    platformModifier.toAttrs(finalHandler)
