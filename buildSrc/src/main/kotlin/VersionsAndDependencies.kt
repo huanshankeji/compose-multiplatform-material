@@ -1,9 +1,11 @@
-val projectVersion = "0.2.0-SNAPSHOT"
+import org.jetbrains.compose.ComposeBuildConfig
+
+val projectVersion = "0.3.0-SNAPSHOT"
 
 object DependencyVersions {
-    val composeMultiplatform = "1.6.2" // manually specified for "ui-unit"
+    const val composeMultiplatform = ComposeBuildConfig.composeVersion // for "ui-unit"
     val kobweb = "0.17.3"
-    val huanshankejiComposeWeb = "0.2.2"
+    val huanshankejiComposeHtml = "0.3.0"
     val kmdc = "0.1.2"
 
     object Androidx {
