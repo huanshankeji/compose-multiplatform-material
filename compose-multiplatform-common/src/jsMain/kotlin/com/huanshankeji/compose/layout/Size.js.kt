@@ -6,6 +6,10 @@ import androidx.compose.ui.unit.Dp
 import com.huanshankeji.compose.ui.Modifier
 import com.huanshankeji.compose.ui.unit.toPercent
 import com.huanshankeji.compose.ui.unit.toPx
+import com.huanshankeji.kobweb.compose.ui.modifiers.size
+import com.huanshankeji.kobweb.compose.ui.modifiers.sizeFitContent
+import com.varabyte.kobweb.compose.css.Height
+import com.varabyte.kobweb.compose.css.Width
 import com.varabyte.kobweb.compose.ui.modifiers.*
 
 @Stable
@@ -49,5 +53,18 @@ actual fun Modifier.fillMaxWidth(@FloatRange(from = 0.0, to = 1.0) fraction: Flo
 actual fun Modifier.fillMaxHeight(@FloatRange(from = 0.0, to = 1.0) fraction: Float): Modifier =
     platformModify { fillMaxHeight(fraction.toPercent()) }
 
+@Stable
 actual fun Modifier.fillMaxSize(@FloatRange(from = 0.0, to = 1.0) fraction: Float): Modifier =
     platformModify { fillMaxSize(fraction.toPercent()) }
+
+@Stable
+actual fun Modifier.wrapContentWidth(): Modifier =
+    platformModify { width(Width.FitContent) }
+
+@Stable
+actual fun Modifier.wrapContentHeight(): Modifier =
+    platformModify { height(Height.FitContent) }
+
+@Stable
+actual fun Modifier.wrapContentSize(): Modifier =
+    platformModify { sizeFitContent() }

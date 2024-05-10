@@ -3,8 +3,9 @@ package com.huanshankeji.compose.ui
 import kotlin.jvm.JvmInline
 import androidx.compose.ui.Modifier as PlatformModifier
 
-//actual typealias Modifier = androidx.compose.ui.Modifier // this doesn't work
+typealias PlatformModifier = PlatformModifier
 
+//actual typealias Modifier = androidx.compose.ui.Modifier // this doesn't work
 actual interface Modifier {
     val platformModifier: PlatformModifier
 

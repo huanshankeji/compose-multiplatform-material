@@ -46,7 +46,8 @@ kotlin {
         commonMain {
             dependencies {
                 implementation(compose.runtime)
-                implementation(project(":compose-multiplatform-material"))
+                implementation(project(":compose-multiplatform-material2"))
+                implementation(project(":compose-multiplatform-material3"))
             }
         }
         jvmMain {
@@ -76,6 +77,7 @@ kotlin {
         jsMain {
             dependencies {
                 implementation(compose.html.core)
+                implementation(npm("material-symbols", DependencyVersions.materialSymbols))
             }
         }
     }

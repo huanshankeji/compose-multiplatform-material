@@ -38,6 +38,7 @@ kotlin {
                 api(compose.html.core)
                 // see: https://github.com/varabyte/kobweb/blob/main/frontend/kobweb-compose/build.gradle.kts
                 api("com.varabyte.kobweb:kobweb-compose:${DependencyVersions.kobweb}")
+                implementation("com.huanshankeji:compose-html-common:${DependencyVersions.huanshankejiComposeHtml}")
             }
         }
     }

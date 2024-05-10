@@ -1,18 +1,13 @@
 package com.huanshankeji.compose.foundation.layout
 
+import androidx.annotation.FloatRange
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Stable
 import com.huanshankeji.compose.ui.Alignment
 import com.huanshankeji.compose.ui.Modifier
+import com.huanshankeji.compose.ui.PlatformModifier
 import com.huanshankeji.kobweb.compose.ui.modifiers.sizeFitContent
 import com.varabyte.kobweb.compose.foundation.layout.LayoutScopeMarker
-import com.varabyte.kobweb.compose.ui.modifiers.display
-import com.varabyte.kobweb.compose.ui.modifiers.flexDirection
-import org.jetbrains.compose.web.css.DisplayStyle
-import org.jetbrains.compose.web.css.FlexDirection
-import com.varabyte.kobweb.compose.foundation.layout.RowScope as PlatformRowScope
-
-import com.varabyte.kobweb.compose.ui.Modifier as PlatformModifier
 
 @Composable
 actual fun Row(
@@ -20,20 +15,33 @@ actual fun Row(
     horizontalArrangement: Arrangement.Horizontal,
     verticalAlignment: Alignment.Vertical,
     content: @Composable RowScope.() -> Unit
-) =
+) {
+    AddKobwebComposeStyleSheet()
     com.varabyte.kobweb.compose.foundation.layout.Row(
-        PlatformModifier.display(DisplayStyle.Flex).flexDirection(FlexDirection.Row)
+        PlatformModifier
             .sizeFitContent()
             .then(modifier.platformModifier),
         horizontalArrangement.platformValue,
-        verticalAlignment.platformValue
-    ) { RowScope.Impl(this).content() }
+        verticalAlignment.platformValue,
+        content = content.toPlatformRowScopeContent()
+    )
+}
+
+
+actual typealias PlatformRowScope = com.varabyte.kobweb.compose.foundation.layout.RowScope
 
 @LayoutScopeMarker
 actual interface RowScope {
-    val platformValue: PlatformRowScope
+    actual val platformValue: PlatformRowScope
 
-    value class Impl(override val platformValue: PlatformRowScope) : RowScope
+    actual value class Impl(override val platformValue: PlatformRowScope) : RowScope
+
+    @Stable
+    actual fun Modifier.weight(
+        @FloatRange(from = 0.0, fromInclusive = false)
+        weight: Float
+    ): Modifier =
+        with(platformValue) { platformModify { weight(weight) } }
 
     @Stable
     actual fun Modifier.align(alignment: Alignment.Vertical): Modifier =

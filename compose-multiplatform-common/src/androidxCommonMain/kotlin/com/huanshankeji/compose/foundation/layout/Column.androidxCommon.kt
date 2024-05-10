@@ -1,11 +1,11 @@
 package com.huanshankeji.compose.foundation.layout
 
+import androidx.annotation.FloatRange
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Stable
 import com.huanshankeji.compose.ui.Alignment
 import com.huanshankeji.compose.ui.Modifier
 import kotlin.jvm.JvmInline
-import androidx.compose.foundation.layout.ColumnScope as PlatformColumnScope
 
 @Composable
 actual fun Column(
@@ -18,14 +18,25 @@ actual fun Column(
         modifier.platformModifier,
         verticalArrangement.platformValue,
         horizontalAlignment.platformHorizontal,
-    ) { ColumnScope.Impl(this).content() }
+        content.toCommonColumnScopeContent()
+    )
+
+
+actual typealias PlatformColumnScope = androidx.compose.foundation.layout.ColumnScope
 
 //@LayoutScopeMarker
 actual interface ColumnScope {
-    val platformValue: PlatformColumnScope
+    actual val platformValue: PlatformColumnScope
 
     @JvmInline
-    value class Impl(override val platformValue: PlatformColumnScope) : ColumnScope
+    actual value class Impl(override val platformValue: PlatformColumnScope) : ColumnScope
+
+    @Stable
+    actual fun Modifier.weight(
+        @FloatRange(from = 0.0, fromInclusive = false)
+        weight: Float
+    ): Modifier =
+        with(platformValue) { platformModify { weight(weight) } }
 
     @Stable
     actual fun Modifier.align(alignment: Alignment.Horizontal): Modifier =
