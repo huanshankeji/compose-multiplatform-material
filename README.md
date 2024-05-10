@@ -17,7 +17,7 @@ This project is prototype and there is no documentation yet. Check out [the demo
 
 ### Components
 
-#### Common (Foundation) components
+#### Foundation components
 
 - `BasicText`
 
@@ -30,35 +30,66 @@ This project is prototype and there is no documentation yet. Check out [the demo
 - `Box`
 - `Column` (via flexbox on web)
 - `Row` (via flexbox on web)
+- `Spacer`
 
-#### Material components
+##### Lazy
+
+- `LazyColumn`
+- `LazyRow`
+
+#### Material 2 components
 
 - `Button`
 - `Card`
+- `Checkbox`
+- `Divider` (not working properly on JS yet)
 - `Icon`
 - `IconButton`
-- `LazyColumn`/`ScrollableList` (visually inconsistent for now)
-- `Text`/`MaterialText`
-- `TextField`
-- `Checkbox`
-- `Divider` (visually inconsistent for now)
+- `Switch`
+- `Text`
 
 ##### `ext` components
 
 - `Button`
 - `IconButton`
+- `RadioRow`, `RadioGroupRow`
+- `SwitchWithLabel`
+- `MaterialText`, `InlineText`
+- `TextField`, `OutlinedTextField`
 - `TopAppBarScaffold`
-- `InlineText`
-- `RadioRow`
-- `RadioGroupRow`
+
+##### `lazy.ext` components
+
+- `List`/`LazyColumnList` (visually inconsistent for now)
 
 #### Material 3 components
 
-- `Button`
+- `Button` (`FilledButton`), `ElevatedButton`, `FilledTonalButton`, `OutlinedButton`, `TextButton`
+- `Card` (`FilledCard`), `ElevatedCard`, `OutlinedCard`
+- `Checkbox`
+- `FloatingActionButton`, `SmallFloatingActionButton`, `LargeFloatingActionButton`, `ExtendedFloatingActionButton`
+- `Icon`
+- `IconButton`, `IconToggleButton`, `FilledIconButton`, `FilledIconToggleButton`, `FilledTonalIconButton`, `FilledTonalIconToggleButton`, `OutlinedIconButton`, `OutlinedIconToggleButton`
+- `Switch`
+- `Text`
 
-#### Components in the `ext` packages
+##### `ext` components
 
-The components in the `ext` packages don't follow the `androidx.compose` APIs exactly, but rather provide wrappers are idiomatic and conventional on both kinds of targets, wrapping different APIs which can't be unified following the `androidx.compose` APIs.
+- `Button` (`FilledButton`), `ElevatedButton`, `FilledTonalButton`, `OutlinedButton`, `TextButton`
+- `Card` (`FilledCard`), `ElevatedCard`, `OutlinedCard`
+- `FloatingActionButton`, `SmallFloatingActionButton`, `LargeFloatingActionButton`, `ExtendedFloatingActionButton`
+- `IconButton`, `IconToggleButton`, `FilledIconButton`, `FilledIconToggleButton`, `FilledTonalIconButton`, `FilledTonalIconToggleButton`, `OutlinedIconButton`, `OutlinedIconToggleButton`
+- `NavigationBar`, `NavigationBarItem`
+- `MaterialText`, `InlineText`
+- `TextField`, `OutlinedTextField`
+
+##### `lazy.ext` components
+
+- `List`/`LazyColumnList` (slightly visually inconsistent)
+
+#### About `ext` components (components in the `ext` packages)
+
+The components in the `ext` packages don't follow the `androidx.compose` APIs exactly, but rather provide wrappers are more idiomatic and conventional on both kinds of targets, wrapping different APIs which can't be unified following the `androidx.compose` APIs.
 
 ### Styles (obsolete in the legacy module, for removal)
 
@@ -82,6 +113,8 @@ The functions in `StyleScope`:
 - `padding`
 - `background`
 - `border` (visually inconsistent)
+- `onClick`
+- `verticalScroll`, `horizontalScroll` (`ScrollState` not supported on JS yet)
 
 #### `ext` modifiers
 
@@ -108,7 +141,7 @@ repositories {
 
 ### Material Symbols & Icons on JS
 
-See [the corresponding section in Compose HTML Material]() for Material Icons on JS.
+See [the corresponding section in Compose HTML Material](https://github.com/huanshankeji/compose-html-material?tab=readme-ov-file#material-symbols--icons) for Material Icons on JS.
 
 ## About Kobweb Silk
 
