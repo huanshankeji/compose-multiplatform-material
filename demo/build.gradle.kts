@@ -77,7 +77,7 @@ kotlin {
         jsMain {
             dependencies {
                 implementation(compose.html.core)
-                implementation(npm("material-symbols", "0.17.4"))
+                implementation(npm("material-symbols", DependencyVersions.materialSymbols))
             }
         }
     }
