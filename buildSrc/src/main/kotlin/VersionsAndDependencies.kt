@@ -5,7 +5,7 @@ val projectVersion = "0.3.0-SNAPSHOT"
 object DependencyVersions {
     const val composeMultiplatform = ComposeBuildConfig.composeVersion // for "ui-unit"
     val kobweb = "0.17.3"
-    val huanshankejiComposeHtml = "0.3.0-SNAPSHOT" // TODO don't use a snapshot in a main branch
+    val huanshankejiComposeHtml = "0.3.0"
     val kmdc = "0.1.2"
 
     object Androidx {
