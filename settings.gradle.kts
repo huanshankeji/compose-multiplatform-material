@@ -9,6 +9,8 @@ include("compose-multiplatform-material3")
 include("demo")
 
 
+/*
+// This seems not needed.
 pluginManagement {
     repositories {
         //mavenLocal()
@@ -18,7 +20,9 @@ pluginManagement {
         mavenCentral()
     }
 }
+*/
 
+// This is needed for Kotlin Native.
 dependencyResolutionManagement {
     @Suppress("UnstableApiUsage")
     repositories {
