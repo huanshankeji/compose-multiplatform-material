@@ -1,5 +1,6 @@
 package com.huanshankeji.compose.material2.ext
 
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.RowScope
 import androidx.compose.material.Scaffold
 import androidx.compose.material.TopAppBar
@@ -35,17 +36,34 @@ actual class TopAppBarActionsScope(val rowScope: RowScope) {
 }
 
 @Composable
+actual fun PrimitiveTopAppBarScaffold(
+    title: @Composable () -> Unit,
+    topAppBarModifier: Modifier,
+    navigationIcon: @Composable (NavigationIconScope.() -> Unit)?,
+    actions: @Composable TopAppBarActionsScope.() -> Unit,
+    contentModifier: Modifier,
+    content: @Composable () -> Unit
+) =
+    TopAppBarScaffold(title, topAppBarModifier, navigationIcon, actions) {
+        Box(contentModifier.platformModifier) { content() }
+    }
+
+@Composable
 actual fun TopAppBarScaffold(
     title: @Composable () -> Unit,
     topAppBarModifier: Modifier,
     navigationIcon: @Composable (NavigationIconScope.() -> Unit)?,
     actions: @Composable TopAppBarActionsScope.() -> Unit,
+    bottomBar: @Composable (() -> Unit)?,
     content: @Composable () -> Unit
 ) =
-    Scaffold(topBar = {
-        TopAppBar(
-            title,
-            topAppBarModifier.platformModifier,
-            navigationIcon?.let { { NavigationIconScope.instance.it() } },
-            { TopAppBarActionsScope(this).actions() })
-    }) { content() }
+    Scaffold(
+        topBar = {
+            TopAppBar(
+                title,
+                topAppBarModifier.platformModifier,
+                navigationIcon?.let { { NavigationIconScope.instance.it() } },
+                { TopAppBarActionsScope(this).actions() })
+        },
+        bottomBar = bottomBar ?: {}
+    ) { content() }

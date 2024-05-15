@@ -20,11 +20,35 @@ expect class TopAppBarActionsScope {
     fun MaterialIconActionButton(onClick: () -> Unit, icon: Icon, contentDescription: String?)
 }
 
+/**
+ * This one doesn't fill parent height on JS.
+ */
+@Composable
+expect fun PrimitiveTopAppBarScaffold(
+    title: @Composable () -> Unit,
+    topAppBarModifier: Modifier = Modifier,
+    navigationIcon: @Composable (NavigationIconScope.() -> Unit)? = null,
+    actions: @Composable TopAppBarActionsScope.() -> Unit = {},
+    contentModifier: Modifier = Modifier,
+    content: @Composable () -> Unit
+)
+
+/**
+ * This variant fills parent space automatically and internally uses a flexbox on JS.
+ * For it to work properly, it's recommended to set these CSS styles on body:
+ * ```
+ * body {
+ *     margin: 0;
+ *     height: 100vh;
+ * }
+ * ```
+ */
 @Composable
 expect fun TopAppBarScaffold(
     title: @Composable () -> Unit,
     topAppBarModifier: Modifier = Modifier,
     navigationIcon: @Composable (NavigationIconScope.() -> Unit)? = null,
     actions: @Composable TopAppBarActionsScope.() -> Unit = {},
+    bottomBar: @Composable (() -> Unit)? = null,
     content: @Composable () -> Unit
 )

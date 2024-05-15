@@ -2,6 +2,8 @@ package com.huanshankeji.compose.material2.ext
 
 import androidx.compose.runtime.Composable
 import com.huanshankeji.compose.contentDescription
+import com.huanshankeji.compose.foundation.layout.Column
+import com.huanshankeji.compose.layout.fillMaxSize
 import com.huanshankeji.compose.material.icons.Icon
 import com.huanshankeji.compose.ui.Modifier
 import com.huanshankeji.compose.ui.toAttrs
@@ -36,11 +38,12 @@ actual class TopAppBarActionsScope(val mdcTopAppBarSectionScope: MDCTopAppBarSec
 }
 
 @Composable
-actual fun TopAppBarScaffold(
+actual fun PrimitiveTopAppBarScaffold(
     title: @Composable () -> Unit,
     topAppBarModifier: Modifier,
     navigationIcon: @Composable (NavigationIconScope.() -> Unit)?,
     actions: @Composable TopAppBarActionsScope.() -> Unit,
+    contentModifier: Modifier,
     content: @Composable () -> Unit
 ) =
     MDCTopAppBar {
@@ -60,5 +63,29 @@ actual fun TopAppBarScaffold(
                 }
             }
         }
-        Main { content() }
+        Main(contentModifier.toAttrs()) { content() }
+    }
+
+/**
+ * It's highly recommended to read the KDoc in the common module.
+ */
+@Composable
+actual fun TopAppBarScaffold(
+    title: @Composable () -> Unit,
+    topAppBarModifier: Modifier,
+    navigationIcon: @Composable (NavigationIconScope.() -> Unit)?,
+    actions: @Composable TopAppBarActionsScope.() -> Unit,
+    bottomBar: @Composable (() -> Unit)?,
+    content: @Composable () -> Unit
+) =
+    Column(Modifier.fillMaxSize()) {
+        PrimitiveTopAppBarScaffold(
+            title,
+            topAppBarModifier,
+            navigationIcon,
+            actions,
+            Modifier.weight(1f),
+            content
+        )
+        bottomBar?.invoke()
     }
