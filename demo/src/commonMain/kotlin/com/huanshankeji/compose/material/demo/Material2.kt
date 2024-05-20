@@ -118,12 +118,12 @@ fun Material2(modifier: Modifier) {
                 )
                 TextArea(text, { text = it }, label = "Demo text field", lines = 3)
 
-                var selected by remember { mutableStateOf(RadioButtonState.A) }
+                var selected by remember { mutableStateOf(Selection.A) }
                 RadioGroupRow {
                     @Composable
-                    fun RadioButtonRow(state: RadioButtonState) =
+                    fun RadioButtonRow(state: Selection) =
                         RadioRow(selected == state, state.toString(), { selected = state })
-                    RadioButtonState.entries.forEach { RadioButtonRow(it) }
+                    Selection.entries.forEach { RadioButtonRow(it) }
                 }
 
                 Row {

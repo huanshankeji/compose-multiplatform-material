@@ -1,11 +1,19 @@
+
 import com.huanshankeji.team.`Shreck Ye`
 import com.huanshankeji.team.pomForTeamDefaultOpenSource
 
 plugins {
     `lib-conventions`
+    //id("com.android.library")
 }
 
 kotlin {
+    /*
+    androidTarget {
+        publishLibraryVariants("release", "debug")
+    }
+    */
+
     sourceSets {
         /*
         Use `api`. See:
@@ -33,6 +41,14 @@ kotlin {
         }
     }
 }
+
+/*
+android {
+    namespace = group as String
+    compileSdk = 34
+}
+*/
+
 
 publishing.publications.withType<MavenPublication> {
     pomForTeamDefaultOpenSource(

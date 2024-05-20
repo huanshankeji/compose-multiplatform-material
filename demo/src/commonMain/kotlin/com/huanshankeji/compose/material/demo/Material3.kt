@@ -180,5 +180,28 @@ fun Material3(modifier: Modifier) {
                 label = "Remove"
             )
         }
+
+        val (expanded, setExpanded) = remember { mutableStateOf(false) }
+        val close = { setExpanded(false) }
+        var selection by remember { mutableStateOf<Selection?>(null) }
+        ExposedDropdownMenuBoxWithTextField(
+            expanded, setExpanded,
+            textFieldArgs = ExposedDropdownMenuBoxTextFieldArgs(
+                selection?.name ?: "", label = "Please select"
+            ),
+            exposedDropdownMenuArgs = ExposedDropdownMenuArgs(expanded, close, close) {
+                (listOf(null) + Selection.entries).forEach {
+                    DropdownMenuItemWithMaterialIcons(
+                        { modifier -> it?.let { Text(it.name, modifier) } },
+                        {
+                            selection = it
+                            close()
+                        },
+                        leadingIcon = Icons.Filled.Add,
+                        trailingIcon = Icons.Filled.Remove
+                    )
+                }
+            }
+        )
     }
 }
