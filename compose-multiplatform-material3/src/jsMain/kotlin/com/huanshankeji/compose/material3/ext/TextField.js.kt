@@ -37,6 +37,7 @@ private fun TextFieldContent(
     trailingIcon: @Composable ((Modifier) -> Unit)?,
 ): @Composable MdTextFieldScope.() -> Unit = {
     with(elementScope) {
+        // This can't be put in `AttrsScope.ref` because it needs to run whenever `value` changes instead of just when the `HTMLElement` is added.
         DisposableEffect(value) {
             scopeElement.value = value
             onDispose {}
