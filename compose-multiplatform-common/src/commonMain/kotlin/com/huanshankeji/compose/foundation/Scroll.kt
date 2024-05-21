@@ -7,11 +7,12 @@ import com.huanshankeji.compose.ui.Modifier
 @Composable
 expect fun rememberScrollState(initial: Int = 0): ScrollState
 
-/**
- * Not working on JS yet and delegating to [Unit].
- */
 @Stable
-expect class ScrollState
+expect class ScrollState(initial: Int) {
+    val value: Int
+    suspend fun animateScrollTo(value: Int)
+    suspend fun scrollTo(value: Int): Float
+}
 
 /*
 It seems `state` has to be achieved with `DisposableEffect` on JS which can not be set with the Kobweb `Modifier` yet.
