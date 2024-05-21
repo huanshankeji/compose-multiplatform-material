@@ -68,6 +68,7 @@ This project is still in development and has not reached the stable state yet. S
 - `FloatingActionButton`, `SmallFloatingActionButton`, `LargeFloatingActionButton`, `ExtendedFloatingActionButton`
 - `Icon`
 - `IconButton`, `IconToggleButton`, `FilledIconButton`, `FilledIconToggleButton`, `FilledTonalIconButton`, `FilledTonalIconToggleButton`, `OutlinedIconButton`, `OutlinedIconToggleButton`
+- `LinearProgressIndicator`, `CircularProgressIndicator`
 - `Switch`
 - `Text`
 

@@ -203,5 +203,10 @@ fun Material3(modifier: Modifier) {
                 }
             }
         )
+
+        LinearProgressIndicator()
+        LinearProgressIndicator({ 0.5f })
+        CircularProgressIndicator()
+        CircularProgressIndicator({ 0.5f })
     }
 }
