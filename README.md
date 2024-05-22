@@ -43,6 +43,7 @@ This project is still in development and has not reached the stable state yet. S
 - `Divider` (not working properly on JS yet)
 - `Icon`
 - `IconButton`
+- `Snackbar` (inconsistent, not recommended), `SnackBarHost` (recommended)
 - `Switch`
 - `Text`
 
