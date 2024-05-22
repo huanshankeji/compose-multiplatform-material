@@ -1,10 +1,12 @@
 package com.huanshankeji.compose.material2.ext
 
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import com.huanshankeji.compose.contentDescription
 import com.huanshankeji.compose.foundation.layout.Column
 import com.huanshankeji.compose.layout.fillMaxSize
 import com.huanshankeji.compose.material.icons.Icon
+import com.huanshankeji.compose.material2.SnackbarHostState
 import com.huanshankeji.compose.ui.Modifier
 import com.huanshankeji.compose.ui.toAttrs
 import dev.petuska.kmdc.top.app.bar.*
@@ -76,6 +78,7 @@ actual fun TopAppBarScaffold(
     navigationIcon: @Composable (NavigationIconScope.() -> Unit)?,
     actions: @Composable TopAppBarActionsScope.() -> Unit,
     bottomBar: @Composable (() -> Unit)?,
+    snackbarHost: @Composable ((SnackbarHostState) -> Unit)?,
     content: @Composable () -> Unit
 ) =
     Column(Modifier.fillMaxSize()) {
@@ -87,5 +90,8 @@ actual fun TopAppBarScaffold(
             Modifier.weight(1f),
             content
         )
+        snackbarHost?.let {
+            it(remember { SnackbarHostState() })
+        }
         bottomBar?.invoke()
     }

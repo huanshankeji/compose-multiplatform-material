@@ -25,10 +25,12 @@ import com.huanshankeji.compose.material2.lazy.ext.conventionalItem
 import com.huanshankeji.compose.material2.lazy.ext.conventionalItems
 import com.huanshankeji.compose.ui.Modifier
 import com.huanshankeji.compose.ui.graphics.Color
+import kotlinx.coroutines.launch
 import com.huanshankeji.compose.material2.ext.Button as ExtButton
 
 @Composable
 fun Material2(modifier: Modifier) {
+    val snackbarHostState = remember { SnackbarHostState() }
     // It seems the modifier can't be set on `TopAppBarScaffold` or a box wrapping it
     TopAppBarScaffold({
         Text("Compose Multiplatform Material demo")
@@ -36,13 +38,22 @@ fun Material2(modifier: Modifier) {
         MaterialIconNavButton({}, Icons.Default.Menu, "menu")
     }, actions = {
         MaterialIconActionButton({}, Icons.Default.Search, "search")
+    }, snackbarHost = {
+        SnackbarHost(snackbarHostState)
     }) {
         Card(modifier.contentPadding()) {
             Column(contentPaddingModifier.background(Color(0xF8, 0xF8, 0xF8, 0xFF))) {
                 Text("Material text")
 
                 var count by remember { mutableStateOf(0) }
-                val onClick: () -> Unit = { count++ }
+                val coroutineScope = rememberCoroutineScope()
+                val onClick: () -> Unit = {
+                    count++
+                    val count = count
+                    coroutineScope.launch {
+                        snackbarHostState.showSnackbar("Count incremented to $count", "action")
+                    }
+                }
                 val buttonContent: @Composable () -> Unit = {
                     InlineText(count.toString())
                 }

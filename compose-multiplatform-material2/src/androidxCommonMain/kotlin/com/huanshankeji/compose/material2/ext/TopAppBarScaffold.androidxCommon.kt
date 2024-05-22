@@ -8,6 +8,8 @@ import androidx.compose.runtime.Composable
 import com.huanshankeji.compose.material.icons.Icon
 import com.huanshankeji.compose.material2.Icon
 import com.huanshankeji.compose.material2.IconButton
+import com.huanshankeji.compose.material2.SnackbarHostState
+import com.huanshankeji.compose.material2.toCommonValue
 import com.huanshankeji.compose.ui.Modifier
 
 actual class NavigationIconScope private constructor() {
@@ -55,6 +57,7 @@ actual fun TopAppBarScaffold(
     navigationIcon: @Composable (NavigationIconScope.() -> Unit)?,
     actions: @Composable TopAppBarActionsScope.() -> Unit,
     bottomBar: @Composable (() -> Unit)?,
+    snackbarHost: @Composable ((SnackbarHostState) -> Unit)?,
     content: @Composable () -> Unit
 ) =
     Scaffold(
@@ -65,5 +68,7 @@ actual fun TopAppBarScaffold(
                 navigationIcon?.let { { NavigationIconScope.instance.it() } },
                 { TopAppBarActionsScope(this).actions() })
         },
-        bottomBar = bottomBar ?: {}
+        bottomBar = bottomBar ?: {},
+        snackbarHost = snackbarHost?.let { { snackbarHost(it.toCommonValue()) } }
+            ?: { androidx.compose.material.SnackbarHost(it) }
     ) { content() }

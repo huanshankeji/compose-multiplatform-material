@@ -1,6 +1,9 @@
+import com.huanshankeji.CommonDependencies
 import org.jetbrains.compose.ComposeBuildConfig
 
 val projectVersion = "0.4.0-SNAPSHOT"
+
+val commonDependencies = CommonDependencies()
 
 object DependencyVersions {
     const val composeMultiplatform = ComposeBuildConfig.composeVersion // for "ui-unit"

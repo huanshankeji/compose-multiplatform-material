@@ -19,6 +19,7 @@ kotlin {
                 api(project(":compose-multiplatform-common"))
                 api(project(":compose-multiplatform-material-icons-core"))
                 //compileOnly(compose.material) // for KDoc element links only
+                implementation(commonDependencies.kotlinx.coroutines.core())
             }
         }
         androidxCommonMain {
