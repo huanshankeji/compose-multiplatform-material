@@ -29,13 +29,10 @@ abstract class SnackbarHostStateCommonImpl {
         duration: SnackbarDuration = SnackbarDuration.Short
     ): SnackbarResult = mutex.withLock {
         try {
-            println("Entered mutex") // TODO remove
             return suspendCancellableCoroutine { continuation ->
-                println("Set: $message") // TODO remove
                 currentSnackbarData = SnackbarDataImpl(message, actionLabel, duration, continuation)
             }
         } finally {
-            println("Cleared") // TODO remove
             currentSnackbarData = null
 
             // a workaround to trigger recomposition when `currentSnackbarData` is set to `null`, resolving the issue that a series of continuous snackbars don't show

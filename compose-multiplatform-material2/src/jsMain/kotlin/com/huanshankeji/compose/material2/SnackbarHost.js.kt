@@ -54,62 +54,15 @@ actual fun SnackbarHost(
 ) {
     val currentSnackbarData = hostState.currentSnackbarData?.platformValue
 
-    /*
-    // problem: doesn't close the snack bar before opening a new one when opening a series of snackbars, and only shows 2 snackbar messages
-    // works without the `close` event in `CommonSnackbar`
-
     val duration: Long?
     if (currentSnackbarData !== null) {
         duration = currentSnackbarData.duration.toMillis()
-        // An alternative approach is to listen for the close event.
-        LaunchedEffect(currentSnackbarData) {
-            delay(duration)
-            currentSnackbarData.dismiss()
-        }
-    } else
-        duration = null
 
-    // not put in a conditional block to reduce DOM recomposition
-    CommonSnackbar(actionOnNewLine, currentSnackbarData !== null, /*duration?.toInt(),*/ modifier, currentSnackbarData)
-    */
-
-    /*
-    // Problem: doesn't open a series of snackbars
-    // works with the `close` event in `CommonSnackbar`
-
-    // An alternative approach is to listen for the close event.
-    // There is a small bug with this implementation that the snackbar doesn't close before a new one opens.
-    LaunchedEffect(currentSnackbarData) {
-        if (currentSnackbarData !== null) {
-            val duration = currentSnackbarData.duration.toMillis()
-            delay(duration)
-            currentSnackbarData.dismiss()
-        }
-    }
-
-    // not put in a conditional block to reduce DOM recomposition
-    // `timeoutMs` not used anymore because it doesn't work well when opening a series of snackbars
-    CommonSnackbar(actionOnNewLine, currentSnackbarData !== null, /*duration?.toInt(),*/ modifier, currentSnackbarData)
-    */
-
-    /*
-    // Problem: doesn't open a series of snackbars
-
-    if (currentSnackbarData !== null) {
-        LaunchedEffect(currentSnackbarData) {
-            val duration = currentSnackbarData.duration.toMillis()
-            delay(duration)
-            currentSnackbarData.dismiss()
-        }
-
-        val duration = currentSnackbarData.duration.toMillis()
-        CommonSnackbar(actionOnNewLine, true, duration.toInt(), modifier, currentSnackbarData)
-    }
-    */
-
-    val duration: Long?
-    if (currentSnackbarData !== null) {
-        duration = currentSnackbarData.duration.toMillis()
+        /**
+         * See commit a1dfeaea82384b6e33b3807482ed01ba4311075f for some alternative approaches
+         * to solve the issue that a series of continuous snackbars don't work on JS without [SnackbarHostStateCommonImpl.delayMillisUntilNext],
+         * which all failed.
+         */
         /**
          * It seems possible that the [SnackbarHostStateCommonImpl.delayMillisUntilNext] in [SnackbarHostState] is not enough to trigger recomposition,
          * the snackbar is updated with the next [SnackbarData],
@@ -117,7 +70,7 @@ actual fun SnackbarHost(
          * and [SnackbarHostStateCommonImpl.mutex] never gets unlocked.
          * This [LaunchedEffect] makes sure it's unlocked, though some queuing snackbars may not show when this happens.
          */
-        // An alternative approach is to listen for the close event.
+        // also listen for the close event.
         LaunchedEffect(currentSnackbarData) {
             delay(duration)
             currentSnackbarData.dismiss()
