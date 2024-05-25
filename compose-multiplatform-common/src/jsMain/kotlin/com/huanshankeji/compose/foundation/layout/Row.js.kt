@@ -20,6 +20,7 @@ actual fun Row(
     com.varabyte.kobweb.compose.foundation.layout.Row(
         PlatformModifier
             .sizeFitContent()
+            .stylesFrom(horizontalArrangement)
             .then(modifier.platformModifier),
         horizontalArrangement.platformValue,
         verticalAlignment.platformValue,

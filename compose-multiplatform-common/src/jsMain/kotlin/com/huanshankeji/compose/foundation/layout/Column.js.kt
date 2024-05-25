@@ -20,6 +20,7 @@ actual fun Column(
     com.varabyte.kobweb.compose.foundation.layout.Column(
         PlatformModifier
             .sizeFitContent() // "fit-content" is added to make it consistent with the `androidx` one
+            .stylesFrom(verticalArrangement)
             .then(modifier.platformModifier),
         verticalArrangement.platformValue,
         horizontalAlignment.platformValue,

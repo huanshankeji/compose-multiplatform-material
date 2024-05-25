@@ -3,6 +3,7 @@ package com.huanshankeji.compose.material.demo
 import androidx.compose.runtime.*
 import androidx.compose.ui.unit.dp
 import com.huanshankeji.compose.foundation.background
+import com.huanshankeji.compose.foundation.layout.Arrangement
 import com.huanshankeji.compose.foundation.layout.Column
 import com.huanshankeji.compose.foundation.layout.Row
 import com.huanshankeji.compose.foundation.layout.RowScope
@@ -42,7 +43,7 @@ fun Material2(modifier: Modifier) {
         SnackbarHost(snackbarHostState)
     }) {
         Card(modifier.contentPadding()) {
-            Column(contentPaddingModifier.background(Color(0xF8, 0xF8, 0xF8, 0xFF))) {
+            Column(contentPaddingModifier.background(Color(0xF8, 0xF8, 0xF8, 0xFF)), Arrangement.spacedBy(16.dp)) {
                 Text("Material text")
 
                 var count by remember { mutableStateOf(0) }

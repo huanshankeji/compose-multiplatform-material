@@ -6,6 +6,7 @@ import com.huanshankeji.compose.foundation.*
 import com.huanshankeji.compose.foundation.ext.outerBorder
 import com.huanshankeji.compose.foundation.ext.roundedCornerBackgroundAndOuterBorder
 import com.huanshankeji.compose.foundation.ext.roundedCornerOuterBorder
+import com.huanshankeji.compose.foundation.layout.Arrangement
 import com.huanshankeji.compose.foundation.layout.Box
 import com.huanshankeji.compose.foundation.layout.Column
 import com.huanshankeji.compose.foundation.layout.Row
@@ -22,7 +23,7 @@ import com.huanshankeji.compose.ui.graphics.Color
 
 @Composable
 fun Common(modifier: Modifier) {
-    Column(modifier) {
+    Column(modifier, Arrangement.spacedBy(16.dp)) {
         BasicText("basic text 1")
         BasicText("basic text 2")
 

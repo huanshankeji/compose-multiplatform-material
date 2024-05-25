@@ -25,15 +25,15 @@ This project is still in development and has not reached the stable state yet. S
 
 ##### Layouts
 
-- `Box`
-- `Column` (via flexbox on JS)
-- `Row` (via flexbox on JS)
+- `Box` (based on Kobweb)
+- `Column` (via flexbox on JS, based on Kobweb)
+- `Row` (via flexbox on JS, based on Kobweb)
 - `Spacer`
 
 ##### Lazy
 
-- `LazyColumn`
-- `LazyRow`
+- `LazyColumn` (via flexbox on JS, based on Kobweb)
+- `LazyRow` (via flexbox on JS, based on Kobweb)
 
 #### Material 2 components
 

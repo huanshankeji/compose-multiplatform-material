@@ -1,7 +1,9 @@
 package com.huanshankeji.compose.material.demo
 
 import androidx.compose.runtime.*
+import androidx.compose.ui.unit.dp
 import com.huanshankeji.compose.ExtRecommendedApi
+import com.huanshankeji.compose.foundation.layout.Arrangement
 import com.huanshankeji.compose.foundation.layout.Column
 import com.huanshankeji.compose.foundation.layout.Row
 import com.huanshankeji.compose.foundation.layout.RowScope
@@ -27,7 +29,7 @@ import com.huanshankeji.compose.material3.Button as RowScopeButton
 
 @Composable
 fun Material3(modifier: Modifier) {
-    Column(modifier) {
+    Column(modifier, Arrangement.spacedBy(16.dp)) {
         var count by remember { mutableStateOf(0) }
         val onClick: () -> Unit = { count++ }
         val buttonContent: @Composable () -> Unit = {

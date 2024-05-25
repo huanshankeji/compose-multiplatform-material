@@ -2,6 +2,7 @@ package com.huanshankeji.compose.foundation.layout
 
 import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.Stable
+import androidx.compose.ui.unit.Dp
 
 @Immutable
 expect object Arrangement {
@@ -37,4 +38,7 @@ expect object Arrangement {
 
     @Stable
     val SpaceAround: HorizontalOrVertical
+
+    @Stable
+    fun spacedBy(space: Dp): HorizontalOrVertical
 }
