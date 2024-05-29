@@ -117,6 +117,7 @@ Maven coordinate:
 More specifically:
 ```kotlin
 "com.huanshankeji:compose-multiplatform-common:$version"
+"com.huanshankeji:compose-multiplatform-material-icons-core:$version"
 "com.huanshankeji:compose-multiplatform-material2:$version"
 "com.huanshankeji:compose-multiplatform-material3:$version"
 ```
