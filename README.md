@@ -106,6 +106,13 @@ The components in the `ext` packages don't follow the `androidx.compose` APIs ex
 - `outerBorder`
 - `roundedCornerBackgroundAndOuterBorder`
 
+### Other APIs
+
+- `Alignment`
+- `Arrangement`
+- `KeyboardOptions`
+- `KeyboardActions`
+
 ## Add the libraries to your dependency
 
 Maven coordinate:
