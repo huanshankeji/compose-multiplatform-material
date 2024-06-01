@@ -4,7 +4,12 @@ import androidx.annotation.ColorInt
 import androidx.annotation.IntRange
 import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.Stable
+import com.huanshankeji.compose.ui.Modifier
+import com.huanshankeji.compose.ui.toAttrs
 import com.varabyte.kobweb.compose.ui.graphics.luminance
+import org.jetbrains.compose.web.attributes.AttrsScope
+import org.jetbrains.compose.web.css.StyleScope
+import org.jetbrains.compose.web.css.color
 import com.varabyte.kobweb.compose.ui.graphics.Color as PlatformColor
 import com.varabyte.kobweb.compose.ui.graphics.Colors as PlatformColors
 
@@ -90,3 +95,49 @@ actual fun Color.luminance(): Float =
 @Stable
 actual fun Color.toArgb(): Int =
     platformValue.toRgb().value
+
+fun StyleScope.applyStyle(color: ColorProducer) {
+    color(color().platformValue)
+}
+
+
+// TODO context receivers
+fun Modifier.toAttrsWithColor(color: Color?): AttrsScope<*>.() -> Unit =
+    toAttrs(color?.let {
+        {
+            style {
+                color(it.platformValue)
+            }
+        }
+    })
+
+/*
+fun ColorProducer.toStyle(): StyleScope.() -> Unit =
+    {
+        color(this@toStyle().platformValue)
+    }
+*/
+
+// TODO context receivers
+fun AttrsScope<*>.applyAttrs(color: ColorProducer) {
+    style {
+        applyStyle(color)
+    }
+}
+
+/*
+fun ColorProducer.toAttrs(): AttrsScope<*>.() -> Unit =
+    {
+        style {
+            toStyle()()
+        }
+    }
+*/
+
+
+fun ColorProducer?.toNullableAttrs(): (AttrsScope<*>.() -> Unit)? =
+    this?.let { { applyAttrs(it) } }
+
+// TODO context receivers
+fun Modifier.toAttrsWithColor(color: ColorProducer?): AttrsScope<*>.() -> Unit =
+    toAttrs(color.toNullableAttrs())

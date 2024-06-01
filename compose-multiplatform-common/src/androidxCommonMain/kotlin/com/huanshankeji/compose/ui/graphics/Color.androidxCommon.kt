@@ -94,3 +94,18 @@ actual fun Color.luminance(): Float =
 @Stable
 actual fun Color.toArgb(): Int =
     platformValue.toArgb()
+
+
+/**
+ * Converts a nullable [Color] to [PlatformColor].
+ */
+fun Color?.toPlatformValue() =
+    this?.platformValue ?: PlatformColor.Unspecified
+
+fun ColorProducer.toPlatformValue() =
+    androidx.compose.ui.graphics.ColorProducer {
+        this().platformValue
+    }
+
+fun ColorProducer?.toNullablePlatformValue() =
+    this?.toPlatformValue()

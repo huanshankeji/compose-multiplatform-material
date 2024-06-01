@@ -21,7 +21,7 @@ This project is still in development and has not reached the stable state yet. S
 
 ##### `ext` components
 
-- `InlineBasicText`
+- `TaglessBasicText`
 
 ##### Layouts
 
@@ -53,7 +53,7 @@ This project is still in development and has not reached the stable state yet. S
 - `IconButton`
 - `RadioRow`, `RadioGroupRow`
 - `SwitchWithLabel`
-- `MaterialText`, `InlineText`
+- `MaterialText`, `TaglessText`
 - `TextField`, `OutlinedTextField`
 - `TopAppBarScaffold`
 
@@ -82,7 +82,7 @@ This project is still in development and has not reached the stable state yet. S
 - `FloatingActionButton`, `SmallFloatingActionButton`, `LargeFloatingActionButton`, `ExtendedFloatingActionButton`
 - `IconButton`, `IconToggleButton`, `FilledIconButton`, `FilledIconToggleButton`, `FilledTonalIconButton`, `FilledTonalIconToggleButton`, `OutlinedIconButton`, `OutlinedIconToggleButton`
 - `NavigationBar`, `NavigationBarItem`
-- `MaterialText`, `InlineText`
+- `MaterialText`, `TaglessText`
 - `TextField`, `OutlinedTextField`
 
 ##### `lazy.ext` components

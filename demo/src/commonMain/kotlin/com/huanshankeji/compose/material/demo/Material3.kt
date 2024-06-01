@@ -33,7 +33,7 @@ fun Material3(modifier: Modifier) {
         var count by remember { mutableStateOf(0) }
         val onClick: () -> Unit = { count++ }
         val buttonContent: @Composable () -> Unit = {
-            InlineText(count.toString())
+            TaglessText(count.toString())
         }
         val rowScopeButtonContent: @Composable RowScope.() -> Unit = { buttonContent() }
         Row {

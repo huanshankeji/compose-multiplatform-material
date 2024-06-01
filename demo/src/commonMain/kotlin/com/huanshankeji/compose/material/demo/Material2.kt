@@ -56,7 +56,7 @@ fun Material2(modifier: Modifier) {
                     }
                 }
                 val buttonContent: @Composable () -> Unit = {
-                    InlineText(count.toString())
+                    TaglessText(count.toString())
                 }
                 val rowScopeButtonContent: @Composable RowScope.() -> Unit = { buttonContent() }
 
