@@ -95,6 +95,7 @@ The components in the `ext` packages don't follow the `androidx.compose` APIs ex
 
 ### Modifiers
 
+- `alpha`
 - size modifiers
   - `size`, `sizeIn`, `fillMaxSize`
   - `width`, `widthIn`, `fillMaxWidth`
