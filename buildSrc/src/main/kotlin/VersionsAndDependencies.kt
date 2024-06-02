@@ -10,7 +10,7 @@ object DependencyVersions {
     val kobweb = "0.18.0"
     val huanshankejiComposeHtml = "0.4.0-SNAPSHOT" // TODO don't use a snapshot version in a main branch
     val kmdc = "0.1.2"
-    val materialSymbols = "0.17.4"
+    val materialSymbols = "0.19.0"
 
     object Androidx {
         val activityCompose = "1.9.0"
