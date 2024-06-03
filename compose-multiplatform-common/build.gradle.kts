@@ -31,6 +31,7 @@ kotlin {
         androidxCommonMain {
             dependencies {
                 api(compose.foundation)
+                implementation(compose.ui)
             }
         }
         jsMain {

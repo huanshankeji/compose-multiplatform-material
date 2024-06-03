@@ -14,6 +14,7 @@ import com.huanshankeji.compose.foundation.lazy.LazyColumn
 import com.huanshankeji.compose.foundation.lazy.LazyListScope
 import com.huanshankeji.compose.foundation.lazy.LazyRow
 import com.huanshankeji.compose.foundation.text.BasicText
+import com.huanshankeji.compose.layout.ext.hidden
 import com.huanshankeji.compose.layout.height
 import com.huanshankeji.compose.layout.padding
 import com.huanshankeji.compose.layout.size
@@ -79,5 +80,9 @@ fun Common(modifier: Modifier) {
         Row(Modifier.width(listSize).horizontalScroll(rememberScrollState())) {
             ColumnOrRowContent()
         }
+
+        BasicText("shown text")
+        BasicText("hidden text", Modifier.hidden())
+        BasicText("shown text")
     }
 }
