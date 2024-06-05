@@ -73,7 +73,7 @@ actual fun TextField(
         isError.isTrueOrNull(),
         supportingText, // TODO Is passing `supportingText` as `errorText` correct?
         label,
-        value = value,
+        //value = value, // This causes the caret to be reset to the start whenever the value changes if the `type` attribute is set. And since the value is set in the `content` `DisposableEffect` it seems OK not skip it here.
         prefixText = prefix,
         suffixText = suffix,
         hasLeadingIcon = leadingIcon?.let { true },
@@ -113,7 +113,7 @@ actual fun OutlinedTextField(
         isError.isTrueOrNull(),
         supportingText, // TODO Is passing `supportingText` as `errorText` correct?
         label,
-        value = value,
+        //value = value, // This causes the caret to be reset to the start whenever the value changes if the `type` attribute is set. And since the value is set in the `content` `DisposableEffect` it seems OK not skip it here.
         prefixText = prefix,
         suffixText = suffix,
         hasLeadingIcon = leadingIcon?.let { true },
