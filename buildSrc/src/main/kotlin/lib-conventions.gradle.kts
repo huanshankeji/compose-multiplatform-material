@@ -17,7 +17,7 @@ kotlin {
             group("androidxCommon") {
                 withJvm()
                 group("ios")
-                withWasm()
+                withWasmJs()
             }
         }
     }
