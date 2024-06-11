@@ -1,4 +1,4 @@
-# Compose Multiplatform Material: unified Compose Multiplatform common extensions and Material wrappers for `androidx.compose` and Compose HTML
+# Compose Multiplatform Material (better name pending): unified Compose Multiplatform common extensions and Material wrappers for `androidx.compose` and Compose HTML
 
 [![Maven Central](https://img.shields.io/maven-central/v/com.huanshankeji/compose-multiplatform-material3)](https://search.maven.org/search?q=g:com.huanshankeji%20AND%20a:compose-multiplatform-*)
 ![Kotlin version](https://kotlin-version.aws.icerock.dev/kotlin-version?group=com.huanshankeji&name=compose-multiplatform-material3)
