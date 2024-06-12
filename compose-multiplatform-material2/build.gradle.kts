@@ -44,8 +44,8 @@ kotlin {
 publishing.publications.withType<MavenPublication> {
     pomForTeamDefaultOpenSource(
         project,
-        "Compose Multiplatform Material wrappers",
-        "Material Design component wrappers for Compose Multiplatform (desktop/Android and web)"
+        "Unified Compose Material 2 wrappers $FOR_COMPOSE_TARGETS_IN_TITLE",
+        "Unified Material Design 2 component wrappers $FOR_COMPOSE_TARGETS_IN_DESCRIPTION"
     ) {
         `Shreck Ye`()
     }

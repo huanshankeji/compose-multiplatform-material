@@ -48,8 +48,8 @@ kotlin {
 publishing.publications.withType<MavenPublication> {
     pomForTeamDefaultOpenSource(
         project,
-        "Compose Multiplatform common wrappers",
-        "Common wrappers of components (including layouts) and styles for Compose Multiplatform on (desktop/Android and web)"
+        "Unified Compose Multiplatform common wrappers $FOR_COMPOSE_TARGETS_IN_TITLE",
+        "Common wrappers of components (including layouts) and modifiers $FOR_COMPOSE_TARGETS_IN_DESCRIPTION"
     ) {
         `Shreck Ye`()
     }
