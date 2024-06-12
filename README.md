@@ -111,6 +111,10 @@ The components in the `ext` packages don't follow the `androidx.compose` APIs ex
 - `outerBorder`
 - `roundedCornerBackgroundAndOuterBorder`
 
+### Navigation
+
+The navigation module currently supports a small subset of the Compose Navigation APIs, which does not support transition or animation on Compose HTML / JS DOM. These APIs are also highly experimental now.
+
 ## Add the libraries to your dependency
 
 Maven coordinate:
