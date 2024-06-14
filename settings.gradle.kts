@@ -8,6 +8,7 @@ include("compose-multiplatform-material2")
 include("compose-multiplatform-material3")
 include("compose-multiplatform-navigation")
 include("demo")
+include("destructured-state-in-navhost-composable-bug-demo")
 
 
 /*
