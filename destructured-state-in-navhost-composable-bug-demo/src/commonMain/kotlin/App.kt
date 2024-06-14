@@ -3,13 +3,13 @@ package com.huanshankeji.androidx.navigation.compose.bug
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import com.huanshankeji.androidx.navigation.compose.NavHost
 import com.huanshankeji.androidx.navigation.compose.composable
 import com.huanshankeji.androidx.navigation.compose.rememberNavController
 import com.huanshankeji.compose.foundation.layout.Column
 import com.huanshankeji.compose.foundation.onClick
 import com.huanshankeji.compose.foundation.text.BasicText
 import com.huanshankeji.compose.ui.Modifier
+import com.huanshankeji.androidx.navigation.compose.NavHost as OurNavHost
 
 @Composable
 fun App() {
@@ -21,7 +21,7 @@ fun App() {
 
     Column {
         BasicText("Count outside: $count", clickToIncCountModifier)
-        NavHost(navController, "0") {
+        OurNavHost(navController, "0") {
             repeat(4) { i ->
                 composable(i.toString()) {
                     Column {
@@ -31,5 +31,17 @@ fun App() {
                 }
             }
         }
+        /*
+        AndroidxNavHost(navController, "0") {
+            repeat(4) { i ->
+                composable(i.toString()) {
+                    Column {
+                        BasicText("Screen $i")
+                        BasicText("Count in `NavHost`: $count", clickToIncCountModifier)
+                    }
+                }
+            }
+        }
+        */
     }
 }

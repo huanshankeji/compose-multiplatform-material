@@ -31,7 +31,8 @@ kotlin {
             dependencies {
                 implementation(compose.runtime)
                 implementation(project(":compose-multiplatform-navigation"))
-                //implementation(project(":compose-multiplatform-common"))
+                implementation(project(":compose-multiplatform-common"))
+                //implementation("org.jetbrains.androidx.navigation:navigation-compose:${DependencyVersions.composeMultiplatformNavigation}")
             }
         }
         jvmMain {
