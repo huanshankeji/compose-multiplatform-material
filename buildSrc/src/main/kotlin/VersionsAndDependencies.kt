@@ -15,6 +15,6 @@ object DependencyVersions {
 
     object Androidx {
         val activityCompose = "1.9.0"
-        val compose = "1.6.6"
+        val compose = "1.6.7"
     }
 }
