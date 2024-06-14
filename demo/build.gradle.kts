@@ -96,10 +96,6 @@ compose {
             mainClass = "$`package`.MainKt"
         }
     }
-
-    experimental {
-        web.application {}
-    }
 }
 
 android {

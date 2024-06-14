@@ -17,7 +17,7 @@ kotlin {
                 api(compose.runtime)
                 api("org.jetbrains.androidx.navigation:navigation-runtime:${DependencyVersions.composeMultiplatformNavigation}")
                 //implementation("org.jetbrains.compose.annotation-internal:annotation:${DependencyVersions.composeMultiplatform}")
-                api(project(":compose-multiplatform-common"))
+                api(project(":compose-multiplatform-common")) // for `Modifier` and `Alignment`
                 //implementation("org.jetbrains.androidx.lifecycle:lifecycle-viewmodel-compose:2.8.0") // This depends on Compose target '[jscanvas]'.
             }
         }
