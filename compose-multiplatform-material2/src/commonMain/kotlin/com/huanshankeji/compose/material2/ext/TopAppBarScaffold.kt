@@ -2,7 +2,6 @@ package com.huanshankeji.compose.material2.ext
 
 import androidx.compose.runtime.Composable
 import com.huanshankeji.compose.material.icons.Icon
-import com.huanshankeji.compose.material2.SnackbarHostState
 import com.huanshankeji.compose.ui.Modifier
 
 expect class NavigationIconScope {
@@ -43,6 +42,8 @@ expect fun PrimitiveTopAppBarScaffold(
  *     height: 100vh;
  * }
  * ```
+ *
+ * @param snackbarHost `androidx.compose.material.Scaffold` has a `SnackbarHostState` parameter for this lambda, but `androidx.compose.material3.Scaffold` doesn't. Therefore, we think this is probably a design flaw and don't provide the parameter.
  */
 @Composable
 expect fun TopAppBarScaffold(
@@ -51,6 +52,6 @@ expect fun TopAppBarScaffold(
     navigationIcon: @Composable (NavigationIconScope.() -> Unit)? = null,
     actions: @Composable TopAppBarActionsScope.() -> Unit = {},
     bottomBar: @Composable (() -> Unit)? = null,
-    snackbarHost: @Composable ((SnackbarHostState) -> Unit)? = null, // I don't understand why this `SnackbarHostState` argument is needed here.
+    snackbarHost: @Composable (() -> Unit)? = null,
     content: @Composable () -> Unit
 )
