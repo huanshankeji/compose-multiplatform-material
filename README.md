@@ -113,7 +113,7 @@ The components in the `ext` packages don't follow the `androidx.compose` APIs ex
 
 ### Navigation
 
-The navigation module currently supports a small subset of the Compose Navigation APIs, which does not support transition or animation on Compose HTML / JS DOM. These APIs are also highly experimental now.
+The navigation module currently supports a small subset of the Compose Navigation APIs, which does not support transition or animation on Compose HTML / JS DOM. These APIs are also highly experimental now. See https://github.com/JetBrains/compose-multiplatform/issues/4966 for a bug to avoid.
 
 ## Add the libraries to your dependency
 
