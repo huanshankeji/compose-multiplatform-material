@@ -6,7 +6,6 @@ repositories {
     //mavenLocal()
     gradlePluginPortal()
     google()
-    maven("https://maven.pkg.jetbrains.space/public/p/compose/dev")
     mavenCentral()
 }
 
