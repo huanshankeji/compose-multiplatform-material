@@ -5,8 +5,6 @@ plugins {
 }
 
 kotlin {
-    val outputFileName = "app.js"
-
     listOf(
         iosX64(),
         iosArm64(),
@@ -17,6 +15,8 @@ kotlin {
             isStatic = true
         }
     }
+
+    val outputFileName = "app.js"
 
     @OptIn(ExperimentalWasmDsl::class)
     wasmJs {
@@ -49,6 +49,11 @@ kotlin {
         jvmMain {
             dependencies {
                 implementation(compose.desktop.currentOs)
+            }
+        }
+        iosMain {
+            dependencies {
+                implementation(compose.ui)
             }
         }
         wasmJsMain {
