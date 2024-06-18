@@ -111,9 +111,17 @@ The components in the `ext` packages don't follow the `androidx.compose` APIs ex
 - `outerBorder`
 - `roundedCornerBackgroundAndOuterBorder`
 
+### ViewModel
+
+The ViewModel module currently supports a small subset of the Compose ViewModel APIs, and delegates to raw UI state on
+Compose HTML / JS DOM. These APIs are highly experimental now.
+
 ### Navigation
 
-The navigation module currently supports a small subset of the Compose Navigation APIs, which does not support transition or animation on Compose HTML / JS DOM. These APIs are also highly experimental now. See https://github.com/JetBrains/compose-multiplatform/issues/4966 for a bug to avoid.
+The navigation module currently supports a small subset of the Compose Navigation APIs, which does not support
+transition or animation on Compose HTML / JS DOM. These APIs are also highly experimental now.
+See https://github.com/JetBrains/compose-multiplatform/issues/4966 for a bug to avoid. Also, ViewModel-related functions
+are not implemented yet on Compose HTML / JS DOM.
 
 ## Add the libraries to your dependency
 

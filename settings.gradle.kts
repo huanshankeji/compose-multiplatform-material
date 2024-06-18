@@ -7,6 +7,7 @@ include("compose-multiplatform-material-icons-core")
 include("compose-multiplatform-material2")
 include("compose-multiplatform-material3")
 include("compose-multiplatform-navigation")
+include("compose-multiplatform-lifecycle-viewmodel")
 include("demo")
 
 

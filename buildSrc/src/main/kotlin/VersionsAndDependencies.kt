@@ -12,6 +12,7 @@ object DependencyVersions {
     val kmdc = "0.1.2"
     val materialSymbols = "0.19.0"
     val composeMultiplatformNavigation = "2.7.0-alpha07"
+    val composeMultiplatformLifecycleViewmodel = "2.8.0"
 
     object Androidx {
         val activityCompose = "1.9.0"
