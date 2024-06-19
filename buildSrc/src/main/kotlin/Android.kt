@@ -1,1 +1,1 @@
-val androidSdkVersion =  34
+val androidSdkVersion = 34
