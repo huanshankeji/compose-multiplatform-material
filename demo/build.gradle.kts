@@ -110,4 +110,11 @@ android {
         targetSdk = sdk
         versionName = version as String
     }
+
+    buildFeatures {
+        compose = true
+    }
+    dependencies {
+        debugImplementation(compose.uiTooling)
+    }
 }
