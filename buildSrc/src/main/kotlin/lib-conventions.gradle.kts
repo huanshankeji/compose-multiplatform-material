@@ -2,13 +2,14 @@ import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
 
 plugins {
     id("common-conventions")
-    // TODO: `id("com.android.library") version "7.2.2"`?
     id("com.huanshankeji.kotlin-multiplatform-jvm-and-js-browser-conventions")
+    id("com.android.library")
     id("com.huanshankeji.kotlin-multiplatform-sonatype-ossrh-publish-conventions")
-    //id("com.android.library") // not used yet, the `jvm` target seems to be enough
 }
 
 kotlin {
+    androidTarget()
+
     // move to `common-conventions` if necessary
 
     @OptIn(ExperimentalKotlinGradlePluginApi::class)
@@ -16,6 +17,7 @@ kotlin {
         common {
             group("androidxCommon") {
                 withJvm()
+                withAndroidTarget()
                 group("ios")
                 withWasmJs()
             }
@@ -30,4 +32,10 @@ kotlin {
         named("wasmJsMain") { dependsOn(androidxCommonMain) }
     }
     */
+}
+
+android {
+    namespace = group as String
+
+    compileSdk = androidSdkVersion
 }

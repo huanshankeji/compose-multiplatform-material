@@ -1,8 +1,8 @@
 package com.huanshankeji.compose.foundation
 
+import androidx.compose.foundation.clickable
 import com.huanshankeji.compose.ui.Modifier
-import com.varabyte.kobweb.compose.ui.modifiers.onClick
 
 @ExperimentalFoundationApi
 actual fun Modifier.onClick(onClick: () -> Unit): Modifier =
-    platformModify { onClick { onClick() } }
+    platformModify { clickable(onClick = onClick) }

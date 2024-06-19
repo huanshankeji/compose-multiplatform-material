@@ -57,6 +57,7 @@ fun Common(modifier: Modifier) {
         }
 
         var count by remember { mutableStateOf(0) }
+        @OptIn(ExperimentalFoundationApi::class)
         BasicText("Click to add items", Modifier.onClick { count++ })
         val lazyListContent: LazyListScope.() -> Unit = {
             item { BasicText("Item") }

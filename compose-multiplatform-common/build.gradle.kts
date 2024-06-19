@@ -1,11 +1,27 @@
 import com.huanshankeji.team.`Shreck Ye`
 import com.huanshankeji.team.pomForTeamDefaultOpenSource
+import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
 
 plugins {
     `lib-conventions`
 }
 
 kotlin {
+    @OptIn(ExperimentalKotlinGradlePluginApi::class)
+    applyDefaultHierarchyTemplate {
+        common {
+            group("androidxCommon") {
+                group("androidxCommonExceptAndroid") {
+                    withJvm()
+                    group("ios")
+                    withWasmJs()
+                }
+            }
+            withAndroidTarget()
+        }
+    }
+
+
     sourceSets {
         /*
         Use `api`. See:

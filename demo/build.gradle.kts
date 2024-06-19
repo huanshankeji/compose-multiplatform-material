@@ -101,7 +101,7 @@ compose {
 android {
     namespace = `package`
 
-    val sdk = 34
+    val sdk = androidSdkVersion
     compileSdk = sdk
 
     defaultConfig {
