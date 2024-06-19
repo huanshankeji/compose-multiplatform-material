@@ -42,14 +42,6 @@ kotlin {
     }
 }
 
-/*
-android {
-    namespace = group as String
-    compileSdk = 34
-}
-*/
-
-
 publishing.publications.withType<MavenPublication> {
     pomForTeamDefaultOpenSource(
         project,
