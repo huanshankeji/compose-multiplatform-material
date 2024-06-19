@@ -8,7 +8,9 @@ plugins {
 }
 
 kotlin {
-    androidTarget()
+    androidTarget {
+        publishLibraryVariants("release", "debug")
+    }
 
     // move to `common-conventions` if necessary
 
