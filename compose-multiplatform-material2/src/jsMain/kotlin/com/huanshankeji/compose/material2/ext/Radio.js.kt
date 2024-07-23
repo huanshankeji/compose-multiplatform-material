@@ -13,7 +13,7 @@ import org.jetbrains.compose.web.dom.Div
 @Composable
 actual fun RadioRow(selected: Boolean, label: String, onClick: () -> Unit, modifier: Modifier, enabled: Boolean) =
     Div {
-        // `MDCRadio` adds 2 elements, which can cause the radio button and the label to not be on a same row.
+        // `MDCRadio` adds 2 elements, which can cause the radio button and the label to not be on a same row if not wrapped in a `div`.
         MDCRadio(selected, disabled = !enabled, label = label, attrs = modifier.toAttrs {
             onClick { onClick() }
         })
