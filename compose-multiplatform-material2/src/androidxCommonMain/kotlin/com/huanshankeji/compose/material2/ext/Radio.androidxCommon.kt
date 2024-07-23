@@ -1,5 +1,6 @@
 package com.huanshankeji.compose.material2.ext
 
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.selection.selectable
 import androidx.compose.foundation.selection.selectableGroup
@@ -22,3 +23,7 @@ actual fun RadioRow(selected: Boolean, label: String, onClick: () -> Unit, modif
 @Composable
 actual fun RadioGroupRow(modifier: Modifier, content: @Composable () -> Unit) =
     Row(PlatformModifier.selectableGroup().then(modifier.platformModifier)) { content() }
+
+@Composable
+actual fun RadioGroupColumn(modifier: Modifier, content: @Composable () -> Unit) =
+    Column(PlatformModifier.selectableGroup().then(modifier.platformModifier)) { content() }

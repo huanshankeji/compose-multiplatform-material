@@ -3,6 +3,7 @@ package com.huanshankeji.androidx.navigation.compose
 import androidx.compose.runtime.*
 import androidx.navigation.*
 import com.huanshankeji.compose.foundation.layout.Box
+import com.huanshankeji.compose.layout.fillMaxSize
 import com.huanshankeji.compose.ui.Alignment
 import com.huanshankeji.compose.ui.Modifier
 
@@ -98,8 +99,10 @@ actual fun NavHost(
     val backStackEntry: NavBackStackEntry? = visibleEntries.lastOrNull()
 
     if (backStackEntry != null) {
+        // `fillMaxSize` is added here to make the Box align to the size of its parent
+        // TODO consider adding a version of `NavHost` without `modifier` and `contentAlignment`
         // Originally it was `transition.AnimatedContent` here.
-        Box(modifier, contentAlignment) {
+        Box(modifier.fillMaxSize(), contentAlignment) {
             val currentEntry = visibleEntries.lastOrNull { entry -> backStackEntry == entry }
 
             /*
