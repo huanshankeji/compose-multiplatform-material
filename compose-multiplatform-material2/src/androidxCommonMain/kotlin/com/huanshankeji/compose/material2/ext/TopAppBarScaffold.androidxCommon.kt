@@ -32,7 +32,6 @@ actual class TopAppBarActionsScope(val rowScope: RowScope) {
     @Composable
     actual fun MaterialIconActionButton(onClick: () -> Unit, icon: Icon, contentDescription: String?) =
         IconButton(onClick) { Icon(icon, contentDescription) }
-
 }
 
 @Composable
