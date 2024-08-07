@@ -13,12 +13,12 @@ import org.jetbrains.compose.web.dom.Text
 
 actual class NavigationIconScope(val mdcTopAppBarSectionScope: MDCTopAppBarSectionScope) {
     @Composable
-    actual fun NavButton(onClick: () -> Unit, content: @Composable () -> Unit) =
-        mdcTopAppBarSectionScope.NavButton(attrs = { onClick { onClick() } }) { content() }
+    actual fun NavButton(onClick: () -> Unit, modifier: Modifier, content: @Composable () -> Unit) =
+        mdcTopAppBarSectionScope.NavButton(attrs = modifier.toAttrs { onClick { onClick() } }) { content() }
 
     @Composable
-    actual fun MaterialIconNavButton(onClick: () -> Unit, icon: Icon, contentDescription: String?) =
-        mdcTopAppBarSectionScope.NavButton(attrs = {
+    actual fun MaterialIconNavButton(onClick: () -> Unit, modifier: Modifier, icon: Icon, contentDescription: String?) =
+        mdcTopAppBarSectionScope.NavButton(attrs = modifier.toAttrs {
             mdcIcon()
             contentDescription(contentDescription)
         }) { Text(icon.name) }
@@ -26,12 +26,14 @@ actual class NavigationIconScope(val mdcTopAppBarSectionScope: MDCTopAppBarSecti
 
 actual class TopAppBarActionsScope(val mdcTopAppBarSectionScope: MDCTopAppBarSectionScope) {
     @Composable
-    actual fun ActionButton(onClick: () -> Unit, content: @Composable () -> Unit) =
-        mdcTopAppBarSectionScope.ActionButton(attrs = { onClick { onClick() } }) { content() }
+    actual fun ActionButton(onClick: () -> Unit, modifier: Modifier, content: @Composable () -> Unit) =
+        mdcTopAppBarSectionScope.ActionButton(attrs = modifier.toAttrs { onClick { onClick() } }) { content() }
 
     @Composable
-    actual fun MaterialIconActionButton(onClick: () -> Unit, icon: Icon, contentDescription: String?) =
-        mdcTopAppBarSectionScope.ActionButton(attrs = {
+    actual fun MaterialIconActionButton(
+        onClick: () -> Unit, modifier: Modifier, icon: Icon, contentDescription: String?
+    ) =
+        mdcTopAppBarSectionScope.ActionButton(attrs = modifier.toAttrs {
             mdcIcon()
             contentDescription(contentDescription)
         }) { Text(icon.name) }

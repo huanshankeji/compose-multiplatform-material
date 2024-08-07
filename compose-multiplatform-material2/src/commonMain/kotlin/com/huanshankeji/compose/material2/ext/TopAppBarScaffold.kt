@@ -6,18 +6,22 @@ import com.huanshankeji.compose.ui.Modifier
 
 expect class NavigationIconScope {
     @Composable
-    fun NavButton(onClick: () -> Unit, content: @Composable () -> Unit)
+    fun NavButton(onClick: () -> Unit, modifier: Modifier = Modifier, content: @Composable () -> Unit)
 
     @Composable
-    fun MaterialIconNavButton(onClick: () -> Unit, icon: Icon, contentDescription: String?)
+    fun MaterialIconNavButton(
+        onClick: () -> Unit, modifier: Modifier = Modifier, icon: Icon, contentDescription: String?
+    )
 }
 
 expect class TopAppBarActionsScope {
     @Composable
-    fun ActionButton(onClick: () -> Unit, content: @Composable () -> Unit)
+    fun ActionButton(onClick: () -> Unit, modifier: Modifier = Modifier, content: @Composable () -> Unit)
 
     @Composable
-    fun MaterialIconActionButton(onClick: () -> Unit, icon: Icon, contentDescription: String?)
+    fun MaterialIconActionButton(
+        onClick: () -> Unit, modifier: Modifier = Modifier, icon: Icon, contentDescription: String?
+    )
 }
 
 /**

@@ -16,6 +16,7 @@ import com.huanshankeji.compose.layout.height
 import com.huanshankeji.compose.layout.padding
 import com.huanshankeji.compose.material.icons.Icons
 import com.huanshankeji.compose.material.icons.filled.Add
+import com.huanshankeji.compose.material.icons.filled.Done
 import com.huanshankeji.compose.material.icons.filled.Menu
 import com.huanshankeji.compose.material.icons.filled.Search
 import com.huanshankeji.compose.material2.*
@@ -36,9 +37,10 @@ fun Material2(modifier: Modifier) {
     TopAppBarScaffold({
         Text("Compose Multiplatform Material demo")
     }, navigationIcon = {
-        MaterialIconNavButton({}, Icons.Default.Menu, "menu")
+        MaterialIconNavButton({}, icon = Icons.Default.Menu, contentDescription = "menu")
     }, actions = {
-        MaterialIconActionButton({}, Icons.Default.Search, "search")
+        MaterialIconActionButton({}, icon = Icons.Default.Search, contentDescription = "search")
+        MaterialIconActionButton({}, icon = Icons.Default.Done, contentDescription = "done")
     }, snackbarHost = {
         SnackbarHost(snackbarHostState)
     }) {

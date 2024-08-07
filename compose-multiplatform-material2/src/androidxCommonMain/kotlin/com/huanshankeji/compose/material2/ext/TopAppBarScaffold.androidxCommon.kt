@@ -12,12 +12,12 @@ import com.huanshankeji.compose.ui.Modifier
 
 actual class NavigationIconScope private constructor() {
     @Composable
-    actual fun NavButton(onClick: () -> Unit, content: @Composable () -> Unit) =
-        IconButton(onClick, content = content)
+    actual fun NavButton(onClick: () -> Unit, modifier: Modifier, content: @Composable () -> Unit) =
+        IconButton(onClick, modifier, content = content)
 
     @Composable
-    actual fun MaterialIconNavButton(onClick: () -> Unit, icon: Icon, contentDescription: String?) =
-        IconButton(onClick) { Icon(icon, contentDescription) }
+    actual fun MaterialIconNavButton(onClick: () -> Unit, modifier: Modifier, icon: Icon, contentDescription: String?) =
+        IconButton(onClick, modifier) { Icon(icon, contentDescription) }
 
     companion object {
         val instance = NavigationIconScope()
@@ -26,12 +26,14 @@ actual class NavigationIconScope private constructor() {
 
 actual class TopAppBarActionsScope(val rowScope: RowScope) {
     @Composable
-    actual fun ActionButton(onClick: () -> Unit, content: @Composable () -> Unit) =
-        IconButton(onClick, content = content)
+    actual fun ActionButton(onClick: () -> Unit, modifier: Modifier, content: @Composable () -> Unit) =
+        IconButton(onClick, modifier, content = content)
 
     @Composable
-    actual fun MaterialIconActionButton(onClick: () -> Unit, icon: Icon, contentDescription: String?) =
-        IconButton(onClick) { Icon(icon, contentDescription) }
+    actual fun MaterialIconActionButton(
+        onClick: () -> Unit, modifier: Modifier, icon: Icon, contentDescription: String?
+    ) =
+        IconButton(onClick, modifier) { Icon(icon, contentDescription) }
 }
 
 @Composable
