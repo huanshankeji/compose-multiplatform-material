@@ -5,10 +5,10 @@ import com.huanshankeji.compose.contentDescription
 import com.huanshankeji.compose.foundation.layout.Column
 import com.huanshankeji.compose.layout.fillMaxSize
 import com.huanshankeji.compose.material.icons.Icon
+import com.huanshankeji.compose.material2.icons.mdcIconWithStyle
 import com.huanshankeji.compose.ui.Modifier
 import com.huanshankeji.compose.ui.toAttrs
 import dev.petuska.kmdc.top.app.bar.*
-import dev.petuska.kmdcx.icons.mdcIcon
 import org.jetbrains.compose.web.dom.Text
 
 actual class NavigationIconScope(val mdcTopAppBarSectionScope: MDCTopAppBarSectionScope) {
@@ -19,7 +19,7 @@ actual class NavigationIconScope(val mdcTopAppBarSectionScope: MDCTopAppBarSecti
     @Composable
     actual fun MaterialIconNavButton(onClick: () -> Unit, modifier: Modifier, icon: Icon, contentDescription: String?) =
         mdcTopAppBarSectionScope.NavButton(attrs = modifier.toAttrs {
-            mdcIcon()
+            mdcIconWithStyle()
             contentDescription(contentDescription)
         }) { Text(icon.name) }
 }
@@ -34,7 +34,7 @@ actual class TopAppBarActionsScope(val mdcTopAppBarSectionScope: MDCTopAppBarSec
         onClick: () -> Unit, modifier: Modifier, icon: Icon, contentDescription: String?
     ) =
         mdcTopAppBarSectionScope.ActionButton(attrs = modifier.toAttrs {
-            mdcIcon()
+            mdcIconWithStyle()
             contentDescription(contentDescription)
         }) { Text(icon.name) }
 }

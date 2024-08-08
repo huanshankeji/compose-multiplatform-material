@@ -5,6 +5,7 @@ import com.huanshankeji.compose.foundation.text.KeyboardActions
 import com.huanshankeji.compose.foundation.text.KeyboardOptions
 import com.huanshankeji.compose.foundation.text.attrsFrom
 import com.huanshankeji.compose.material.icons.Icon
+import com.huanshankeji.compose.material2.icons.mdcIconWithStyle
 import com.huanshankeji.compose.ui.Modifier
 import com.huanshankeji.compose.ui.toAttrs
 import dev.petuska.kmdc.core.MDCContent
@@ -14,7 +15,6 @@ import dev.petuska.kmdc.textfield.MDCTextFieldScope
 import dev.petuska.kmdc.textfield.MDCTextFieldType
 import dev.petuska.kmdc.textfield.icon.MDCTextFieldLeadingIcon
 import dev.petuska.kmdc.textfield.icon.MDCTextFieldTrailingIcon
-import dev.petuska.kmdcx.icons.mdcIcon
 import org.jetbrains.compose.web.dom.Text
 
 @Composable
@@ -91,8 +91,8 @@ fun CommonTextFieldWithMaterialIcons(
         enabled,
         label,
         // see https://github.com/mpetuska/kmdc/blob/master/sandbox/src/jsMain/showcases/MDCTextField.kt
-        leadingIcon?.let { { MDCTextFieldLeadingIcon(attrs = { mdcIcon() }) { Text(it.name) } } },
-        trailingIcon?.let { { MDCTextFieldTrailingIcon(attrs = { mdcIcon() }) { Text(it.name) } } },
+        leadingIcon?.let { { MDCTextFieldLeadingIcon(attrs = { mdcIconWithStyle() }) { Text(it.name) } } },
+        trailingIcon?.let { { MDCTextFieldTrailingIcon(attrs = { mdcIconWithStyle() }) { Text(it.name) } } },
         keyboardOptions,
         keyboardActions
     )
