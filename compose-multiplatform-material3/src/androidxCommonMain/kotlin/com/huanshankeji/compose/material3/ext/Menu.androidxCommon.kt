@@ -24,6 +24,29 @@ actual fun DropdownMenu(
         content()
     }
 
+actual class DropdownMenuBoxScope {
+    actual fun Modifier.menuAnchorJs(): Modifier =
+        this // do nothing
+
+    @Composable
+    actual fun DropdownMenu(
+        expanded: Boolean,
+        onDismissRequestAndroidxCommonOnly: () -> Unit,
+        onCloseJsOnly: () -> Unit,
+        modifier: Modifier,
+        offset: DpOffset,
+        content: @Composable () -> Unit
+    ) =
+        androidx.compose.material3.DropdownMenu(
+            expanded, onDismissRequestAndroidxCommonOnly, modifier.platformModifier, offset
+        ) { content() }
+}
+
+@Composable
+actual fun DropdownMenuBox(content: @Composable DropdownMenuBoxScope.() -> Unit) =
+    // There is currently no extra `Box` wrapping the content yet. Consider adding one. See https://stackoverflow.com/a/68728525/5082913.
+    DropdownMenuBoxScope().content()
+
 /**
  * @param onClick you are supposed to set the `expanded` state of the parent [DropdownMenu] or [ExposedDropdownMenuBoxScope.ExposedDropdownMenu] to `false` in this callback to ensure consistency on JS.
  */

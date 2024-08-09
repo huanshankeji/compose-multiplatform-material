@@ -6,10 +6,12 @@ import androidx.compose.ui.unit.dp
 import com.huanshankeji.compose.material.icons.Icon
 import com.huanshankeji.compose.ui.Modifier
 
+internal val defaultDpOffset = DpOffset(0.dp, 0.dp)
+
 /**
- * @param onDismissRequestAndroidxCommonOnly not supported on JS.
- * @param onCloseJsOnly JS only
+ * @see DropdownMenuBoxScope.DropdownMenu
  */
+@Deprecated("This implementation doesn't have the `anchorElement` set on JS DOM and thus doesn't work directly. Use `DropdownMenuBox`, `DropdownMenuBoxScope.menuAnchorJs`, and `DropdownMenuBoxScope.DropdownMenu` instead.")
 @Composable
 expect fun DropdownMenu(
     expanded: Boolean,
@@ -21,7 +23,28 @@ expect fun DropdownMenu(
     content: @Composable () -> Unit
 )
 
-internal val defaultDpOffset = DpOffset(0.dp, 0.dp)
+expect class DropdownMenuBoxScope {
+    fun Modifier.menuAnchorJs(): Modifier
+
+    /**
+     * @param onDismissRequestAndroidxCommonOnly not supported on JS.
+     * @param onCloseJsOnly JS only
+     * @see com.huanshankeji.compose.material3.ext.DropdownMenu
+     */
+    @Composable
+    fun DropdownMenu(
+        expanded: Boolean,
+        onDismissRequestAndroidxCommonOnly: () -> Unit,
+        onCloseJsOnly: () -> Unit,
+        modifier: Modifier = Modifier,
+        offset: DpOffset = defaultDpOffset,
+        //scrollState: ScrollState = rememberScrollState(),
+        content: @Composable () -> Unit
+    )
+}
+
+@Composable
+expect fun DropdownMenuBox(content: @Composable DropdownMenuBoxScope.() -> Unit)
 
 /**
  * @param keepOpenJsOnly set to `true` for completely consistent behavior on JS to `androidx.compose`. However, if you set the `expanded` state to false in [onClick], doing this is unnecessary.

@@ -34,6 +34,7 @@ actual class TopAppBarActionsScope(val mdcTopAppBarSectionScope: MDCTopAppBarSec
         onClick: () -> Unit, modifier: Modifier, icon: Icon, contentDescription: String?
     ) =
         mdcTopAppBarSectionScope.ActionButton(attrs = modifier.toAttrs {
+            onClick { onClick() }
             mdcIconWithStyle()
             contentDescription(contentDescription)
         }) { Text(icon.name) }

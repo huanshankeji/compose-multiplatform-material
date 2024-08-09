@@ -9,13 +9,9 @@ import com.huanshankeji.compose.material.icons.filled.ArrowDropDown
 import com.huanshankeji.compose.material3.Icon
 import com.huanshankeji.compose.ui.Modifier
 import com.huanshankeji.compose.ui.draw.rotate
-import com.huanshankeji.compose.ui.toAttrs
 import com.varabyte.kobweb.compose.ui.attrsModifier
 import com.varabyte.kobweb.compose.ui.toAttrs
 import org.jetbrains.compose.web.attributes.AttrsScope
-import org.jetbrains.compose.web.css.Position
-import org.jetbrains.compose.web.css.position
-import org.jetbrains.compose.web.dom.Div
 import org.w3c.dom.HTMLElement
 
 @Composable
@@ -25,19 +21,21 @@ actual fun ExposedDropdownMenuBox(
     modifier: Modifier,
     content: @Composable ExposedDropdownMenuBoxScope.() -> Unit
 ) =
-    Div({
-        // see https://github.com/material-components/material-web/blob/main/docs/components/menu.md#usage
-        style {
-            position(Position.Relative)
-        }
-        modifier.toAttrs<AttrsScope<*>>()()
-    }) {
+    MdMenuBox(modifier) {
         ExposedDropdownMenuBoxScope(remember { mutableStateOf(null) }, expanded, onExpandedChange).content()
+        // The menu doesn't show with this implementation.
+        /*
+        val (anchorElement, setAnchorElement) = remember { mutableStateOf<HTMLElement?>(null) }
+        ExposedDropdownMenuBoxScope(anchorElement, setAnchorElement, expanded, onExpandedChange).content()
+        */
     }
 
 actual class ExposedDropdownMenuBoxScope(
     val anchorElementState: MutableState<HTMLElement?>, val expanded: Boolean, val onExpandedChange: (Boolean) -> Unit
+    //val anchorElement: HTMLElement?, val setAnchorElement: (HTMLElement?) -> Unit, val expanded: Boolean, val onExpandedChange: (Boolean) -> Unit // The menu doesn't show with this implementation.
 ) {
+    //var anchorElement by anchorElementState
+    //val (anchorElement, setAnchorElement) = anchorElementState
     /*
     companion object {
         const val ANCHOR_ID = "anchor"
@@ -49,10 +47,7 @@ actual class ExposedDropdownMenuBoxScope(
             attrsModifier {
                 //id(ANCHOR_ID) // An alternative approach by setting IDs. Duplicate IDs are semantically incorrect, however.
 
-                ref {
-                    anchorElementState.value = it as HTMLElement
-                    onDispose { anchorElementState.value = null }
-                }
+                refSetAnchorElementState(anchorElementState.component2())
                 // only fired when `expanded` set to `true` to be consistent with the `androidx.compose` one behavior
                 if (!expanded)
                     onClick {
@@ -61,10 +56,6 @@ actual class ExposedDropdownMenuBoxScope(
             }
         }
 
-    /**
-     * @param onDismissRequestAndroidxCommonOnly not supported on JS.
-     * @param onCloseJsOnly JS only.
-     */
     @Composable
     actual fun ExposedDropdownMenu(
         expanded: Boolean,
@@ -77,9 +68,10 @@ actual class ExposedDropdownMenuBoxScope(
             //ANCHOR_ID, // An alternative approach by setting IDs. Duplicate IDs are semantically incorrect, however.
             expanded,
             onCloseJsOnly,
+            // The following is identical to inlining `mdMenuModifier(anchorElementState.value, modifier)` but probably due to some Compose compiler bugs invoking it directly doesn't work. FIXME when the bug is fixed
             {
                 ref {
-                    anchorElementState.value?.let { anchorElement -> it.anchorElement = anchorElement }
+                    it.anchorElement = anchorElementState.value
                     onDispose {}
                 }
 

@@ -15,6 +15,7 @@ import com.huanshankeji.compose.foundation.text.input.KeyboardType
 import com.huanshankeji.compose.layout.height
 import com.huanshankeji.compose.material.icons.Icons
 import com.huanshankeji.compose.material.icons.filled.Add
+import com.huanshankeji.compose.material.icons.filled.ArrowDropDown
 import com.huanshankeji.compose.material.icons.filled.Menu
 import com.huanshankeji.compose.material.icons.filled.Remove
 import com.huanshankeji.compose.material3.*
@@ -183,28 +184,45 @@ fun Material3(modifier: Modifier) {
             )
         }
 
-        val (expanded, setExpanded) = remember { mutableStateOf(false) }
-        val close = { setExpanded(false) }
-        var selection by remember { mutableStateOf<Selection?>(null) }
-        ExposedDropdownMenuBoxWithTextField(
-            expanded, setExpanded,
-            textFieldArgs = ExposedDropdownMenuBoxTextFieldArgs(
-                selection?.name ?: "", label = "Please select"
-            ),
-            exposedDropdownMenuArgs = ExposedDropdownMenuArgs(expanded, close, close) {
-                (listOf(null) + Selection.entries).forEach {
-                    DropdownMenuItemWithMaterialIcons(
-                        { modifier -> it?.let { Text(it.name, modifier) } },
-                        {
-                            selection = it
-                            close()
-                        },
-                        leadingIcon = Icons.Filled.Add,
-                        trailingIcon = Icons.Filled.Remove
-                    )
-                }
+        @Composable
+        fun DropdownMenuContent(setSelection: (Selection?) -> Unit, close: () -> Unit) =
+            (listOf(null) + Selection.entries).forEach {
+                DropdownMenuItemWithMaterialIcons(
+                    { modifier -> it?.let { Text(it.name, modifier) } },
+                    {
+                        setSelection(it)
+                        close()
+                    },
+                    leadingIcon = Icons.Filled.Add,
+                    trailingIcon = Icons.Filled.Remove
+                )
             }
-        )
+
+        run {
+            val (expanded, setExpanded) = remember { mutableStateOf(false) }
+            val close = { setExpanded(false) }
+            val (selection, setSelection) = remember { mutableStateOf<Selection?>(null) }
+            ExposedDropdownMenuBoxWithTextField(
+                expanded, setExpanded,
+                textFieldArgs = ExposedDropdownMenuBoxTextFieldArgs(
+                    selection?.name ?: "", label = "Please select"
+                ),
+                exposedDropdownMenuArgs = ExposedDropdownMenuArgs(expanded, close, close) {
+                    DropdownMenuContent(setSelection, close)
+                }
+            )
+        }
+        DropdownMenuBox {
+            var expanded by remember { mutableStateOf(false) }
+            val close = { expanded = false }
+            val (_, setSelection) = remember { mutableStateOf<Selection?>(null) }
+            IconButton({ expanded = true }, Modifier.menuAnchorJs()) {
+                Icon(Icons.Filled.ArrowDropDown, "Please select")
+            }
+            DropdownMenu(expanded, close, close) {
+                DropdownMenuContent(setSelection, close)
+            }
+        }
 
         LinearProgressIndicator()
         LinearProgressIndicator({ 0.5f })

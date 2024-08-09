@@ -24,6 +24,10 @@ expect class ExposedDropdownMenuBoxScope {
     ): Modifier
     */
 
+    /**
+     * @param onDismissRequestAndroidxCommonOnly not supported on JS.
+     * @param onCloseJsOnly JS only.
+     */
     @Composable
     fun ExposedDropdownMenu(
         expanded: Boolean,
