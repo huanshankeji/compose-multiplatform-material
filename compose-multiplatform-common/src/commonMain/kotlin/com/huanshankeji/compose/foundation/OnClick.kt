@@ -5,7 +5,7 @@ import com.huanshankeji.compose.ui.Modifier
 /**
  * Delegates to `clickable` on Android. `onClick` is not available on Android. See https://github.com/JetBrains/compose-multiplatform/issues/4468 for details.
  */
-//@Deprecated("Use `clickable` instead.", ReplaceWith("clickable(onClick)"))
+@Deprecated("Use `clickable` instead.", ReplaceWith("clickable(onClick)"))
 @ExperimentalFoundationApi
 expect fun Modifier.onClick(onClick: () -> Unit): Modifier
 
