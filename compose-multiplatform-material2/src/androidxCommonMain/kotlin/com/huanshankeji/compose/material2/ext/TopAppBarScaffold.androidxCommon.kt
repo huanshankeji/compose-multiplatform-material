@@ -9,6 +9,7 @@ import com.huanshankeji.compose.material.icons.Icon
 import com.huanshankeji.compose.material2.Icon
 import com.huanshankeji.compose.material2.IconButton
 import com.huanshankeji.compose.ui.Modifier
+import androidx.compose.material.FabPosition.Companion as PlatformFabPosition
 
 actual class NavigationIconScope private constructor() {
     @Composable
@@ -36,6 +37,13 @@ actual class TopAppBarActionsScope(val rowScope: RowScope) {
         IconButton(onClick, modifier) { Icon(icon, contentDescription) }
 }
 
+fun FabPosition.toPlatformValue() =
+    when (this) {
+        FabPosition.Start -> PlatformFabPosition.Start
+        FabPosition.Center -> PlatformFabPosition.Center
+        FabPosition.End -> PlatformFabPosition.End
+    }
+
 @Composable
 actual fun PrimitiveTopAppBarScaffold(
     title: @Composable () -> Unit,
@@ -57,6 +65,9 @@ actual fun TopAppBarScaffold(
     actions: @Composable TopAppBarActionsScope.() -> Unit,
     bottomBar: @Composable (() -> Unit)?,
     snackbarHost: @Composable (() -> Unit)?,
+    floatingActionButton: @Composable (() -> Unit)?,
+    floatingActionButtonPosition: FabPosition,
+    isFloatingActionButtonDockedAndroidxCommon: Boolean,
     content: @Composable () -> Unit
 ) =
     Scaffold(
@@ -69,5 +80,8 @@ actual fun TopAppBarScaffold(
         },
         bottomBar = bottomBar ?: {},
         snackbarHost = snackbarHost?.let { { snackbarHost() } }
-            ?: { androidx.compose.material.SnackbarHost(it) }
+            ?: { androidx.compose.material.SnackbarHost(it) },
+        floatingActionButton = floatingActionButton ?: {},
+        floatingActionButtonPosition = floatingActionButtonPosition.toPlatformValue(),
+        isFloatingActionButtonDocked = isFloatingActionButtonDockedAndroidxCommon
     ) { content() }

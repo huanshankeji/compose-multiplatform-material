@@ -24,6 +24,11 @@ expect class TopAppBarActionsScope {
     )
 }
 
+// copied and adapted from `androidx.compose.material.FabPosition`
+enum class FabPosition {
+    Start, Center, End
+}
+
 /**
  * This one doesn't fill parent height on JS.
  */
@@ -48,6 +53,7 @@ expect fun PrimitiveTopAppBarScaffold(
  * ```
  *
  * @param snackbarHost `androidx.compose.material.Scaffold` has a `SnackbarHostState` parameter for this lambda, but `androidx.compose.material3.Scaffold` doesn't. Therefore, we think this is probably a design flaw and don't provide the parameter.
+ * @param isFloatingActionButtonDockedAndroidxCommon not available on JS DOM.
  */
 @Composable
 expect fun TopAppBarScaffold(
@@ -57,5 +63,8 @@ expect fun TopAppBarScaffold(
     actions: @Composable TopAppBarActionsScope.() -> Unit = {},
     bottomBar: @Composable (() -> Unit)? = null,
     snackbarHost: @Composable (() -> Unit)? = null,
+    floatingActionButton: @Composable (() -> Unit)? = null,
+    floatingActionButtonPosition: FabPosition = FabPosition.End,
+    isFloatingActionButtonDockedAndroidxCommon: Boolean = false,
     content: @Composable () -> Unit
 )

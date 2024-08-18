@@ -4,11 +4,16 @@ import androidx.compose.runtime.Composable
 import com.huanshankeji.compose.contentDescription
 import com.huanshankeji.compose.foundation.layout.Column
 import com.huanshankeji.compose.layout.fillMaxSize
+import com.huanshankeji.compose.layout.fillMaxWidth
 import com.huanshankeji.compose.material.icons.Icon
 import com.huanshankeji.compose.material2.icons.mdcIconWithStyle
 import com.huanshankeji.compose.ui.Modifier
 import com.huanshankeji.compose.ui.toAttrs
+import com.varabyte.kobweb.compose.css.TextAlign
+import com.varabyte.kobweb.compose.css.textAlign
 import dev.petuska.kmdc.top.app.bar.*
+import org.jetbrains.compose.web.css.*
+import org.jetbrains.compose.web.dom.Div
 import org.jetbrains.compose.web.dom.Text
 
 actual class NavigationIconScope(val mdcTopAppBarSectionScope: MDCTopAppBarSectionScope) {
@@ -80,17 +85,49 @@ actual fun TopAppBarScaffold(
     actions: @Composable TopAppBarActionsScope.() -> Unit,
     bottomBar: @Composable (() -> Unit)?,
     snackbarHost: @Composable (() -> Unit)?,
+    floatingActionButton: @Composable (() -> Unit)?,
+    floatingActionButtonPosition: FabPosition,
+    isFloatingActionButtonDockedAndroidxCommon: Boolean,
     content: @Composable () -> Unit
-) =
+) {
+    @Composable
+    fun fabWithPosition(floatingActionButton: @Composable (() -> Unit)) =
+        Div({
+            style {
+                position(Position.Absolute) ////Position.Relative //Position.Fixed
+                //width(Width.FitContent) // doesn't work well, replaced by `float(CSSFloat.Right)` below
+                bottom(16.px)
+                when (floatingActionButtonPosition) {
+                    FabPosition.Start -> left(16.px)
+                    FabPosition.Center -> {
+                        width(100.percent)
+                        textAlign(TextAlign.Center)
+                    }
+
+                    FabPosition.End -> right(16.px)
+                    //float(CSSFloat.Right) // somehow this has to be added for it to work // not needed anymore
+                }
+            }
+        }) {
+            floatingActionButton()
+        }
+
     Column(Modifier.fillMaxSize()) {
-        PrimitiveTopAppBarScaffold(
-            title,
-            topAppBarModifier,
-            navigationIcon,
-            actions,
-            Modifier.weight(1f),
-            content
-        )
-        snackbarHost?.let { it() }
+        Div(Modifier.weight(1f).fillMaxWidth().toAttrs {
+            style { position(Position.Relative) }
+        }) {
+            PrimitiveTopAppBarScaffold(
+                title,
+                topAppBarModifier,
+                navigationIcon,
+                actions,
+                Modifier,
+                content
+            )
+            floatingActionButton?.let { fabWithPosition(it) }
+        }
+
         bottomBar?.invoke()
     }
+    snackbarHost?.let { it() }
+}
