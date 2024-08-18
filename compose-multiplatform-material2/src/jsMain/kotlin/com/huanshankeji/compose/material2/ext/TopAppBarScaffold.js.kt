@@ -94,8 +94,7 @@ actual fun TopAppBarScaffold(
     fun fabWithPosition(floatingActionButton: @Composable (() -> Unit)) =
         Div({
             style {
-                position(Position.Absolute) ////Position.Relative //Position.Fixed
-                //width(Width.FitContent) // doesn't work well, replaced by `float(CSSFloat.Right)` below
+                position(Position.Absolute)
                 bottom(16.px)
                 when (floatingActionButtonPosition) {
                     FabPosition.Start -> left(16.px)
@@ -105,7 +104,6 @@ actual fun TopAppBarScaffold(
                     }
 
                     FabPosition.End -> right(16.px)
-                    //float(CSSFloat.Right) // somehow this has to be added for it to work // not needed anymore
                 }
             }
         }) {
