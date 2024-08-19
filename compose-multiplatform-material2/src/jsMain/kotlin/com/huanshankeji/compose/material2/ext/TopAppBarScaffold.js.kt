@@ -24,6 +24,7 @@ actual class NavigationIconScope(val mdcTopAppBarSectionScope: MDCTopAppBarSecti
     @Composable
     actual fun MaterialIconNavButton(onClick: () -> Unit, modifier: Modifier, icon: Icon, contentDescription: String?) =
         mdcTopAppBarSectionScope.NavButton(attrs = modifier.toAttrs {
+            onClick { onClick() }
             mdcIconWithStyle()
             contentDescription(contentDescription)
         }) { Text(icon.name) }
