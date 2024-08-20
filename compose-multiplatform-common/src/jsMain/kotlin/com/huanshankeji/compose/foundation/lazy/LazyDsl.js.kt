@@ -2,13 +2,12 @@ package com.huanshankeji.compose.foundation.lazy
 
 import androidx.compose.runtime.Composable
 import com.huanshankeji.compose.foundation.horizontalScrollPlatformModifier
-import com.huanshankeji.compose.foundation.layout.Arrangement
-import com.huanshankeji.compose.foundation.layout.Column
-import com.huanshankeji.compose.foundation.layout.Row
+import com.huanshankeji.compose.foundation.layout.*
 import com.huanshankeji.compose.foundation.verticalScrollPlatformModifier
 import com.huanshankeji.compose.runtime.DeferredComposableRunner
 import com.huanshankeji.compose.ui.Alignment
 import com.huanshankeji.compose.ui.Modifier
+import com.huanshankeji.compose.ui.PlatformModifier
 import com.huanshankeji.compose.ui.toCommonModifier
 
 /*
@@ -45,16 +44,26 @@ actual class LazyListScope {
         }
 }
 
+private fun commonLazyModifier(
+    scrollPlatformModifier: PlatformModifier,
+    contentPadding: PaddingValues?,
+    modifier: Modifier
+) = scrollPlatformModifier.toCommonModifier().run {
+    if (contentPadding !== null) padding(contentPadding)
+    else this
+}.then(modifier)
+
 @Composable
 actual fun LazyRow(
     modifier: Modifier,
+    contentPadding: PaddingValues?,
     reverseLayout: Boolean, // This parameter is not used yet but affects the arrangement in the default argument of the corresponding `expect` function.
     horizontalArrangement: Arrangement.Horizontal,
     verticalAlignment: Alignment.Vertical,
     content: LazyListScope.() -> Unit
 ) =
     Row(
-        horizontalScrollPlatformModifier.then(modifier.platformModifier).toCommonModifier(),
+        commonLazyModifier(horizontalScrollPlatformModifier, contentPadding, modifier),
         horizontalArrangement,
         verticalAlignment
     ) {
@@ -64,13 +73,14 @@ actual fun LazyRow(
 @Composable
 actual fun LazyColumn(
     modifier: Modifier,
+    contentPadding: PaddingValues?,
     reverseLayout: Boolean, // This parameter is not used yet but affects the arrangement in the default argument of the corresponding `expect` function.
     verticalArrangement: Arrangement.Vertical,
     horizontalAlignment: Alignment.Horizontal,
     content: LazyListScope.() -> Unit
 ) =
     Column(
-        verticalScrollPlatformModifier.then(modifier.platformModifier).toCommonModifier(),
+        commonLazyModifier(verticalScrollPlatformModifier, contentPadding, modifier),
         verticalArrangement,
         horizontalAlignment
     ) {

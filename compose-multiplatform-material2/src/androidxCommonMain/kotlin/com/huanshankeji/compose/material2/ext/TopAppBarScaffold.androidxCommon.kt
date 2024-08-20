@@ -5,6 +5,8 @@ import androidx.compose.foundation.layout.RowScope
 import androidx.compose.material.Scaffold
 import androidx.compose.material.TopAppBar
 import androidx.compose.runtime.Composable
+import com.huanshankeji.compose.foundation.layout.PaddingValues
+import com.huanshankeji.compose.foundation.layout.toCommonValue
 import com.huanshankeji.compose.material.icons.Icon
 import com.huanshankeji.compose.material2.Icon
 import com.huanshankeji.compose.material2.IconButton
@@ -68,7 +70,7 @@ actual fun TopAppBarScaffold(
     floatingActionButton: @Composable (() -> Unit)?,
     floatingActionButtonPosition: FabPosition,
     isFloatingActionButtonDockedAndroidxCommon: Boolean,
-    content: @Composable () -> Unit
+    content: @Composable (PaddingValues) -> Unit
 ) =
     Scaffold(
         topBar = {
@@ -84,4 +86,4 @@ actual fun TopAppBarScaffold(
         floatingActionButton = floatingActionButton ?: {},
         floatingActionButtonPosition = floatingActionButtonPosition.toPlatformValue(),
         isFloatingActionButtonDocked = isFloatingActionButtonDockedAndroidxCommon
-    ) { content() }
+    ) { content(it.toCommonValue()) }

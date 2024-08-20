@@ -1,4 +1,4 @@
-package com.huanshankeji.compose.layout
+package com.huanshankeji.compose.foundation.layout
 
 import androidx.annotation.FloatRange
 import androidx.compose.foundation.layout.*

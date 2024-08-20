@@ -1,4 +1,4 @@
-package com.huanshankeji.compose.layout
+package com.huanshankeji.compose.foundation.layout
 
 import androidx.compose.runtime.Stable
 import com.huanshankeji.compose.ui.Modifier

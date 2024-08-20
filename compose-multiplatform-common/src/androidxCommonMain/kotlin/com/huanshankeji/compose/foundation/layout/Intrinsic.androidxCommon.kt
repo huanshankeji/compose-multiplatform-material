@@ -1,4 +1,4 @@
-package com.huanshankeji.compose.layout
+package com.huanshankeji.compose.foundation.layout
 
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.width

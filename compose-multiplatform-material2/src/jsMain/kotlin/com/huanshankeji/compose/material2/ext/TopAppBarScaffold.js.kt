@@ -3,8 +3,9 @@ package com.huanshankeji.compose.material2.ext
 import androidx.compose.runtime.Composable
 import com.huanshankeji.compose.contentDescription
 import com.huanshankeji.compose.foundation.layout.Column
-import com.huanshankeji.compose.layout.fillMaxSize
-import com.huanshankeji.compose.layout.fillMaxWidth
+import com.huanshankeji.compose.foundation.layout.PaddingValues
+import com.huanshankeji.compose.foundation.layout.fillMaxSize
+import com.huanshankeji.compose.foundation.layout.fillMaxWidth
 import com.huanshankeji.compose.material.icons.Icon
 import com.huanshankeji.compose.material2.icons.mdcIconWithStyle
 import com.huanshankeji.compose.ui.Modifier
@@ -89,7 +90,7 @@ actual fun TopAppBarScaffold(
     floatingActionButton: @Composable (() -> Unit)?,
     floatingActionButtonPosition: FabPosition,
     isFloatingActionButtonDockedAndroidxCommon: Boolean,
-    content: @Composable () -> Unit
+    content: @Composable (PaddingValues) -> Unit
 ) {
     @Composable
     fun fabWithPosition(floatingActionButton: @Composable (() -> Unit)) =
@@ -120,9 +121,12 @@ actual fun TopAppBarScaffold(
                 topAppBarModifier,
                 navigationIcon,
                 actions,
-                Modifier,
-                content
-            )
+                Modifier
+            ) {
+                // see `ScaffoldLayoutWithMeasureFix`
+                val innerPadding = PaddingValues()
+                content(innerPadding)
+            }
             floatingActionButton?.let { fabWithPosition(it) }
         }
 

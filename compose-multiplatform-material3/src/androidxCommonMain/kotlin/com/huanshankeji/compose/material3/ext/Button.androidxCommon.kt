@@ -5,7 +5,7 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.size
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.unit.dp
-import com.huanshankeji.compose.layout.size
+import com.huanshankeji.compose.foundation.layout.size
 import com.huanshankeji.compose.ui.Modifier
 
 @Composable

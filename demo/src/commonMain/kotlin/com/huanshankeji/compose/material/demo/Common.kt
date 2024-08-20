@@ -6,19 +6,12 @@ import com.huanshankeji.compose.foundation.*
 import com.huanshankeji.compose.foundation.ext.outerBorder
 import com.huanshankeji.compose.foundation.ext.roundedCornerBackgroundAndOuterBorder
 import com.huanshankeji.compose.foundation.ext.roundedCornerOuterBorder
-import com.huanshankeji.compose.foundation.layout.Arrangement
-import com.huanshankeji.compose.foundation.layout.Box
-import com.huanshankeji.compose.foundation.layout.Column
-import com.huanshankeji.compose.foundation.layout.Row
+import com.huanshankeji.compose.foundation.layout.*
 import com.huanshankeji.compose.foundation.lazy.LazyColumn
 import com.huanshankeji.compose.foundation.lazy.LazyListScope
 import com.huanshankeji.compose.foundation.lazy.LazyRow
 import com.huanshankeji.compose.foundation.text.BasicText
 import com.huanshankeji.compose.layout.ext.hidden
-import com.huanshankeji.compose.layout.height
-import com.huanshankeji.compose.layout.padding
-import com.huanshankeji.compose.layout.size
-import com.huanshankeji.compose.layout.width
 import com.huanshankeji.compose.ui.Modifier
 import com.huanshankeji.compose.ui.graphics.Color
 

@@ -111,6 +111,10 @@ The components in the `ext` packages don't follow the `androidx.compose` APIs ex
 - `outerBorder`
 - `roundedCornerBackgroundAndOuterBorder`
 
+#### Other APIs
+
+- `PaddingValues`
+
 ### ViewModel
 
 The ViewModel module currently supports a small subset of the Compose ViewModel APIs, and delegates to raw UI state on

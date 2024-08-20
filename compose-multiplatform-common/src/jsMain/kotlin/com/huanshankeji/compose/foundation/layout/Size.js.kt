@@ -1,4 +1,4 @@
-package com.huanshankeji.compose.layout
+package com.huanshankeji.compose.foundation.layout
 
 import androidx.annotation.FloatRange
 import androidx.compose.runtime.Stable
@@ -6,7 +6,6 @@ import androidx.compose.ui.unit.Dp
 import com.huanshankeji.compose.ui.Modifier
 import com.huanshankeji.compose.ui.unit.toPercent
 import com.huanshankeji.compose.ui.unit.toPx
-import com.huanshankeji.kobweb.compose.ui.modifiers.size
 import com.huanshankeji.kobweb.compose.ui.modifiers.sizeFitContent
 import com.varabyte.kobweb.compose.css.Height
 import com.varabyte.kobweb.compose.css.Width

@@ -1,6 +1,7 @@
 package com.huanshankeji.compose.material2.ext
 
 import androidx.compose.runtime.Composable
+import com.huanshankeji.compose.foundation.layout.PaddingValues
 import com.huanshankeji.compose.material.icons.Icon
 import com.huanshankeji.compose.ui.Modifier
 
@@ -66,5 +67,5 @@ expect fun TopAppBarScaffold(
     floatingActionButton: @Composable (() -> Unit)? = null,
     floatingActionButtonPosition: FabPosition = FabPosition.End,
     isFloatingActionButtonDockedAndroidxCommon: Boolean = false,
-    content: @Composable () -> Unit
+    content: @Composable (PaddingValues) -> Unit
 )

@@ -3,7 +3,7 @@ package com.huanshankeji.androidx.navigation.compose
 import androidx.compose.runtime.*
 import androidx.navigation.*
 import com.huanshankeji.compose.foundation.layout.Box
-import com.huanshankeji.compose.layout.fillMaxSize
+import com.huanshankeji.compose.foundation.layout.fillMaxSize
 import com.huanshankeji.compose.ui.Alignment
 import com.huanshankeji.compose.ui.Modifier
 

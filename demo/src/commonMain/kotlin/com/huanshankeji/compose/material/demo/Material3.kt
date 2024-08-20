@@ -3,16 +3,12 @@ package com.huanshankeji.compose.material.demo
 import androidx.compose.runtime.*
 import androidx.compose.ui.unit.dp
 import com.huanshankeji.compose.ExtRecommendedApi
-import com.huanshankeji.compose.foundation.layout.Arrangement
-import com.huanshankeji.compose.foundation.layout.Column
-import com.huanshankeji.compose.foundation.layout.Row
-import com.huanshankeji.compose.foundation.layout.RowScope
+import com.huanshankeji.compose.foundation.layout.*
 import com.huanshankeji.compose.foundation.text.KeyboardActions
 import com.huanshankeji.compose.foundation.text.KeyboardOptions
 import com.huanshankeji.compose.foundation.text.input.ImeAction
 import com.huanshankeji.compose.foundation.text.input.KeyboardCapitalization
 import com.huanshankeji.compose.foundation.text.input.KeyboardType
-import com.huanshankeji.compose.layout.height
 import com.huanshankeji.compose.material.icons.Icons
 import com.huanshankeji.compose.material.icons.filled.Add
 import com.huanshankeji.compose.material.icons.filled.ArrowDropDown
