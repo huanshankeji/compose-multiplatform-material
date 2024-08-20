@@ -21,6 +21,10 @@ import com.varabyte.kobweb.compose.ui.attrsModifier
 import org.jetbrains.compose.web.attributes.AttrsScope
 import org.w3c.dom.HTMLElement
 
+private fun inputType(singleLine: Boolean, lines: Int) =
+    // This is consistent with the `androidx.compose.material3` text field behavior.
+    if (singleLine || lines == 1) null else TextareaInputType
+
 private fun Modifier.toTextFieldAttrs(
     onValueChange: (String) -> Unit, keyboardOptions: KeyboardOptions, keyboardActions: KeyboardActions,
 ): AttrsScope<HTMLElement>.() -> Unit =
@@ -83,6 +87,7 @@ actual fun TextField(
         rows = if (singleLine) null else lines,
         placeholder = placeholder,
         readOnly = readOnly.isTrueOrNull(),
+        type = inputType(singleLine, lines),
 
         attrs = modifier.toTextFieldAttrs(onValueChange, keyboardOptions, keyboardActions),
         content = TextFieldContent(value, leadingIcon, trailingIcon)
@@ -123,7 +128,7 @@ actual fun OutlinedTextField(
         rows = if (singleLine) null else lines,
         placeholder = placeholder,
         readOnly = readOnly.isTrueOrNull(),
-        type = if (singleLine) null else TextareaInputType,
+        type = inputType(singleLine, lines),
 
         attrs = modifier.toTextFieldAttrs(onValueChange, keyboardOptions, keyboardActions),
         content = TextFieldContent(value, leadingIcon, trailingIcon)
