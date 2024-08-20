@@ -139,6 +139,7 @@ fun Material3(modifier: Modifier) {
                 println("keyboard actions with: $text")
             }
         )
+        OutlinedTextField(text, { text = it }, label = label, placeholder = placeholder, lines = 2)
 
         Text("Click a button to show the list:")
         List(Modifier.height(listSize)) {

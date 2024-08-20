@@ -8,6 +8,7 @@ import com.huanshankeji.compose.foundation.text.attrsFrom
 import com.huanshankeji.compose.html.material3.MdFilledTextField
 import com.huanshankeji.compose.html.material3.MdOutlinedTextField
 import com.huanshankeji.compose.html.material3.MdTextFieldScope
+import com.huanshankeji.compose.html.material3.TextareaInputType
 import com.huanshankeji.compose.ui.Modifier
 import com.huanshankeji.compose.ui.PlatformModifier
 import com.huanshankeji.compose.ui.toAttrs
@@ -122,6 +123,7 @@ actual fun OutlinedTextField(
         rows = if (singleLine) null else lines,
         placeholder = placeholder,
         readOnly = readOnly.isTrueOrNull(),
+        type = if (singleLine) null else TextareaInputType,
 
         attrs = modifier.toTextFieldAttrs(onValueChange, keyboardOptions, keyboardActions),
         content = TextFieldContent(value, leadingIcon, trailingIcon)
