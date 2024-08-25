@@ -113,21 +113,22 @@ actual fun TopAppBarScaffold(
         }
 
     Column(Modifier.fillMaxSize()) {
-        Div(Modifier.weight(1f).fillMaxWidth().toAttrs {
-            style { position(Position.Relative) }
-        }) {
-            PrimitiveTopAppBarScaffold(
-                title,
-                topAppBarModifier,
-                navigationIcon,
-                actions,
-                Modifier
-            ) {
+        PrimitiveTopAppBarScaffold(
+            title,
+            topAppBarModifier,
+            navigationIcon,
+            actions,
+            Modifier.weight(1f).fillMaxWidth()
+        ) {
+            Div(Modifier.fillMaxSize().toAttrs {
+                style { position(Position.Relative) }
+            }) {
                 // see `ScaffoldLayoutWithMeasureFix`
                 val innerPadding = PaddingValues()
                 content(innerPadding)
+
+                floatingActionButton?.let { fabWithPosition(it) }
             }
-            floatingActionButton?.let { fabWithPosition(it) }
         }
 
         bottomBar?.invoke()

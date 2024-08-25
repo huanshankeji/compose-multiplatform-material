@@ -1,6 +1,7 @@
 package com.huanshankeji.compose.material3.lazy.ext
 
 import androidx.compose.runtime.Composable
+import com.huanshankeji.compose.foundation.ext.matchPositionRelativeParentJsOnly
 import com.huanshankeji.compose.material.icons.Icon
 import com.huanshankeji.compose.material3.ext.toNullableContentWithModifier
 import com.huanshankeji.compose.material3.ext.toNullableTextWithModifier
@@ -67,6 +68,11 @@ class ListItemComponents(
     )
 }
 
+/**
+ * On JS DOM, if there isn't a parent with a fixed height
+ * and you want the list height to be constraint to the available space of the parent instead of expanding the parent,
+ * set "position:relative;" on the parent element and use [Modifier.matchPositionRelativeParentJsOnly].
+ */
 @Composable
 expect fun List(modifier: Modifier = Modifier, content: ListScope.() -> Unit)
 
