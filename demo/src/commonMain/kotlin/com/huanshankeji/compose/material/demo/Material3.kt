@@ -146,6 +146,7 @@ fun Material3(modifier: Modifier) {
             fun content(index: String) =
                 ListItemComponents(
                     Modifier,
+                    true,
                     "Headline $index",
                     Icons.Default.Add,
                     Icons.Default.Menu,
