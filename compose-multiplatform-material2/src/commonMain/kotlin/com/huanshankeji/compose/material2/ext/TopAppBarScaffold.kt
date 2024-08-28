@@ -32,6 +32,7 @@ enum class FabPosition {
 
 /**
  * This one doesn't fill parent height on JS.
+ * @param contentModifier be cautious when passing the parameter, as the content CSS class `mdc-top-app-bar--fixed-adjust` has its styles which may be overridden.
  */
 @Composable
 expect fun PrimitiveTopAppBarScaffold(
@@ -45,7 +46,7 @@ expect fun PrimitiveTopAppBarScaffold(
 
 /**
  * This variant fills parent space automatically and internally uses a flexbox on JS.
- * For it to work properly, it's recommended to set these CSS styles on body:
+ * For it to work properly on JS DOM, it's recommended to use it as the top level element and to set these CSS styles on body:
  * ```
  * body {
  *     margin: 0;
@@ -54,7 +55,8 @@ expect fun PrimitiveTopAppBarScaffold(
  * ```
  *
  * @param snackbarHost `androidx.compose.material.Scaffold` has a `SnackbarHostState` parameter for this lambda, but `androidx.compose.material3.Scaffold` doesn't. Therefore, we think this is probably a design flaw and don't provide the parameter.
- * @param isFloatingActionButtonDockedAndroidxCommon not available on JS DOM.
+ * @param isFloatingActionButtonDockedAndroidxCommon available on `androidx.compose` targets only.
+// * @param isContentOverflowingOrExpandingJs available on JS DOM only.
  */
 @Composable
 expect fun TopAppBarScaffold(
@@ -67,5 +69,6 @@ expect fun TopAppBarScaffold(
     floatingActionButton: @Composable (() -> Unit)? = null,
     floatingActionButtonPosition: FabPosition = FabPosition.End,
     isFloatingActionButtonDockedAndroidxCommon: Boolean = false,
+    //isContentOverflowingOrExpandingJs: Boolean = true, // always overflows
     content: @Composable (PaddingValues) -> Unit
 )

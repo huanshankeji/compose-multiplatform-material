@@ -2,6 +2,7 @@ package com.huanshankeji.compose.material2.ext
 
 import androidx.compose.runtime.Composable
 import com.huanshankeji.compose.contentDescription
+import com.huanshankeji.compose.foundation.ext.matchPositionRelativeParent
 import com.huanshankeji.compose.foundation.layout.Column
 import com.huanshankeji.compose.foundation.layout.PaddingValues
 import com.huanshankeji.compose.foundation.layout.fillMaxSize
@@ -10,7 +11,9 @@ import com.huanshankeji.compose.material.icons.Icon
 import com.huanshankeji.compose.material2.icons.mdcIconWithStyle
 import com.huanshankeji.compose.ui.Modifier
 import com.huanshankeji.compose.ui.toAttrs
+import com.varabyte.kobweb.compose.css.Overflow
 import com.varabyte.kobweb.compose.css.TextAlign
+import com.varabyte.kobweb.compose.css.overflow
 import com.varabyte.kobweb.compose.css.textAlign
 import dev.petuska.kmdc.top.app.bar.*
 import org.jetbrains.compose.web.css.*
@@ -120,14 +123,24 @@ actual fun TopAppBarScaffold(
             actions,
             Modifier.weight(1f).fillMaxWidth()
         ) {
-            Div(Modifier.fillMaxSize().toAttrs {
-                style { position(Position.Relative) }
+            Div({
+                style {
+                    height(100.percent)
+                    position(Position.Relative)
+                }
             }) {
-                // see `ScaffoldLayoutWithMeasureFix`
-                val innerPadding = PaddingValues()
-                content(innerPadding)
+                Div({
+                    style {
+                        matchPositionRelativeParent()
+                        overflow(Overflow.Auto)
+                    }
+                }) {
+                    // see `ScaffoldLayoutWithMeasureFix`
+                    val innerPadding = PaddingValues()
+                    content(innerPadding)
 
-                floatingActionButton?.let { fabWithPosition(it) }
+                    floatingActionButton?.let { fabWithPosition(it) }
+                }
             }
         }
 
