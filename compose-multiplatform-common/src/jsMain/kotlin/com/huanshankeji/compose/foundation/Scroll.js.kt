@@ -1,6 +1,7 @@
 package com.huanshankeji.compose.foundation
 
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.Stable
 import com.huanshankeji.compose.foundation.ext.css.horizontalScroll
 import com.huanshankeji.compose.foundation.ext.css.verticalScroll
 import com.huanshankeji.compose.ui.Modifier
@@ -21,7 +22,8 @@ val horizontalScrollPlatformModifier = PlatformModifier.horizontalScroll()
 actual fun rememberScrollState(initial: Int): ScrollState =
     ScrollState
 
-actual typealias ScrollState = Unit
+@Stable
+actual object ScrollState
 
 actual fun Modifier.verticalScroll(state: ScrollState): Modifier =
     platformModify { verticalScroll() }
