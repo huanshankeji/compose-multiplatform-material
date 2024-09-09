@@ -6,5 +6,5 @@ import androidx.lifecycle.viewmodel.CreationExtras
 import androidx.lifecycle.viewmodel.compose.viewModel
 
 @Composable
-actual inline fun <reified VM : ViewModel> viewModel(noinline initializer: CreationExtras.() -> VM): VM =
-    viewModel(initializer = initializer)
+actual inline fun <reified VM : ViewModel> viewModel(key: String?, noinline initializer: CreationExtras.() -> VM): VM =
+    viewModel(key = key, initializer = initializer)
