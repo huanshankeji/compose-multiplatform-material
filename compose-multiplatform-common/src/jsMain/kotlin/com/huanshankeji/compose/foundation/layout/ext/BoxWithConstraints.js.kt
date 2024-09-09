@@ -26,7 +26,8 @@ actual fun BoxWithConstraints(
                     onDispose { clientSize = null }
                 }
             }
-        }.then(modifier),
+        }.fillMaxSizeStretch()
+            .then(modifier),
         contentAlignment
     ) {
         clientSize?.let {
