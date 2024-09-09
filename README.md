@@ -30,6 +30,10 @@ This project is still in development and has not reached the stable state yet. S
 - `Row` (via flexbox on JS, based on Kobweb)
 - `Spacer`
 
+###### `ext` layouts
+
+ - `BoxWithConstraints`
+
 ##### Lazy
 
 - `LazyColumn` (via flexbox on JS, based on Kobweb)
