@@ -42,7 +42,7 @@ actual interface RowScope {
         @FloatRange(from = 0.0, fromInclusive = false)
         weight: Float
     ): Modifier =
-        with(platformValue) { platformModify { weight(weight) } }
+        with(platformValue) { platformModify { flexBasis0().weight(weight) } }
 
     @Stable
     actual fun Modifier.align(alignment: Alignment.Vertical): Modifier =
