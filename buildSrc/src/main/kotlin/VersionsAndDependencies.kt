@@ -15,7 +15,7 @@ object DependencyVersions {
     val composeMultiplatformLifecycleViewmodel = "2.8.0"
 
     object Androidx {
-        val activityCompose = "1.9.0"
+        val activityCompose = "1.9.2"
         val compose = "1.6.7"
     }
 }
