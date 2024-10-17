@@ -2,7 +2,7 @@ import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
 
 plugins {
     id("common-conventions")
-    id("com.huanshankeji.kotlin-multiplatform-jvm-and-js-browser-conventions")
+    id("com.huanshankeji.kotlin-multiplatform-conventional-targets")
     id("com.android.library")
 }
 
