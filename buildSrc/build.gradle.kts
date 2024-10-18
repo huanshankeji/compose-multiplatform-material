@@ -17,5 +17,5 @@ dependencies {
     implementation("org.jetbrains.compose:compose-gradle-plugin:1.7.0")
     implementation("com.huanshankeji.team:gradle-plugins:0.6.0-SNAPSHOT") // TODO don't use a snapshot version in a main branch
     implementation("com.android.tools.build:gradle:8.5.2")
-    implementation("com.huanshankeji:common-gradle-dependencies:0.7.2-20241016-SNAPSHOT") // TODO don't use a snapshot version in a main branch
+    implementation("com.huanshankeji:common-gradle-dependencies:0.8.0-20241016-SNAPSHOT") // TODO don't use a snapshot version in a main branch
 }

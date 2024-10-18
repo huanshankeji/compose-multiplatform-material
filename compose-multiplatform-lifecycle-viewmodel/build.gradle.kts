@@ -15,12 +15,12 @@ kotlin {
                 https://android.googlesource.com/platform/frameworks/support/+/refs/heads/androidx-main/lifecycle/lifecycle-viewmodel-compose/build.gradle
                 */
                 api(compose.runtime)
-                api("org.jetbrains.androidx.lifecycle:lifecycle-viewmodel:${DependencyVersions.composeMultiplatformLifecycleViewmodel}")
+                api(commonDependencies.jetbrainsAndroidx.lifecycle.viewmodel())
             }
         }
         androidxCommonMain {
             dependencies {
-                api("org.jetbrains.androidx.lifecycle:lifecycle-viewmodel-compose:${DependencyVersions.composeMultiplatformLifecycleViewmodel}")
+                api(commonDependencies.jetbrainsAndroidx.lifecycle.viewmodelCompose())
             }
         }
     }

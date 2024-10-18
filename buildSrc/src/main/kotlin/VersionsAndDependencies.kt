@@ -11,11 +11,4 @@ object DependencyVersions {
     val huanshankejiComposeHtml = "0.4.0-SNAPSHOT" // TODO don't use a snapshot version in a main branch
     val kmdc = "0.1.2"
     val materialSymbols = "0.25.1"
-    val composeMultiplatformNavigation = "2.8.0-alpha10"
-    val composeMultiplatformLifecycleViewmodel = "2.8.3"
-
-    object Androidx {
-        val activityCompose = "1.9.3"
-        val compose = "1.7.4"
-    }
 }

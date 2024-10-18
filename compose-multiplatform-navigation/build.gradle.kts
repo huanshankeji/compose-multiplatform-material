@@ -15,7 +15,7 @@ kotlin {
                 https://android.googlesource.com/platform/frameworks/support/+/refs/heads/androidx-main/navigation/navigation-compose/build.gradle
                 */
                 api(compose.runtime)
-                api("org.jetbrains.androidx.navigation:navigation-runtime:${DependencyVersions.composeMultiplatformNavigation}")
+                api(commonDependencies.jetbrainsAndroidx.navigation.runtime())
                 //implementation("org.jetbrains.compose.annotation-internal:annotation:${DependencyVersions.composeMultiplatform}")
                 api(project(":compose-multiplatform-common")) // for `Modifier` and `Alignment`
                 //implementation("org.jetbrains.androidx.lifecycle:lifecycle-viewmodel-compose:2.8.0") // This depends on Compose target '[jscanvas]'.
@@ -23,7 +23,7 @@ kotlin {
         }
         androidxCommonMain {
             dependencies {
-                api("org.jetbrains.androidx.navigation:navigation-compose:${DependencyVersions.composeMultiplatformNavigation}")
+                api(commonDependencies.jetbrainsAndroidx.navigation.compose())
             }
         }
     }

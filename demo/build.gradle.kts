@@ -65,8 +65,8 @@ kotlin {
                 // TODO consider putting this in `androidxCommonMain`
                 implementation(compose.ui)
 
-                implementation("androidx.activity:activity-compose:${DependencyVersions.Androidx.activityCompose}")
-                implementation("androidx.compose.ui:ui-tooling-preview:${DependencyVersions.Androidx.compose}")
+                implementation(commonDependencies.androidx.activity.compose())
+                implementation(commonDependencies.androidx.compose.ui.module("tooling-preview"))
             }
         }
         iosMain {
