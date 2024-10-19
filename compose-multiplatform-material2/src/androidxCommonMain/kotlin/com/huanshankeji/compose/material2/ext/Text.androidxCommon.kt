@@ -4,5 +4,5 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 
 @Composable
-actual fun InlineText(text: String) =
+actual fun TaglessText(text: String) =
     Text(text)

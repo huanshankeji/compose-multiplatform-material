@@ -6,6 +6,8 @@ project(":compose-multiplatform-common:legacy").name = "compose-multiplatform-co
 include("compose-multiplatform-material-icons-core")
 include("compose-multiplatform-material2")
 include("compose-multiplatform-material3")
+include("compose-multiplatform-navigation")
+include("compose-multiplatform-lifecycle-viewmodel")
 include("demo")
 
 
@@ -16,7 +18,6 @@ pluginManagement {
         //mavenLocal()
         gradlePluginPortal()
         google()
-        maven("https://maven.pkg.jetbrains.space/public/p/compose/dev")
         mavenCentral()
     }
 }
@@ -29,6 +30,5 @@ dependencyResolutionManagement {
         mavenLocal()
         mavenCentral()
         google()
-        maven("https://maven.pkg.jetbrains.space/public/p/compose/dev")
     }
 }

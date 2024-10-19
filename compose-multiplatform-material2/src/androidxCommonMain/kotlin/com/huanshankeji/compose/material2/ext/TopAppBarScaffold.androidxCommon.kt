@@ -5,19 +5,22 @@ import androidx.compose.foundation.layout.RowScope
 import androidx.compose.material.Scaffold
 import androidx.compose.material.TopAppBar
 import androidx.compose.runtime.Composable
+import com.huanshankeji.compose.foundation.layout.PaddingValues
+import com.huanshankeji.compose.foundation.layout.toCommonValue
 import com.huanshankeji.compose.material.icons.Icon
 import com.huanshankeji.compose.material2.Icon
 import com.huanshankeji.compose.material2.IconButton
 import com.huanshankeji.compose.ui.Modifier
+import androidx.compose.material.FabPosition.Companion as PlatformFabPosition
 
 actual class NavigationIconScope private constructor() {
     @Composable
-    actual fun NavButton(onClick: () -> Unit, content: @Composable () -> Unit) =
-        IconButton(onClick, content = content)
+    actual fun NavButton(onClick: () -> Unit, modifier: Modifier, content: @Composable () -> Unit) =
+        IconButton(onClick, modifier, content = content)
 
     @Composable
-    actual fun MaterialIconNavButton(onClick: () -> Unit, icon: Icon, contentDescription: String?) =
-        IconButton(onClick) { Icon(icon, contentDescription) }
+    actual fun MaterialIconNavButton(onClick: () -> Unit, modifier: Modifier, icon: Icon, contentDescription: String?) =
+        IconButton(onClick, modifier) { Icon(icon, contentDescription) }
 
     companion object {
         val instance = NavigationIconScope()
@@ -26,14 +29,22 @@ actual class NavigationIconScope private constructor() {
 
 actual class TopAppBarActionsScope(val rowScope: RowScope) {
     @Composable
-    actual fun ActionButton(onClick: () -> Unit, content: @Composable () -> Unit) =
-        IconButton(onClick, content = content)
+    actual fun ActionButton(onClick: () -> Unit, modifier: Modifier, content: @Composable () -> Unit) =
+        IconButton(onClick, modifier, content = content)
 
     @Composable
-    actual fun MaterialIconActionButton(onClick: () -> Unit, icon: Icon, contentDescription: String?) =
-        IconButton(onClick) { Icon(icon, contentDescription) }
-
+    actual fun MaterialIconActionButton(
+        onClick: () -> Unit, modifier: Modifier, icon: Icon, contentDescription: String?
+    ) =
+        IconButton(onClick, modifier) { Icon(icon, contentDescription) }
 }
+
+fun FabPosition.toPlatformValue() =
+    when (this) {
+        FabPosition.Start -> PlatformFabPosition.Start
+        FabPosition.Center -> PlatformFabPosition.Center
+        FabPosition.End -> PlatformFabPosition.End
+    }
 
 @Composable
 actual fun PrimitiveTopAppBarScaffold(
@@ -55,7 +66,11 @@ actual fun TopAppBarScaffold(
     navigationIcon: @Composable (NavigationIconScope.() -> Unit)?,
     actions: @Composable TopAppBarActionsScope.() -> Unit,
     bottomBar: @Composable (() -> Unit)?,
-    content: @Composable () -> Unit
+    snackbarHost: @Composable (() -> Unit)?,
+    floatingActionButton: @Composable (() -> Unit)?,
+    floatingActionButtonPosition: FabPosition,
+    isFloatingActionButtonDockedAndroidxCommon: Boolean,
+    content: @Composable (PaddingValues) -> Unit
 ) =
     Scaffold(
         topBar = {
@@ -65,5 +80,10 @@ actual fun TopAppBarScaffold(
                 navigationIcon?.let { { NavigationIconScope.instance.it() } },
                 { TopAppBarActionsScope(this).actions() })
         },
-        bottomBar = bottomBar ?: {}
-    ) { content() }
+        bottomBar = bottomBar ?: {},
+        snackbarHost = snackbarHost?.let { { snackbarHost() } }
+            ?: { androidx.compose.material.SnackbarHost(it) },
+        floatingActionButton = floatingActionButton ?: {},
+        floatingActionButtonPosition = floatingActionButtonPosition.toPlatformValue(),
+        isFloatingActionButtonDocked = isFloatingActionButtonDockedAndroidxCommon
+    ) { content(it.toCommonValue()) }

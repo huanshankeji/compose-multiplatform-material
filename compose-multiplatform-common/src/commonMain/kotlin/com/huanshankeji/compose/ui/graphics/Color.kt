@@ -110,3 +110,7 @@ expect fun Color.luminance(): Float
 @Stable
 @ColorInt
 expect fun Color.toArgb(): Int
+
+fun interface ColorProducer {
+    operator fun invoke(): Color
+}

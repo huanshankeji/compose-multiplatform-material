@@ -2,9 +2,9 @@ package com.huanshankeji.compose.foundation.lazy
 
 import androidx.annotation.FloatRange
 import androidx.compose.runtime.Stable
-import com.huanshankeji.compose.layout.fillMaxHeight
-import com.huanshankeji.compose.layout.fillMaxSize
-import com.huanshankeji.compose.layout.fillMaxWidth
+import com.huanshankeji.compose.foundation.layout.fillMaxHeight
+import com.huanshankeji.compose.foundation.layout.fillMaxSize
+import com.huanshankeji.compose.foundation.layout.fillMaxWidth
 import com.huanshankeji.compose.ui.Modifier
 
 @Stable

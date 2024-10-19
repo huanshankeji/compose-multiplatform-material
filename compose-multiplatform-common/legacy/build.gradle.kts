@@ -1,8 +1,5 @@
-import com.huanshankeji.team.`Shreck Ye`
-import com.huanshankeji.team.pomForTeamDefaultOpenSource
-
 plugins {
-    `lib-conventions`
+    `lib-conventions-without-publishing`
 }
 
 kotlin {
@@ -28,6 +25,7 @@ kotlin {
     }
 }
 
+/*
 publishing.publications.withType<MavenPublication> {
     pomForTeamDefaultOpenSource(
         project,
@@ -39,3 +37,4 @@ publishing.publications.withType<MavenPublication> {
         `Shreck Ye`()
     }
 }
+*/

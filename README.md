@@ -21,19 +21,23 @@ This project is still in development and has not reached the stable state yet. S
 
 ##### `ext` components
 
-- `InlineBasicText`
+- `TaglessBasicText`
 
 ##### Layouts
 
-- `Box`
-- `Column` (via flexbox on JS)
-- `Row` (via flexbox on JS)
+- `Box` (based on Kobweb)
+- `Column` (via flexbox on JS, based on Kobweb)
+- `Row` (via flexbox on JS, based on Kobweb)
 - `Spacer`
+
+###### `ext` layouts
+
+ - `BoxWithConstraints`
 
 ##### Lazy
 
-- `LazyColumn`
-- `LazyRow`
+- `LazyColumn` (via flexbox on JS, based on Kobweb)
+- `LazyRow` (via flexbox on JS, based on Kobweb)
 
 #### Material 2 components
 
@@ -43,6 +47,7 @@ This project is still in development and has not reached the stable state yet. S
 - `Divider` (not working properly on JS yet)
 - `Icon`
 - `IconButton`
+- `Snackbar` (inconsistent, not recommended), `SnackBarHost` (recommended)
 - `Switch`
 - `Text`
 
@@ -52,7 +57,7 @@ This project is still in development and has not reached the stable state yet. S
 - `IconButton`
 - `RadioRow`, `RadioGroupRow`
 - `SwitchWithLabel`
-- `MaterialText`, `InlineText`
+- `MaterialText`, `TaglessText`
 - `TextField`, `OutlinedTextField`
 - `TopAppBarScaffold`
 
@@ -68,6 +73,7 @@ This project is still in development and has not reached the stable state yet. S
 - `FloatingActionButton`, `SmallFloatingActionButton`, `LargeFloatingActionButton`, `ExtendedFloatingActionButton`
 - `Icon`
 - `IconButton`, `IconToggleButton`, `FilledIconButton`, `FilledIconToggleButton`, `FilledTonalIconButton`, `FilledTonalIconToggleButton`, `OutlinedIconButton`, `OutlinedIconToggleButton`
+- `LinearProgressIndicator`, `CircularProgressIndicator`
 - `Switch`
 - `Text`
 
@@ -75,10 +81,12 @@ This project is still in development and has not reached the stable state yet. S
 
 - `Button` (`FilledButton`), `ElevatedButton`, `FilledTonalButton`, `OutlinedButton`, `TextButton`
 - `Card` (`FilledCard`), `ElevatedCard`, `OutlinedCard`
+- `DropdownMenu`, `DropdownMenuItem`
+   - `ExposedDropdownMenuBox`, `ExposedDropdownMenuBoxScope.ExposedDropdownMenuBoxTextField`, `ExposedDropdownMenuBoxScope.ExposedDropdownMenu`, `ExposedDropdownMenuWithTextField`
 - `FloatingActionButton`, `SmallFloatingActionButton`, `LargeFloatingActionButton`, `ExtendedFloatingActionButton`
 - `IconButton`, `IconToggleButton`, `FilledIconButton`, `FilledIconToggleButton`, `FilledTonalIconButton`, `FilledTonalIconToggleButton`, `OutlinedIconButton`, `OutlinedIconToggleButton`
 - `NavigationBar`, `NavigationBarItem`
-- `MaterialText`, `InlineText`
+- `MaterialText`, `TaglessText`
 - `TextField`, `OutlinedTextField`
 
 ##### `lazy.ext` components
@@ -95,6 +103,7 @@ The `com.huanshankeji.compose.material.icons.Icon` class delegates to both kinds
 
 ### Modifiers
 
+- `alpha`
 - size modifiers
   - `size`, `sizeIn`, `fillMaxSize`
   - `width`, `widthIn`, `fillMaxWidth`
@@ -116,6 +125,19 @@ The `com.huanshankeji.compose.material.icons.Icon` class delegates to both kinds
 - `Arrangement`
 - `KeyboardOptions`
 - `KeyboardActions`
+- `PaddingValues`
+
+### ViewModel
+
+The ViewModel module currently supports a small subset of the Compose ViewModel APIs, and delegates to raw UI state on
+Compose HTML / JS DOM. These APIs are highly experimental now.
+
+### Navigation
+
+The navigation module currently supports a small subset of the Compose Navigation APIs, which does not support
+transition or animation on Compose HTML / JS DOM. These APIs are also highly experimental now.
+See https://github.com/JetBrains/compose-multiplatform/issues/4966 for a bug to avoid. Also, ViewModel-related functions
+are not implemented yet on Compose HTML / JS DOM.
 
 ## Add the libraries to your dependency
 

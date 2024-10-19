@@ -2,6 +2,7 @@ package com.huanshankeji.compose.foundation.layout
 
 import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.Stable
+import androidx.compose.ui.unit.Dp
 import androidx.compose.foundation.layout.Arrangement as PlatformArrangement
 
 @Immutable
@@ -50,4 +51,8 @@ actual object Arrangement {
 
     @Stable
     actual val SpaceAround: HorizontalOrVertical = HorizontalOrVertical.Impl(PlatformArrangement.SpaceAround)
+
+    @Stable
+    actual fun spacedBy(space: Dp): HorizontalOrVertical =
+        HorizontalOrVertical.Impl(PlatformArrangement.spacedBy(space))
 }

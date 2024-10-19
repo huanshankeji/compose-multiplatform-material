@@ -8,6 +8,7 @@ import com.huanshankeji.compose.foundation.text.attrsFrom
 import com.huanshankeji.compose.html.material3.MdFilledTextField
 import com.huanshankeji.compose.html.material3.MdOutlinedTextField
 import com.huanshankeji.compose.html.material3.MdTextFieldScope
+import com.huanshankeji.compose.html.material3.TextareaInputType
 import com.huanshankeji.compose.ui.Modifier
 import com.huanshankeji.compose.ui.PlatformModifier
 import com.huanshankeji.compose.ui.toAttrs
@@ -19,6 +20,10 @@ import com.huanshankeji.compose.web.dom.ext.value
 import com.varabyte.kobweb.compose.ui.attrsModifier
 import org.jetbrains.compose.web.attributes.AttrsScope
 import org.w3c.dom.HTMLElement
+
+private fun inputType(singleLine: Boolean, lines: Int) =
+    // This is consistent with the `androidx.compose.material3` text field behavior.
+    if (singleLine || lines == 1) null else TextareaInputType
 
 private fun Modifier.toTextFieldAttrs(
     onValueChange: (String) -> Unit, keyboardOptions: KeyboardOptions, keyboardActions: KeyboardActions,
@@ -37,6 +42,7 @@ private fun TextFieldContent(
     trailingIcon: @Composable ((Modifier) -> Unit)?,
 ): @Composable MdTextFieldScope.() -> Unit = {
     with(elementScope) {
+        // This can't be put in `AttrsScope.ref` because it needs to run whenever `value` changes instead of just when the `HTMLElement` is added.
         DisposableEffect(value) {
             scopeElement.value = value
             onDispose {}
@@ -72,7 +78,7 @@ actual fun TextField(
         isError.isTrueOrNull(),
         supportingText, // TODO Is passing `supportingText` as `errorText` correct?
         label,
-        value = value,
+        //value = value, // This causes the caret to be reset to the start whenever the value changes if the `type` attribute is set. And since the value is set in the `content` `DisposableEffect` it seems OK not skip it here.
         prefixText = prefix,
         suffixText = suffix,
         hasLeadingIcon = leadingIcon?.let { true },
@@ -81,6 +87,7 @@ actual fun TextField(
         rows = if (singleLine) null else lines,
         placeholder = placeholder,
         readOnly = readOnly.isTrueOrNull(),
+        type = inputType(singleLine, lines),
 
         attrs = modifier.toTextFieldAttrs(onValueChange, keyboardOptions, keyboardActions),
         content = TextFieldContent(value, leadingIcon, trailingIcon)
@@ -112,7 +119,7 @@ actual fun OutlinedTextField(
         isError.isTrueOrNull(),
         supportingText, // TODO Is passing `supportingText` as `errorText` correct?
         label,
-        value = value,
+        //value = value, // This causes the caret to be reset to the start whenever the value changes if the `type` attribute is set. And since the value is set in the `content` `DisposableEffect` it seems OK not skip it here.
         prefixText = prefix,
         suffixText = suffix,
         hasLeadingIcon = leadingIcon?.let { true },
@@ -121,6 +128,7 @@ actual fun OutlinedTextField(
         rows = if (singleLine) null else lines,
         placeholder = placeholder,
         readOnly = readOnly.isTrueOrNull(),
+        type = inputType(singleLine, lines),
 
         attrs = modifier.toTextFieldAttrs(onValueChange, keyboardOptions, keyboardActions),
         content = TextFieldContent(value, leadingIcon, trailingIcon)

@@ -20,6 +20,7 @@ actual fun Column(
     com.varabyte.kobweb.compose.foundation.layout.Column(
         PlatformModifier
             .sizeFitContent() // "fit-content" is added to make it consistent with the `androidx` one
+            .stylesFrom(verticalArrangement)
             .then(modifier.platformModifier),
         verticalArrangement.platformValue,
         horizontalAlignment.platformValue,
@@ -41,7 +42,7 @@ actual interface ColumnScope {
         @FloatRange(from = 0.0, fromInclusive = false)
         weight: Float
     ): Modifier =
-        with(platformValue) { platformModify { weight(weight) } }
+        with(platformValue) { platformModify { flexBasis0().weight(weight) } }
 
     @Stable
     actual fun Modifier.align(alignment: Alignment.Horizontal): Modifier =

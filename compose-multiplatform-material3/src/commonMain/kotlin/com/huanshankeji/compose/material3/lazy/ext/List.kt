@@ -1,6 +1,7 @@
 package com.huanshankeji.compose.material3.lazy.ext
 
 import androidx.compose.runtime.Composable
+import com.huanshankeji.compose.foundation.ext.matchPositionRelativeParentJsOnly
 import com.huanshankeji.compose.material.icons.Icon
 import com.huanshankeji.compose.material3.ext.toNullableContentWithModifier
 import com.huanshankeji.compose.material3.ext.toNullableTextWithModifier
@@ -31,8 +32,14 @@ expect class ListScope {
 
 expect class ItemScope
 
+/**
+ * @param isInteractiveJs whether the item is interactive on JS DOM,
+ * aka whether it shows effects when the mouse pointer hovers above it or when it gets clicked.
+ * On the `androidx.compose` targets, use `Modifier.clickable` for the same effect.
+ */
 class ListItemComponents(
     val contentModifier: Modifier = Modifier,
+    val isInteractiveJs: Boolean,
     val headline: @Composable (Modifier) -> Unit,
     val start: @Composable ((Modifier) -> Unit)? = null,
     val end: @Composable ((Modifier) -> Unit)? = null,
@@ -42,6 +49,7 @@ class ListItemComponents(
 ) {
     constructor(
         contentModifier: Modifier = Modifier,
+        isInteractiveJs: Boolean,
         headline: String,
         start: Icon? = null,
         end: Icon? = null,
@@ -50,6 +58,7 @@ class ListItemComponents(
         overline: String? = null
     ) : this(
         contentModifier,
+        isInteractiveJs,
         headline.toTextWithModifier(),
         start.toNullableContentWithModifier(),
         end.toNullableContentWithModifier(),
@@ -59,6 +68,11 @@ class ListItemComponents(
     )
 }
 
+/**
+ * On JS DOM, if there isn't a parent with a fixed height
+ * and you want the list height to be constraint to the available space of the parent instead of expanding the parent,
+ * set "position:relative;" on the parent element and use [Modifier.matchPositionRelativeParentJsOnly].
+ */
 @Composable
 expect fun List(modifier: Modifier = Modifier, content: ListScope.() -> Unit)
 

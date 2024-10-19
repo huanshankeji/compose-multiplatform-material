@@ -2,37 +2,50 @@ package com.huanshankeji.compose.material2.ext
 
 import androidx.compose.runtime.Composable
 import com.huanshankeji.compose.contentDescription
+import com.huanshankeji.compose.foundation.ext.matchPositionRelativeParent
 import com.huanshankeji.compose.foundation.layout.Column
-import com.huanshankeji.compose.layout.fillMaxSize
+import com.huanshankeji.compose.foundation.layout.PaddingValues
+import com.huanshankeji.compose.foundation.layout.fillMaxSize
+import com.huanshankeji.compose.foundation.layout.fillMaxWidth
 import com.huanshankeji.compose.material.icons.Icon
+import com.huanshankeji.compose.material2.icons.mdcIconWithStyle
 import com.huanshankeji.compose.ui.Modifier
 import com.huanshankeji.compose.ui.toAttrs
+import com.varabyte.kobweb.compose.css.Overflow
+import com.varabyte.kobweb.compose.css.TextAlign
+import com.varabyte.kobweb.compose.css.overflow
+import com.varabyte.kobweb.compose.css.textAlign
 import dev.petuska.kmdc.top.app.bar.*
-import dev.petuska.kmdcx.icons.mdcIcon
+import org.jetbrains.compose.web.css.*
+import org.jetbrains.compose.web.dom.Div
 import org.jetbrains.compose.web.dom.Text
 
 actual class NavigationIconScope(val mdcTopAppBarSectionScope: MDCTopAppBarSectionScope) {
     @Composable
-    actual fun NavButton(onClick: () -> Unit, content: @Composable () -> Unit) =
-        mdcTopAppBarSectionScope.NavButton(attrs = { onClick { onClick() } }) { content() }
+    actual fun NavButton(onClick: () -> Unit, modifier: Modifier, content: @Composable () -> Unit) =
+        mdcTopAppBarSectionScope.NavButton(attrs = modifier.toAttrs { onClick { onClick() } }) { content() }
 
     @Composable
-    actual fun MaterialIconNavButton(onClick: () -> Unit, icon: Icon, contentDescription: String?) =
-        mdcTopAppBarSectionScope.NavButton(attrs = {
-            mdcIcon()
+    actual fun MaterialIconNavButton(onClick: () -> Unit, modifier: Modifier, icon: Icon, contentDescription: String?) =
+        mdcTopAppBarSectionScope.NavButton(attrs = modifier.toAttrs {
+            onClick { onClick() }
+            mdcIconWithStyle()
             contentDescription(contentDescription)
         }) { Text(icon.name) }
 }
 
 actual class TopAppBarActionsScope(val mdcTopAppBarSectionScope: MDCTopAppBarSectionScope) {
     @Composable
-    actual fun ActionButton(onClick: () -> Unit, content: @Composable () -> Unit) =
-        mdcTopAppBarSectionScope.ActionButton(attrs = { onClick { onClick() } }) { content() }
+    actual fun ActionButton(onClick: () -> Unit, modifier: Modifier, content: @Composable () -> Unit) =
+        mdcTopAppBarSectionScope.ActionButton(attrs = modifier.toAttrs { onClick { onClick() } }) { content() }
 
     @Composable
-    actual fun MaterialIconActionButton(onClick: () -> Unit, icon: Icon, contentDescription: String?) =
-        mdcTopAppBarSectionScope.ActionButton(attrs = {
-            mdcIcon()
+    actual fun MaterialIconActionButton(
+        onClick: () -> Unit, modifier: Modifier, icon: Icon, contentDescription: String?
+    ) =
+        mdcTopAppBarSectionScope.ActionButton(attrs = modifier.toAttrs {
+            onClick { onClick() }
+            mdcIconWithStyle()
             contentDescription(contentDescription)
         }) { Text(icon.name) }
 }
@@ -76,16 +89,62 @@ actual fun TopAppBarScaffold(
     navigationIcon: @Composable (NavigationIconScope.() -> Unit)?,
     actions: @Composable TopAppBarActionsScope.() -> Unit,
     bottomBar: @Composable (() -> Unit)?,
-    content: @Composable () -> Unit
-) =
+    snackbarHost: @Composable (() -> Unit)?,
+    floatingActionButton: @Composable (() -> Unit)?,
+    floatingActionButtonPosition: FabPosition,
+    isFloatingActionButtonDockedAndroidxCommon: Boolean,
+    content: @Composable (PaddingValues) -> Unit
+) {
+    @Composable
+    fun fabWithPosition(floatingActionButton: @Composable (() -> Unit)) =
+        Div({
+            style {
+                position(Position.Absolute)
+                bottom(16.px)
+                when (floatingActionButtonPosition) {
+                    FabPosition.Start -> left(16.px)
+                    FabPosition.Center -> {
+                        width(100.percent)
+                        textAlign(TextAlign.Center)
+                    }
+
+                    FabPosition.End -> right(16.px)
+                }
+            }
+        }) {
+            floatingActionButton()
+        }
+
     Column(Modifier.fillMaxSize()) {
         PrimitiveTopAppBarScaffold(
             title,
             topAppBarModifier,
             navigationIcon,
             actions,
-            Modifier.weight(1f),
-            content
-        )
+            Modifier.weight(1f).fillMaxWidth()
+        ) {
+            Div({
+                style {
+                    height(100.percent)
+                    position(Position.Relative)
+                }
+            }) {
+                Div({
+                    style {
+                        matchPositionRelativeParent()
+                        overflow(Overflow.Auto)
+                    }
+                }) {
+                    // see `ScaffoldLayoutWithMeasureFix`
+                    val innerPadding = PaddingValues()
+                    content(innerPadding)
+
+                    floatingActionButton?.let { fabWithPosition(it) }
+                }
+            }
+        }
+
         bottomBar?.invoke()
     }
+    snackbarHost?.let { it() }
+}

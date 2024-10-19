@@ -3,18 +3,15 @@ package com.huanshankeji.compose.material.demo
 import androidx.compose.runtime.*
 import androidx.compose.ui.unit.dp
 import com.huanshankeji.compose.foundation.background
-import com.huanshankeji.compose.foundation.layout.Column
-import com.huanshankeji.compose.foundation.layout.Row
-import com.huanshankeji.compose.foundation.layout.RowScope
+import com.huanshankeji.compose.foundation.layout.*
 import com.huanshankeji.compose.foundation.text.KeyboardActions
 import com.huanshankeji.compose.foundation.text.KeyboardOptions
 import com.huanshankeji.compose.foundation.text.input.ImeAction
 import com.huanshankeji.compose.foundation.text.input.KeyboardCapitalization
 import com.huanshankeji.compose.foundation.text.input.KeyboardType
-import com.huanshankeji.compose.layout.height
-import com.huanshankeji.compose.layout.padding
 import com.huanshankeji.compose.material.icons.Icons
 import com.huanshankeji.compose.material.icons.filled.Add
+import com.huanshankeji.compose.material.icons.filled.Done
 import com.huanshankeji.compose.material.icons.filled.Menu
 import com.huanshankeji.compose.material.icons.filled.Search
 import com.huanshankeji.compose.material2.*
@@ -25,26 +22,38 @@ import com.huanshankeji.compose.material2.lazy.ext.conventionalItem
 import com.huanshankeji.compose.material2.lazy.ext.conventionalItems
 import com.huanshankeji.compose.ui.Modifier
 import com.huanshankeji.compose.ui.graphics.Color
+import kotlinx.coroutines.launch
 import com.huanshankeji.compose.material2.ext.Button as ExtButton
 
 @Composable
 fun Material2(modifier: Modifier) {
+    val snackbarHostState = remember { SnackbarHostState() }
     // It seems the modifier can't be set on `TopAppBarScaffold` or a box wrapping it
     TopAppBarScaffold({
         Text("Compose Multiplatform Material demo")
     }, navigationIcon = {
-        MaterialIconNavButton({}, Icons.Default.Menu, "menu")
+        MaterialIconNavButton({}, icon = Icons.Default.Menu, contentDescription = "menu")
     }, actions = {
-        MaterialIconActionButton({}, Icons.Default.Search, "search")
+        MaterialIconActionButton({}, icon = Icons.Default.Search, contentDescription = "search")
+        MaterialIconActionButton({}, icon = Icons.Default.Done, contentDescription = "done")
+    }, snackbarHost = {
+        SnackbarHost(snackbarHostState)
     }) {
         Card(modifier.contentPadding()) {
-            Column(contentPaddingModifier.background(Color(0xF8, 0xF8, 0xF8, 0xFF))) {
+            Column(contentPaddingModifier.background(Color(0xF8, 0xF8, 0xF8, 0xFF)), Arrangement.spacedBy(16.dp)) {
                 Text("Material text")
 
                 var count by remember { mutableStateOf(0) }
-                val onClick: () -> Unit = { count++ }
+                val coroutineScope = rememberCoroutineScope()
+                val onClick: () -> Unit = {
+                    count++
+                    val count = count
+                    coroutineScope.launch {
+                        snackbarHostState.showSnackbar("Count incremented to $count", "action")
+                    }
+                }
                 val buttonContent: @Composable () -> Unit = {
-                    InlineText(count.toString())
+                    TaglessText(count.toString())
                 }
                 val rowScopeButtonContent: @Composable RowScope.() -> Unit = { buttonContent() }
 
@@ -118,12 +127,12 @@ fun Material2(modifier: Modifier) {
                 )
                 TextArea(text, { text = it }, label = "Demo text field", lines = 3)
 
-                var selected by remember { mutableStateOf(RadioButtonState.A) }
+                var selected by remember { mutableStateOf(Selection.A) }
                 RadioGroupRow {
                     @Composable
-                    fun RadioButtonRow(state: RadioButtonState) =
+                    fun RadioButtonRow(state: Selection) =
                         RadioRow(selected == state, state.toString(), { selected = state })
-                    RadioButtonState.entries.forEach { RadioButtonRow(it) }
+                    Selection.entries.forEach { RadioButtonRow(it) }
                 }
 
                 Row {
