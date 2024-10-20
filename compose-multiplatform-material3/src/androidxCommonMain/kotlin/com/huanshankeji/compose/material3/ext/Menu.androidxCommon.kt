@@ -9,15 +9,15 @@ import com.huanshankeji.compose.ui.Modifier
 @Composable
 actual fun DropdownMenu(
     expanded: Boolean,
-    onDismissRequestAndroidxCommonOnly: () -> Unit,
-    onCloseJsOnly: () -> Unit,
+    onDismissRequestAndroidx: () -> Unit,
+    onCloseJsDom: () -> Unit,
     modifier: Modifier,
     offset: DpOffset,
     content: @Composable () -> Unit
 ) =
     androidx.compose.material3.DropdownMenu(
         expanded,
-        onDismissRequestAndroidxCommonOnly,
+        onDismissRequestAndroidx,
         modifier.platformModifier,
         offset
     ) {
@@ -25,20 +25,20 @@ actual fun DropdownMenu(
     }
 
 actual class DropdownMenuBoxScope {
-    actual fun Modifier.menuAnchorJs(): Modifier =
+    actual fun Modifier.menuAnchorJsDom(): Modifier =
         this // do nothing
 
     @Composable
     actual fun DropdownMenu(
         expanded: Boolean,
-        onDismissRequestAndroidxCommonOnly: () -> Unit,
-        onCloseJsOnly: () -> Unit,
+        onDismissRequestAndroidx: () -> Unit,
+        onCloseJsDom: () -> Unit,
         modifier: Modifier,
         offset: DpOffset,
         content: @Composable () -> Unit
     ) =
         androidx.compose.material3.DropdownMenu(
-            expanded, onDismissRequestAndroidxCommonOnly, modifier.platformModifier, offset
+            expanded, onDismissRequestAndroidx, modifier.platformModifier, offset
         ) { content() }
 }
 
@@ -58,7 +58,7 @@ actual fun DropdownMenuItem(
     leadingIcon: @Composable ((Modifier) -> Unit)?,
     trailingIcon: @Composable ((Modifier) -> Unit)?,
     enabled: Boolean,
-    keepOpenJsOnly: Boolean
+    keepOpenJsDom: Boolean
 ) =
     androidx.compose.material3.DropdownMenuItem(
         text.toContentWithoutModifier(),

@@ -13,7 +13,7 @@ fun StyleScope.matchPositionRelativeParent() {
     // Also considering using `inset` (https://developer.mozilla.org/en-US/docs/Web/CSS/inset)
 }
 
-actual fun Modifier.matchPositionRelativeParentJsOnly(): Modifier =
+actual fun Modifier.matchPositionRelativeParentJsDom(): Modifier =
     platformModify {
         attrsModifier {
             style {

@@ -42,7 +42,7 @@ actual class ListScope(val mdListScope: MdListScope) {
     @Composable
     private fun ListItem(components: ListItemComponents) =
         mdListScope.MdListItem(
-            type = if (components.isInteractiveJs) MdListItemType.Button else null,
+            type = if (components.isInteractiveJsDom) MdListItemType.Button else null,
             attrs = components.contentModifier.toAttrs()
         ) {
             contentFromComponents(components)

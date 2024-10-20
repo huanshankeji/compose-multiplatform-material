@@ -23,7 +23,7 @@ import org.w3c.dom.HTMLElement
 internal fun CommonDropdownMenu(
     //anchor: String?,
     expanded: Boolean,
-    onCloseJsOnly: () -> Unit,
+    onCloseJsDom: () -> Unit,
     //onDismissRequest: () -> Unit,
     attrs: Attrs<MdMenuElement>?,
     offset: DpOffset = defaultDpOffset,
@@ -43,7 +43,7 @@ internal fun CommonDropdownMenu(
                 }
             }*/
             //onClosing<SyntheticEvent<*>> { onDismissRequest() } // the `androidx.compose` one invokes `onDismissRequest` only when the menu is closed and an item is not selected.
-            onClosing<SyntheticEvent<*>> { onCloseJsOnly() }
+            onClosing<SyntheticEvent<*>> { onCloseJsDom() }
 
             attrs?.invoke(this)
         }, content = content
@@ -91,17 +91,17 @@ internal fun MdMenuBox(modifier: Modifier, content: @Composable ElementScope<HTM
 @Composable
 actual fun DropdownMenu(
     expanded: Boolean,
-    onDismissRequestAndroidxCommonOnly: () -> Unit,
-    onCloseJsOnly: () -> Unit,
+    onDismissRequestAndroidx: () -> Unit,
+    onCloseJsDom: () -> Unit,
     modifier: Modifier,
     offset: DpOffset,
     content: @Composable () -> Unit
 ) =
-    CommonDropdownMenu(expanded, onCloseJsOnly, modifier.toAttrs(), offset) { content() }
+    CommonDropdownMenu(expanded, onCloseJsDom, modifier.toAttrs(), offset) { content() }
 
 actual class DropdownMenuBoxScope(anchorElementState: MutableState<HTMLElement?>) {
     var anchorElement by anchorElementState
-    actual fun Modifier.menuAnchorJs(): Modifier =
+    actual fun Modifier.menuAnchorJsDom(): Modifier =
         platformModify {
             attrsModifier {
                 refSetAnchorElementState { anchorElement = it }
@@ -111,14 +111,14 @@ actual class DropdownMenuBoxScope(anchorElementState: MutableState<HTMLElement?>
     @Composable
     actual fun DropdownMenu(
         expanded: Boolean,
-        onDismissRequestAndroidxCommonOnly: () -> Unit,
-        onCloseJsOnly: () -> Unit,
+        onDismissRequestAndroidx: () -> Unit,
+        onCloseJsDom: () -> Unit,
         modifier: Modifier,
         offset: DpOffset,
         content: @Composable () -> Unit
     ) =
         CommonDropdownMenu(
-            expanded, onCloseJsOnly,
+            expanded, onCloseJsDom,
             // The following is identical to inlining `mdMenuModifier(anchorElementState.value, modifier)` but probably due to some Compose compiler bugs invoking it directly doesn't work. FIXME when the bug is fixed
             {
                 ref {
@@ -145,11 +145,11 @@ actual fun DropdownMenuItem(
     leadingIcon: @Composable ((Modifier) -> Unit)?,
     trailingIcon: @Composable ((Modifier) -> Unit)?,
     enabled: Boolean,
-    keepOpenJsOnly: Boolean
+    keepOpenJsDom: Boolean
 ) =
     MdMenuItem(
         enabled.isFalseOrNull(),
-        keepOpen = keepOpenJsOnly.isTrueOrNull(),
+        keepOpen = keepOpenJsDom.isTrueOrNull(),
         attrs = modifier.toAttrs {
             onClick {
                 onClick()

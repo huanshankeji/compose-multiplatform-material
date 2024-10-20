@@ -214,7 +214,7 @@ fun Material3(modifier: Modifier) {
             var expanded by remember { mutableStateOf(false) }
             val close = { expanded = false }
             val (_, setSelection) = remember { mutableStateOf<Selection?>(null) }
-            IconButton({ expanded = true }, Modifier.menuAnchorJs()) {
+            IconButton({ expanded = true }, Modifier.menuAnchorJsDom()) {
                 Icon(Icons.Filled.ArrowDropDown, "Please select")
             }
             DropdownMenu(expanded, close, close) {

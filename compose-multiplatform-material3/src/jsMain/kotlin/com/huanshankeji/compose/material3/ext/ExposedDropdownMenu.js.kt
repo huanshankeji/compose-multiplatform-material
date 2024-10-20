@@ -59,15 +59,15 @@ actual class ExposedDropdownMenuBoxScope(
     @Composable
     actual fun ExposedDropdownMenu(
         expanded: Boolean,
-        onDismissRequestAndroidxCommonOnly: () -> Unit,
-        onCloseJsOnly: () -> Unit,
+        onDismissRequestAndroidx: () -> Unit,
+        onCloseJsDom: () -> Unit,
         modifier: Modifier,
         content: @Composable () -> Unit
     ) =
         CommonDropdownMenu(
             //ANCHOR_ID, // An alternative approach by setting IDs. Duplicate IDs are semantically incorrect, however.
             expanded,
-            onCloseJsOnly,
+            onCloseJsDom,
             // The following is identical to inlining `mdMenuModifier(anchorElementState.value, modifier)` but probably due to some Compose compiler bugs invoking it directly doesn't work. FIXME when the bug is fixed
             {
                 ref {

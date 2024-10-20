@@ -25,14 +25,14 @@ expect class ExposedDropdownMenuBoxScope {
     */
 
     /**
-     * @param onDismissRequestAndroidxCommonOnly not supported on JS.
-     * @param onCloseJsOnly JS only.
+     * @param onDismissRequestAndroidx not supported on JS.
+     * @param onCloseJsDom JS only.
      */
     @Composable
     fun ExposedDropdownMenu(
         expanded: Boolean,
-        onDismissRequestAndroidxCommonOnly: () -> Unit,
-        onCloseJsOnly: () -> Unit,
+        onDismissRequestAndroidx: () -> Unit,
+        onCloseJsDom: () -> Unit,
         modifier: Modifier = Modifier,
         //scrollState: ScrollState = rememberScrollState(),
         content: @Composable /*ColumnScope.*/() -> Unit
@@ -56,7 +56,7 @@ fun ExposedDropdownMenuBoxWithTextField(
         ExposedDropdownMenuBoxTextField(expanded, textFieldArgs)
         with(exposedDropdownMenuArgs) {
             ExposedDropdownMenu(
-                this.expanded, onDismissRequestAndroidxCommonOnly, onCloseJsOnly, this.modifier, content
+                this.expanded, onDismissRequestAndroidx, onCloseJsDom, this.modifier, content
             )
         }
     }
@@ -78,8 +78,8 @@ expect fun ExposedDropdownMenuBoxScope.ExposedDropdownMenuBoxTextField(
 
 class ExposedDropdownMenuArgs(
     val expanded: Boolean,
-    val onDismissRequestAndroidxCommonOnly: () -> Unit,
-    val onCloseJsOnly: () -> Unit,
+    val onDismissRequestAndroidx: () -> Unit,
+    val onCloseJsDom: () -> Unit,
     val modifier: Modifier = Modifier,
     val content: @Composable /*ColumnScope.*/() -> Unit
 )

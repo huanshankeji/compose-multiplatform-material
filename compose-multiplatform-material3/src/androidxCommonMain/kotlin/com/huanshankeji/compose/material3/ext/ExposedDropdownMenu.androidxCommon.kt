@@ -28,14 +28,14 @@ actual class ExposedDropdownMenuBoxScope(val platformValue: androidx.compose.mat
     @Composable
     actual fun ExposedDropdownMenu(
         expanded: Boolean,
-        onDismissRequestAndroidxCommonOnly: () -> Unit,
-        onCloseJsOnly: () -> Unit,
+        onDismissRequestAndroidx: () -> Unit,
+        onCloseJsDom: () -> Unit,
         modifier: Modifier,
         content: @Composable () -> Unit
     ) =
         platformValue.ExposedDropdownMenu(
             expanded,
-            onDismissRequestAndroidxCommonOnly,
+            onDismissRequestAndroidx,
             modifier.platformModifier
         ) { content() }
 }

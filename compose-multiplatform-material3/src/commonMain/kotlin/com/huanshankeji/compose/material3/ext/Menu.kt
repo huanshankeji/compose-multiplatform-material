@@ -15,8 +15,8 @@ internal val defaultDpOffset = DpOffset(0.dp, 0.dp)
 @Composable
 expect fun DropdownMenu(
     expanded: Boolean,
-    onDismissRequestAndroidxCommonOnly: () -> Unit,
-    onCloseJsOnly: () -> Unit,
+    onDismissRequestAndroidx: () -> Unit,
+    onCloseJsDom: () -> Unit,
     modifier: Modifier = Modifier,
     offset: DpOffset = defaultDpOffset,
     //scrollState: ScrollState = rememberScrollState(),
@@ -24,18 +24,18 @@ expect fun DropdownMenu(
 )
 
 expect class DropdownMenuBoxScope {
-    fun Modifier.menuAnchorJs(): Modifier
+    fun Modifier.menuAnchorJsDom(): Modifier
 
     /**
-     * @param onDismissRequestAndroidxCommonOnly not supported on JS.
-     * @param onCloseJsOnly JS only
+     * @param onDismissRequestAndroidx not supported on JS.
+     * @param onCloseJsDom JS only
      * @see com.huanshankeji.compose.material3.ext.DropdownMenu
      */
     @Composable
     fun DropdownMenu(
         expanded: Boolean,
-        onDismissRequestAndroidxCommonOnly: () -> Unit,
-        onCloseJsOnly: () -> Unit,
+        onDismissRequestAndroidx: () -> Unit,
+        onCloseJsDom: () -> Unit,
         modifier: Modifier = Modifier,
         offset: DpOffset = defaultDpOffset,
         //scrollState: ScrollState = rememberScrollState(),
@@ -47,7 +47,7 @@ expect class DropdownMenuBoxScope {
 expect fun DropdownMenuBox(content: @Composable DropdownMenuBoxScope.() -> Unit)
 
 /**
- * @param keepOpenJsOnly set to `true` for completely consistent behavior on JS to `androidx.compose`. However, if you set the `expanded` state to false in [onClick], doing this is unnecessary.
+ * @param keepOpenJsDom set to `true` for completely consistent behavior on JS to `androidx.compose`. However, if you set the `expanded` state to false in [onClick], doing this is unnecessary.
  */
 @Composable
 expect fun DropdownMenuItem(
@@ -57,7 +57,7 @@ expect fun DropdownMenuItem(
     leadingIcon: @Composable ((Modifier) -> Unit)? = null,
     trailingIcon: @Composable ((Modifier) -> Unit)? = null,
     enabled: Boolean = true,
-    keepOpenJsOnly: Boolean = false
+    keepOpenJsDom: Boolean = false
 )
 
 @Composable

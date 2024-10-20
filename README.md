@@ -97,6 +97,11 @@ This project is still in development and has not reached the stable state yet. S
 
 The components in the `ext` packages don't follow the `androidx.compose` APIs exactly, but rather provide wrappers are more idiomatic and conventional on both kinds of targets, wrapping different APIs which can't be unified following the `androidx.compose` APIs.
 
+#### About parameter names
+
+The parameter names with suffixes such as "JsDom" or "AndroidxCommon" are platform-specific, and only apply on their respective platform(s), Compose HTML / JS DOM or
+`androidx.compose` platforms.
+
 #### Material Icons
 
 The `com.huanshankeji.compose.material.icons.Icon` class delegates to both kinds of targets, but only a few Material Icons are added as PoC. You need to add your concrete icon implementations following the style of the existing ones in `com.huanshankeji.compose.material.icons` to use the icons you need. Track the progress of full icon support in [#4](/../../issues/4).
