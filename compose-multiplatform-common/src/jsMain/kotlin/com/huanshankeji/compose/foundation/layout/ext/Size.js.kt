@@ -7,28 +7,44 @@ import com.huanshankeji.compose.ui.Modifier
 import com.huanshankeji.compose.web.css.height
 import com.huanshankeji.compose.web.css.width
 import com.varabyte.kobweb.compose.ui.styleModifier
+import org.jetbrains.compose.web.css.StyleScope
 
 private const val CSS_STRETCH_VALUE = "stretch" // This does not work on Chrome.
-private val cssStretchValueBrowserDependent =
+private const val CSS_WEBKIT_STRETCH_VALUE = "-webkit-fill-available"
+private const val CSS_MOZ_STRETCH_VALUE = "-moz-available"
+val cssWidthStretchValueBrowserDependent =
     when (browser) {
-        Browser.Webkit -> "-webkit-fill-available"
-        Browser.Mozilla -> "-moz-available"
+        Browser.Webkit -> CSS_WEBKIT_STRETCH_VALUE
+        Browser.Mozilla -> CSS_MOZ_STRETCH_VALUE
         null -> ""
     }
 
+val cssHeightStretchValueBrowserDependent =
+    when (browser) {
+        Browser.Webkit -> CSS_WEBKIT_STRETCH_VALUE
+        Browser.Mozilla -> "100%" // Setting `CSS_MOZ_STRETCH_VALUE` for `height` seems to be not available on Firefox. See https://developer.mozilla.org/en-US/docs/Web/CSS/height#browser_compatibility.
+        null -> ""
+    }
+
+fun StyleScope.widthStretch() =
+    width(cssWidthStretchValueBrowserDependent)
+
+fun StyleScope.heightStretch() =
+    height(cssHeightStretchValueBrowserDependent)
+
 @Stable
 actual fun Modifier.fillMaxWidthStretch(): Modifier =
-    platformModify { styleModifier { width(cssStretchValueBrowserDependent) } }
+    platformModify { styleModifier { widthStretch() } }
 
 @Stable
 actual fun Modifier.fillMaxHeightStretch(): Modifier =
-    platformModify { styleModifier { height(cssStretchValueBrowserDependent) } } // Setting this for `height` seems to be not available on Firefox. See https://developer.mozilla.org/en-US/docs/Web/CSS/height#browser_compatibility.
+    platformModify { styleModifier { heightStretch() } }
 
 @Stable
 actual fun Modifier.fillMaxSizeStretch(): Modifier =
     platformModify {
         styleModifier {
-            width(cssStretchValueBrowserDependent)
-            height(cssStretchValueBrowserDependent) // Setting this for `height` seems to be not available on Firefox. See https://developer.mozilla.org/en-US/docs/Web/CSS/height#browser_compatibility.
+            widthStretch()
+            heightStretch()
         }
     }
