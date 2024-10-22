@@ -3,14 +3,14 @@ package com.huanshankeji.compose.material.demo
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
-import com.huanshankeji.androidx.navigation.compose.NavHost
-import com.huanshankeji.androidx.navigation.compose.composable
-import com.huanshankeji.androidx.navigation.compose.rememberNavController
+import com.huanshankeji.compose.foundation.background
 import com.huanshankeji.compose.foundation.layout.*
+import com.huanshankeji.compose.foundation.layout.ext.innerPadding
 import com.huanshankeji.compose.material3.Button
 import com.huanshankeji.compose.material3.ext.TaglessText
 import com.huanshankeji.compose.ui.Alignment
 import com.huanshankeji.compose.ui.Modifier
+import com.huanshankeji.compose.ui.graphics.Color
 
 internal enum class Selection {
     A, B, C
@@ -27,13 +27,10 @@ enum class Screen {
 
 @Composable
 fun App() {
-    val navController = rememberNavController()
-    NavHost(navController, Screen.Home.name) {
-        composable(Screen.Home.name) { Home(navController) }
-        //fun subDemoModifier()
-        composable(Screen.Common.name) { Common() }
-        composable(Screen.Material2.name) { Material2() }
-        composable(Screen.Material3.name) { Material3() }
+    Box(Modifier.background(Color.Green).size(800.dp).innerPadding(150.dp)) {
+        Box(Modifier.background(Color.Yellow).innerPadding(150.dp)) {
+            Box(Modifier.background(Color.Red).size(400.dp))
+        }
     }
 }
 
