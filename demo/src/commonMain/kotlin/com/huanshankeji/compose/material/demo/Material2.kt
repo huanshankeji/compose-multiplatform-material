@@ -4,11 +4,13 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.unit.dp
 import com.huanshankeji.compose.foundation.background
 import com.huanshankeji.compose.foundation.layout.*
+import com.huanshankeji.compose.foundation.rememberScrollState
 import com.huanshankeji.compose.foundation.text.KeyboardActions
 import com.huanshankeji.compose.foundation.text.KeyboardOptions
 import com.huanshankeji.compose.foundation.text.input.ImeAction
 import com.huanshankeji.compose.foundation.text.input.KeyboardCapitalization
 import com.huanshankeji.compose.foundation.text.input.KeyboardType
+import com.huanshankeji.compose.foundation.verticalScroll
 import com.huanshankeji.compose.material.icons.Icons
 import com.huanshankeji.compose.material.icons.filled.Add
 import com.huanshankeji.compose.material.icons.filled.Done
@@ -26,7 +28,7 @@ import kotlinx.coroutines.launch
 import com.huanshankeji.compose.material2.ext.Button as ExtButton
 
 @Composable
-fun Material2(modifier: Modifier) {
+fun Material2(modifier: Modifier = Modifier) {
     val snackbarHostState = remember { SnackbarHostState() }
     // It seems the modifier can't be set on `TopAppBarScaffold` or a box wrapping it
     TopAppBarScaffold({
@@ -39,7 +41,7 @@ fun Material2(modifier: Modifier) {
     }, snackbarHost = {
         SnackbarHost(snackbarHostState)
     }) {
-        Card(modifier.contentPadding()) {
+        Card(modifier.verticalScroll(rememberScrollState()).contentPadding()) {
             Column(contentPaddingModifier.background(Color(0xF8, 0xF8, 0xF8, 0xFF)), Arrangement.spacedBy(16.dp)) {
                 Text("Material text")
 

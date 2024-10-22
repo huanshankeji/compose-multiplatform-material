@@ -7,6 +7,7 @@ import com.huanshankeji.compose.foundation.ext.outerBorder
 import com.huanshankeji.compose.foundation.ext.roundedCornerBackgroundAndOuterBorder
 import com.huanshankeji.compose.foundation.ext.roundedCornerOuterBorder
 import com.huanshankeji.compose.foundation.layout.*
+import com.huanshankeji.compose.foundation.layout.ext.fillMaxWidthStretch
 import com.huanshankeji.compose.foundation.lazy.LazyColumn
 import com.huanshankeji.compose.foundation.lazy.LazyListScope
 import com.huanshankeji.compose.foundation.lazy.LazyRow
@@ -16,8 +17,11 @@ import com.huanshankeji.compose.ui.Modifier
 import com.huanshankeji.compose.ui.graphics.Color
 
 @Composable
-fun Common(modifier: Modifier) {
-    Column(modifier, Arrangement.spacedBy(16.dp)) {
+fun Common(modifier: Modifier = Modifier) {
+    Column(
+        modifier.fillMaxWidthStretch().verticalScroll(rememberScrollState()).contentPadding(),
+        Arrangement.spacedBy(16.dp)
+    ) {
         BasicText("basic text 1")
         BasicText("basic text 2")
 
