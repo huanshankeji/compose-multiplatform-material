@@ -6,7 +6,12 @@ import androidx.navigation.NavHostController
 import com.huanshankeji.androidx.navigation.compose.NavHost
 import com.huanshankeji.androidx.navigation.compose.composable
 import com.huanshankeji.androidx.navigation.compose.rememberNavController
-import com.huanshankeji.compose.foundation.layout.*
+import com.huanshankeji.compose.foundation.layout.Arrangement
+import com.huanshankeji.compose.foundation.layout.Box
+import com.huanshankeji.compose.foundation.layout.Column
+import com.huanshankeji.compose.foundation.layout.ext.fillMaxSizeStretch
+import com.huanshankeji.compose.foundation.layout.ext.innerPadding
+import com.huanshankeji.compose.foundation.layout.ext.outerPadding
 import com.huanshankeji.compose.material3.Button
 import com.huanshankeji.compose.material3.ext.TaglessText
 import com.huanshankeji.compose.ui.Alignment
@@ -18,8 +23,9 @@ internal enum class Selection {
 
 val listSize = 160.dp
 
-fun Modifier.contentPadding() = padding(16.dp)
-val contentPaddingModifier = Modifier.contentPadding()
+fun Modifier.outerContentPadding() = outerPadding(16.dp)
+fun Modifier.innerContentPadding() = innerPadding(16.dp)
+val contentPaddingModifier = Modifier.outerContentPadding()
 
 enum class Screen {
     Home, Common, Material2, Material3
@@ -39,7 +45,7 @@ fun App() {
 
 @Composable
 fun Home(navController: NavHostController) {
-    Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+    Box(Modifier.fillMaxSizeStretch(), contentAlignment = Alignment.Center) {
         Column(verticalArrangement = Arrangement.spacedBy(16.dp)) {
             Button({ navController.navigate(Screen.Common.name) }) {
                 TaglessText("Common")

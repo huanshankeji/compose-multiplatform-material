@@ -8,19 +8,29 @@ import com.huanshankeji.compose.foundation.layout.ext.innerPadding
 import com.huanshankeji.compose.foundation.layout.ext.outerPadding
 import com.huanshankeji.compose.ui.Modifier
 
-private const val PADDING_DEPRECATED_MESSAGE = "Use `paddingFirst` or checkout out `paddingLast` instead."
+private const val PADDING_DEPRECATED_MESSAGE = "Use `outerPadding` or checkout out `innerPadding` instead."
+
+private const val REPLACE_WITH_PACKAGE = "com.huanshankeji.compose.foundation.layout.ext"
+private const val OUTER_PADDING_REPLACE_WITH_IMPORT = "$REPLACE_WITH_PACKAGE.outerPadding"
+private const val ABSOLUTE_OUTER_PADDING_REPLACE_WITH_IMPORT = "$REPLACE_WITH_PACKAGE.absoluteOuterPadding"
 
 /**
  * See the KDoc of the overload with one [Dp] parameter for platform differences.
  */
-@Deprecated(PADDING_DEPRECATED_MESSAGE, ReplaceWith("this.paddingFirst(start, top, end, bottom)"))
+@Deprecated(
+    PADDING_DEPRECATED_MESSAGE,
+    ReplaceWith("this.outerPadding(start, top, end, bottom)", OUTER_PADDING_REPLACE_WITH_IMPORT)
+)
 @Stable
 expect fun Modifier.padding(start: Dp = 0.dp, top: Dp = 0.dp, end: Dp = 0.dp, bottom: Dp = 0.dp): Modifier
 
 /**
  * See the KDoc of the overload with one [Dp] parameter for platform differences.
  */
-@Deprecated(PADDING_DEPRECATED_MESSAGE, ReplaceWith("this.paddingFirst(horizontal, vertical)"))
+@Deprecated(
+    PADDING_DEPRECATED_MESSAGE,
+    ReplaceWith("this.outerPadding(horizontal, vertical)", OUTER_PADDING_REPLACE_WITH_IMPORT)
+)
 @Stable
 expect fun Modifier.padding(horizontal: Dp = 0.dp, vertical: Dp = 0.dp): Modifier
 
@@ -31,21 +41,27 @@ expect fun Modifier.padding(horizontal: Dp = 0.dp, vertical: Dp = 0.dp): Modifie
  * @see outerPadding
  * @see innerPadding
  */
-@Deprecated(PADDING_DEPRECATED_MESSAGE, ReplaceWith("this.paddingFirst(all)"))
+@Deprecated(PADDING_DEPRECATED_MESSAGE, ReplaceWith("this.outerPadding(all)", OUTER_PADDING_REPLACE_WITH_IMPORT))
 @Stable
 expect fun Modifier.padding(all: Dp): Modifier
 
 /**
  * See the KDoc of the overload with one [Dp] parameter for platform differences.
  */
-@Deprecated(PADDING_DEPRECATED_MESSAGE, ReplaceWith("this.paddingFirst(paddingValues)"))
+@Deprecated(
+    PADDING_DEPRECATED_MESSAGE,
+    ReplaceWith("this.outerPadding(paddingValues)", OUTER_PADDING_REPLACE_WITH_IMPORT)
+)
 @Stable
 expect fun Modifier.padding(paddingValues: PaddingValues): Modifier
 
 /**
  * See the KDoc of the overload with one [Dp] parameter for platform differences.
  */
-@Deprecated(PADDING_DEPRECATED_MESSAGE, ReplaceWith("this.absolutePaddingFirst(left, top, right, bottom)"))
+@Deprecated(
+    PADDING_DEPRECATED_MESSAGE,
+    ReplaceWith("this.absoluteOuterPadding(left, top, right, bottom)", ABSOLUTE_OUTER_PADDING_REPLACE_WITH_IMPORT)
+)
 @Stable
 expect fun Modifier.absolutePadding(left: Dp = 0.dp, top: Dp = 0.dp, right: Dp = 0.dp, bottom: Dp = 0.dp): Modifier
 

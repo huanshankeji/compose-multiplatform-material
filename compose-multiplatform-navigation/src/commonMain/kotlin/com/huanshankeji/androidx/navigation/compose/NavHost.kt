@@ -12,7 +12,7 @@ expect fun NavHost(
     navController: NavHostController,
     startDestination: String,
     modifier: Modifier = Modifier,
-    contentAlignment: Alignment = Alignment.Center,
+    contentAlignment: Alignment = Alignment.TopStart,
     route: String? = null,
     builder: NavGraphBuilder.() -> Unit
 )
@@ -22,5 +22,5 @@ expect fun NavHost(
     navController: NavHostController,
     graph: NavGraph,
     modifier: Modifier = Modifier,
-    contentAlignment: Alignment = Alignment.Center,
+    contentAlignment: Alignment = Alignment.TopStart,
 )
