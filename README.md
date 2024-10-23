@@ -141,7 +141,7 @@ Compose HTML / JS DOM. These APIs are highly experimental now.
 
 The navigation module currently supports a small subset of the Compose Navigation APIs, which does not support
 transition or animation on Compose HTML / JS DOM. These APIs are also highly experimental now.
-See https://github.com/JetBrains/compose-multiplatform/issues/4966 for a bug to avoid. Also, ViewModel-related functions
+See [CMP-4966](https://youtrack.jetbrains.com/issue/CMP-4966) for a bug to avoid. Also, ViewModel-related functions
 are not implemented yet on Compose HTML / JS DOM.
 
 ## Add the libraries to your dependency
