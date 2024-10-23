@@ -37,6 +37,8 @@ fun Material2(/*modifier: Modifier = Modifier*/) {
     }, actions = {
         MaterialIconActionButton({}, icon = Icons.Default.Search, contentDescription = "search")
         MaterialIconActionButton({}, icon = Icons.Default.Done, contentDescription = "done")
+    }, bottomBar = {
+        Text("Bottom bar") // The Material 2 bottom bar is not added so this is a placeholder.
     }, snackbarHost = {
         SnackbarHost(snackbarHostState)
     }, floatingActionButton = {
