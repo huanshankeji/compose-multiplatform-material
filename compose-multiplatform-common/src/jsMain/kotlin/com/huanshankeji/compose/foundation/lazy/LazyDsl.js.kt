@@ -1,9 +1,9 @@
 package com.huanshankeji.compose.foundation.lazy
 
 import androidx.compose.runtime.Composable
-import com.huanshankeji.compose.foundation.horizontalScrollPlatformModifier
+import com.huanshankeji.compose.foundation.imitateAndroidxLayoutHorizontalScrollPlatformModifier
+import com.huanshankeji.compose.foundation.imitateAndroidxLayoutVerticalScrollPlatformModifier
 import com.huanshankeji.compose.foundation.layout.*
-import com.huanshankeji.compose.foundation.verticalScrollPlatformModifier
 import com.huanshankeji.compose.runtime.DeferredComposableRunner
 import com.huanshankeji.compose.ui.Alignment
 import com.huanshankeji.compose.ui.Modifier
@@ -63,7 +63,7 @@ actual fun LazyRow(
     content: LazyListScope.() -> Unit
 ) =
     Row(
-        commonLazyModifier(horizontalScrollPlatformModifier, contentPadding, modifier),
+        commonLazyModifier(imitateAndroidxLayoutHorizontalScrollPlatformModifier, contentPadding, modifier),
         horizontalArrangement,
         verticalAlignment
     ) {
@@ -80,7 +80,7 @@ actual fun LazyColumn(
     content: LazyListScope.() -> Unit
 ) =
     Column(
-        commonLazyModifier(verticalScrollPlatformModifier, contentPadding, modifier),
+        commonLazyModifier(imitateAndroidxLayoutVerticalScrollPlatformModifier, contentPadding, modifier),
         verticalArrangement,
         horizontalAlignment
     ) {

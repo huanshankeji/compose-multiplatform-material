@@ -39,6 +39,8 @@ fun Material2(/*modifier: Modifier = Modifier*/) {
         MaterialIconActionButton({}, icon = Icons.Default.Done, contentDescription = "done")
     }, snackbarHost = {
         SnackbarHost(snackbarHostState)
+    }, floatingActionButton = {
+        Text("FAB") // The Material 2 FAB is not added so this is a placeholder.
     }) {
         VerticalScrollBox {
             Card(contentPaddingModifier) {

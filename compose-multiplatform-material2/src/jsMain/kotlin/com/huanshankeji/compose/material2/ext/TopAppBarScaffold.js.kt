@@ -5,15 +5,13 @@ import com.huanshankeji.compose.contentDescription
 import com.huanshankeji.compose.foundation.ext.matchPositionRelativeParent
 import com.huanshankeji.compose.foundation.layout.Column
 import com.huanshankeji.compose.foundation.layout.PaddingValues
+import com.huanshankeji.compose.foundation.layout.ext.fillMaxWidthStretch
 import com.huanshankeji.compose.foundation.layout.fillMaxSize
-import com.huanshankeji.compose.foundation.layout.fillMaxWidth
 import com.huanshankeji.compose.material.icons.Icon
 import com.huanshankeji.compose.material2.icons.mdcIconWithStyle
 import com.huanshankeji.compose.ui.Modifier
 import com.huanshankeji.compose.ui.toAttrs
-import com.varabyte.kobweb.compose.css.Overflow
 import com.varabyte.kobweb.compose.css.TextAlign
-import com.varabyte.kobweb.compose.css.overflow
 import com.varabyte.kobweb.compose.css.textAlign
 import dev.petuska.kmdc.top.app.bar.*
 import org.jetbrains.compose.web.css.*
@@ -121,26 +119,27 @@ actual fun TopAppBarScaffold(
             topAppBarModifier,
             navigationIcon,
             actions,
-            Modifier.weight(1f).fillMaxWidth()
+            Modifier.weight(1f).fillMaxWidthStretch()
         ) {
+            // The content gets hidden behind the top app bar if this div is not added.
             Div({
                 style {
                     height(100.percent)
-                    position(Position.Relative)
+                    position(Position.Relative) // same issue as above if not added
                 }
             }) {
                 Div({
                     style {
                         matchPositionRelativeParent()
-                        overflow(Overflow.Auto)
+                        //overflow(Overflow.Auto) // This seems not needed. TODO remove if confirmed to be not needed
                     }
                 }) {
                     // see `ScaffoldLayoutWithMeasureFix`
                     val innerPadding = PaddingValues()
                     content(innerPadding)
-
-                    floatingActionButton?.let { fabWithPosition(it) }
                 }
+
+                floatingActionButton?.let { fabWithPosition(it) }
             }
         }
 

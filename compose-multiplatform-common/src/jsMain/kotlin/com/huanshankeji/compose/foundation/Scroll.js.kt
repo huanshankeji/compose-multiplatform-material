@@ -10,6 +10,7 @@ import com.huanshankeji.compose.foundation.layout.ext.KobwebBox
 import com.huanshankeji.compose.ui.Alignment
 import com.huanshankeji.compose.ui.Modifier
 import com.huanshankeji.compose.ui.PlatformModifier
+import com.huanshankeji.kobweb.compose.ui.modifiers.imitateAndroidxLayout
 import com.varabyte.kobweb.compose.ui.styleModifier
 
 fun PlatformModifier.verticalScroll() =
@@ -18,8 +19,8 @@ fun PlatformModifier.verticalScroll() =
 fun PlatformModifier.horizontalScroll() =
     styleModifier { horizontalScroll() }
 
-val verticalScrollPlatformModifier = PlatformModifier.verticalScroll()
-val horizontalScrollPlatformModifier = PlatformModifier.horizontalScroll()
+val imitateAndroidxLayoutVerticalScrollPlatformModifier = PlatformModifier.imitateAndroidxLayout().verticalScroll()
+val imitateAndroidxLayoutHorizontalScrollPlatformModifier = PlatformModifier.imitateAndroidxLayout().horizontalScroll()
 
 
 @Composable
