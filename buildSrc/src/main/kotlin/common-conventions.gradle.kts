@@ -8,7 +8,7 @@ plugins {
 }
 
 repositories {
-    mavenLocal()
+    //mavenLocal() // commented out so the build is always reproducible by others // put back if needed when depending on a snapshot
     mavenCentral()
     google()
     maven("https://us-central1-maven.pkg.dev/varabyte-repos/public") // for Kobweb
