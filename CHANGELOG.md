@@ -37,17 +37,17 @@
 * make multiline text fields work on JS DOM
 * add an `isInteractiveJsDom` parameter to ListItemComponents
 
-### Navigtion
+### Navigation
 
 * initially support navigation
 
-### ViewModl
+### ViewModel
 
 * initially support ViewModel which delegates to raw UI state on Compose HTML / JS DOM
 
 ### Demo
 
-* make the demo UI fridendly on mobile
+* make the demo UI friendly on mobile
 
 ## v0.3.0 / 2024-5-10
 
@@ -55,4 +55,4 @@ Support Material 3. See the Updated README.md for more details.
 
 ## v0.2.0 / 2024-4-17
 
-The project now depends on Kobweb Silk on Kotlin/JS (Compose HTML) and there is a universal multiplatform interface for `Modifier`, scopes, etc. akin to those in `androidx.compose`. Obselete code including `ModifierOrAttrsScope` is moved to a legacy module.
+The project now depends on Kobweb Silk on Kotlin/JS (Compose HTML) and there is a universal multiplatform interface for `Modifier`, scopes, etc. akin to those in `androidx.compose`. Obsolete code including `ModifierOrAttrsScope` is moved to a legacy module.
