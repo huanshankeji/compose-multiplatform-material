@@ -31,6 +31,7 @@ actual interface RowScope {
     @JvmInline
     actual value class Impl(override val platformValue: PlatformRowScope) : RowScope
 
+    @Stable
     actual fun Modifier.weight(
         @FloatRange(from = 0.0, fromInclusive = false)
         weight: Float

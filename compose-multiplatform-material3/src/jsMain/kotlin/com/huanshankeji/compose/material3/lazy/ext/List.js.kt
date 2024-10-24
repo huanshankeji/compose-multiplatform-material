@@ -1,9 +1,10 @@
 package com.huanshankeji.compose.material3.lazy.ext
 
 import androidx.compose.runtime.Composable
-import com.huanshankeji.compose.foundation.verticalScrollPlatformModifier
+import com.huanshankeji.compose.foundation.imitateAndroidxLayoutVerticalScrollPlatformModifier
 import com.huanshankeji.compose.html.material3.MdList
 import com.huanshankeji.compose.html.material3.MdListItemScope
+import com.huanshankeji.compose.html.material3.MdListItemType
 import com.huanshankeji.compose.html.material3.MdListScope
 import com.huanshankeji.compose.runtime.DeferredComposableRunner
 import com.huanshankeji.compose.ui.Modifier
@@ -39,9 +40,12 @@ actual class ListScope(val mdListScope: MdListScope) {
 
 
     @Composable
-    private fun ListItem(content: ListItemComponents) =
-        mdListScope.MdListItem(attrs = content.contentModifier.toAttrs()) {
-            contentFromComponents(content)
+    private fun ListItem(components: ListItemComponents) =
+        mdListScope.MdListItem(
+            type = if (components.isInteractiveJsDom) MdListItemType.Button else null,
+            attrs = components.contentModifier.toAttrs()
+        ) {
+            contentFromComponents(components)
         }
 
 
@@ -91,6 +95,6 @@ actual fun List(
     modifier: Modifier,
     content: ListScope.() -> Unit
 ) =
-    MdList(verticalScrollPlatformModifier.then(modifier.platformModifier).toAttrs()) {
+    MdList(imitateAndroidxLayoutVerticalScrollPlatformModifier.then(modifier.platformModifier).toAttrs()) {
         ListScope(this).ComposableRun(content)
     }

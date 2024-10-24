@@ -1,7 +1,7 @@
 package com.huanshankeji.compose.material2.lazy.ext
 
 import androidx.compose.runtime.Composable
-import com.huanshankeji.compose.material2.ext.InlineText
+import com.huanshankeji.compose.material2.ext.TaglessText
 import com.huanshankeji.compose.ui.Modifier
 
 expect class ListScope {
@@ -34,8 +34,8 @@ class ListItemComponents(
     val secondaryText: @Composable (() -> Unit)? = null
 ) {
     constructor(text: String, secondaryText: String? = null) : this(
-        { InlineText(text) },
-        secondaryText?.let { { InlineText(it) } }
+        { TaglessText(text) },
+        secondaryText?.let { { TaglessText(it) } }
     )
 }
 

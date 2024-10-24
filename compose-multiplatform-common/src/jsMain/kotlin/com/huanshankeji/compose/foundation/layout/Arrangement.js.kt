@@ -2,19 +2,32 @@ package com.huanshankeji.compose.foundation.layout
 
 import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.Stable
+import androidx.compose.ui.unit.Dp
+import com.huanshankeji.compose.foundation.layout.Arrangement.CommonArrangement
+import com.huanshankeji.compose.ui.PlatformModifier
+import com.huanshankeji.compose.ui.unit.toPx
+import com.varabyte.kobweb.compose.foundation.layout.Arrangement
+import com.varabyte.kobweb.compose.ui.styleModifier
+import org.jetbrains.compose.web.css.StyleScope
+import org.jetbrains.compose.web.css.gap
 import com.varabyte.kobweb.compose.foundation.layout.Arrangement as PlatformArrangement
 
 @Immutable
 actual object Arrangement {
     @Stable
-    actual interface Horizontal {
+    interface CommonArrangement {
+        fun StyleScope.styles() {}
+    }
+
+    @Stable
+    actual interface Horizontal : CommonArrangement {
         val platformValue: PlatformArrangement.Horizontal
 
         class Impl(override val platformValue: PlatformArrangement.Horizontal) : Horizontal
     }
 
     @Stable
-    actual interface Vertical {
+    actual interface Vertical : CommonArrangement {
         val platformValue: PlatformArrangement.Vertical
 
         class Impl(override val platformValue: PlatformArrangement.Vertical) : Vertical
@@ -25,6 +38,13 @@ actual object Arrangement {
         override val platformValue: PlatformArrangement.HorizontalOrVertical
 
         class Impl(override val platformValue: PlatformArrangement.HorizontalOrVertical) : HorizontalOrVertical
+
+        abstract class FromStyleImpl : HorizontalOrVertical {
+            override val platformValue: Arrangement.HorizontalOrVertical
+                get() = Arrangement.FromStyle
+
+            abstract override fun StyleScope.styles()
+        }
     }
 
     @Stable
@@ -50,4 +70,17 @@ actual object Arrangement {
 
     @Stable
     actual val SpaceAround: HorizontalOrVertical = HorizontalOrVertical.Impl(PlatformArrangement.SpaceAround)
+
+    @Stable
+    actual fun spacedBy(space: Dp): HorizontalOrVertical =
+        object : HorizontalOrVertical.FromStyleImpl() {
+            override fun StyleScope.styles() {
+                gap(space.toPx())
+            }
+        }
 }
+
+fun PlatformModifier.stylesFrom(arrangement: CommonArrangement) =
+    styleModifier {
+        with(arrangement) { styles() }
+    }

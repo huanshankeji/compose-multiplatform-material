@@ -7,8 +7,8 @@ import androidx.compose.runtime.Stable
 import androidx.compose.ui.unit.Dp
 import com.huanshankeji.compose.foundation.BorderStroke
 import com.huanshankeji.compose.foundation.border
+import com.huanshankeji.compose.foundation.layout.padding
 import com.huanshankeji.compose.foundation.toPlatformValue
-import com.huanshankeji.compose.layout.padding
 import com.huanshankeji.compose.ui.Modifier
 import com.huanshankeji.compose.ui.graphics.Color
 

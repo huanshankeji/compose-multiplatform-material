@@ -16,4 +16,5 @@ expect fun RadioRow(
 @Composable
 expect fun RadioGroupRow(modifier: Modifier = Modifier, content: @Composable () -> Unit)
 
-// TODO `RadioGroupColumn`
+@Composable
+expect fun RadioGroupColumn(modifier: Modifier = Modifier, content: @Composable () -> Unit)

@@ -1,11 +1,27 @@
 import com.huanshankeji.team.`Shreck Ye`
 import com.huanshankeji.team.pomForTeamDefaultOpenSource
+import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
 
 plugins {
     `lib-conventions`
 }
 
 kotlin {
+    @OptIn(ExperimentalKotlinGradlePluginApi::class)
+    applyDefaultHierarchyTemplate {
+        common {
+            group("androidxCommon") {
+                group("androidxCommonExceptAndroid") {
+                    withJvm()
+                    group("ios")
+                    withWasmJs()
+                }
+            }
+            withAndroidTarget()
+        }
+    }
+
+
     sourceSets {
         /*
         Use `api`. See:
@@ -31,6 +47,7 @@ kotlin {
         androidxCommonMain {
             dependencies {
                 api(compose.foundation)
+                implementation(compose.ui)
             }
         }
         jsMain {
@@ -47,8 +64,8 @@ kotlin {
 publishing.publications.withType<MavenPublication> {
     pomForTeamDefaultOpenSource(
         project,
-        "Compose Multiplatform common wrappers",
-        "Common wrappers of components (including layouts) and styles for Compose Multiplatform on (desktop/Android and web)"
+        "Unified Compose Multiplatform common wrappers $FOR_COMPOSE_TARGETS_IN_TITLE",
+        "Common wrappers of components (including layouts) and modifiers $FOR_COMPOSE_TARGETS_IN_DESCRIPTION"
     ) {
         `Shreck Ye`()
     }

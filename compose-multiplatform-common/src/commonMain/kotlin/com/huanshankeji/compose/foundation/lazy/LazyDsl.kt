@@ -2,6 +2,7 @@ package com.huanshankeji.compose.foundation.lazy
 
 import androidx.compose.runtime.Composable
 import com.huanshankeji.compose.foundation.layout.Arrangement
+import com.huanshankeji.compose.foundation.layout.PaddingValues
 import com.huanshankeji.compose.ui.Alignment
 import com.huanshankeji.compose.ui.Modifier
 
@@ -95,7 +96,7 @@ inline fun <T> LazyListScope.itemsIndexed(
 expect fun LazyRow(
     modifier: Modifier = Modifier,
     //state: LazyListState = rememberLazyListState(),
-    //contentPadding: PaddingValues = PaddingValues(0.dp),
+    contentPadding: PaddingValues? = null,
     reverseLayout: Boolean = false,
     horizontalArrangement: Arrangement.Horizontal =
         if (!reverseLayout) Arrangement.Start else Arrangement.End,
@@ -112,7 +113,7 @@ expect fun LazyRow(
 expect fun LazyColumn(
     modifier: Modifier = Modifier,
     //state: LazyListState = rememberLazyListState(),
-    //contentPadding: PaddingValues = PaddingValues(0.dp),
+    contentPadding: PaddingValues? = null,
     reverseLayout: Boolean = false,
     verticalArrangement: Arrangement.Vertical =
         if (!reverseLayout) Arrangement.Top else Arrangement.Bottom,

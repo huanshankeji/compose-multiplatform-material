@@ -6,7 +6,7 @@ import androidx.compose.runtime.Stable
 import com.huanshankeji.compose.ui.Alignment
 import com.huanshankeji.compose.ui.Modifier
 import com.huanshankeji.compose.ui.PlatformModifier
-import com.huanshankeji.kobweb.compose.ui.modifiers.sizeFitContent
+import com.huanshankeji.kobweb.compose.ui.modifiers.imitateAndroidxLayout
 import com.varabyte.kobweb.compose.foundation.layout.LayoutScopeMarker
 
 @Composable
@@ -19,7 +19,8 @@ actual fun Row(
     AddKobwebComposeStyleSheet()
     com.varabyte.kobweb.compose.foundation.layout.Row(
         PlatformModifier
-            .sizeFitContent()
+            .imitateAndroidxLayout()
+            .stylesFrom(horizontalArrangement)
             .then(modifier.platformModifier),
         horizontalArrangement.platformValue,
         verticalAlignment.platformValue,
@@ -41,7 +42,7 @@ actual interface RowScope {
         @FloatRange(from = 0.0, fromInclusive = false)
         weight: Float
     ): Modifier =
-        with(platformValue) { platformModify { weight(weight) } }
+        with(platformValue) { platformModify { flexBasis0().weight(weight) } }
 
     @Stable
     actual fun Modifier.align(alignment: Alignment.Vertical): Modifier =

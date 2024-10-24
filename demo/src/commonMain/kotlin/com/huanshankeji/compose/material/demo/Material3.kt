@@ -1,18 +1,19 @@
 package com.huanshankeji.compose.material.demo
 
 import androidx.compose.runtime.*
+import androidx.compose.ui.unit.dp
 import com.huanshankeji.compose.ExtRecommendedApi
-import com.huanshankeji.compose.foundation.layout.Column
-import com.huanshankeji.compose.foundation.layout.Row
-import com.huanshankeji.compose.foundation.layout.RowScope
+import com.huanshankeji.compose.foundation.layout.*
+import com.huanshankeji.compose.foundation.rememberScrollState
 import com.huanshankeji.compose.foundation.text.KeyboardActions
 import com.huanshankeji.compose.foundation.text.KeyboardOptions
 import com.huanshankeji.compose.foundation.text.input.ImeAction
 import com.huanshankeji.compose.foundation.text.input.KeyboardCapitalization
 import com.huanshankeji.compose.foundation.text.input.KeyboardType
-import com.huanshankeji.compose.layout.height
+import com.huanshankeji.compose.foundation.verticalScroll
 import com.huanshankeji.compose.material.icons.Icons
 import com.huanshankeji.compose.material.icons.filled.Add
+import com.huanshankeji.compose.material.icons.filled.ArrowDropDown
 import com.huanshankeji.compose.material.icons.filled.Menu
 import com.huanshankeji.compose.material.icons.filled.Remove
 import com.huanshankeji.compose.material3.*
@@ -26,12 +27,12 @@ import com.huanshankeji.compose.ui.Modifier
 import com.huanshankeji.compose.material3.Button as RowScopeButton
 
 @Composable
-fun Material3(modifier: Modifier) {
-    Column(modifier) {
+fun Material3(/*modifier: Modifier = Modifier*/) {
+    Column(Modifier.verticalScroll(rememberScrollState()).innerContentPadding(), Arrangement.spacedBy(16.dp)) {
         var count by remember { mutableStateOf(0) }
         val onClick: () -> Unit = { count++ }
         val buttonContent: @Composable () -> Unit = {
-            InlineText(count.toString())
+            TaglessText(count.toString())
         }
         val rowScopeButtonContent: @Composable RowScope.() -> Unit = { buttonContent() }
         Row {
@@ -140,12 +141,14 @@ fun Material3(modifier: Modifier) {
                 println("keyboard actions with: $text")
             }
         )
+        OutlinedTextField(text, { text = it }, label = label, placeholder = placeholder, lines = 2)
 
         Text("Click a button to show the list:")
         List(Modifier.height(listSize)) {
             fun content(index: String) =
                 ListItemComponents(
                     Modifier,
+                    true,
                     "Headline $index",
                     Icons.Default.Add,
                     Icons.Default.Menu,
@@ -180,5 +183,50 @@ fun Material3(modifier: Modifier) {
                 label = "Remove"
             )
         }
+
+        @Composable
+        fun DropdownMenuContent(setSelection: (Selection?) -> Unit, close: () -> Unit) =
+            (listOf(null) + Selection.entries).forEach {
+                DropdownMenuItemWithMaterialIcons(
+                    { modifier -> it?.let { Text(it.name, modifier) } },
+                    {
+                        setSelection(it)
+                        close()
+                    },
+                    leadingIcon = Icons.Filled.Add,
+                    trailingIcon = Icons.Filled.Remove
+                )
+            }
+
+        run {
+            val (expanded, setExpanded) = remember { mutableStateOf(false) }
+            val close = { setExpanded(false) }
+            val (selection, setSelection) = remember { mutableStateOf<Selection?>(null) }
+            ExposedDropdownMenuBoxWithTextField(
+                expanded, setExpanded,
+                textFieldArgs = ExposedDropdownMenuBoxTextFieldArgs(
+                    selection?.name ?: "", label = "Please select"
+                ),
+                exposedDropdownMenuArgs = ExposedDropdownMenuArgs(expanded, close, close) {
+                    DropdownMenuContent(setSelection, close)
+                }
+            )
+        }
+        DropdownMenuBox {
+            var expanded by remember { mutableStateOf(false) }
+            val close = { expanded = false }
+            val (_, setSelection) = remember { mutableStateOf<Selection?>(null) }
+            IconButton({ expanded = true }, Modifier.menuAnchorJsDom()) {
+                Icon(Icons.Filled.ArrowDropDown, "Please select")
+            }
+            DropdownMenu(expanded, close, close) {
+                DropdownMenuContent(setSelection, close)
+            }
+        }
+
+        LinearProgressIndicator()
+        LinearProgressIndicator({ 0.5f })
+        CircularProgressIndicator()
+        CircularProgressIndicator({ 0.5f })
     }
 }

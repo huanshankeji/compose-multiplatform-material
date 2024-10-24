@@ -34,6 +34,6 @@ actual fun NavigationBarScope.NavigationBarItem(
         (if (selected) selectedIcon else unselectedIcon).toContentWithoutModifier(),
         modifier.platformModifier,
         enabled,
-        label.toNullableInlineText(),
+        label.toNullableTaglessText(),
         alwaysShowLabel
     )

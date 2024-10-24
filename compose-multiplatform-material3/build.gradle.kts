@@ -1,11 +1,19 @@
+
 import com.huanshankeji.team.`Shreck Ye`
 import com.huanshankeji.team.pomForTeamDefaultOpenSource
 
 plugins {
     `lib-conventions`
+    //id("com.android.library")
 }
 
 kotlin {
+    /*
+    androidTarget {
+        publishLibraryVariants("release", "debug")
+    }
+    */
+
     sourceSets {
         /*
         Use `api`. See:
@@ -37,8 +45,8 @@ kotlin {
 publishing.publications.withType<MavenPublication> {
     pomForTeamDefaultOpenSource(
         project,
-        "Compose Multiplatform Material 3 wrappers",
-        "Compose Multiplatform Material Design 3 component wrappers for `androidx.compose` and Compose HTML"
+        "Unified Compose Material 3 wrappers $FOR_COMPOSE_TARGETS_IN_TITLE",
+        "Unified Material Design 3 component wrappers $FOR_COMPOSE_TARGETS_IN_DESCRIPTION"
     ) {
         `Shreck Ye`()
     }

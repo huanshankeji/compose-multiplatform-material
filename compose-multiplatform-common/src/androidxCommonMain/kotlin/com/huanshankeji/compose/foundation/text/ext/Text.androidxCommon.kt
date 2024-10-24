@@ -4,5 +4,5 @@ import androidx.compose.runtime.Composable
 import com.huanshankeji.compose.foundation.text.BasicText
 
 @Composable
-actual fun InlineBasicText(text: String) =
+actual fun TaglessBasicText(text: String) =
     BasicText(text)

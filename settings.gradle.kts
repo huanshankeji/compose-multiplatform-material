@@ -6,25 +6,29 @@ project(":compose-multiplatform-common:legacy").name = "compose-multiplatform-co
 include("compose-multiplatform-material-icons-core")
 include("compose-multiplatform-material2")
 include("compose-multiplatform-material3")
+include("compose-multiplatform-navigation")
+include("compose-multiplatform-lifecycle-viewmodel")
 include("demo")
 
 
+/*
+// This seems not needed.
 pluginManagement {
     repositories {
         //mavenLocal()
         gradlePluginPortal()
         google()
-        maven("https://maven.pkg.jetbrains.space/public/p/compose/dev")
         mavenCentral()
     }
 }
+*/
 
+// This is needed for Kotlin Native.
 dependencyResolutionManagement {
     @Suppress("UnstableApiUsage")
     repositories {
         mavenLocal()
         mavenCentral()
         google()
-        maven("https://maven.pkg.jetbrains.space/public/p/compose/dev")
     }
 }
