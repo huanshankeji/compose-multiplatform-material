@@ -21,7 +21,7 @@ kotlin {
     // for `androidx.compose`
 
     jvm() // TODO: `jvm("desktop")`?
-    jvmToolchain(11)
+    jvmToolchain(17)
 
     //androidTarget()
 
