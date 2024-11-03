@@ -30,13 +30,23 @@ jobs:
         uses: actions/checkout@v4
       - name: Setup Pages
         uses: actions/configure-pages@v5
-      - name: Build with Jekyll
-        uses: actions/jekyll-build-pages@v1
+
+      - name: Set up JDK 8
+        uses: actions/setup-java@v4
         with:
-          source: ./
-          destination: ./_site
+          java-version: "8"
+          distribution: "temurin"
+
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v4
+
+      - name: Build the distribution with Gradle Wrapper
+        run: ./gradlew :demo:sideBySideBrowserDistribution
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
+        with:
+          path: demo/build/dist/sideBySide/productionExecutable/
 
   # Deployment job
   deploy:
