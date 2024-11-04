@@ -9,10 +9,7 @@ on:
 jobs:
   check:
 
-    strategy:
-      matrix:
-        os: [ ubuntu-latest, macos-latest, windows-latest ]
-    runs-on: ${{ matrix.os }}
+    runs-on: macos-latest
     permissions:
       contents: read
 
@@ -37,10 +34,7 @@ jobs:
 
   dependency-submission:
 
-    strategy:
-      matrix:
-        os: [ ubuntu-latest, macos-latest, windows-latest ]
-    runs-on: ${{ matrix.os }}
+    runs-on: macos-latest
     permissions:
       contents: write
 
