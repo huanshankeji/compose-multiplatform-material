@@ -2,9 +2,9 @@ name: Deploy the demo to GitHub Pages
 
 on:
   push:
-    branches: [ "*" ] # TODO for testing purposes now, change to "release"
+    branches: [ "release" ]
   pull_request:
-    branches: [ "*" ] # TODO for testing purposes now, change to "release"
+    branches: [ "release" ]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
