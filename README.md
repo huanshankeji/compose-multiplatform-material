@@ -7,9 +7,9 @@ Unified Compose Multiplatform wrappers of common components, layouts, and Materi
 
 We try to provide a set of common extensions and composable component APIs akin to those in `androidx.compose` (`androidx.compose.foundation`, `androidx.compose.material`, and `androidx.compose.material3`), meanwhile making them compatible with the Compose HTML APIs. However, only subsets of the composables and composable parameters are supported due to the API differences, limitations of the JS (web) platform and the Compose HTML composables this project depends on, and our limited effort.
 
-Complete visual consistency across different platforms is not guaranteed.
+Complete visual consistency across different platforms is not guaranteed. See the [the side-by-side demo site](https://huanshankeji.github.io/compose-multiplatform-material/) for the visual effects and their differences.
 
-This project is still in development and has not reached the stable state yet. Some APIs are likely to be changed and there is no detailed documentation yet. Check out [the demo project](demo) on how to use the components in addition to the information below.
+This project is still in development and has not reached the stable state yet. Some APIs are likely to be changed and there is no detailed documentation yet. Check out [the demo project source](demo) on how to use the components in addition to the information below.
 
 ## Supported features
 
