@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+    <meta charset="UTF-8">
+    <title>Side by side - Compose Multiplatform Material demo</title>
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+        }
+
+        .row {
+            display: flex;
+            flex-direction: row;
+            height: 100%;
+        }
+
+        .column {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .flex-grow-1 {
+            flex-grow: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="row">
+        <div class="flex-grow-1 column">
+            <h2>JS DOM / Compose HTML</h2>
+            <embed class="flex-grow-1" src="js-dom/index.html">
+        </div>
+        <div class="flex-grow-1 column">
+            <h2>Wasm JS canvas / <code>androidx.compose</code></h2>
+            <embed class="flex-grow-1" src="wasm-js-canvas/index.html">
+        </div>
+    </div>
+</body>
+
+</html>
