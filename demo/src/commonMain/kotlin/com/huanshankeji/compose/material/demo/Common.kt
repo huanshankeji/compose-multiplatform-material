@@ -81,5 +81,17 @@ fun Common(/*modifier: Modifier = Modifier*/) {
         BasicText("shown text")
         BasicText("hidden text", Modifier.hidden())
         BasicText("shown text")
+
+        // Background color doesn't work in a `Spacer` modifier.
+        Column {
+            BasicText("above spacer")
+            Spacer(Modifier.height(32.dp))
+            BasicText("below spacer")
+        }
+        Row {
+            BasicText("left to spacer")
+            Spacer(Modifier.width(32.dp))
+            BasicText("right to spacer")
+        }
     }
 }
