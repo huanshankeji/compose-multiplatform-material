@@ -7,6 +7,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.unit.dp
 import com.huanshankeji.compose.foundation.layout.size
 import com.huanshankeji.compose.ui.Modifier
+import com.huanshankeji.compose.ui.PlatformModifier
 
 @Composable
 private fun (@Composable (() -> Unit)).toRowScopeContent(
@@ -18,7 +19,7 @@ private fun (@Composable (() -> Unit)).toRowScopeContent(
 
         @Composable
         fun Spacer() =
-            Spacer(androidx.compose.ui.Modifier.size(8.dp))
+            Spacer(PlatformModifier.size(8.dp))
 
         if (icon === null)
             this@toRowScopeContent()
