@@ -10,8 +10,8 @@ kotlin {
     @OptIn(ExperimentalKotlinGradlePluginApi::class)
     applyDefaultHierarchyTemplate {
         common {
-            group("androidxCommon") {
-                group("androidxCommonExceptAndroid") {
+            group("composeUi") {
+                group("composeUiExceptAndroid") {
                     withJvm()
                     group("ios")
                     withWasmJs()
@@ -44,7 +44,7 @@ kotlin {
                 implementation("org.jetbrains.compose.annotation-internal:annotation:${DependencyVersions.composeMultiplatform}")
             }
         }
-        androidxCommonMain {
+        composeUiMain {
             dependencies {
                 api(compose.foundation)
                 implementation(compose.ui)

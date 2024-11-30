@@ -28,7 +28,7 @@ kotlin {
                 //compileOnly(compose.material) // for KDoc element links only
             }
         }
-        androidxCommonMain {
+        composeUiMain {
             dependencies {
                 api(compose.material3)
             }

@@ -109,7 +109,8 @@ The components in the `ext` packages don't follow the `androidx.compose` APIs ex
 
 #### About parameter names
 
-The parameter names with suffixes such as "JsDom" or "AndroidxCommon" are platform-specific, and only apply on their respective platform(s), Compose HTML / JS DOM or `androidx.compose` platforms.
+The parameter names with suffixes such as "JsDom" or "ComposeUi" are platform-specific, and only apply on their respective platform(s), Compose HTML / JS DOM or
+`androidx.compose` platforms.
 
 #### Material Icons
 

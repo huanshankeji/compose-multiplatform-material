@@ -60,13 +60,13 @@ public final class com/huanshankeji/compose/material/icons/Icons$TwoTone {
 	public static final field INSTANCE Lcom/huanshankeji/compose/material/icons/Icons$TwoTone;
 }
 
-public final class com/huanshankeji/compose/material/icons/automirrored/filled/Icons_androidxCommonKt {
+public final class com/huanshankeji/compose/material/icons/automirrored/filled/Icons_composeUiKt {
 	public static final fun getArrowBack (Lcom/huanshankeji/compose/material/icons/Icons$AutoMirrored$Filled;)Landroidx/compose/ui/graphics/vector/ImageVector;
 	public static final fun getArrowForward (Lcom/huanshankeji/compose/material/icons/Icons$AutoMirrored$Filled;)Landroidx/compose/ui/graphics/vector/ImageVector;
 	public static final fun getLogout (Lcom/huanshankeji/compose/material/icons/Icons$AutoMirrored$Filled;)Landroidx/compose/ui/graphics/vector/ImageVector;
 }
 
-public final class com/huanshankeji/compose/material/icons/filled/Icons_androidxCommonKt {
+public final class com/huanshankeji/compose/material/icons/filled/Icons_composeUiKt {
 	public static final fun getAdd (Lcom/huanshankeji/compose/material/icons/Icons$Filled;)Landroidx/compose/ui/graphics/vector/ImageVector;
 	public static final fun getArrowDropDown (Lcom/huanshankeji/compose/material/icons/Icons$Filled;)Landroidx/compose/ui/graphics/vector/ImageVector;
 	public static final fun getDone (Lcom/huanshankeji/compose/material/icons/Icons$Filled;)Landroidx/compose/ui/graphics/vector/ImageVector;

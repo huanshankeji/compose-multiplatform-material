@@ -22,7 +22,7 @@ kotlin {
                 //implementation("org.jetbrains.androidx.lifecycle:lifecycle-viewmodel-compose:2.8.0") // This depends on Compose target '[jscanvas]'.
             }
         }
-        androidxCommonMain {
+        composeUiMain {
             dependencies {
                 api(commonDependencies.jetbrainsAndroidx.navigation.compose())
             }

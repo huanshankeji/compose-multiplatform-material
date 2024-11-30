@@ -17,7 +17,7 @@ kotlin {
                 implementation(compose.runtime)
             }
         }
-        androidxCommonMain {
+        composeUiMain {
             dependencies {
                 api("org.jetbrains.compose.material:material-icons-extended:${DependencyVersions.composeMultiplatform}")
             }

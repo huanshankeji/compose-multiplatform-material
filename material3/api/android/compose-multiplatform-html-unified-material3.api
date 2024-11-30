@@ -2,7 +2,7 @@ public final class com/huanshankeji/compose/material3/ButtonKt {
 	public static final fun FilledButton (Lkotlin/jvm/functions/Function0;Lcom/huanshankeji/compose/ui/Modifier;ZLkotlin/jvm/functions/Function3;Landroidx/compose/runtime/Composer;II)V
 }
 
-public final class com/huanshankeji/compose/material3/Button_androidxCommonKt {
+public final class com/huanshankeji/compose/material3/Button_composeUiKt {
 	public static final fun Button (Lkotlin/jvm/functions/Function0;Lcom/huanshankeji/compose/ui/Modifier;ZLkotlin/jvm/functions/Function3;Landroidx/compose/runtime/Composer;II)V
 	public static final fun ElevatedButton (Lkotlin/jvm/functions/Function0;Lcom/huanshankeji/compose/ui/Modifier;ZLkotlin/jvm/functions/Function3;Landroidx/compose/runtime/Composer;II)V
 	public static final fun FilledTonalButton (Lkotlin/jvm/functions/Function0;Lcom/huanshankeji/compose/ui/Modifier;ZLkotlin/jvm/functions/Function3;Landroidx/compose/runtime/Composer;II)V
@@ -14,24 +14,24 @@ public final class com/huanshankeji/compose/material3/CardKt {
 	public static final fun FilledCard (Lcom/huanshankeji/compose/ui/Modifier;Lkotlin/jvm/functions/Function3;Landroidx/compose/runtime/Composer;II)V
 }
 
-public final class com/huanshankeji/compose/material3/Card_androidxCommonKt {
+public final class com/huanshankeji/compose/material3/Card_composeUiKt {
 	public static final fun Card (Lcom/huanshankeji/compose/ui/Modifier;Lkotlin/jvm/functions/Function3;Landroidx/compose/runtime/Composer;II)V
 	public static final fun ElevatedCard (Lcom/huanshankeji/compose/ui/Modifier;Lkotlin/jvm/functions/Function3;Landroidx/compose/runtime/Composer;II)V
 	public static final fun OutlinedCard (Lcom/huanshankeji/compose/ui/Modifier;Lkotlin/jvm/functions/Function3;Landroidx/compose/runtime/Composer;II)V
 }
 
-public final class com/huanshankeji/compose/material3/Checkbox_androidxCommonKt {
+public final class com/huanshankeji/compose/material3/Checkbox_composeUiKt {
 	public static final fun Checkbox (ZLkotlin/jvm/functions/Function1;Lcom/huanshankeji/compose/ui/Modifier;ZLandroidx/compose/runtime/Composer;II)V
 }
 
-public final class com/huanshankeji/compose/material3/FloatingActionButton_androidxCommonKt {
+public final class com/huanshankeji/compose/material3/FloatingActionButton_composeUiKt {
 	public static final fun ExtendedFloatingActionButton (Lkotlin/jvm/functions/Function0;Lcom/huanshankeji/compose/ui/Modifier;Lkotlin/jvm/functions/Function3;Landroidx/compose/runtime/Composer;II)V
 	public static final fun FloatingActionButton (Lkotlin/jvm/functions/Function0;Lcom/huanshankeji/compose/ui/Modifier;Lkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;II)V
 	public static final fun LargeFloatingActionButton (Lkotlin/jvm/functions/Function0;Lcom/huanshankeji/compose/ui/Modifier;Lkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;II)V
 	public static final fun SmallFloatingActionButton (Lkotlin/jvm/functions/Function0;Lcom/huanshankeji/compose/ui/Modifier;Lkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;II)V
 }
 
-public final class com/huanshankeji/compose/material3/IconButton_androidxCommonKt {
+public final class com/huanshankeji/compose/material3/IconButton_composeUiKt {
 	public static final fun FilledIconButton (Lkotlin/jvm/functions/Function0;Lcom/huanshankeji/compose/ui/Modifier;ZLkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;II)V
 	public static final fun FilledIconToggleButton (ZLkotlin/jvm/functions/Function1;Lcom/huanshankeji/compose/ui/Modifier;ZLkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;II)V
 	public static final fun FilledTonalIconButton (Lkotlin/jvm/functions/Function0;Lcom/huanshankeji/compose/ui/Modifier;ZLkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;II)V
@@ -42,22 +42,22 @@ public final class com/huanshankeji/compose/material3/IconButton_androidxCommonK
 	public static final fun OutlinedIconToggleButton (ZLkotlin/jvm/functions/Function1;Lcom/huanshankeji/compose/ui/Modifier;ZLkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;II)V
 }
 
-public final class com/huanshankeji/compose/material3/Icon_androidxCommonKt {
+public final class com/huanshankeji/compose/material3/Icon_composeUiKt {
 	public static final fun Icon (Landroidx/compose/ui/graphics/vector/ImageVector;Ljava/lang/String;Lcom/huanshankeji/compose/ui/Modifier;Landroidx/compose/runtime/Composer;II)V
 }
 
-public final class com/huanshankeji/compose/material3/ProgressIndicator_androidxCommonKt {
+public final class com/huanshankeji/compose/material3/ProgressIndicator_composeUiKt {
 	public static final fun CircularProgressIndicator (Lcom/huanshankeji/compose/ui/Modifier;Landroidx/compose/runtime/Composer;II)V
 	public static final fun CircularProgressIndicator (Lkotlin/jvm/functions/Function0;Lcom/huanshankeji/compose/ui/Modifier;Landroidx/compose/runtime/Composer;II)V
 	public static final fun LinearProgressIndicator (Lcom/huanshankeji/compose/ui/Modifier;Landroidx/compose/runtime/Composer;II)V
 	public static final fun LinearProgressIndicator (Lkotlin/jvm/functions/Function0;Lcom/huanshankeji/compose/ui/Modifier;Landroidx/compose/runtime/Composer;II)V
 }
 
-public final class com/huanshankeji/compose/material3/Switch_androidxCommonKt {
+public final class com/huanshankeji/compose/material3/Switch_composeUiKt {
 	public static final fun Switch (ZLkotlin/jvm/functions/Function1;Lcom/huanshankeji/compose/ui/Modifier;ZLandroidx/compose/runtime/Composer;II)V
 }
 
-public final class com/huanshankeji/compose/material3/Text_androidxCommonKt {
+public final class com/huanshankeji/compose/material3/Text_composeUiKt {
 	public static final fun Text (Ljava/lang/String;Lcom/huanshankeji/compose/ui/Modifier;Lcom/huanshankeji/compose/ui/graphics/Color;Landroidx/compose/runtime/Composer;II)V
 }
 
@@ -70,7 +70,7 @@ public final class com/huanshankeji/compose/material3/ext/ButtonKt {
 	public static final fun TextButtonWithMaterialIcon (Lkotlin/jvm/functions/Function0;Lcom/huanshankeji/compose/ui/Modifier;ZLandroidx/compose/ui/graphics/vector/ImageVector;ZLkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;II)V
 }
 
-public final class com/huanshankeji/compose/material3/ext/Button_androidxCommonKt {
+public final class com/huanshankeji/compose/material3/ext/Button_composeUiKt {
 	public static final fun Button (Lkotlin/jvm/functions/Function0;Lcom/huanshankeji/compose/ui/Modifier;ZLkotlin/jvm/functions/Function3;ZLkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;II)V
 	public static final fun ElevatedButton (Lkotlin/jvm/functions/Function0;Lcom/huanshankeji/compose/ui/Modifier;ZLkotlin/jvm/functions/Function3;ZLkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;II)V
 	public static final fun FilledTonalButton (Lkotlin/jvm/functions/Function0;Lcom/huanshankeji/compose/ui/Modifier;ZLkotlin/jvm/functions/Function3;ZLkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;II)V
@@ -82,7 +82,7 @@ public final class com/huanshankeji/compose/material3/ext/CardKt {
 	public static final fun FilledCard (Lcom/huanshankeji/compose/ui/Modifier;Lkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;II)V
 }
 
-public final class com/huanshankeji/compose/material3/ext/Card_androidxCommonKt {
+public final class com/huanshankeji/compose/material3/ext/Card_composeUiKt {
 	public static final fun Card (Lcom/huanshankeji/compose/ui/Modifier;Lkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;II)V
 	public static final fun ElevatedCard (Lcom/huanshankeji/compose/ui/Modifier;Lkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;II)V
 	public static final fun OutlinedCard (Lcom/huanshankeji/compose/ui/Modifier;Lkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;II)V
@@ -129,7 +129,7 @@ public final class com/huanshankeji/compose/material3/ext/ExposedDropdownMenuKt 
 	public static final fun ExposedDropdownMenuBoxWithTextField (ZLkotlin/jvm/functions/Function1;Lcom/huanshankeji/compose/ui/Modifier;Lcom/huanshankeji/compose/material3/ext/ExposedDropdownMenuBoxTextFieldArgs;Lcom/huanshankeji/compose/material3/ext/ExposedDropdownMenuArgs;Landroidx/compose/runtime/Composer;II)V
 }
 
-public final class com/huanshankeji/compose/material3/ext/ExposedDropdownMenu_androidxCommonKt {
+public final class com/huanshankeji/compose/material3/ext/ExposedDropdownMenu_composeUiKt {
 	public static final fun ExposedDropdownMenuBox (ZLkotlin/jvm/functions/Function1;Lcom/huanshankeji/compose/ui/Modifier;Lkotlin/jvm/functions/Function3;Landroidx/compose/runtime/Composer;II)V
 	public static final fun ExposedDropdownMenuBoxTextField (Lcom/huanshankeji/compose/material3/ext/ExposedDropdownMenuBoxScope;ZLcom/huanshankeji/compose/material3/ext/ExposedDropdownMenuBoxTextFieldArgs;Landroidx/compose/runtime/Composer;I)V
 }
@@ -141,7 +141,7 @@ public final class com/huanshankeji/compose/material3/ext/FloatingActionButtonKt
 	public static final fun SmallFloatingActionButtonWithMaterialIcon (Lkotlin/jvm/functions/Function0;Lcom/huanshankeji/compose/ui/Modifier;Landroidx/compose/ui/graphics/vector/ImageVector;Landroidx/compose/runtime/Composer;II)V
 }
 
-public final class com/huanshankeji/compose/material3/ext/FloatingActionButton_androidxCommonKt {
+public final class com/huanshankeji/compose/material3/ext/FloatingActionButton_composeUiKt {
 	public static final fun ExtendedFloatingActionButton (Lkotlin/jvm/functions/Function0;Lcom/huanshankeji/compose/ui/Modifier;Ljava/lang/String;Lkotlin/jvm/functions/Function3;Landroidx/compose/runtime/Composer;II)V
 	public static final fun FloatingActionButton (Lkotlin/jvm/functions/Function0;Lcom/huanshankeji/compose/ui/Modifier;Lkotlin/jvm/functions/Function3;Landroidx/compose/runtime/Composer;II)V
 	public static final fun LargeFloatingActionButton (Lkotlin/jvm/functions/Function0;Lcom/huanshankeji/compose/ui/Modifier;Lkotlin/jvm/functions/Function3;Landroidx/compose/runtime/Composer;II)V
@@ -155,7 +155,7 @@ public final class com/huanshankeji/compose/material3/ext/IconButtonKt {
 	public static final fun OutlinedIconToggleButtonWithMaterialIcons (ZLkotlin/jvm/functions/Function1;Lcom/huanshankeji/compose/ui/Modifier;ZLandroidx/compose/ui/graphics/vector/ImageVector;Landroidx/compose/ui/graphics/vector/ImageVector;Landroidx/compose/runtime/Composer;II)V
 }
 
-public final class com/huanshankeji/compose/material3/ext/IconButton_androidxCommonKt {
+public final class com/huanshankeji/compose/material3/ext/IconButton_composeUiKt {
 	public static final fun FilledIconToggleButton (ZLkotlin/jvm/functions/Function1;Lcom/huanshankeji/compose/ui/Modifier;ZLkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function3;Landroidx/compose/runtime/Composer;II)V
 	public static final fun FilledTonalIconToggleButton (ZLkotlin/jvm/functions/Function1;Lcom/huanshankeji/compose/ui/Modifier;ZLkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function3;Landroidx/compose/runtime/Composer;II)V
 	public static final fun IconToggleButton (ZLkotlin/jvm/functions/Function1;Lcom/huanshankeji/compose/ui/Modifier;ZLkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function3;Landroidx/compose/runtime/Composer;II)V
@@ -171,7 +171,7 @@ public final class com/huanshankeji/compose/material3/ext/MenuKt {
 	public static final fun DropdownMenuItemWithMaterialIcons (Lkotlin/jvm/functions/Function3;Lkotlin/jvm/functions/Function0;Lcom/huanshankeji/compose/ui/Modifier;Landroidx/compose/ui/graphics/vector/ImageVector;Landroidx/compose/ui/graphics/vector/ImageVector;ZLandroidx/compose/runtime/Composer;II)V
 }
 
-public final class com/huanshankeji/compose/material3/ext/Menu_androidxCommonKt {
+public final class com/huanshankeji/compose/material3/ext/Menu_composeUiKt {
 	public static final fun DropdownMenu--jUOA0U (ZLkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function0;Lcom/huanshankeji/compose/ui/Modifier;JLkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;II)V
 	public static final fun DropdownMenuBox (Lkotlin/jvm/functions/Function3;Landroidx/compose/runtime/Composer;I)V
 	public static final fun DropdownMenuItem (Lkotlin/jvm/functions/Function3;Lkotlin/jvm/functions/Function0;Lcom/huanshankeji/compose/ui/Modifier;Lkotlin/jvm/functions/Function3;Lkotlin/jvm/functions/Function3;ZZLandroidx/compose/runtime/Composer;II)V
@@ -187,7 +187,7 @@ public final class com/huanshankeji/compose/material3/ext/NavigationBarScope {
 	public final fun getRowScope ()Landroidx/compose/foundation/layout/RowScope;
 }
 
-public final class com/huanshankeji/compose/material3/ext/NavigationBar_androidxCommonKt {
+public final class com/huanshankeji/compose/material3/ext/NavigationBar_composeUiKt {
 	public static final fun NavigationBar (Lcom/huanshankeji/compose/ui/Modifier;Lkotlin/jvm/functions/Function3;Landroidx/compose/runtime/Composer;II)V
 	public static final fun NavigationBarItem (Lcom/huanshankeji/compose/material3/ext/NavigationBarScope;ZLkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function3;Lkotlin/jvm/functions/Function3;Lcom/huanshankeji/compose/ui/Modifier;ZLjava/lang/String;ZLandroidx/compose/runtime/Composer;II)V
 }
@@ -197,7 +197,7 @@ public final class com/huanshankeji/compose/material3/ext/TextFieldKt {
 	public static final fun TextFieldWithMaterialIcons-pFt4Jx4 (Ljava/lang/String;Lkotlin/jvm/functions/Function1;Lcom/huanshankeji/compose/ui/Modifier;ZZLjava/lang/String;Ljava/lang/String;Landroidx/compose/ui/graphics/vector/ImageVector;Landroidx/compose/ui/graphics/vector/ImageVector;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZLcom/huanshankeji/compose/foundation/text/KeyboardOptions;Lcom/huanshankeji/compose/foundation/text/KeyboardActions;ZILandroidx/compose/runtime/Composer;III)V
 }
 
-public final class com/huanshankeji/compose/material3/ext/TextField_androidxCommonKt {
+public final class com/huanshankeji/compose/material3/ext/TextField_composeUiKt {
 	public static final fun OutlinedTextField-pFt4Jx4 (Ljava/lang/String;Lkotlin/jvm/functions/Function1;Lcom/huanshankeji/compose/ui/Modifier;ZZLjava/lang/String;Ljava/lang/String;Lkotlin/jvm/functions/Function3;Lkotlin/jvm/functions/Function3;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZLcom/huanshankeji/compose/foundation/text/KeyboardOptions;Lcom/huanshankeji/compose/foundation/text/KeyboardActions;ZILandroidx/compose/runtime/Composer;III)V
 	public static final fun TextField-pFt4Jx4 (Ljava/lang/String;Lkotlin/jvm/functions/Function1;Lcom/huanshankeji/compose/ui/Modifier;ZZLjava/lang/String;Ljava/lang/String;Lkotlin/jvm/functions/Function3;Lkotlin/jvm/functions/Function3;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZLcom/huanshankeji/compose/foundation/text/KeyboardOptions;Lcom/huanshankeji/compose/foundation/text/KeyboardActions;ZILandroidx/compose/runtime/Composer;III)V
 	public static final fun ToNullableTextComposable (Ljava/lang/String;)Lkotlin/jvm/functions/Function2;
@@ -213,7 +213,7 @@ public final class com/huanshankeji/compose/material3/ext/TextKt {
 	public static final fun toTextWithModifier (Ljava/lang/String;)Lkotlin/jvm/functions/Function3;
 }
 
-public final class com/huanshankeji/compose/material3/ext/Text_androidxCommonKt {
+public final class com/huanshankeji/compose/material3/ext/Text_composeUiKt {
 	public static final fun TaglessText (Ljava/lang/String;Landroidx/compose/runtime/Composer;I)V
 }
 
@@ -257,7 +257,7 @@ public final class com/huanshankeji/compose/material3/lazy/ext/ListScope {
 	public static synthetic fun items$default (Lcom/huanshankeji/compose/material3/lazy/ext/ListScope;ILkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function4;ILjava/lang/Object;)V
 }
 
-public final class com/huanshankeji/compose/material3/lazy/ext/List_androidxCommonKt {
+public final class com/huanshankeji/compose/material3/lazy/ext/List_composeUiKt {
 	public static final fun List (Lcom/huanshankeji/compose/ui/Modifier;Lkotlin/jvm/functions/Function1;Landroidx/compose/runtime/Composer;II)V
 }
 

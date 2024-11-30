@@ -1,26 +1,26 @@
-public final class com/huanshankeji/compose/material2/Button_androidxCommonKt {
+public final class com/huanshankeji/compose/material2/Button_composeUiKt {
 	public static final fun Button (Lkotlin/jvm/functions/Function0;Lcom/huanshankeji/compose/ui/Modifier;Lkotlin/jvm/functions/Function3;Landroidx/compose/runtime/Composer;II)V
 	public static final fun OutlinedButton (Lkotlin/jvm/functions/Function0;Lcom/huanshankeji/compose/ui/Modifier;Lkotlin/jvm/functions/Function3;Landroidx/compose/runtime/Composer;II)V
 	public static final fun TextButton (Lkotlin/jvm/functions/Function0;Lcom/huanshankeji/compose/ui/Modifier;Lkotlin/jvm/functions/Function3;Landroidx/compose/runtime/Composer;II)V
 }
 
-public final class com/huanshankeji/compose/material2/Card_androidxCommonKt {
+public final class com/huanshankeji/compose/material2/Card_composeUiKt {
 	public static final fun Card (Lcom/huanshankeji/compose/ui/Modifier;Lkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;II)V
 }
 
-public final class com/huanshankeji/compose/material2/Checkbox_androidxCommonKt {
+public final class com/huanshankeji/compose/material2/Checkbox_composeUiKt {
 	public static final fun Checkbox (ZLkotlin/jvm/functions/Function1;Lcom/huanshankeji/compose/ui/Modifier;ZLandroidx/compose/runtime/Composer;II)V
 }
 
-public final class com/huanshankeji/compose/material2/Divider_androidxCommonKt {
+public final class com/huanshankeji/compose/material2/Divider_composeUiKt {
 	public static final fun Divider (Lcom/huanshankeji/compose/ui/Modifier;Landroidx/compose/runtime/Composer;II)V
 }
 
-public final class com/huanshankeji/compose/material2/IconButton_androidxCommonKt {
+public final class com/huanshankeji/compose/material2/IconButton_composeUiKt {
 	public static final fun IconButton (Lkotlin/jvm/functions/Function0;Lcom/huanshankeji/compose/ui/Modifier;Lkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;II)V
 }
 
-public final class com/huanshankeji/compose/material2/Icon_androidxCommonKt {
+public final class com/huanshankeji/compose/material2/Icon_composeUiKt {
 	public static final fun Icon (Landroidx/compose/ui/graphics/vector/ImageVector;Ljava/lang/String;Lcom/huanshankeji/compose/ui/Modifier;Landroidx/compose/runtime/Composer;II)V
 }
 
@@ -72,7 +72,7 @@ public abstract class com/huanshankeji/compose/material2/SnackbarHostStateCommon
 	public static synthetic fun showSnackbar$default (Lcom/huanshankeji/compose/material2/SnackbarHostStateCommonImpl;Ljava/lang/String;Ljava/lang/String;Lcom/huanshankeji/compose/material2/SnackbarDuration;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
 }
 
-public final class com/huanshankeji/compose/material2/SnackbarHost_androidxCommonKt {
+public final class com/huanshankeji/compose/material2/SnackbarHost_composeUiKt {
 	public static final fun SnackbarHost (Lcom/huanshankeji/compose/material2/SnackbarHostState;Lcom/huanshankeji/compose/ui/Modifier;ZLandroidx/compose/runtime/Composer;II)V
 	public static final fun toCommonValue (Landroidx/compose/material/SnackbarData;)Lcom/huanshankeji/compose/material2/SnackbarData;
 	public static final fun toCommonValue (Landroidx/compose/material/SnackbarDuration;)Lcom/huanshankeji/compose/material2/SnackbarDuration;
@@ -89,16 +89,16 @@ public final class com/huanshankeji/compose/material2/SnackbarResult : java/lang
 	public static fun values ()[Lcom/huanshankeji/compose/material2/SnackbarResult;
 }
 
-public final class com/huanshankeji/compose/material2/Snackbar_androidxCommonKt {
+public final class com/huanshankeji/compose/material2/Snackbar_composeUiKt {
 	public static final fun Snackbar (Lcom/huanshankeji/compose/material2/SnackbarData;Lcom/huanshankeji/compose/ui/Modifier;ZLandroidx/compose/runtime/Composer;II)V
 	public static final fun Snackbar (Lcom/huanshankeji/compose/ui/Modifier;Lkotlin/jvm/functions/Function2;ZLkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;II)V
 }
 
-public final class com/huanshankeji/compose/material2/Switch_androidxCommonKt {
+public final class com/huanshankeji/compose/material2/Switch_composeUiKt {
 	public static final fun Switch (ZLkotlin/jvm/functions/Function1;Lcom/huanshankeji/compose/ui/Modifier;ZLandroidx/compose/runtime/Composer;II)V
 }
 
-public final class com/huanshankeji/compose/material2/Text_androidxCommonKt {
+public final class com/huanshankeji/compose/material2/Text_composeUiKt {
 	public static final fun Text (Ljava/lang/String;Lcom/huanshankeji/compose/ui/Modifier;Lcom/huanshankeji/compose/ui/graphics/Color;Landroidx/compose/runtime/Composer;II)V
 }
 
@@ -118,12 +118,12 @@ public final class com/huanshankeji/compose/material2/ext/ButtonType : java/lang
 	public static fun values ()[Lcom/huanshankeji/compose/material2/ext/ButtonType;
 }
 
-public final class com/huanshankeji/compose/material2/ext/Button_androidxCommonKt {
+public final class com/huanshankeji/compose/material2/ext/Button_composeUiKt {
 	public static final fun Button (Lkotlin/jvm/functions/Function0;Lcom/huanshankeji/compose/material2/ext/ButtonType;Lcom/huanshankeji/compose/ui/Modifier;Lkotlin/jvm/functions/Function3;Landroidx/compose/runtime/Composer;II)V
 }
 
-public final class com/huanshankeji/compose/material2/ext/ComposableSingletons$TopAppBarScaffold_androidxCommonKt {
-	public static final field INSTANCE Lcom/huanshankeji/compose/material2/ext/ComposableSingletons$TopAppBarScaffold_androidxCommonKt;
+public final class com/huanshankeji/compose/material2/ext/ComposableSingletons$TopAppBarScaffold_composeUiKt {
+	public static final field INSTANCE Lcom/huanshankeji/compose/material2/ext/ComposableSingletons$TopAppBarScaffold_composeUiKt;
 	public static field lambda-1 Lkotlin/jvm/functions/Function3;
 	public static field lambda-2 Lkotlin/jvm/functions/Function3;
 	public static field lambda-3 Lkotlin/jvm/functions/Function2;
@@ -146,7 +146,7 @@ public final class com/huanshankeji/compose/material2/ext/FabPosition : java/lan
 	public static fun values ()[Lcom/huanshankeji/compose/material2/ext/FabPosition;
 }
 
-public final class com/huanshankeji/compose/material2/ext/IconButton_androidxCommonKt {
+public final class com/huanshankeji/compose/material2/ext/IconButton_composeUiKt {
 	public static final fun IconButton (Lkotlin/jvm/functions/Function0;Lcom/huanshankeji/compose/ui/Modifier;Landroidx/compose/ui/graphics/vector/ImageVector;Ljava/lang/String;Landroidx/compose/runtime/Composer;II)V
 }
 
@@ -161,17 +161,17 @@ public final class com/huanshankeji/compose/material2/ext/NavigationIconScope$Co
 	public final fun getInstance ()Lcom/huanshankeji/compose/material2/ext/NavigationIconScope;
 }
 
-public final class com/huanshankeji/compose/material2/ext/Radio_androidxCommonKt {
+public final class com/huanshankeji/compose/material2/ext/Radio_composeUiKt {
 	public static final fun RadioGroupColumn (Lcom/huanshankeji/compose/ui/Modifier;Lkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;II)V
 	public static final fun RadioGroupRow (Lcom/huanshankeji/compose/ui/Modifier;Lkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;II)V
 	public static final fun RadioRow (ZLjava/lang/String;Lkotlin/jvm/functions/Function0;Lcom/huanshankeji/compose/ui/Modifier;ZLandroidx/compose/runtime/Composer;II)V
 }
 
-public final class com/huanshankeji/compose/material2/ext/Switch_androidxCommonKt {
+public final class com/huanshankeji/compose/material2/ext/Switch_composeUiKt {
 	public static final fun SwitchWithLabel (ZLkotlin/jvm/functions/Function1;Ljava/lang/String;Lcom/huanshankeji/compose/ui/Modifier;ZLandroidx/compose/runtime/Composer;II)V
 }
 
-public final class com/huanshankeji/compose/material2/ext/TextField_androidxCommonKt {
+public final class com/huanshankeji/compose/material2/ext/TextField_composeUiKt {
 	public static final fun OutlinedTextField-hXYnEmQ (Ljava/lang/String;Lkotlin/jvm/functions/Function1;Lcom/huanshankeji/compose/ui/Modifier;ZLjava/lang/String;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;Lcom/huanshankeji/compose/foundation/text/KeyboardOptions;Lcom/huanshankeji/compose/foundation/text/KeyboardActions;ZLandroidx/compose/runtime/Composer;II)V
 	public static final fun OutlinedTextFieldWithMaterialIcons-hXYnEmQ (Ljava/lang/String;Lkotlin/jvm/functions/Function1;Lcom/huanshankeji/compose/ui/Modifier;ZLjava/lang/String;Landroidx/compose/ui/graphics/vector/ImageVector;Landroidx/compose/ui/graphics/vector/ImageVector;Lcom/huanshankeji/compose/foundation/text/KeyboardOptions;Lcom/huanshankeji/compose/foundation/text/KeyboardActions;ZLandroidx/compose/runtime/Composer;II)V
 	public static final fun TextArea-4h3C4Pw (Ljava/lang/String;Lkotlin/jvm/functions/Function1;Lcom/huanshankeji/compose/ui/Modifier;ZLjava/lang/String;Lcom/huanshankeji/compose/foundation/text/KeyboardOptions;Lcom/huanshankeji/compose/foundation/text/KeyboardActions;ILandroidx/compose/runtime/Composer;II)V
@@ -185,7 +185,7 @@ public final class com/huanshankeji/compose/material2/ext/TextKt {
 	public static final fun SpanText (Ljava/lang/String;Lcom/huanshankeji/compose/ui/Modifier;Lcom/huanshankeji/compose/ui/graphics/Color;Landroidx/compose/runtime/Composer;II)V
 }
 
-public final class com/huanshankeji/compose/material2/ext/Text_androidxCommonKt {
+public final class com/huanshankeji/compose/material2/ext/Text_composeUiKt {
 	public static final fun TaglessText (Ljava/lang/String;Landroidx/compose/runtime/Composer;I)V
 }
 
@@ -197,7 +197,7 @@ public final class com/huanshankeji/compose/material2/ext/TopAppBarActionsScope 
 	public final fun getRowScope ()Landroidx/compose/foundation/layout/RowScope;
 }
 
-public final class com/huanshankeji/compose/material2/ext/TopAppBarScaffold_androidxCommonKt {
+public final class com/huanshankeji/compose/material2/ext/TopAppBarScaffold_composeUiKt {
 	public static final fun PrimitiveTopAppBarScaffold (Lkotlin/jvm/functions/Function2;Lcom/huanshankeji/compose/ui/Modifier;Lkotlin/jvm/functions/Function3;Lkotlin/jvm/functions/Function3;Lcom/huanshankeji/compose/ui/Modifier;Lkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;II)V
 	public static final fun TopAppBarScaffold (Lkotlin/jvm/functions/Function2;Lcom/huanshankeji/compose/ui/Modifier;Lkotlin/jvm/functions/Function3;Lkotlin/jvm/functions/Function3;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;Lcom/huanshankeji/compose/material2/ext/FabPosition;ZLkotlin/jvm/functions/Function3;Landroidx/compose/runtime/Composer;II)V
 	public static final fun toPlatformValue (Lcom/huanshankeji/compose/material2/ext/FabPosition;)I
@@ -217,7 +217,7 @@ public final class com/huanshankeji/compose/material2/lazy/ext/LazyDslKt {
 	public static synthetic fun conventionalItems$default (Lcom/huanshankeji/compose/material2/lazy/ext/ListScope;ILkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)V
 }
 
-public final class com/huanshankeji/compose/material2/lazy/ext/LazyDsl_androidxCommonKt {
+public final class com/huanshankeji/compose/material2/lazy/ext/LazyDsl_composeUiKt {
 	public static final fun List (Lcom/huanshankeji/compose/ui/Modifier;Lkotlin/jvm/functions/Function1;Landroidx/compose/runtime/Composer;II)V
 }
 

@@ -10,7 +10,7 @@ kotlin {
                 //compileOnly(compose.foundation) // for KDoc element links only
             }
         }
-        androidxCommonMain {
+        composeUiMain {
             dependencies {
                 api(compose.foundation)
             }

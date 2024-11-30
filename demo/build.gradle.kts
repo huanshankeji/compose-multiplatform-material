@@ -64,7 +64,7 @@ kotlin {
         }
         androidMain {
             dependencies {
-                // TODO consider putting this in `androidxCommonMain`
+                // TODO consider putting this in `composeUiMain`
                 implementation(compose.ui)
 
                 implementation(commonDependencies.androidx.activity.compose())

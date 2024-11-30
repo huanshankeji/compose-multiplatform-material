@@ -18,7 +18,7 @@ kotlin {
                 api(commonDependencies.jetbrainsAndroidx.lifecycle.viewmodel())
             }
         }
-        androidxCommonMain {
+        composeUiMain {
             dependencies {
                 api(commonDependencies.jetbrainsAndroidx.lifecycle.viewmodelCompose())
             }

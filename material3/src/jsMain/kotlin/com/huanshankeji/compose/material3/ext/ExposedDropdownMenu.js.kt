@@ -87,7 +87,7 @@ actual fun ExposedDropdownMenuBoxScope.ExposedDropdownMenuBoxTextField(
     expanded: Boolean, args: ExposedDropdownMenuBoxTextFieldArgs
 ) =
     with(args) {
-        // adapted from the `androidxCommon` one
+        // adapted from the `composeUi` one
         TextField(
             modifier = Modifier.menuAnchor(/*MenuAnchorType.PrimaryNotEditable*/),
             value = value,

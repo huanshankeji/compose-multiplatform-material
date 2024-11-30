@@ -23,7 +23,7 @@ kotlin {
                 implementation(commonDependencies.kotlinx.coroutines.core())
             }
         }
-        androidxCommonMain {
+        composeUiMain {
             dependencies {
                 //implementation(compose.foundation) // not needed
                 implementation(compose.material)

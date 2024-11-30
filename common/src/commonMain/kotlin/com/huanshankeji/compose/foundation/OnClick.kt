@@ -10,7 +10,7 @@ import com.huanshankeji.compose.ui.Modifier
 expect fun Modifier.onClick(onClick: () -> Unit): Modifier
 
 /**
- * Has the interactive effect when clicked on the `androidxCommon` targets.
+ * Has the interactive effect when clicked on the `composeUi` targets.
  */
 @ExperimentalFoundationApi
 expect fun Modifier.clickable(onClick: () -> Unit): Modifier
