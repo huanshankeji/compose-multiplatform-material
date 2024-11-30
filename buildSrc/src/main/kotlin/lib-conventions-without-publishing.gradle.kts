@@ -16,7 +16,7 @@ kotlin {
     @OptIn(ExperimentalKotlinGradlePluginApi::class)
     applyDefaultHierarchyTemplate {
         common {
-            group("androidxCommon") {
+            group("composeUi") {
                 withJvm()
                 withAndroidTarget()
                 group("ios")
@@ -27,10 +27,10 @@ kotlin {
 
     /*
     sourceSets {
-        val androidxCommonMain by creating { dependsOn(commonMain.get()) }
-        jvmMain { dependsOn(androidxCommonMain) }
-        iosMain { dependsOn(androidxCommonMain) }
-        named("wasmJsMain") { dependsOn(androidxCommonMain) }
+        val composeUiMain by creating { dependsOn(commonMain.get()) }
+        jvmMain { dependsOn(composeUiMain) }
+        iosMain { dependsOn(composeUiMain) }
+        named("wasmJsMain") { dependsOn(composeUiMain) }
     }
     */
 }
