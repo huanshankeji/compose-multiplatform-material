@@ -28,8 +28,8 @@ kotlin {
 publishing.publications.withType<MavenPublication> {
     pomForTeamDefaultOpenSource(
         project,
-        "Compose Multiplatform Material core Icon wrappers",
-        "Compose Multiplatform Material Design core Icon wrappers for `androidx.compose` and Compose HTML"
+        "Compose Multiplatform HTML Unified core Icon wrappers",
+        "Compose Multiplatform HTML Unified Design core Icon wrappers for `androidx.compose` and Compose HTML"
     ) {
         `Shreck Ye`()
     }

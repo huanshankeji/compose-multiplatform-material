@@ -31,7 +31,7 @@ fun Material2(/*modifier: Modifier = Modifier*/) {
     val snackbarHostState = remember { SnackbarHostState() }
     // It seems the modifier can't be set on `TopAppBarScaffold` or a box wrapping it
     TopAppBarScaffold({
-        Text("Compose Multiplatform Material demo")
+        Text("Compose Multiplatform HTML Unified demo")
     }, navigationIcon = {
         MaterialIconNavButton({}, icon = Icons.Default.Menu, contentDescription = "menu")
     }, actions = {
