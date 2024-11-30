@@ -1,0 +1,392 @@
+// Klib ABI Dump
+// Targets: [iosArm64, iosSimulatorArm64, iosX64, js, wasmJs]
+// Alias: ios => [iosArm64, iosSimulatorArm64, iosX64]
+// Rendering settings:
+// - Signature version: 2
+// - Show manifest properties: true
+// - Show declarations: true
+
+// Library unique name: <com.huanshankeji:compose-multiplatform-html-unified-common-legacy>
+final class com.huanshankeji.compose.ui.color/Color { // com.huanshankeji.compose.ui.color/Color|null[0]
+    final val platformValue // com.huanshankeji.compose.ui.color/Color.platformValue|{}platformValue[0]
+        // Targets: [ios, wasmJs]
+        final fun <get-platformValue>(): androidx.compose.ui.graphics/Color // com.huanshankeji.compose.ui.color/Color.platformValue.<get-platformValue>|<get-platformValue>(){}[0]
+
+        // Targets: [js]
+        final fun <get-platformValue>(): org.jetbrains.compose.web.css/CSSColorValue // com.huanshankeji.compose.ui.color/Color.platformValue.<get-platformValue>|<get-platformValue>(){}[0]
+
+    // Targets: [ios, wasmJs]
+    constructor <init>(androidx.compose.ui.graphics/Color) // com.huanshankeji.compose.ui.color/Color.<init>|<init>(androidx.compose.ui.graphics.Color){}[0]
+
+    // Targets: [js]
+    constructor <init>(org.jetbrains.compose.web.css/CSSColorValue) // com.huanshankeji.compose.ui.color/Color.<init>|<init>(org.jetbrains.compose.web.css.CSSColorValue){}[0]
+}
+
+final class com.huanshankeji.compose.ui.unit/DpOrPx : com.huanshankeji.compose.ui.unit/Length { // com.huanshankeji.compose.ui.unit/DpOrPx|null[0]
+    final val platformValue // com.huanshankeji.compose.ui.unit/DpOrPx.platformValue|{}platformValue[0]
+        // Targets: [ios, wasmJs]
+        final fun <get-platformValue>(): androidx.compose.ui.unit/Dp // com.huanshankeji.compose.ui.unit/DpOrPx.platformValue.<get-platformValue>|<get-platformValue>(){}[0]
+
+        // Targets: [js]
+        final fun <get-platformValue>(): org.jetbrains.compose.web.css/CSSSizeValue<org.jetbrains.compose.web.css/CSSUnit.px> // com.huanshankeji.compose.ui.unit/DpOrPx.platformValue.<get-platformValue>|<get-platformValue>(){}[0]
+
+    // Targets: [ios, wasmJs]
+    constructor <init>(androidx.compose.ui.unit/Dp) // com.huanshankeji.compose.ui.unit/DpOrPx.<init>|<init>(androidx.compose.ui.unit.Dp){}[0]
+
+    // Targets: [js]
+    constructor <init>(org.jetbrains.compose.web.css/CSSSizeValue<org.jetbrains.compose.web.css/CSSUnit.px>) // com.huanshankeji.compose.ui.unit/DpOrPx.<init>|<init>(org.jetbrains.compose.web.css.CSSSizeValue<org.jetbrains.compose.web.css.CSSUnit.px>){}[0]
+}
+
+final class com.huanshankeji.compose.ui/StyleScope { // com.huanshankeji.compose.ui/StyleScope|null[0]
+    final fun backgroundColor(com.huanshankeji.compose.ui.color/Color) // com.huanshankeji.compose.ui/StyleScope.backgroundColor|backgroundColor(com.huanshankeji.compose.ui.color.Color){}[0]
+    final fun height(com.huanshankeji.compose.ui.unit/HeightOrWidth) // com.huanshankeji.compose.ui/StyleScope.height|height(com.huanshankeji.compose.ui.unit.HeightOrWidth){}[0]
+    final fun margin(com.huanshankeji.compose.ui.unit/Length) // com.huanshankeji.compose.ui/StyleScope.margin|margin(com.huanshankeji.compose.ui.unit.Length){}[0]
+    final fun outerBorder(com.huanshankeji.compose.ui.unit/Length, com.huanshankeji.compose.ui.color/Color) // com.huanshankeji.compose.ui/StyleScope.outerBorder|outerBorder(com.huanshankeji.compose.ui.unit.Length;com.huanshankeji.compose.ui.color.Color){}[0]
+    final fun platformBorder(com.huanshankeji.compose.ui.unit/Length, com.huanshankeji.compose.ui.color/Color) // com.huanshankeji.compose.ui/StyleScope.platformBorder|platformBorder(com.huanshankeji.compose.ui.unit.Length;com.huanshankeji.compose.ui.color.Color){}[0]
+    final fun roundedCornerOuterBorder(com.huanshankeji.compose.ui.unit/Length, com.huanshankeji.compose.ui.color/Color, com.huanshankeji.compose.ui.unit/LengthOrPercentage) // com.huanshankeji.compose.ui/StyleScope.roundedCornerOuterBorder|roundedCornerOuterBorder(com.huanshankeji.compose.ui.unit.Length;com.huanshankeji.compose.ui.color.Color;com.huanshankeji.compose.ui.unit.LengthOrPercentage){}[0]
+    final fun width(com.huanshankeji.compose.ui.unit/HeightOrWidth) // com.huanshankeji.compose.ui/StyleScope.width|width(com.huanshankeji.compose.ui.unit.HeightOrWidth){}[0]
+
+    // Targets: [ios, wasmJs]
+    constructor <init>(com.huanshankeji.compose.ui/ModifierOrAttrsScope<*>) // com.huanshankeji.compose.ui/StyleScope.<init>|<init>(com.huanshankeji.compose.ui.ModifierOrAttrsScope<*>){}[0]
+
+    // Targets: [ios, wasmJs]
+    final val modifierOrAttrsScope // com.huanshankeji.compose.ui/StyleScope.modifierOrAttrsScope|{}modifierOrAttrsScope[0]
+        final fun <get-modifierOrAttrsScope>(): com.huanshankeji.compose.ui/ModifierOrAttrsScope<*> // com.huanshankeji.compose.ui/StyleScope.modifierOrAttrsScope.<get-modifierOrAttrsScope>|<get-modifierOrAttrsScope>(){}[0]
+
+    // Targets: [ios, wasmJs]
+    final fun modify(kotlin/Function1<androidx.compose.ui/Modifier, androidx.compose.ui/Modifier>) // com.huanshankeji.compose.ui/StyleScope.modify|modify(kotlin.Function1<androidx.compose.ui.Modifier,androidx.compose.ui.Modifier>){}[0]
+
+    // Targets: [js]
+    constructor <init>(org.jetbrains.compose.web.css/StyleScope) // com.huanshankeji.compose.ui/StyleScope.<init>|<init>(org.jetbrains.compose.web.css.StyleScope){}[0]
+
+    // Targets: [js]
+    final val styleScope // com.huanshankeji.compose.ui/StyleScope.styleScope|{}styleScope[0]
+        final fun <get-styleScope>(): org.jetbrains.compose.web.css/StyleScope // com.huanshankeji.compose.ui/StyleScope.styleScope.<get-styleScope>|<get-styleScope>(){}[0]
+
+    // Targets: [js]
+    final fun margin(com.huanshankeji.compose.ui.unit/LengthOrPercentage) // com.huanshankeji.compose.ui/StyleScope.margin|margin(com.huanshankeji.compose.ui.unit.LengthOrPercentage){}[0]
+}
+
+sealed class com.huanshankeji.compose.ui.unit/HeightOrWidth { // com.huanshankeji.compose.ui.unit/HeightOrWidth|null[0]
+    constructor <init>() // com.huanshankeji.compose.ui.unit/HeightOrWidth.<init>|<init>(){}[0]
+
+    final class Numeric : com.huanshankeji.compose.ui.unit/HeightOrWidth { // com.huanshankeji.compose.ui.unit/HeightOrWidth.Numeric|null[0]
+        constructor <init>(com.huanshankeji.compose.ui.unit/LengthOrPercentage) // com.huanshankeji.compose.ui.unit/HeightOrWidth.Numeric.<init>|<init>(com.huanshankeji.compose.ui.unit.LengthOrPercentage){}[0]
+
+        final val value // com.huanshankeji.compose.ui.unit/HeightOrWidth.Numeric.value|{}value[0]
+            final fun <get-value>(): com.huanshankeji.compose.ui.unit/LengthOrPercentage // com.huanshankeji.compose.ui.unit/HeightOrWidth.Numeric.value.<get-value>|<get-value>(){}[0]
+    }
+
+    final object FillMax : com.huanshankeji.compose.ui.unit/HeightOrWidth // com.huanshankeji.compose.ui.unit/HeightOrWidth.FillMax|null[0]
+
+    final object FitContent : com.huanshankeji.compose.ui.unit/HeightOrWidth // com.huanshankeji.compose.ui.unit/HeightOrWidth.FitContent|null[0]
+}
+
+final object com.huanshankeji.compose.ui.color/Colors { // com.huanshankeji.compose.ui.color/Colors|null[0]
+    final val black // com.huanshankeji.compose.ui.color/Colors.black|{}black[0]
+        final fun <get-black>(): com.huanshankeji.compose.ui.color/Color // com.huanshankeji.compose.ui.color/Colors.black.<get-black>|<get-black>(){}[0]
+    final val blue // com.huanshankeji.compose.ui.color/Colors.blue|{}blue[0]
+        final fun <get-blue>(): com.huanshankeji.compose.ui.color/Color // com.huanshankeji.compose.ui.color/Colors.blue.<get-blue>|<get-blue>(){}[0]
+    final val gray // com.huanshankeji.compose.ui.color/Colors.gray|{}gray[0]
+        final fun <get-gray>(): com.huanshankeji.compose.ui.color/Color // com.huanshankeji.compose.ui.color/Colors.gray.<get-gray>|<get-gray>(){}[0]
+    final val green // com.huanshankeji.compose.ui.color/Colors.green|{}green[0]
+        final fun <get-green>(): com.huanshankeji.compose.ui.color/Color // com.huanshankeji.compose.ui.color/Colors.green.<get-green>|<get-green>(){}[0]
+    final val red // com.huanshankeji.compose.ui.color/Colors.red|{}red[0]
+        final fun <get-red>(): com.huanshankeji.compose.ui.color/Color // com.huanshankeji.compose.ui.color/Colors.red.<get-red>|<get-red>(){}[0]
+    final val white // com.huanshankeji.compose.ui.color/Colors.white|{}white[0]
+        final fun <get-white>(): com.huanshankeji.compose.ui.color/Color // com.huanshankeji.compose.ui.color/Colors.white.<get-white>|<get-white>(){}[0]
+}
+
+final val com.huanshankeji.compose.ui.color/com_huanshankeji_compose_ui_color_Color$stableprop // com.huanshankeji.compose.ui.color/com_huanshankeji_compose_ui_color_Color$stableprop|#static{}com_huanshankeji_compose_ui_color_Color$stableprop[0]
+final val com.huanshankeji.compose.ui.color/com_huanshankeji_compose_ui_color_Colors$stableprop // com.huanshankeji.compose.ui.color/com_huanshankeji_compose_ui_color_Colors$stableprop|#static{}com_huanshankeji_compose_ui_color_Colors$stableprop[0]
+final val com.huanshankeji.compose.ui.unit/com_huanshankeji_compose_ui_unit_DpOrPx$stableprop // com.huanshankeji.compose.ui.unit/com_huanshankeji_compose_ui_unit_DpOrPx$stableprop|#static{}com_huanshankeji_compose_ui_unit_DpOrPx$stableprop[0]
+final val com.huanshankeji.compose.ui.unit/com_huanshankeji_compose_ui_unit_HeightOrWidth$stableprop // com.huanshankeji.compose.ui.unit/com_huanshankeji_compose_ui_unit_HeightOrWidth$stableprop|#static{}com_huanshankeji_compose_ui_unit_HeightOrWidth$stableprop[0]
+final val com.huanshankeji.compose.ui.unit/com_huanshankeji_compose_ui_unit_HeightOrWidth_FillMax$stableprop // com.huanshankeji.compose.ui.unit/com_huanshankeji_compose_ui_unit_HeightOrWidth_FillMax$stableprop|#static{}com_huanshankeji_compose_ui_unit_HeightOrWidth_FillMax$stableprop[0]
+final val com.huanshankeji.compose.ui.unit/com_huanshankeji_compose_ui_unit_HeightOrWidth_FitContent$stableprop // com.huanshankeji.compose.ui.unit/com_huanshankeji_compose_ui_unit_HeightOrWidth_FitContent$stableprop|#static{}com_huanshankeji_compose_ui_unit_HeightOrWidth_FitContent$stableprop[0]
+final val com.huanshankeji.compose.ui.unit/com_huanshankeji_compose_ui_unit_HeightOrWidth_Numeric$stableprop // com.huanshankeji.compose.ui.unit/com_huanshankeji_compose_ui_unit_HeightOrWidth_Numeric$stableprop|#static{}com_huanshankeji_compose_ui_unit_HeightOrWidth_Numeric$stableprop[0]
+final val com.huanshankeji.compose.ui.unit/dpOrPx // com.huanshankeji.compose.ui.unit/dpOrPx|@kotlin.Int{}dpOrPx[0]
+    final fun (kotlin/Int).<get-dpOrPx>(): com.huanshankeji.compose.ui.unit/DpOrPx // com.huanshankeji.compose.ui.unit/dpOrPx.<get-dpOrPx>|<get-dpOrPx>@kotlin.Int(){}[0]
+final val com.huanshankeji.compose.ui.unit/percent // com.huanshankeji.compose.ui.unit/percent|@kotlin.Int{}percent[0]
+    // Targets: [ios, wasmJs]
+    final fun (kotlin/Int).<get-percent>(): com.huanshankeji.compose.ui.unit/PercentageImpl // com.huanshankeji.compose.ui.unit/percent.<get-percent>|<get-percent>@kotlin.Int(){}[0]
+
+    // Targets: [js]
+    final fun (kotlin/Int).<get-percent>(): com.huanshankeji.compose.ui.unit/Percentage // com.huanshankeji.compose.ui.unit/percent.<get-percent>|<get-percent>@kotlin.Int(){}[0]
+final val com.huanshankeji.compose.ui/com_huanshankeji_compose_ui_ModifierOrAttrsScope$stableprop // com.huanshankeji.compose.ui/com_huanshankeji_compose_ui_ModifierOrAttrsScope$stableprop|#static{}com_huanshankeji_compose_ui_ModifierOrAttrsScope$stableprop[0]
+final val com.huanshankeji.compose.ui/com_huanshankeji_compose_ui_StyleScope$stableprop // com.huanshankeji.compose.ui/com_huanshankeji_compose_ui_StyleScope$stableprop|#static{}com_huanshankeji_compose_ui_StyleScope$stableprop[0]
+
+final fun (com.huanshankeji.compose.ui/StyleScope).com.huanshankeji.compose.ui/height(com.huanshankeji.compose.ui.unit/LengthOrPercentage) // com.huanshankeji.compose.ui/height|height@com.huanshankeji.compose.ui.StyleScope(com.huanshankeji.compose.ui.unit.LengthOrPercentage){}[0]
+final fun (com.huanshankeji.compose.ui/StyleScope).com.huanshankeji.compose.ui/padding(com.huanshankeji.compose.ui.unit/LengthOrPercentage) // com.huanshankeji.compose.ui/padding|padding@com.huanshankeji.compose.ui.StyleScope(com.huanshankeji.compose.ui.unit.LengthOrPercentage){}[0]
+final fun (com.huanshankeji.compose.ui/StyleScope).com.huanshankeji.compose.ui/width(com.huanshankeji.compose.ui.unit/LengthOrPercentage) // com.huanshankeji.compose.ui/width|width@com.huanshankeji.compose.ui.StyleScope(com.huanshankeji.compose.ui.unit.LengthOrPercentage){}[0]
+final fun com.huanshankeji.compose.ui.color/com_huanshankeji_compose_ui_color_Color$stableprop_getter(): kotlin/Int // com.huanshankeji.compose.ui.color/com_huanshankeji_compose_ui_color_Color$stableprop_getter|com_huanshankeji_compose_ui_color_Color$stableprop_getter(){}[0]
+final fun com.huanshankeji.compose.ui.color/com_huanshankeji_compose_ui_color_Colors$stableprop_getter(): kotlin/Int // com.huanshankeji.compose.ui.color/com_huanshankeji_compose_ui_color_Colors$stableprop_getter|com_huanshankeji_compose_ui_color_Colors$stableprop_getter(){}[0]
+final fun com.huanshankeji.compose.ui.color/rgbColor(kotlin/UByte, kotlin/UByte, kotlin/UByte): com.huanshankeji.compose.ui.color/Color // com.huanshankeji.compose.ui.color/rgbColor|rgbColor(kotlin.UByte;kotlin.UByte;kotlin.UByte){}[0]
+final fun com.huanshankeji.compose.ui.color/rgbaColor(kotlin/UByte, kotlin/UByte, kotlin/UByte, kotlin/Float): com.huanshankeji.compose.ui.color/Color // com.huanshankeji.compose.ui.color/rgbaColor|rgbaColor(kotlin.UByte;kotlin.UByte;kotlin.UByte;kotlin.Float){}[0]
+final fun com.huanshankeji.compose.ui.color/rgbaColor(kotlin/UByte, kotlin/UByte, kotlin/UByte, kotlin/UByte): com.huanshankeji.compose.ui.color/Color // com.huanshankeji.compose.ui.color/rgbaColor|rgbaColor(kotlin.UByte;kotlin.UByte;kotlin.UByte;kotlin.UByte){}[0]
+final fun com.huanshankeji.compose.ui.unit/com_huanshankeji_compose_ui_unit_DpOrPx$stableprop_getter(): kotlin/Int // com.huanshankeji.compose.ui.unit/com_huanshankeji_compose_ui_unit_DpOrPx$stableprop_getter|com_huanshankeji_compose_ui_unit_DpOrPx$stableprop_getter(){}[0]
+final fun com.huanshankeji.compose.ui.unit/com_huanshankeji_compose_ui_unit_HeightOrWidth$stableprop_getter(): kotlin/Int // com.huanshankeji.compose.ui.unit/com_huanshankeji_compose_ui_unit_HeightOrWidth$stableprop_getter|com_huanshankeji_compose_ui_unit_HeightOrWidth$stableprop_getter(){}[0]
+final fun com.huanshankeji.compose.ui.unit/com_huanshankeji_compose_ui_unit_HeightOrWidth_FillMax$stableprop_getter(): kotlin/Int // com.huanshankeji.compose.ui.unit/com_huanshankeji_compose_ui_unit_HeightOrWidth_FillMax$stableprop_getter|com_huanshankeji_compose_ui_unit_HeightOrWidth_FillMax$stableprop_getter(){}[0]
+final fun com.huanshankeji.compose.ui.unit/com_huanshankeji_compose_ui_unit_HeightOrWidth_FitContent$stableprop_getter(): kotlin/Int // com.huanshankeji.compose.ui.unit/com_huanshankeji_compose_ui_unit_HeightOrWidth_FitContent$stableprop_getter|com_huanshankeji_compose_ui_unit_HeightOrWidth_FitContent$stableprop_getter(){}[0]
+final fun com.huanshankeji.compose.ui.unit/com_huanshankeji_compose_ui_unit_HeightOrWidth_Numeric$stableprop_getter(): kotlin/Int // com.huanshankeji.compose.ui.unit/com_huanshankeji_compose_ui_unit_HeightOrWidth_Numeric$stableprop_getter|com_huanshankeji_compose_ui_unit_HeightOrWidth_Numeric$stableprop_getter(){}[0]
+final fun com.huanshankeji.compose.ui/com_huanshankeji_compose_ui_ModifierOrAttrsScope$stableprop_getter(): kotlin/Int // com.huanshankeji.compose.ui/com_huanshankeji_compose_ui_ModifierOrAttrsScope$stableprop_getter|com_huanshankeji_compose_ui_ModifierOrAttrsScope$stableprop_getter(){}[0]
+final fun com.huanshankeji.compose.ui/com_huanshankeji_compose_ui_StyleScope$stableprop_getter(): kotlin/Int // com.huanshankeji.compose.ui/com_huanshankeji_compose_ui_StyleScope$stableprop_getter|com_huanshankeji_compose_ui_StyleScope$stableprop_getter(){}[0]
+final fun com.huanshankeji.compose/RawText(kotlin/String, androidx.compose.runtime/Composer?, kotlin/Int) // com.huanshankeji.compose/RawText|RawText(kotlin.String;androidx.compose.runtime.Composer?;kotlin.Int){}[0]
+
+// Targets: [ios, wasmJs]
+sealed interface com.huanshankeji.compose.ui.unit/Length : com.huanshankeji.compose.ui.unit/LengthOrPercentage // com.huanshankeji.compose.ui.unit/Length|null[0]
+
+// Targets: [ios, wasmJs]
+sealed interface com.huanshankeji.compose.ui.unit/LengthOrPercentage // com.huanshankeji.compose.ui.unit/LengthOrPercentage|null[0]
+
+// Targets: [ios, wasmJs]
+abstract class com.huanshankeji.compose.layout/BoxElement : com.huanshankeji.compose.ui/Element { // com.huanshankeji.compose.layout/BoxElement|null[0]
+    constructor <init>() // com.huanshankeji.compose.layout/BoxElement.<init>|<init>(){}[0]
+}
+
+// Targets: [ios, wasmJs]
+abstract class com.huanshankeji.compose.layout/ColumnElement : com.huanshankeji.compose.ui/Element { // com.huanshankeji.compose.layout/ColumnElement|null[0]
+    constructor <init>() // com.huanshankeji.compose.layout/ColumnElement.<init>|<init>(){}[0]
+}
+
+// Targets: [ios, wasmJs]
+abstract class com.huanshankeji.compose.layout/RowElement : com.huanshankeji.compose.ui/Element { // com.huanshankeji.compose.layout/RowElement|null[0]
+    constructor <init>() // com.huanshankeji.compose.layout/RowElement.<init>|<init>(){}[0]
+}
+
+// Targets: [ios, wasmJs]
+abstract class com.huanshankeji.compose.ui/Element { // com.huanshankeji.compose.ui/Element|null[0]
+    constructor <init>() // com.huanshankeji.compose.ui/Element.<init>|<init>(){}[0]
+}
+
+// Targets: [ios, wasmJs]
+abstract class com.huanshankeji.compose/BasicTextElement : com.huanshankeji.compose.ui/Element { // com.huanshankeji.compose/BasicTextElement|null[0]
+    constructor <init>() // com.huanshankeji.compose/BasicTextElement.<init>|<init>(){}[0]
+}
+
+// Targets: [ios, wasmJs]
+final class <#A: out com.huanshankeji.compose.ui/Element> com.huanshankeji.compose.ui/ModifierOrAttrsScope { // com.huanshankeji.compose.ui/ModifierOrAttrsScope|null[0]
+    constructor <init>(androidx.compose.ui/Modifier) // com.huanshankeji.compose.ui/ModifierOrAttrsScope.<init>|<init>(androidx.compose.ui.Modifier){}[0]
+
+    final var modifier // com.huanshankeji.compose.ui/ModifierOrAttrsScope.modifier|{}modifier[0]
+        final fun <get-modifier>(): androidx.compose.ui/Modifier // com.huanshankeji.compose.ui/ModifierOrAttrsScope.modifier.<get-modifier>|<get-modifier>(){}[0]
+
+    final fun modify(kotlin/Function1<androidx.compose.ui/Modifier, androidx.compose.ui/Modifier>) // com.huanshankeji.compose.ui/ModifierOrAttrsScope.modify|modify(kotlin.Function1<androidx.compose.ui.Modifier,androidx.compose.ui.Modifier>){}[0]
+    final fun style(kotlin/Function1<com.huanshankeji.compose.ui/StyleScope, kotlin/Unit>) // com.huanshankeji.compose.ui/ModifierOrAttrsScope.style|style(kotlin.Function1<com.huanshankeji.compose.ui.StyleScope,kotlin.Unit>){}[0]
+}
+
+// Targets: [ios, wasmJs]
+final class com.huanshankeji.compose.ui.unit/PercentageImpl : com.huanshankeji.compose.ui.unit/LengthOrPercentage { // com.huanshankeji.compose.ui.unit/PercentageImpl|null[0]
+    constructor <init>(kotlin/Int) // com.huanshankeji.compose.ui.unit/PercentageImpl.<init>|<init>(kotlin.Int){}[0]
+
+    final val value // com.huanshankeji.compose.ui.unit/PercentageImpl.value|{}value[0]
+        final fun <get-value>(): kotlin/Int // com.huanshankeji.compose.ui.unit/PercentageImpl.value.<get-value>|<get-value>(){}[0]
+}
+
+// Targets: [ios, wasmJs]
+final val com.huanshankeji.compose.layout/com_huanshankeji_compose_layout_BoxElement$stableprop // com.huanshankeji.compose.layout/com_huanshankeji_compose_layout_BoxElement$stableprop|#static{}com_huanshankeji_compose_layout_BoxElement$stableprop[0]
+
+// Targets: [ios, wasmJs]
+final val com.huanshankeji.compose.layout/com_huanshankeji_compose_layout_ColumnElement$stableprop // com.huanshankeji.compose.layout/com_huanshankeji_compose_layout_ColumnElement$stableprop|#static{}com_huanshankeji_compose_layout_ColumnElement$stableprop[0]
+
+// Targets: [ios, wasmJs]
+final val com.huanshankeji.compose.layout/com_huanshankeji_compose_layout_RowElement$stableprop // com.huanshankeji.compose.layout/com_huanshankeji_compose_layout_RowElement$stableprop|#static{}com_huanshankeji_compose_layout_RowElement$stableprop[0]
+
+// Targets: [ios, wasmJs]
+final val com.huanshankeji.compose.ui.unit/com_huanshankeji_compose_ui_unit_PercentageImpl$stableprop // com.huanshankeji.compose.ui.unit/com_huanshankeji_compose_ui_unit_PercentageImpl$stableprop|#static{}com_huanshankeji_compose_ui_unit_PercentageImpl$stableprop[0]
+
+// Targets: [ios, wasmJs]
+final val com.huanshankeji.compose.ui/com_huanshankeji_compose_ui_Element$stableprop // com.huanshankeji.compose.ui/com_huanshankeji_compose_ui_Element$stableprop|#static{}com_huanshankeji_compose_ui_Element$stableprop[0]
+
+// Targets: [ios, wasmJs]
+final val com.huanshankeji.compose/com_huanshankeji_compose_BasicTextElement$stableprop // com.huanshankeji.compose/com_huanshankeji_compose_BasicTextElement$stableprop|#static{}com_huanshankeji_compose_BasicTextElement$stableprop[0]
+
+// Targets: [ios, wasmJs]
+final fun (com.huanshankeji.compose.ui.unit/Length).com.huanshankeji.compose.ui.unit/asDpOrPx(): com.huanshankeji.compose.ui.unit/DpOrPx // com.huanshankeji.compose.ui.unit/asDpOrPx|asDpOrPx@com.huanshankeji.compose.ui.unit.Length(){}[0]
+
+// Targets: [ios, wasmJs]
+final fun (com.huanshankeji.compose.ui.unit/LengthOrPercentage).com.huanshankeji.compose.ui.unit/asDpOrPx(): com.huanshankeji.compose.ui.unit/DpOrPx // com.huanshankeji.compose.ui.unit/asDpOrPx|asDpOrPx@com.huanshankeji.compose.ui.unit.LengthOrPercentage(){}[0]
+
+// Targets: [ios, wasmJs]
+final fun <#A: com.huanshankeji.compose.ui/Element> (androidx.compose.ui/Modifier).com.huanshankeji.compose.ui/toModifierOrAttrs(): kotlin/Function1<com.huanshankeji.compose.ui/ModifierOrAttrsScope<#A>, kotlin/Unit>? // com.huanshankeji.compose.ui/toModifierOrAttrs|toModifierOrAttrs@androidx.compose.ui.Modifier(){0§<com.huanshankeji.compose.ui.Element>}[0]
+
+// Targets: [ios, wasmJs]
+final fun <#A: com.huanshankeji.compose.ui/Element> (kotlin/Function1<com.huanshankeji.compose.ui/ModifierOrAttrsScope<#A>, kotlin/Unit>).com.huanshankeji.compose.ui/plus(kotlin/Function1<com.huanshankeji.compose.ui/ModifierOrAttrsScope<#A>, kotlin/Unit>?): kotlin/Function1<com.huanshankeji.compose.ui/ModifierOrAttrsScope<#A>, kotlin/Unit>? // com.huanshankeji.compose.ui/plus|plus@kotlin.Function1<com.huanshankeji.compose.ui.ModifierOrAttrsScope<0:0>,kotlin.Unit>(kotlin.Function1<com.huanshankeji.compose.ui.ModifierOrAttrsScope<0:0>,kotlin.Unit>?){0§<com.huanshankeji.compose.ui.Element>}[0]
+
+// Targets: [ios, wasmJs]
+final fun <#A: com.huanshankeji.compose.ui/Element> (kotlin/Function1<com.huanshankeji.compose.ui/ModifierOrAttrsScope<#A>, kotlin/Unit>?).com.huanshankeji.compose.ui/toModifier(): androidx.compose.ui/Modifier // com.huanshankeji.compose.ui/toModifier|toModifier@kotlin.Function1<com.huanshankeji.compose.ui.ModifierOrAttrsScope<0:0>,kotlin.Unit>?(){0§<com.huanshankeji.compose.ui.Element>}[0]
+
+// Targets: [ios, wasmJs]
+final fun com.huanshankeji.compose.layout/Box(kotlin/Function1<com.huanshankeji.compose.ui/ModifierOrAttrsScope<com.huanshankeji.compose.layout/BoxElement>, kotlin/Unit>?, kotlin/Function3<androidx.compose.foundation.layout/BoxScope, androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit>, androidx.compose.runtime/Composer?, kotlin/Int, kotlin/Int) // com.huanshankeji.compose.layout/Box|Box(kotlin.Function1<com.huanshankeji.compose.ui.ModifierOrAttrsScope<com.huanshankeji.compose.layout.BoxElement>,kotlin.Unit>?;kotlin.Function3<androidx.compose.foundation.layout.BoxScope,androidx.compose.runtime.Composer,kotlin.Int,kotlin.Unit>;androidx.compose.runtime.Composer?;kotlin.Int;kotlin.Int){}[0]
+
+// Targets: [ios, wasmJs]
+final fun com.huanshankeji.compose.layout/Column(kotlin/Function1<com.huanshankeji.compose.ui/ModifierOrAttrsScope<com.huanshankeji.compose.layout/ColumnElement>, kotlin/Unit>?, kotlin/Function3<androidx.compose.foundation.layout/ColumnScope, androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit>, androidx.compose.runtime/Composer?, kotlin/Int, kotlin/Int) // com.huanshankeji.compose.layout/Column|Column(kotlin.Function1<com.huanshankeji.compose.ui.ModifierOrAttrsScope<com.huanshankeji.compose.layout.ColumnElement>,kotlin.Unit>?;kotlin.Function3<androidx.compose.foundation.layout.ColumnScope,androidx.compose.runtime.Composer,kotlin.Int,kotlin.Unit>;androidx.compose.runtime.Composer?;kotlin.Int;kotlin.Int){}[0]
+
+// Targets: [ios, wasmJs]
+final fun com.huanshankeji.compose.layout/Row(kotlin/Function1<com.huanshankeji.compose.ui/ModifierOrAttrsScope<com.huanshankeji.compose.layout/RowElement>, kotlin/Unit>?, kotlin/Function3<androidx.compose.foundation.layout/RowScope, androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit>, androidx.compose.runtime/Composer?, kotlin/Int, kotlin/Int) // com.huanshankeji.compose.layout/Row|Row(kotlin.Function1<com.huanshankeji.compose.ui.ModifierOrAttrsScope<com.huanshankeji.compose.layout.RowElement>,kotlin.Unit>?;kotlin.Function3<androidx.compose.foundation.layout.RowScope,androidx.compose.runtime.Composer,kotlin.Int,kotlin.Unit>;androidx.compose.runtime.Composer?;kotlin.Int;kotlin.Int){}[0]
+
+// Targets: [ios, wasmJs]
+final fun com.huanshankeji.compose.layout/com_huanshankeji_compose_layout_BoxElement$stableprop_getter(): kotlin/Int // com.huanshankeji.compose.layout/com_huanshankeji_compose_layout_BoxElement$stableprop_getter|com_huanshankeji_compose_layout_BoxElement$stableprop_getter(){}[0]
+
+// Targets: [ios, wasmJs]
+final fun com.huanshankeji.compose.layout/com_huanshankeji_compose_layout_ColumnElement$stableprop_getter(): kotlin/Int // com.huanshankeji.compose.layout/com_huanshankeji_compose_layout_ColumnElement$stableprop_getter|com_huanshankeji_compose_layout_ColumnElement$stableprop_getter(){}[0]
+
+// Targets: [ios, wasmJs]
+final fun com.huanshankeji.compose.layout/com_huanshankeji_compose_layout_RowElement$stableprop_getter(): kotlin/Int // com.huanshankeji.compose.layout/com_huanshankeji_compose_layout_RowElement$stableprop_getter|com_huanshankeji_compose_layout_RowElement$stableprop_getter(){}[0]
+
+// Targets: [ios, wasmJs]
+final fun com.huanshankeji.compose.ui.unit/com_huanshankeji_compose_ui_unit_PercentageImpl$stableprop_getter(): kotlin/Int // com.huanshankeji.compose.ui.unit/com_huanshankeji_compose_ui_unit_PercentageImpl$stableprop_getter|com_huanshankeji_compose_ui_unit_PercentageImpl$stableprop_getter(){}[0]
+
+// Targets: [ios, wasmJs]
+final fun com.huanshankeji.compose.ui/com_huanshankeji_compose_ui_Element$stableprop_getter(): kotlin/Int // com.huanshankeji.compose.ui/com_huanshankeji_compose_ui_Element$stableprop_getter|com_huanshankeji_compose_ui_Element$stableprop_getter(){}[0]
+
+// Targets: [ios, wasmJs]
+final fun com.huanshankeji.compose/BasicText(kotlin/String, kotlin/Function1<com.huanshankeji.compose.ui/ModifierOrAttrsScope<com.huanshankeji.compose/BasicTextElement>, kotlin/Unit>?, androidx.compose.runtime/Composer?, kotlin/Int, kotlin/Int) // com.huanshankeji.compose/BasicText|BasicText(kotlin.String;kotlin.Function1<com.huanshankeji.compose.ui.ModifierOrAttrsScope<com.huanshankeji.compose.BasicTextElement>,kotlin.Unit>?;androidx.compose.runtime.Composer?;kotlin.Int;kotlin.Int){}[0]
+
+// Targets: [ios, wasmJs]
+final fun com.huanshankeji.compose/com_huanshankeji_compose_BasicTextElement$stableprop_getter(): kotlin/Int // com.huanshankeji.compose/com_huanshankeji_compose_BasicTextElement$stableprop_getter|com_huanshankeji_compose_BasicTextElement$stableprop_getter(){}[0]
+
+// Targets: [ios, wasmJs]
+final inline fun <#A: com.huanshankeji.compose.ui/Element> com.huanshankeji.compose.ui/modifierOrAttrs(noinline kotlin/Function1<com.huanshankeji.compose.ui/ModifierOrAttrsScope<#A>, kotlin/Unit>): kotlin/Function1<com.huanshankeji.compose.ui/ModifierOrAttrsScope<#A>, kotlin/Unit> // com.huanshankeji.compose.ui/modifierOrAttrs|modifierOrAttrs(kotlin.Function1<com.huanshankeji.compose.ui.ModifierOrAttrsScope<0:0>,kotlin.Unit>){0§<com.huanshankeji.compose.ui.Element>}[0]
+
+// Targets: [js]
+abstract interface com.huanshankeji.compose.layout/BoxScope { // com.huanshankeji.compose.layout/BoxScope|null[0]
+    abstract val htmlDivElementScope // com.huanshankeji.compose.layout/BoxScope.htmlDivElementScope|{}htmlDivElementScope[0]
+        abstract fun <get-htmlDivElementScope>(): org.jetbrains.compose.web.dom/ElementScope<org.w3c.dom/HTMLDivElement> // com.huanshankeji.compose.layout/BoxScope.htmlDivElementScope.<get-htmlDivElementScope>|<get-htmlDivElementScope>(){}[0]
+
+    final class Impl : com.huanshankeji.compose.layout/BoxScope { // com.huanshankeji.compose.layout/BoxScope.Impl|null[0]
+        constructor <init>(org.jetbrains.compose.web.dom/ElementScope<org.w3c.dom/HTMLDivElement>) // com.huanshankeji.compose.layout/BoxScope.Impl.<init>|<init>(org.jetbrains.compose.web.dom.ElementScope<org.w3c.dom.HTMLDivElement>){}[0]
+
+        final val htmlDivElementScope // com.huanshankeji.compose.layout/BoxScope.Impl.htmlDivElementScope|{}htmlDivElementScope[0]
+            final fun <get-htmlDivElementScope>(): org.jetbrains.compose.web.dom/ElementScope<org.w3c.dom/HTMLDivElement> // com.huanshankeji.compose.layout/BoxScope.Impl.htmlDivElementScope.<get-htmlDivElementScope>|<get-htmlDivElementScope>(){}[0]
+    }
+}
+
+// Targets: [js]
+abstract interface com.huanshankeji.compose.layout/ColumnScope { // com.huanshankeji.compose.layout/ColumnScope|null[0]
+    abstract val elementScope // com.huanshankeji.compose.layout/ColumnScope.elementScope|{}elementScope[0]
+        abstract fun <get-elementScope>(): org.jetbrains.compose.web.dom/ElementScope<org.w3c.dom/HTMLDivElement> // com.huanshankeji.compose.layout/ColumnScope.elementScope.<get-elementScope>|<get-elementScope>(){}[0]
+
+    final class Impl : com.huanshankeji.compose.layout/ColumnScope { // com.huanshankeji.compose.layout/ColumnScope.Impl|null[0]
+        constructor <init>(org.jetbrains.compose.web.dom/ElementScope<org.w3c.dom/HTMLDivElement>) // com.huanshankeji.compose.layout/ColumnScope.Impl.<init>|<init>(org.jetbrains.compose.web.dom.ElementScope<org.w3c.dom.HTMLDivElement>){}[0]
+
+        final val elementScope // com.huanshankeji.compose.layout/ColumnScope.Impl.elementScope|{}elementScope[0]
+            final fun <get-elementScope>(): org.jetbrains.compose.web.dom/ElementScope<org.w3c.dom/HTMLDivElement> // com.huanshankeji.compose.layout/ColumnScope.Impl.elementScope.<get-elementScope>|<get-elementScope>(){}[0]
+    }
+}
+
+// Targets: [js]
+abstract interface com.huanshankeji.compose.layout/RowScope { // com.huanshankeji.compose.layout/RowScope|null[0]
+    abstract val elementScope // com.huanshankeji.compose.layout/RowScope.elementScope|{}elementScope[0]
+        abstract fun <get-elementScope>(): org.jetbrains.compose.web.dom/ElementScope<org.w3c.dom/HTMLDivElement> // com.huanshankeji.compose.layout/RowScope.elementScope.<get-elementScope>|<get-elementScope>(){}[0]
+
+    final class Impl : com.huanshankeji.compose.layout/RowScope { // com.huanshankeji.compose.layout/RowScope.Impl|null[0]
+        constructor <init>(org.jetbrains.compose.web.dom/ElementScope<org.w3c.dom/HTMLDivElement>) // com.huanshankeji.compose.layout/RowScope.Impl.<init>|<init>(org.jetbrains.compose.web.dom.ElementScope<org.w3c.dom.HTMLDivElement>){}[0]
+
+        final val elementScope // com.huanshankeji.compose.layout/RowScope.Impl.elementScope|{}elementScope[0]
+            final fun <get-elementScope>(): org.jetbrains.compose.web.dom/ElementScope<org.w3c.dom/HTMLDivElement> // com.huanshankeji.compose.layout/RowScope.Impl.elementScope.<get-elementScope>|<get-elementScope>(){}[0]
+    }
+}
+
+// Targets: [js]
+sealed interface com.huanshankeji.compose.ui.unit/Length : com.huanshankeji.compose.ui.unit/LengthOrPercentage { // com.huanshankeji.compose.ui.unit/Length|null[0]
+    abstract val platformValue // com.huanshankeji.compose.ui.unit/Length.platformValue|{}platformValue[0]
+        abstract fun <get-platformValue>(): org.jetbrains.compose.web.css/CSSSizeValue<out org.jetbrains.compose.web.css/CSSUnitLength> // com.huanshankeji.compose.ui.unit/Length.platformValue.<get-platformValue>|<get-platformValue>(){}[0]
+
+    final class Impl : com.huanshankeji.compose.ui.unit/Length { // com.huanshankeji.compose.ui.unit/Length.Impl|null[0]
+        constructor <init>(org.jetbrains.compose.web.css/CSSSizeValue<out org.jetbrains.compose.web.css/CSSUnitLength>) // com.huanshankeji.compose.ui.unit/Length.Impl.<init>|<init>(org.jetbrains.compose.web.css.CSSSizeValue<out|org.jetbrains.compose.web.css.CSSUnitLength>){}[0]
+
+        final val platformValue // com.huanshankeji.compose.ui.unit/Length.Impl.platformValue|{}platformValue[0]
+            final fun <get-platformValue>(): org.jetbrains.compose.web.css/CSSSizeValue<out org.jetbrains.compose.web.css/CSSUnitLength> // com.huanshankeji.compose.ui.unit/Length.Impl.platformValue.<get-platformValue>|<get-platformValue>(){}[0]
+    }
+}
+
+// Targets: [js]
+sealed interface com.huanshankeji.compose.ui.unit/LengthOrPercentage { // com.huanshankeji.compose.ui.unit/LengthOrPercentage|null[0]
+    abstract val platformValue // com.huanshankeji.compose.ui.unit/LengthOrPercentage.platformValue|{}platformValue[0]
+        abstract fun <get-platformValue>(): org.jetbrains.compose.web.css/CSSSizeValue<out org.jetbrains.compose.web.css/CSSUnitLengthOrPercentage> // com.huanshankeji.compose.ui.unit/LengthOrPercentage.platformValue.<get-platformValue>|<get-platformValue>(){}[0]
+
+    final class Impl : com.huanshankeji.compose.ui.unit/LengthOrPercentage { // com.huanshankeji.compose.ui.unit/LengthOrPercentage.Impl|null[0]
+        constructor <init>(org.jetbrains.compose.web.css/CSSSizeValue<out org.jetbrains.compose.web.css/CSSUnitLengthOrPercentage>) // com.huanshankeji.compose.ui.unit/LengthOrPercentage.Impl.<init>|<init>(org.jetbrains.compose.web.css.CSSSizeValue<out|org.jetbrains.compose.web.css.CSSUnitLengthOrPercentage>){}[0]
+
+        final val platformValue // com.huanshankeji.compose.ui.unit/LengthOrPercentage.Impl.platformValue|{}platformValue[0]
+            final fun <get-platformValue>(): org.jetbrains.compose.web.css/CSSSizeValue<out org.jetbrains.compose.web.css/CSSUnitLengthOrPercentage> // com.huanshankeji.compose.ui.unit/LengthOrPercentage.Impl.platformValue.<get-platformValue>|<get-platformValue>(){}[0]
+    }
+}
+
+// Targets: [js]
+final class <#A: out org.w3c.dom/HTMLElement> com.huanshankeji.compose.ui/ModifierOrAttrsScope { // com.huanshankeji.compose.ui/ModifierOrAttrsScope|null[0]
+    constructor <init>(org.jetbrains.compose.web.attributes/AttrsScope<#A>) // com.huanshankeji.compose.ui/ModifierOrAttrsScope.<init>|<init>(org.jetbrains.compose.web.attributes.AttrsScope<1:0>){}[0]
+
+    final val attrsScope // com.huanshankeji.compose.ui/ModifierOrAttrsScope.attrsScope|{}attrsScope[0]
+        final fun <get-attrsScope>(): org.jetbrains.compose.web.attributes/AttrsScope<#A> // com.huanshankeji.compose.ui/ModifierOrAttrsScope.attrsScope.<get-attrsScope>|<get-attrsScope>(){}[0]
+
+    final fun style(kotlin/Function1<com.huanshankeji.compose.ui/StyleScope, kotlin/Unit>) // com.huanshankeji.compose.ui/ModifierOrAttrsScope.style|style(kotlin.Function1<com.huanshankeji.compose.ui.StyleScope,kotlin.Unit>){}[0]
+}
+
+// Targets: [js]
+final class com.huanshankeji.compose.ui.unit/Percentage : com.huanshankeji.compose.ui.unit/LengthOrPercentage { // com.huanshankeji.compose.ui.unit/Percentage|null[0]
+    constructor <init>(org.jetbrains.compose.web.css/CSSSizeValue<out org.jetbrains.compose.web.css/CSSUnitPercentage>) // com.huanshankeji.compose.ui.unit/Percentage.<init>|<init>(org.jetbrains.compose.web.css.CSSSizeValue<out|org.jetbrains.compose.web.css.CSSUnitPercentage>){}[0]
+
+    final val platformValue // com.huanshankeji.compose.ui.unit/Percentage.platformValue|{}platformValue[0]
+        final fun <get-platformValue>(): org.jetbrains.compose.web.css/CSSSizeValue<out org.jetbrains.compose.web.css/CSSUnitPercentage> // com.huanshankeji.compose.ui.unit/Percentage.platformValue.<get-platformValue>|<get-platformValue>(){}[0]
+}
+
+// Targets: [js]
+final val com.huanshankeji.compose.layout/com_huanshankeji_compose_layout_BoxScope_Impl$stableprop // com.huanshankeji.compose.layout/com_huanshankeji_compose_layout_BoxScope_Impl$stableprop|#static{}com_huanshankeji_compose_layout_BoxScope_Impl$stableprop[0]
+
+// Targets: [js]
+final val com.huanshankeji.compose.layout/com_huanshankeji_compose_layout_ColumnScope_Impl$stableprop // com.huanshankeji.compose.layout/com_huanshankeji_compose_layout_ColumnScope_Impl$stableprop|#static{}com_huanshankeji_compose_layout_ColumnScope_Impl$stableprop[0]
+
+// Targets: [js]
+final val com.huanshankeji.compose.layout/com_huanshankeji_compose_layout_RowScope_Impl$stableprop // com.huanshankeji.compose.layout/com_huanshankeji_compose_layout_RowScope_Impl$stableprop|#static{}com_huanshankeji_compose_layout_RowScope_Impl$stableprop[0]
+
+// Targets: [js]
+final val com.huanshankeji.compose.ui.unit/com_huanshankeji_compose_ui_unit_LengthOrPercentage_Impl$stableprop // com.huanshankeji.compose.ui.unit/com_huanshankeji_compose_ui_unit_LengthOrPercentage_Impl$stableprop|#static{}com_huanshankeji_compose_ui_unit_LengthOrPercentage_Impl$stableprop[0]
+
+// Targets: [js]
+final val com.huanshankeji.compose.ui.unit/com_huanshankeji_compose_ui_unit_Length_Impl$stableprop // com.huanshankeji.compose.ui.unit/com_huanshankeji_compose_ui_unit_Length_Impl$stableprop|#static{}com_huanshankeji_compose_ui_unit_Length_Impl$stableprop[0]
+
+// Targets: [js]
+final val com.huanshankeji.compose.ui.unit/com_huanshankeji_compose_ui_unit_Percentage$stableprop // com.huanshankeji.compose.ui.unit/com_huanshankeji_compose_ui_unit_Percentage$stableprop|#static{}com_huanshankeji_compose_ui_unit_Percentage$stableprop[0]
+
+// Targets: [js]
+final fun <#A: org.w3c.dom/HTMLElement> (kotlin/Function1<com.huanshankeji.compose.ui/ModifierOrAttrsScope<#A>, kotlin/Unit>).com.huanshankeji.compose.ui/plus(kotlin/Function1<com.huanshankeji.compose.ui/ModifierOrAttrsScope<#A>, kotlin/Unit>?): kotlin/Function1<com.huanshankeji.compose.ui/ModifierOrAttrsScope<#A>, kotlin/Unit>? // com.huanshankeji.compose.ui/plus|plus@kotlin.Function1<com.huanshankeji.compose.ui.ModifierOrAttrsScope<0:0>,kotlin.Unit>(kotlin.Function1<com.huanshankeji.compose.ui.ModifierOrAttrsScope<0:0>,kotlin.Unit>?){0§<org.w3c.dom.HTMLElement>}[0]
+
+// Targets: [js]
+final fun <#A: org.w3c.dom/HTMLElement> (kotlin/Function1<com.huanshankeji.compose.ui/ModifierOrAttrsScope<#A>, kotlin/Unit>?).com.huanshankeji.compose.ui/toAttrs(): kotlin/Function1<org.jetbrains.compose.web.attributes/AttrsScope<#A>, kotlin/Unit>? // com.huanshankeji.compose.ui/toAttrs|toAttrs@kotlin.Function1<com.huanshankeji.compose.ui.ModifierOrAttrsScope<0:0>,kotlin.Unit>?(){0§<org.w3c.dom.HTMLElement>}[0]
+
+// Targets: [js]
+final fun <#A: org.w3c.dom/HTMLElement> (kotlin/Function1<org.jetbrains.compose.web.attributes/AttrsScope<#A>, kotlin/Unit>?).com.huanshankeji.compose.ui/toModifierOrAttrs(): kotlin/Function1<com.huanshankeji.compose.ui/ModifierOrAttrsScope<#A>, kotlin/Unit>? // com.huanshankeji.compose.ui/toModifierOrAttrs|toModifierOrAttrs@kotlin.Function1<org.jetbrains.compose.web.attributes.AttrsScope<0:0>,kotlin.Unit>?(){0§<org.w3c.dom.HTMLElement>}[0]
+
+// Targets: [js]
+final fun com.huanshankeji.compose.layout/Box(kotlin/Function1<com.huanshankeji.compose.ui/ModifierOrAttrsScope<org.w3c.dom/HTMLDivElement>, kotlin/Unit>?, kotlin/Function3<com.huanshankeji.compose.layout/BoxScope, androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit>, androidx.compose.runtime/Composer?, kotlin/Int, kotlin/Int) // com.huanshankeji.compose.layout/Box|Box(kotlin.Function1<com.huanshankeji.compose.ui.ModifierOrAttrsScope<org.w3c.dom.HTMLDivElement>,kotlin.Unit>?;kotlin.Function3<com.huanshankeji.compose.layout.BoxScope,androidx.compose.runtime.Composer,kotlin.Int,kotlin.Unit>;androidx.compose.runtime.Composer?;kotlin.Int;kotlin.Int){}[0]
+
+// Targets: [js]
+final fun com.huanshankeji.compose.layout/Column(kotlin/Function1<com.huanshankeji.compose.ui/ModifierOrAttrsScope<org.w3c.dom/HTMLDivElement>, kotlin/Unit>?, kotlin/Function3<com.huanshankeji.compose.layout/ColumnScope, androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit>, androidx.compose.runtime/Composer?, kotlin/Int, kotlin/Int) // com.huanshankeji.compose.layout/Column|Column(kotlin.Function1<com.huanshankeji.compose.ui.ModifierOrAttrsScope<org.w3c.dom.HTMLDivElement>,kotlin.Unit>?;kotlin.Function3<com.huanshankeji.compose.layout.ColumnScope,androidx.compose.runtime.Composer,kotlin.Int,kotlin.Unit>;androidx.compose.runtime.Composer?;kotlin.Int;kotlin.Int){}[0]
+
+// Targets: [js]
+final fun com.huanshankeji.compose.layout/Row(kotlin/Function1<com.huanshankeji.compose.ui/ModifierOrAttrsScope<org.w3c.dom/HTMLDivElement>, kotlin/Unit>?, kotlin/Function3<com.huanshankeji.compose.layout/RowScope, androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit>, androidx.compose.runtime/Composer?, kotlin/Int, kotlin/Int) // com.huanshankeji.compose.layout/Row|Row(kotlin.Function1<com.huanshankeji.compose.ui.ModifierOrAttrsScope<org.w3c.dom.HTMLDivElement>,kotlin.Unit>?;kotlin.Function3<com.huanshankeji.compose.layout.RowScope,androidx.compose.runtime.Composer,kotlin.Int,kotlin.Unit>;androidx.compose.runtime.Composer?;kotlin.Int;kotlin.Int){}[0]
+
+// Targets: [js]
+final fun com.huanshankeji.compose.layout/com_huanshankeji_compose_layout_BoxScope_Impl$stableprop_getter(): kotlin/Int // com.huanshankeji.compose.layout/com_huanshankeji_compose_layout_BoxScope_Impl$stableprop_getter|com_huanshankeji_compose_layout_BoxScope_Impl$stableprop_getter(){}[0]
+
+// Targets: [js]
+final fun com.huanshankeji.compose.layout/com_huanshankeji_compose_layout_ColumnScope_Impl$stableprop_getter(): kotlin/Int // com.huanshankeji.compose.layout/com_huanshankeji_compose_layout_ColumnScope_Impl$stableprop_getter|com_huanshankeji_compose_layout_ColumnScope_Impl$stableprop_getter(){}[0]
+
+// Targets: [js]
+final fun com.huanshankeji.compose.layout/com_huanshankeji_compose_layout_RowScope_Impl$stableprop_getter(): kotlin/Int // com.huanshankeji.compose.layout/com_huanshankeji_compose_layout_RowScope_Impl$stableprop_getter|com_huanshankeji_compose_layout_RowScope_Impl$stableprop_getter(){}[0]
+
+// Targets: [js]
+final fun com.huanshankeji.compose.ui.unit/com_huanshankeji_compose_ui_unit_LengthOrPercentage_Impl$stableprop_getter(): kotlin/Int // com.huanshankeji.compose.ui.unit/com_huanshankeji_compose_ui_unit_LengthOrPercentage_Impl$stableprop_getter|com_huanshankeji_compose_ui_unit_LengthOrPercentage_Impl$stableprop_getter(){}[0]
+
+// Targets: [js]
+final fun com.huanshankeji.compose.ui.unit/com_huanshankeji_compose_ui_unit_Length_Impl$stableprop_getter(): kotlin/Int // com.huanshankeji.compose.ui.unit/com_huanshankeji_compose_ui_unit_Length_Impl$stableprop_getter|com_huanshankeji_compose_ui_unit_Length_Impl$stableprop_getter(){}[0]
+
+// Targets: [js]
+final fun com.huanshankeji.compose.ui.unit/com_huanshankeji_compose_ui_unit_Percentage$stableprop_getter(): kotlin/Int // com.huanshankeji.compose.ui.unit/com_huanshankeji_compose_ui_unit_Percentage$stableprop_getter|com_huanshankeji_compose_ui_unit_Percentage$stableprop_getter(){}[0]
+
+// Targets: [js]
+final fun com.huanshankeji.compose/BasicText(kotlin/String, kotlin/Function1<com.huanshankeji.compose.ui/ModifierOrAttrsScope<org.w3c.dom/HTMLSpanElement>, kotlin/Unit>?, androidx.compose.runtime/Composer?, kotlin/Int, kotlin/Int) // com.huanshankeji.compose/BasicText|BasicText(kotlin.String;kotlin.Function1<com.huanshankeji.compose.ui.ModifierOrAttrsScope<org.w3c.dom.HTMLSpanElement>,kotlin.Unit>?;androidx.compose.runtime.Composer?;kotlin.Int;kotlin.Int){}[0]
+
+// Targets: [js]
+final inline fun <#A: org.w3c.dom/HTMLElement> com.huanshankeji.compose.ui/modifierOrAttrs(noinline kotlin/Function1<com.huanshankeji.compose.ui/ModifierOrAttrsScope<#A>, kotlin/Unit>): kotlin/Function1<com.huanshankeji.compose.ui/ModifierOrAttrsScope<#A>, kotlin/Unit> // com.huanshankeji.compose.ui/modifierOrAttrs|modifierOrAttrs(kotlin.Function1<com.huanshankeji.compose.ui.ModifierOrAttrsScope<0:0>,kotlin.Unit>){0§<org.w3c.dom.HTMLElement>}[0]
