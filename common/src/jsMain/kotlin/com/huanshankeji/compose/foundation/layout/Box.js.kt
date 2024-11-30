@@ -8,7 +8,7 @@ import com.huanshankeji.compose.ui.Alignment
 import com.huanshankeji.compose.ui.Modifier
 import com.huanshankeji.compose.ui.PlatformModifier
 import com.huanshankeji.compose.ui.toCommonModifier
-import com.huanshankeji.kobweb.compose.ui.modifiers.imitateAndroidxLayout
+import com.huanshankeji.kobweb.compose.ui.modifiers.imitateComposeUiLayout
 import com.varabyte.kobweb.compose.foundation.layout.LayoutScopeMarker
 import com.varabyte.kobweb.compose.foundation.layout.BoxScope as PlatformBoxScope
 
@@ -19,14 +19,14 @@ actual fun Box(
     content: @Composable BoxScope.() -> Unit
 ) =
     KobwebBox(
-        PlatformModifier.imitateAndroidxLayout().toCommonModifier().then(modifier),
+        PlatformModifier.imitateComposeUiLayout().toCommonModifier().then(modifier),
         contentAlignment,
         content
     )
 
 @Composable
 actual fun Box(modifier: Modifier) =
-    KobwebBox(PlatformModifier.imitateAndroidxLayout().then(modifier.platformModifier))
+    KobwebBox(PlatformModifier.imitateComposeUiLayout().then(modifier.platformModifier))
 
 @LayoutScopeMarker
 @Immutable

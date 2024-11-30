@@ -90,7 +90,7 @@ actual fun TopAppBarScaffold(
     snackbarHost: @Composable (() -> Unit)?,
     floatingActionButton: @Composable (() -> Unit)?,
     floatingActionButtonPosition: FabPosition,
-    isFloatingActionButtonDockedAndroidx: Boolean,
+    isFloatingActionButtonDockedComposeUi: Boolean,
     content: @Composable (PaddingValues) -> Unit
 ) {
     @Composable

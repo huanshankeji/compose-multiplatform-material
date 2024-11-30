@@ -19,7 +19,7 @@ import org.jetbrains.compose.web.css.maxWidth
  * and make the `overflow-*` CSS property / the `*Scroll` modifier work better on JS DOM.
  * See https://developer.android.com/develop/ui/compose/layouts/constraints-modifiers for more details.
  */
-fun Modifier.imitateAndroidxLayout() =
+fun Modifier.imitateComposeUiLayout() =
     styleModifier {
         width(Width.FitContent)
         height(Height.FitContent)

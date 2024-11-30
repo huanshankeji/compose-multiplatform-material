@@ -15,7 +15,7 @@ internal val defaultDpOffset = DpOffset(0.dp, 0.dp)
 @Composable
 expect fun DropdownMenu(
     expanded: Boolean,
-    onDismissRequestAndroidx: () -> Unit,
+    onDismissRequestComposeUi: () -> Unit,
     onCloseJsDom: () -> Unit,
     modifier: Modifier = Modifier,
     offset: DpOffset = defaultDpOffset,
@@ -27,14 +27,14 @@ expect class DropdownMenuBoxScope {
     fun Modifier.menuAnchorJsDom(): Modifier
 
     /**
-     * @param onDismissRequestAndroidx not supported on JS.
+     * @param onDismissRequestComposeUi not supported on JS.
      * @param onCloseJsDom JS only
      * @see com.huanshankeji.compose.material3.ext.DropdownMenu
      */
     @Composable
     fun DropdownMenu(
         expanded: Boolean,
-        onDismissRequestAndroidx: () -> Unit,
+        onDismissRequestComposeUi: () -> Unit,
         onCloseJsDom: () -> Unit,
         modifier: Modifier = Modifier,
         offset: DpOffset = defaultDpOffset,

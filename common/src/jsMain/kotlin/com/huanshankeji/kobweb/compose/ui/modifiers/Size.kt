@@ -15,7 +15,7 @@ fun Modifier.size(width: Width, height: Height): Modifier =
 
 //TODO consider removing and inlining this
 /**
- * Consider using [Modifier.imitateAndroidxLayout] instead when adding this for a layout.
+ * Consider using [Modifier.imitateComposeUiLayout] instead when adding this for a layout.
  */
 fun Modifier.sizeFitContent() =
     size(Width.FitContent, Height.FitContent)

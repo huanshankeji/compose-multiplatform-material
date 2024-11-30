@@ -1,7 +1,7 @@
 package com.huanshankeji.compose.material2.lazy.ext
 
 import androidx.compose.runtime.Composable
-import com.huanshankeji.compose.foundation.imitateAndroidxLayoutVerticalScrollPlatformModifier
+import com.huanshankeji.compose.foundation.imitateComposeUiLayoutVerticalScrollPlatformModifier
 import com.huanshankeji.compose.runtime.DeferredComposableRunner
 import com.huanshankeji.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.toAttrs
@@ -78,6 +78,6 @@ actual class HeaderScope(val headingElementScope: ElementScope<HTMLHeadingElemen
 
 @Composable
 actual fun List(modifier: Modifier, content: ListScope.() -> Unit) =
-    MDCList(attrs = imitateAndroidxLayoutVerticalScrollPlatformModifier.then(modifier.platformModifier).toAttrs()) {
+    MDCList(attrs = imitateComposeUiLayoutVerticalScrollPlatformModifier.then(modifier.platformModifier).toAttrs()) {
         ListScope(this).ComposableRun(content)
     }
