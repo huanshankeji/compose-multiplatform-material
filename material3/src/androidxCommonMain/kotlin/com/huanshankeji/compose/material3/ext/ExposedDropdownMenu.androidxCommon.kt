@@ -23,7 +23,7 @@ actual fun ExposedDropdownMenuBox(
 @OptIn(ExperimentalMaterial3Api::class)
 actual class ExposedDropdownMenuBoxScope(val platformValue: androidx.compose.material3.ExposedDropdownMenuBoxScope) {
     actual fun Modifier.menuAnchor(): Modifier =
-        platformModify { with(platformValue) { menuAnchor() } }
+        platformModify { with(platformValue) { menuAnchor() } } // TODO add `type`
 
     @Composable
     actual fun ExposedDropdownMenu(
@@ -48,6 +48,7 @@ actual fun ExposedDropdownMenuBoxScope.ExposedDropdownMenuBoxTextField(
     with(args) {
         @OptIn(ExperimentalMaterial3Api::class)
         TextField(
+            // TODO add `type`
             modifier = with(platformValue) { PlatformModifier.menuAnchor(/*MenuAnchorType.PrimaryNotEditable*/) }, // `MenuAnchorType` seems to be not supported in the latest version of Compose Multiplatform yet
             value = value,
             onValueChange = onValueChange,
