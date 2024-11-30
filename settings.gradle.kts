@@ -1,6 +1,6 @@
 rootProject.name = "compose-multiplatform-html-unified"
 
-include("common") // TODO consider splitting into several modules including `foundation`, `ui`, etc.
+include("common") // TODO consider splitting into several modules including `foundation`, `ui`, etc. (#45)
 include("common:legacy")
 include("material-icons-core")
 include("material2")
