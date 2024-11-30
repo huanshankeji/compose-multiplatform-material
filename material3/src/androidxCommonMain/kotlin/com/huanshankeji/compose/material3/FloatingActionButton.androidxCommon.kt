@@ -18,7 +18,7 @@ actual fun SmallFloatingActionButton(
     onClick: () -> Unit,
     modifier: Modifier,
     content: @Composable () -> Unit
-)  =
+) =
     androidx.compose.material3.SmallFloatingActionButton(onClick, modifier.platformModifier, content = content)
 
 @Composable
@@ -26,7 +26,7 @@ actual fun LargeFloatingActionButton(
     onClick: () -> Unit,
     modifier: Modifier,
     content: @Composable () -> Unit
-)  =
+) =
     androidx.compose.material3.LargeFloatingActionButton(onClick, modifier.platformModifier, content = content)
 
 @Composable
@@ -34,5 +34,7 @@ actual fun ExtendedFloatingActionButton(
     onClick: () -> Unit,
     modifier: Modifier,
     content: @Composable RowScope.() -> Unit
-)  =
-    androidx.compose.material3.ExtendedFloatingActionButton(onClick, modifier.platformModifier, content = content.toPlatformRowScopeContent())
+) =
+    androidx.compose.material3.ExtendedFloatingActionButton(
+        onClick, modifier.platformModifier, content = content.toPlatformRowScopeContent()
+    )
