@@ -613,8 +613,6 @@ final value class com.huanshankeji.compose.foundation.text/KeyboardActions { // 
 }
 
 sealed class <#A: out kotlin/Any?, #B: out kotlin/Any?> com.huanshankeji.compose.ext/LoadingState { // com.huanshankeji.compose.ext/LoadingState|null[0]
-    constructor <init>() // com.huanshankeji.compose.ext/LoadingState.<init>|<init>(){}[0]
-
     final class <#A1: out kotlin/Any?> Error : com.huanshankeji.compose.ext/LoadingState<kotlin/Nothing, #A1> { // com.huanshankeji.compose.ext/LoadingState.Error|null[0]
         constructor <init>(#A1) // com.huanshankeji.compose.ext/LoadingState.Error.<init>|<init>(1:0){}[0]
 
@@ -633,8 +631,6 @@ sealed class <#A: out kotlin/Any?, #B: out kotlin/Any?> com.huanshankeji.compose
 }
 
 sealed class com.huanshankeji.compose.ui.unit.ext/DpOrPercentage { // com.huanshankeji.compose.ui.unit.ext/DpOrPercentage|null[0]
-    constructor <init>() // com.huanshankeji.compose.ui.unit.ext/DpOrPercentage.<init>|<init>(){}[0]
-
     final class Dp : com.huanshankeji.compose.ui.unit.ext/DpOrPercentage { // com.huanshankeji.compose.ui.unit.ext/DpOrPercentage.Dp|null[0]
         constructor <init>(androidx.compose.ui.unit/Dp) // com.huanshankeji.compose.ui.unit.ext/DpOrPercentage.Dp.<init>|<init>(androidx.compose.ui.unit.Dp){}[0]
 

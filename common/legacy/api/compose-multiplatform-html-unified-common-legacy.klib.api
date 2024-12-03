@@ -68,8 +68,6 @@ final class com.huanshankeji.compose.ui/StyleScope { // com.huanshankeji.compose
 }
 
 sealed class com.huanshankeji.compose.ui.unit/HeightOrWidth { // com.huanshankeji.compose.ui.unit/HeightOrWidth|null[0]
-    constructor <init>() // com.huanshankeji.compose.ui.unit/HeightOrWidth.<init>|<init>(){}[0]
-
     final class Numeric : com.huanshankeji.compose.ui.unit/HeightOrWidth { // com.huanshankeji.compose.ui.unit/HeightOrWidth.Numeric|null[0]
         constructor <init>(com.huanshankeji.compose.ui.unit/LengthOrPercentage) // com.huanshankeji.compose.ui.unit/HeightOrWidth.Numeric.<init>|<init>(com.huanshankeji.compose.ui.unit.LengthOrPercentage){}[0]
 
