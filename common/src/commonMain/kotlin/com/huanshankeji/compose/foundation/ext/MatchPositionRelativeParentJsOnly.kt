@@ -4,7 +4,7 @@ import com.huanshankeji.compose.ui.Modifier
 
 /*
 const val MATCH_POSITION_RELATIVE_PARENT_DEPRECATED_MESSAGE =
-    "This function's functionality is replaced by `imitateAndroidxLayout`."
+    "This function's functionality is replaced by `imitateComposeUiLayout`."
 */
 
 

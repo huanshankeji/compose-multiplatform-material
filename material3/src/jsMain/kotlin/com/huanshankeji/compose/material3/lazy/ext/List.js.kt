@@ -1,7 +1,7 @@
 package com.huanshankeji.compose.material3.lazy.ext
 
 import androidx.compose.runtime.Composable
-import com.huanshankeji.compose.foundation.imitateAndroidxLayoutVerticalScrollPlatformModifier
+import com.huanshankeji.compose.foundation.imitateComposeUiLayoutVerticalScrollPlatformModifier
 import com.huanshankeji.compose.html.material3.MdList
 import com.huanshankeji.compose.html.material3.MdListItemScope
 import com.huanshankeji.compose.html.material3.MdListItemType
@@ -95,6 +95,6 @@ actual fun List(
     modifier: Modifier,
     content: ListScope.() -> Unit
 ) =
-    MdList(imitateAndroidxLayoutVerticalScrollPlatformModifier.then(modifier.platformModifier).toAttrs()) {
+    MdList(imitateComposeUiLayoutVerticalScrollPlatformModifier.then(modifier.platformModifier).toAttrs()) {
         ListScope(this).ComposableRun(content)
     }

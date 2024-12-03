@@ -6,7 +6,7 @@ import androidx.compose.runtime.Stable
 import com.huanshankeji.compose.ui.Alignment
 import com.huanshankeji.compose.ui.Modifier
 import com.huanshankeji.compose.ui.PlatformModifier
-import com.huanshankeji.kobweb.compose.ui.modifiers.imitateAndroidxLayout
+import com.huanshankeji.kobweb.compose.ui.modifiers.imitateComposeUiLayout
 import com.varabyte.kobweb.compose.foundation.layout.LayoutScopeMarker
 
 @Composable
@@ -19,7 +19,7 @@ actual fun Column(
     AddKobwebComposeStyleSheet()
     com.varabyte.kobweb.compose.foundation.layout.Column(
         PlatformModifier
-            .imitateAndroidxLayout() // "fit-content" is added to make it consistent with the `androidx` one
+            .imitateComposeUiLayout() // "fit-content" is added to make it consistent with the `androidx` one
             .stylesFrom(verticalArrangement)
             .then(modifier.platformModifier),
         verticalArrangement.platformValue,

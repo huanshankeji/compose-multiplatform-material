@@ -18,7 +18,7 @@ group = "com.huanshankeji"
 version = projectVersion
 
 kotlin {
-    // for `androidx.compose`
+    // for Compose UI
 
     jvm() // TODO: `jvm("desktop")`?
     jvmToolchain(8)

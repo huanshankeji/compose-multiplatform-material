@@ -103,7 +103,7 @@ public final class com/huanshankeji/compose/material3/ext/ExposedDropdownMenuArg
 	public final fun getExpanded ()Z
 	public final fun getModifier ()Lcom/huanshankeji/compose/ui/Modifier;
 	public final fun getOnCloseJsDom ()Lkotlin/jvm/functions/Function0;
-	public final fun getOnDismissRequestAndroidx ()Lkotlin/jvm/functions/Function0;
+	public final fun getOnDismissRequestComposeUi ()Lkotlin/jvm/functions/Function0;
 }
 
 public final class com/huanshankeji/compose/material3/ext/ExposedDropdownMenuBoxScope {

@@ -69,7 +69,7 @@ actual fun TopAppBarScaffold(
     snackbarHost: @Composable (() -> Unit)?,
     floatingActionButton: @Composable (() -> Unit)?,
     floatingActionButtonPosition: FabPosition,
-    isFloatingActionButtonDockedAndroidx: Boolean,
+    isFloatingActionButtonDockedComposeUi: Boolean,
     content: @Composable (PaddingValues) -> Unit
 ) =
     Scaffold(
@@ -85,5 +85,5 @@ actual fun TopAppBarScaffold(
             ?: { androidx.compose.material.SnackbarHost(it) },
         floatingActionButton = floatingActionButton ?: {},
         floatingActionButtonPosition = floatingActionButtonPosition.toPlatformValue(),
-        isFloatingActionButtonDocked = isFloatingActionButtonDockedAndroidx
+        isFloatingActionButtonDocked = isFloatingActionButtonDockedComposeUi
     ) { content(it.toCommonValue()) }

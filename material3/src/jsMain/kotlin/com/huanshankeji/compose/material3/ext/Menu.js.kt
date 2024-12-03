@@ -91,7 +91,7 @@ internal fun MdMenuBox(modifier: Modifier, content: @Composable ElementScope<HTM
 @Composable
 actual fun DropdownMenu(
     expanded: Boolean,
-    onDismissRequestAndroidx: () -> Unit,
+    onDismissRequestComposeUi: () -> Unit,
     onCloseJsDom: () -> Unit,
     modifier: Modifier,
     offset: DpOffset,
@@ -111,7 +111,7 @@ actual class DropdownMenuBoxScope(anchorElementState: MutableState<HTMLElement?>
     @Composable
     actual fun DropdownMenu(
         expanded: Boolean,
-        onDismissRequestAndroidx: () -> Unit,
+        onDismissRequestComposeUi: () -> Unit,
         onCloseJsDom: () -> Unit,
         modifier: Modifier,
         offset: DpOffset,

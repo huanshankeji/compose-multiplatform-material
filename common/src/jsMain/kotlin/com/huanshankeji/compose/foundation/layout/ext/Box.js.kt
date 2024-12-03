@@ -5,7 +5,7 @@ import com.huanshankeji.compose.foundation.layout.AddKobwebComposeStyleSheet
 import com.huanshankeji.compose.foundation.layout.BoxScope
 import com.huanshankeji.compose.ui.CommonModifier
 import com.huanshankeji.compose.ui.PlatformModifier
-import com.huanshankeji.kobweb.compose.ui.modifiers.imitateAndroidxLayout
+import com.huanshankeji.kobweb.compose.ui.modifiers.imitateComposeUiLayout
 import com.varabyte.kobweb.compose.dom.ElementRefScope
 import com.varabyte.kobweb.compose.foundation.layout.Box
 import com.varabyte.kobweb.compose.ui.toAttrs
@@ -19,7 +19,7 @@ import com.varabyte.kobweb.compose.foundation.layout.BoxScope as PlatformBoxScop
 import com.varabyte.kobweb.compose.ui.Alignment as PlatformAlignment
 
 /**
- * Delegates to [Box] without [com.varabyte.kobweb.compose.ui.Modifier.imitateAndroidxLayout].
+ * Delegates to [Box] without [com.varabyte.kobweb.compose.ui.Modifier.imitateComposeUiLayout].
  */
 @Composable
 fun KobwebBox(
@@ -43,7 +43,7 @@ fun KobwebBox(
     }
 
 /**
- * Delegates to [Div] without [com.varabyte.kobweb.compose.ui.Modifier.imitateAndroidxLayout].
+ * Delegates to [Div] without [com.varabyte.kobweb.compose.ui.Modifier.imitateComposeUiLayout].
  */
 @Composable
 fun DivBox(

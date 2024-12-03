@@ -9,7 +9,7 @@ import com.huanshankeji.compose.ui.Modifier
 @Composable
 actual fun DropdownMenu(
     expanded: Boolean,
-    onDismissRequestAndroidx: () -> Unit,
+    onDismissRequestComposeUi: () -> Unit,
     onCloseJsDom: () -> Unit,
     modifier: Modifier,
     offset: DpOffset,
@@ -17,7 +17,7 @@ actual fun DropdownMenu(
 ) =
     androidx.compose.material3.DropdownMenu(
         expanded,
-        onDismissRequestAndroidx,
+        onDismissRequestComposeUi,
         modifier.platformModifier,
         offset
     ) {
@@ -31,14 +31,14 @@ actual class DropdownMenuBoxScope {
     @Composable
     actual fun DropdownMenu(
         expanded: Boolean,
-        onDismissRequestAndroidx: () -> Unit,
+        onDismissRequestComposeUi: () -> Unit,
         onCloseJsDom: () -> Unit,
         modifier: Modifier,
         offset: DpOffset,
         content: @Composable () -> Unit
     ) =
         androidx.compose.material3.DropdownMenu(
-            expanded, onDismissRequestAndroidx, modifier.platformModifier, offset
+            expanded, onDismissRequestComposeUi, modifier.platformModifier, offset
         ) { content() }
 }
 

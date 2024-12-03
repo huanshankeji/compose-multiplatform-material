@@ -59,7 +59,7 @@ actual class ExposedDropdownMenuBoxScope(
     @Composable
     actual fun ExposedDropdownMenu(
         expanded: Boolean,
-        onDismissRequestAndroidx: () -> Unit,
+        onDismissRequestComposeUi: () -> Unit,
         onCloseJsDom: () -> Unit,
         modifier: Modifier,
         content: @Composable () -> Unit

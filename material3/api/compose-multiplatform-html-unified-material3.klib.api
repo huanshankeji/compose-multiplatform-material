@@ -34,8 +34,8 @@ final class com.huanshankeji.compose.material3.ext/ExposedDropdownMenuArgs { // 
         final fun <get-modifier>(): com.huanshankeji.compose.ui/Modifier // com.huanshankeji.compose.material3.ext/ExposedDropdownMenuArgs.modifier.<get-modifier>|<get-modifier>(){}[0]
     final val onCloseJsDom // com.huanshankeji.compose.material3.ext/ExposedDropdownMenuArgs.onCloseJsDom|{}onCloseJsDom[0]
         final fun <get-onCloseJsDom>(): kotlin/Function0<kotlin/Unit> // com.huanshankeji.compose.material3.ext/ExposedDropdownMenuArgs.onCloseJsDom.<get-onCloseJsDom>|<get-onCloseJsDom>(){}[0]
-    final val onDismissRequestAndroidx // com.huanshankeji.compose.material3.ext/ExposedDropdownMenuArgs.onDismissRequestAndroidx|{}onDismissRequestAndroidx[0]
-        final fun <get-onDismissRequestAndroidx>(): kotlin/Function0<kotlin/Unit> // com.huanshankeji.compose.material3.ext/ExposedDropdownMenuArgs.onDismissRequestAndroidx.<get-onDismissRequestAndroidx>|<get-onDismissRequestAndroidx>(){}[0]
+    final val onDismissRequestComposeUi // com.huanshankeji.compose.material3.ext/ExposedDropdownMenuArgs.onDismissRequestComposeUi|{}onDismissRequestComposeUi[0]
+        final fun <get-onDismissRequestComposeUi>(): kotlin/Function0<kotlin/Unit> // com.huanshankeji.compose.material3.ext/ExposedDropdownMenuArgs.onDismissRequestComposeUi.<get-onDismissRequestComposeUi>|<get-onDismissRequestComposeUi>(){}[0]
 }
 
 final class com.huanshankeji.compose.material3.ext/ExposedDropdownMenuBoxScope { // com.huanshankeji.compose.material3.ext/ExposedDropdownMenuBoxScope|null[0]

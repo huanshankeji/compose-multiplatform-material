@@ -45,7 +45,7 @@ fun CommonTextFieldWithMDCContentIcons(
     )
 
 @Composable
-fun CommonTextFieldWithIconsLikeAndroidx(
+fun CommonTextFieldWithIconsLikeComposeUi(
     value: String,
     type: MDCTextFieldType,
     onValueChange: (String) -> Unit,
@@ -111,7 +111,7 @@ actual fun TextField(
     keyboardActions: KeyboardActions,
     singleLine: Boolean
 ) =
-    CommonTextFieldWithIconsLikeAndroidx(
+    CommonTextFieldWithIconsLikeComposeUi(
         value,
         MDCTextFieldType.Filled,
         onValueChange,
@@ -164,7 +164,7 @@ actual fun OutlinedTextField(
     keyboardActions: KeyboardActions,
     singleLine: Boolean
 ) =
-    CommonTextFieldWithIconsLikeAndroidx(
+    CommonTextFieldWithIconsLikeComposeUi(
         value,
         MDCTextFieldType.Outlined,
         onValueChange,
