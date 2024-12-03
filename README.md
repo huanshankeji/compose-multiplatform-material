@@ -17,7 +17,7 @@ The Compose HTML / JS DOM source is mainly based on [Kobweb Silk](https://github
 
 ## References and limitations
 
-Complete visual consistency across different platforms is not guaranteed. See [the side-by-side demo site](https://huanshankeji.github.io/compose-multiplatform-material/) for the visual effects and their differences.
+Complete visual consistency across different platforms is not guaranteed. See [the side-by-side demo site](https://huanshankeji.github.io/compose-multiplatform-html-unified/) for the visual effects and their differences.
 
 This project is still in development and has not reached a stable state. Some APIs are subject to change and there is no detailed documentation yet. Check out [the demo project source](demo) on how to use the components in addition to the sections below.
 
@@ -178,7 +178,7 @@ kotlin {
         commonMain {
             dependencies {
                 // ...
-                implementation("com.huanshankeji:compose-multiplatform-material3:$version")
+                implementation("com.huanshankeji:compose-multiplatform-html-unified-material3:$version")
             }
         }
     }
