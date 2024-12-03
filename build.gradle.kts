@@ -12,8 +12,7 @@ apiValidation {
         enabled = true
     }
 
-    ignoredProjects += listOf(
-        "compose-multiplatform-html-unified-demo",
-        "compose-multiplatform-html-unified-common-legacy"
-    )
+    ignoredProjects += "compose-multiplatform-html-unified".let {
+        listOf("$it-demo", "$it-common-legacy")
+    }
 }
