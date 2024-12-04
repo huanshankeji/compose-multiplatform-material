@@ -7,6 +7,7 @@ import com.huanshankeji.compose.foundation.ext.outerBorder
 import com.huanshankeji.compose.foundation.ext.roundedCornerBackgroundAndOuterBorder
 import com.huanshankeji.compose.foundation.ext.roundedCornerOuterBorder
 import com.huanshankeji.compose.foundation.layout.*
+import com.huanshankeji.compose.foundation.layout.ext.outerPadding
 import com.huanshankeji.compose.foundation.lazy.LazyColumn
 import com.huanshankeji.compose.foundation.lazy.LazyListScope
 import com.huanshankeji.compose.foundation.lazy.LazyRow
@@ -26,7 +27,7 @@ fun Common(/*modifier: Modifier = Modifier*/) {
 
         @Composable
         fun ColorBox(color: Color) =
-            Box(Modifier.padding(8.dp).background(color).size(40.dp))
+            Box(Modifier.outerPadding(8.dp).background(color).size(40.dp))
 
         val halfGreen = Color(0, 0x80, 0x00)
 
