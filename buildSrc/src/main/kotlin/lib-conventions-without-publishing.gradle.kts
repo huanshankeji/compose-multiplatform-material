@@ -1,5 +1,3 @@
-import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
-
 plugins {
     id("common-conventions")
     id("com.huanshankeji.kotlin-multiplatform-conventional-targets")
@@ -9,20 +7,6 @@ plugins {
 kotlin {
     androidTarget {
         publishLibraryVariants("release", "debug")
-    }
-
-    // move to `common-conventions` if necessary
-
-    @OptIn(ExperimentalKotlinGradlePluginApi::class)
-    applyDefaultHierarchyTemplate {
-        common {
-            group("composeUi") {
-                withJvm()
-                withAndroidTarget()
-                group("ios")
-                withWasmJs()
-            }
-        }
     }
 
     /*
