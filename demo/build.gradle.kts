@@ -57,6 +57,11 @@ kotlin {
                 implementation(commonDependencies.kotlinx.coroutines.core())
             }
         }
+        composeUiMain {
+            dependencies {
+                implementation(compose.ui)
+            }
+        }
         jvmMain {
             dependencies {
                 implementation(compose.desktop.currentOs)
@@ -64,21 +69,8 @@ kotlin {
         }
         androidMain {
             dependencies {
-                // TODO consider putting this in `composeUiMain`
-                implementation(compose.ui)
-
                 implementation(commonDependencies.androidx.activity.compose())
                 implementation(commonDependencies.androidx.compose.ui.module("tooling-preview"))
-            }
-        }
-        iosMain {
-            dependencies {
-                implementation(compose.ui)
-            }
-        }
-        wasmJsMain {
-            dependencies {
-                implementation(compose.ui)
             }
         }
         jsMain {

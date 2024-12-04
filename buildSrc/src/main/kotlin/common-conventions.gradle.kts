@@ -38,7 +38,21 @@ kotlin {
     js()
 
 
+
     @OptIn(ExperimentalKotlinGradlePluginApi::class)
+    applyDefaultHierarchyTemplate {
+        common {
+            group("composeUi") {
+                withJvm()
+                withAndroidTarget()
+                group("ios")
+                withWasmJs()
+            }
+        }
+    }
+
+
+
     compilerOptions {
         freeCompilerArgs.add("-Xexpect-actual-classes")
     }
