@@ -1,5 +1,18 @@
 # Change log
 
+## v0.5.0 / 2024-12-05
+
+This library is renamed from **Compose Multiplatform Material** to **Compose Multiplatform HTML Unified** which better describes its purpose since this release. The **Maven coordinates** have changed accordingly. Please adapt to these changes following the updated README.md.
+
+There are no functional changes in this release.
+
+* bump Kotlin to 2.1.1, Compose Multiplatform to 1.7.1, and Kobweb to 0.20.0
+* replace the terms "Androidx"/"androidx"/"AndroidxCommon"/"androidxCommon" with Compose UI / "ComposeUi" / "composeUi" at appropriate places, both in docs and in code
+  
+  This introduces some breaking changes. Please adapt accordingly. We are sorry for the inconvenience.
+
+* ...
+
 ## v0.4.0 / 2024-10-24
 
 * fix a bug that a dependent project might crash on Android and add the Android target explicitly for all modules
