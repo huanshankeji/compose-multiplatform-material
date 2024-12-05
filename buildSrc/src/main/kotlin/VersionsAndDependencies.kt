@@ -1,7 +1,7 @@
 import com.huanshankeji.CommonDependencies
 import org.jetbrains.compose.ComposeBuildConfig
 
-val projectVersion = "0.4.0"
+val projectVersion = "0.5.0"
 
 val commonDependencies = CommonDependencies()
 
