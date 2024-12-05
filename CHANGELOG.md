@@ -19,7 +19,7 @@ Miscellaneous changes:
 * add a "side by side" demo hosted at <https://huanshankeji.github.io/compose-multiplatform-html-unified/>
 * add CODE_OF_CONDUCT.md and CONTRIBUTING.md
 * use the Kotlin binary compatibility validator
-* run IntelliJ IDEA Code Cleanup and Reformat Code on the whole project
+* run IntelliJ IDEA Code Cleanup and Reformat Code for the whole project
 
 ## v0.4.0 / 2024-10-24
 
