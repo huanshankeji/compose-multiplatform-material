@@ -1,4 +1,5 @@
-import org.jetbrains.kotlin.gradle.targets.js.dsl.ExperimentalWasmDsl
+import com.huanshankeji.cpnProject
+import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
 
 plugins {
     `common-conventions`
@@ -46,13 +47,19 @@ kotlin {
         commonMain {
             dependencies {
                 implementation(compose.runtime)
-                implementation(project(":compose-multiplatform-material2"))
-                implementation(project(":compose-multiplatform-material3"))
+                implementation(cpnProject(project, ":material2"))
+                implementation(cpnProject(project, ":material3"))
+                implementation(cpnProject(project, ":navigation"))
                 /*
                 see https://github.com/JetBrains/compose-multiplatform-core/blob/476d43b99a27696d12ef087e8028d90789645ba7/compose/ui/ui/build.gradle#L54
                 and https://github.com/JetBrains/compose-multiplatform-core/blob/381796b5e682653aa1fa53e6bcf0441d06b873f8/compose/runtime/runtime/build.gradle#L124
                  */
                 implementation(commonDependencies.kotlinx.coroutines.core())
+            }
+        }
+        composeUiMain {
+            dependencies {
+                implementation(compose.ui)
             }
         }
         jvmMain {
@@ -62,21 +69,8 @@ kotlin {
         }
         androidMain {
             dependencies {
-                // TODO consider putting this in `androidxCommonMain`
-                implementation(compose.ui)
-
-                implementation("androidx.activity:activity-compose:${DependencyVersions.Androidx.activityCompose}")
-                implementation("androidx.compose.ui:ui-tooling-preview:${DependencyVersions.Androidx.compose}")
-            }
-        }
-        iosMain {
-            dependencies {
-                implementation(compose.ui)
-            }
-        }
-        wasmJsMain {
-            dependencies {
-                implementation(compose.ui)
+                implementation(commonDependencies.androidx.activity.compose())
+                implementation(commonDependencies.androidx.compose.ui.module("tooling-preview"))
             }
         }
         jsMain {
@@ -117,4 +111,20 @@ android {
     dependencies {
         debugImplementation(compose.uiTooling)
     }
+}
+
+val jsBrowserDistribution by tasks.getting(Copy::class)
+val wasmJsBrowserDistribution by tasks.getting(Copy::class)
+
+tasks.register<Sync>("sideBySideBrowserDistribution") {
+    group = "kotlin browser"
+
+    into(layout.buildDirectory.dir("dist/sideBySide/productionExecutable"))
+    from(jsBrowserDistribution) {
+        into("js-dom")
+    }
+    from(wasmJsBrowserDistribution) {
+        into("wasm-js-canvas")
+    }
+    from(projectDir.resolve("side-by-side-site"))
 }

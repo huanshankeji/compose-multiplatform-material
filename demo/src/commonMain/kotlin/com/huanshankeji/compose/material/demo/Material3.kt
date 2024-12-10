@@ -4,11 +4,13 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.unit.dp
 import com.huanshankeji.compose.ExtRecommendedApi
 import com.huanshankeji.compose.foundation.layout.*
+import com.huanshankeji.compose.foundation.rememberScrollState
 import com.huanshankeji.compose.foundation.text.KeyboardActions
 import com.huanshankeji.compose.foundation.text.KeyboardOptions
 import com.huanshankeji.compose.foundation.text.input.ImeAction
 import com.huanshankeji.compose.foundation.text.input.KeyboardCapitalization
 import com.huanshankeji.compose.foundation.text.input.KeyboardType
+import com.huanshankeji.compose.foundation.verticalScroll
 import com.huanshankeji.compose.material.icons.Icons
 import com.huanshankeji.compose.material.icons.filled.Add
 import com.huanshankeji.compose.material.icons.filled.ArrowDropDown
@@ -25,8 +27,8 @@ import com.huanshankeji.compose.ui.Modifier
 import com.huanshankeji.compose.material3.Button as RowScopeButton
 
 @Composable
-fun Material3(modifier: Modifier) {
-    Column(modifier, Arrangement.spacedBy(16.dp)) {
+fun Material3(/*modifier: Modifier = Modifier*/) {
+    Column(Modifier.verticalScroll(rememberScrollState()).innerContentPadding(), Arrangement.spacedBy(16.dp)) {
         var count by remember { mutableStateOf(0) }
         val onClick: () -> Unit = { count++ }
         val buttonContent: @Composable () -> Unit = {
@@ -214,7 +216,7 @@ fun Material3(modifier: Modifier) {
             var expanded by remember { mutableStateOf(false) }
             val close = { expanded = false }
             val (_, setSelection) = remember { mutableStateOf<Selection?>(null) }
-            IconButton({ expanded = true }, Modifier.menuAnchorJs()) {
+            IconButton({ expanded = true }, Modifier.menuAnchorJsDom()) {
                 Icon(Icons.Filled.ArrowDropDown, "Please select")
             }
             DropdownMenu(expanded, close, close) {

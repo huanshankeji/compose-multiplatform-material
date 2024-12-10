@@ -7,6 +7,7 @@ import com.huanshankeji.compose.foundation.ext.outerBorder
 import com.huanshankeji.compose.foundation.ext.roundedCornerBackgroundAndOuterBorder
 import com.huanshankeji.compose.foundation.ext.roundedCornerOuterBorder
 import com.huanshankeji.compose.foundation.layout.*
+import com.huanshankeji.compose.foundation.layout.ext.outerPadding
 import com.huanshankeji.compose.foundation.lazy.LazyColumn
 import com.huanshankeji.compose.foundation.lazy.LazyListScope
 import com.huanshankeji.compose.foundation.lazy.LazyRow
@@ -16,14 +17,17 @@ import com.huanshankeji.compose.ui.Modifier
 import com.huanshankeji.compose.ui.graphics.Color
 
 @Composable
-fun Common(modifier: Modifier) {
-    Column(modifier, Arrangement.spacedBy(16.dp)) {
+fun Common(/*modifier: Modifier = Modifier*/) {
+    Column(
+        Modifier.verticalScroll(rememberScrollState()).innerContentPadding(),
+        Arrangement.spacedBy(16.dp)
+    ) {
         BasicText("basic text 1")
         BasicText("basic text 2")
 
         @Composable
         fun ColorBox(color: Color) =
-            Box(Modifier.padding(8.dp).background(color).size(40.dp))
+            Box(Modifier.outerPadding(8.dp).background(color).size(40.dp))
 
         val halfGreen = Color(0, 0x80, 0x00)
 
@@ -78,5 +82,17 @@ fun Common(modifier: Modifier) {
         BasicText("shown text")
         BasicText("hidden text", Modifier.hidden())
         BasicText("shown text")
+
+        // Background color doesn't work in a `Spacer` modifier.
+        Column {
+            BasicText("above spacer")
+            Spacer(Modifier.height(32.dp))
+            BasicText("below spacer")
+        }
+        Row {
+            BasicText("left to spacer")
+            Spacer(Modifier.width(32.dp))
+            BasicText("right to spacer")
+        }
     }
 }
