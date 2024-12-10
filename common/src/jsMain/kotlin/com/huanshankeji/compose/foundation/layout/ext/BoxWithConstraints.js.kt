@@ -19,6 +19,7 @@ actual fun BoxWithConstraints(
     content: @Composable BoxWithConstraintsScope.() -> Unit
 ) {
     var clientSize by remember { mutableStateOf<ClientSize?>(null) }
+    // `DivBox` doesn't work here either, so it should not be Kobweb's problem.
     Box(
         Modifier.fillMaxSizeStretch()
             .platformModify {
